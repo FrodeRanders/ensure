@@ -9,6 +9,9 @@ import eu.ensure.packproc.internal.TrackingProcessorContext;
 import eu.ensure.packproc.model.AssociatedInformation;
 import eu.ensure.packproc.model.EvaluationStatement;
 import eu.ensure.packproc.model.ProcessorContext;
+import eu.ensure.packproc.BasicProcessorContext;
+import eu.ensure.packproc.ProcessorException;
+import eu.ensure.packproc.ProcessorManager;
 import org.apache.log4j.Logger;
 
 import java.io.*;

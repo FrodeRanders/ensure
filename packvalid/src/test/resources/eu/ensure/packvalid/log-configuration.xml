@@ -5,7 +5,7 @@
 
     <!-- Appenders (writing to file in various ways) -->
     <appender name="INTERNAL" class="org.apache.log4j.RollingFileAppender">
-        <param name="File" value="./packproc-tests.log"/>
+        <param name="File" value="./packvalid-tests.log"/>
         <param name="MaxFileSize" value="10MB"/>
         <param name="MaxBackupIndex" value="9"/>
         <param name="Threshold" value="debug"/>

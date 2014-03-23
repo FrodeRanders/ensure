@@ -14,7 +14,7 @@
 	<artifactId>package-processor-core</artifactId>
 	<version>1.0</version>
 	
-	<name>Package Processor core component</name>
+	<name>Package Processing core component</name>
 	<inceptionYear>2011</inceptionYear>
 
 	<dependencies>
