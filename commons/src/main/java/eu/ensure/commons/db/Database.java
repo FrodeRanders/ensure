@@ -104,14 +104,11 @@ public class Database {
      *     Database.Configuration config = Database.getConfiguration(properties);
      *
      *     if (driver.equals("net.sourceforge.jtds.jdbcx.JtdsDataSource")) {
-     *         String server = properties.getProperty(config.server());
-     *         String port = properties.getProperty(config.port());
-     *
      *         net.sourceforge.jtds.jdbcx.JtdsDataSource ds = (net.sourceforge.jtds.jdbcx.JtdsDataSource)dataSource;
-     *         ds.setAppName(appName);
-     *         ds.setDatabaseName(config.database());
-     *         ds.setUser(config.user());
-     *         ds.setPassword(config.password());
+     *         ds.setAppName(appName); // std
+     *         ds.setDatabaseName(config.database()); // std
+     *         ds.setUser(config.user()); // std
+     *         ds.setPassword(config.password()); // std
      *
      *         ds.setServerName(config.server());  // jtds specific
      *         ds.setPortNumber(Integer.parseInt(config.port())); // jtds specific
