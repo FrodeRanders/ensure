@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--  xmlns="urn:ccsds:schema:xfdu:1" -->
+<XFDU>
+   <packageHeader ID="uuid_ce24ed64-7ec5-4f17-9dc3-8883c0d749c5" xmlns="">
+      <volumeInfo>
+         <specificationVersion>1.4</specificationVersion>
+      </volumeInfo>
+   </packageHeader>
+   <informationPackageMap xmlns="">
+      <contentUnit ID="uuid_ab5c31aa-025b-4bbf-8136-b9987277c8a9" xmlns="urn:ccsds:schema:xfdu:1">
+         <dataObjectPointer dataObjectID="uuid_4c1cdb53-7fb2-4584-b6a2-fd969c484b15" xmlns=""/>
+      </contentUnit>
+      <contentUnit ID="uuid_f2a609ff-abd3-4944-be41-5c3dfee14ad1" xmlns="urn:ccsds:schema:xfdu:1">
+         <dataObjectPointer dataObjectID="uuid_f3d1ee24-07d9-4a6d-afee-f4d42d928476" xmlns=""/>
+      </contentUnit>
+      <contentUnit ID="uuid_6b24b5d0-db80-4f30-a821-a7420b8b4108" xmlns="urn:ccsds:schema:xfdu:1">
+         <dataObjectPointer dataObjectID="uuid_633c9075-6a92-44cc-ab7b-2f95702b5153" xmlns=""/>
+      </contentUnit>
+      <contentUnit ID="uuid_7c94d2bb-4fab-406e-b63f-e4c948862aa0" xmlns="urn:ccsds:schema:xfdu:1">
+         <dataObjectPointer dataObjectID="uuid_8a6b9f83-b1d8-4614-829c-1a4956a0f5ed" xmlns=""/>
+      </contentUnit>
+      <contentUnit ID="uuid_a5a98892-cc9a-451a-995a-381561883d68" xmlns="urn:ccsds:schema:xfdu:1">
+         <dataObjectPointer dataObjectID="uuid_dc709fba-b356-4da7-9fd8-b7ff4be5b1ee" xmlns=""/>
+      </contentUnit>
+      <contentUnit ID="uuid_c5cd2db8-a6af-4912-96e5-67b77a8e4cff" xmlns="urn:ccsds:schema:xfdu:1">
+         <dataObjectPointer dataObjectID="uuid_888aad0f-deb9-46ce-b071-df98f2205508" xmlns=""/>
+      </contentUnit>
+      <contentUnit ID="uuid_ab41b3cb-78db-41e5-b000-7c62d68c6840" xmlns="urn:ccsds:schema:xfdu:1">
+         <dataObjectPointer dataObjectID="uuid_fa607b84-b5ac-429c-b1bc-334c28795d60" xmlns=""/>
+      </contentUnit>
+      <contentUnit ID="uuid_863e740c-8aca-4a61-9ad5-d052a5bfaf92" xmlns="urn:ccsds:schema:xfdu:1">
+         <dataObjectPointer dataObjectID="uuid_2aaf526d-9939-4681-9687-c7aa63b15fc6" xmlns=""/>
+      </contentUnit>
+      <contentUnit ID="uuid_dd32c552-bf04-47e8-8814-19eb951a04bc" xmlns="urn:ccsds:schema:xfdu:1">
+         <dataObjectPointer dataObjectID="uuid_d30bd483-a8e8-4c0f-98ac-ef671d566e36" xmlns=""/>
+      </contentUnit>
+   </informationPackageMap>
+
+   <metadataSection xmlns="">
+      <!-- PDI is Package Description Information -->
+      <metadataObject ID="uuid_a106a305-4da3-45ab-af7c-1da2d6483ed2" classification="PROVENANCE" category="PDI">
+         <metadataReference mimeType="text/xml" vocabularyName="PREMIS" locatorType="URL" locator="file:./metadata" textInfo="text/xml" href="file:premis.xml"/>
+      </metadataObject>
+
+      <!-- DMD is Descriptive MetaData -->
+      <metadataObject ID="uuid_d163da34-1f23-4f15-a59b-ce2c411f0bac" classification="DESCRIPTION" category="DMD">
+         <metadataReference mimeType="text/xml" vocabularyName="ENSURE" locatorType="URL" locator="file:./metadata" textInfo="text/xml" href="file:rdfMetadata.xml"/>
+      </metadataObject>
+   </metadataSection>
+
+   <dataObjectSection xmlns="">
+      <dataObject ID="uuid_4c1cdb53-7fb2-4584-b6a2-fd969c484b15">
+         <byteStream ID="uuid_361426f3-a87c-4a07-9784-cd2ec44219e2" size="8210">
+            <fileLocation locatorType="URL" locator="file:./content/DICOM/" href="file:IM_0001"/>
+            <checksum checksumName="CRC32">498002514</checksum>
+         </byteStream>
+      </dataObject>
+      <dataObject ID="uuid_f3d1ee24-07d9-4a6d-afee-f4d42d928476">
+         <byteStream ID="uuid_359c3e7f-e2e9-4646-b69c-042d45e7fa84" size="1897524">
+            <fileLocation locatorType="URL" locator="file:./content/DICOM/" href="file:IM_0002"/>
+            <checksum checksumName="CRC32">36726950</checksum>
+         </byteStream>
+      </dataObject>
+      <dataObject ID="uuid_633c9075-6a92-44cc-ab7b-2f95702b5153">
+         <byteStream ID="uuid_cb388338-6edc-4680-93c4-b0e024700954" size="3971844">
+            <fileLocation locatorType="URL" locator="file:./content/DICOM/" href="file:IM_0003"/>
+            <checksum checksumName="CRC32">3796994844</checksum>
+         </byteStream>
+      </dataObject>
+      <dataObject ID="uuid_8a6b9f83-b1d8-4614-829c-1a4956a0f5ed">
+         <byteStream ID="uuid_eb792c6c-c2bc-4e1f-b930-bd7d5bb1a8d9" size="198184">
+            <fileLocation locatorType="URL" locator="file:./content/DICOM/" href="file:IM_0004"/>
+            <checksum checksumName="CRC32">1212220384</checksum>
+         </byteStream>
+      </dataObject>
+      <dataObject ID="uuid_dc709fba-b356-4da7-9fd8-b7ff4be5b1ee">
+         <byteStream ID="uuid_0200ffe3-528f-4fb7-9e35-b878901dccf6" size="2059510">
+            <fileLocation locatorType="URL" locator="file:./content/DICOM/" href="file:IM_0006"/>
+            <checksum checksumName="CRC32">1294694319</checksum>
+         </byteStream>
+      </dataObject>
+      <dataObject ID="uuid_888aad0f-deb9-46ce-b071-df98f2205508">
+         <byteStream ID="uuid_cf1ce656-4795-41de-9827-fd683e43a37b" size="12932">
+            <fileLocation locatorType="URL" locator="file:./content/DICOM/" href="file:SR_0005"/>
+            <checksum checksumName="CRC32">181842368</checksum>
+         </byteStream>
+      </dataObject>
+      <dataObject ID="uuid_fa607b84-b5ac-429c-b1bc-334c28795d60">
+         <byteStream ID="uuid_19c6db68-41a5-4252-a99e-5f7e91f04a3f" size="4188">
+            <fileLocation locatorType="URL" locator="file:./content" href="file:DICOMDIR"/>
+            <checksum checksumName="CRC32">1558566916</checksum>
+         </byteStream>
+      </dataObject>
+      <dataObject ID="uuid_2aaf526d-9939-4681-9687-c7aa63b15fc6">
+         <byteStream ID="uuid_a608beeb-9ad9-4c79-ba0c-7a2334ebd53c" size="13152830">
+            <fileLocation locatorType="URL" locator="file:./content/ExternalBulk/" href="file:56536f70-b32c-4114-82a3-cea78238b578.isyntax"/>
+            <checksum checksumName="CRC32">62644211</checksum>
+         </byteStream>
+      </dataObject>
+      <dataObject ID="uuid_d30bd483-a8e8-4c0f-98ac-ef671d566e36">
+         <byteStream ID="uuid_ddb7eac3-abe3-4c83-977d-7686526eb57b" size="93200">
+            <fileLocation locatorType="URL" locator="file:./content/ExternalBulk/" href="file:56536f70-b32c-4114-82a3-cea78238b578.tis"/>
+            <checksum checksumName="CRC32">3189215771</checksum>
+         </byteStream>
+      </dataObject>
+   </dataObjectSection>
+</XFDU>

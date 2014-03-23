@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns:fs-processor="class:eu.ensure.packproc.fs.FileSystemProcessor"
+               xmlns:xml-processor="class:eu.ensure.packproc.XmlFileProcessor">
+    
+    <fs-processor:process> <!-- corresponds to the current working directory (in this test) -->
+
+        <!-- Practically meaning: "find myself" :) -->
+        <xml-processor:process re=".*?\.xml" xmlns:ns="class:eu.ensure.packproc.XmlFileProcessor">
+		    <contains node="//ns:process"/>
+		</xml-processor:process>
+
+    </fs-processor:process>
+</configuration>

@@ -1,0 +1,576 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<premis version="2.1" xmlns:ns2="http://www.w3.org/1999/xlink" xmlns="info:lc/xmlns/premis-v2">
+    <object xsi:type="representation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <objectIdentifier>
+            <objectIdentifierType>aipLogicalID</objectIdentifierType>
+            <objectIdentifierValue>uuid:MAGIC_AIP_LOGICAL_ID</objectIdentifierValue>
+        </objectIdentifier>
+        <objectIdentifier>
+            <objectIdentifierType>aipVersionID</objectIdentifierType>
+            <objectIdentifierValue>uuid:MAGIC_AIP_VERSION_ID</objectIdentifierValue>
+        </objectIdentifier>
+        <objectIdentifier>
+            <objectIdentifierType>UUID</objectIdentifierType>
+            <objectIdentifierValue>uuid:a1873946-b536-47a6-b358-7515641a1eca</objectIdentifierValue>
+        </objectIdentifier>
+        <originalName>MAGIC_AIP_PATH</originalName>
+        <relationship>
+            <relationshipType>has part</relationshipType>
+            <relationshipSubType>ensure-system:hasDataStream</relationshipSubType>
+            <relatedObjectIdentification>
+                <relatedObjectIdentifierType>Ensure Datastream PID</relatedObjectIdentifierType>
+                <relatedObjectIdentifierValue>uuid:0d0f1cae-e8c8-4e2d-b3bf-4d25a48a5048</relatedObjectIdentifierValue>
+            </relatedObjectIdentification>
+        </relationship>
+        <relationship>
+            <relationshipType>has part</relationshipType>
+            <relationshipSubType>ensure-system:hasDataStream</relationshipSubType>
+            <relatedObjectIdentification>
+                <relatedObjectIdentifierType>Ensure Datastream PID</relatedObjectIdentifierType>
+                <relatedObjectIdentifierValue>uuid:888d59de-6815-4103-99bf-459e687cba14</relatedObjectIdentifierValue>
+            </relatedObjectIdentification>
+        </relationship>
+        <relationship>
+            <relationshipType>has part</relationshipType>
+            <relationshipSubType>ensure-system:hasDataStream</relationshipSubType>
+            <relatedObjectIdentification>
+                <relatedObjectIdentifierType>Ensure Datastream PID</relatedObjectIdentifierType>
+                <relatedObjectIdentifierValue>uuid:391fa4dd-ad38-4047-abc3-6eff40e437d8</relatedObjectIdentifierValue>
+            </relatedObjectIdentification>
+        </relationship>
+        <relationship>
+            <relationshipType>has part</relationshipType>
+            <relationshipSubType>ensure-system:hasDataStream</relationshipSubType>
+            <relatedObjectIdentification>
+                <relatedObjectIdentifierType>Ensure Datastream PID</relatedObjectIdentifierType>
+                <relatedObjectIdentifierValue>uuid:e70ade22-ba3b-4401-a1e5-c6d051bbae4e</relatedObjectIdentifierValue>
+            </relatedObjectIdentification>
+        </relationship>
+        <relationship>
+            <relationshipType>has part</relationshipType>
+            <relationshipSubType>ensure-system:hasDataStream</relationshipSubType>
+            <relatedObjectIdentification>
+                <relatedObjectIdentifierType>Ensure Datastream PID</relatedObjectIdentifierType>
+                <relatedObjectIdentifierValue>uuid:e0357e81-1f05-4c7c-8555-bf185e658a4d</relatedObjectIdentifierValue>
+            </relatedObjectIdentification>
+        </relationship>
+        <relationship>
+            <relationshipType>has part</relationshipType>
+            <relationshipSubType>ensure-system:hasDataStream</relationshipSubType>
+            <relatedObjectIdentification>
+                <relatedObjectIdentifierType>Ensure Datastream PID</relatedObjectIdentifierType>
+                <relatedObjectIdentifierValue>uuid:3e245338-81b2-436a-9d0c-e00802ab3290</relatedObjectIdentifierValue>
+            </relatedObjectIdentification>
+        </relationship>
+        <relationship>
+            <relationshipType>has part</relationshipType>
+            <relationshipSubType>ensure-system:hasDataStream</relationshipSubType>
+            <relatedObjectIdentification>
+                <relatedObjectIdentifierType>Ensure Datastream PID</relatedObjectIdentifierType>
+                <relatedObjectIdentifierValue>uuid:b557b850-b357-430e-be25-d5a452f28667</relatedObjectIdentifierValue>
+            </relatedObjectIdentification>
+        </relationship>
+        <relationship>
+            <relationshipType>has part</relationshipType>
+            <relationshipSubType>ensure-system:hasDataStream</relationshipSubType>
+            <relatedObjectIdentification>
+                <relatedObjectIdentifierType>Ensure Datastream PID</relatedObjectIdentifierType>
+                <relatedObjectIdentifierValue>uuid:7a307b67-b170-41f9-8cd0-9a89d3ebcedf</relatedObjectIdentifierValue>
+            </relatedObjectIdentification>
+        </relationship>
+        <relationship>
+            <relationshipType>has part</relationshipType>
+            <relationshipSubType>ensure-system:hasDataStream</relationshipSubType>
+            <relatedObjectIdentification>
+                <relatedObjectIdentifierType>Ensure Datastream PID</relatedObjectIdentifierType>
+                <relatedObjectIdentifierValue>uuid:05605bcf-beda-458e-9585-9057695af425</relatedObjectIdentifierValue>
+            </relatedObjectIdentification>
+        </relationship>
+    </object>
+    <object xsi:type="file" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <objectIdentifier>
+            <objectIdentifierType>Ensure Datastream PID</objectIdentifierType>
+            <objectIdentifierValue>uuid:0d0f1cae-e8c8-4e2d-b3bf-4d25a48a5048</objectIdentifierValue>
+        </objectIdentifier>
+        <preservationLevel>
+            <preservationLevelValue>full</preservationLevelValue>
+        </preservationLevel>
+        <objectCharacteristics>
+            <compositionLevel>0</compositionLevel>
+            <fixity>
+                <messageDigestAlgorithm>CRC32</messageDigestAlgorithm>
+                <messageDigest>36726950</messageDigest>
+                <messageDigestOriginator>JRE6.29</messageDigestOriginator>
+            </fixity>
+            <size>1897524</size>
+            <format>
+                <formatDesignation>
+                    <formatName>application/dicom</formatName>
+                    <formatVersion>2009</formatVersion>
+                </formatDesignation>
+                <formatRegistry>
+                    <formatRegistryName>ftp://medical.nema.org/medical/dicom/2009/</formatRegistryName>
+                    <formatRegistryKey>info:/image/dicom/3.0/2009</formatRegistryKey>
+                    <formatRegistryRole>specification</formatRegistryRole>
+                </formatRegistry>
+            </format>
+        </objectCharacteristics>
+        <originalName>example1_transformed\DICOM\IM_0002</originalName>
+        <environment>
+            <environmentCharacteristic>recommended</environmentCharacteristic>
+            <environmentPurpose>viewing</environmentPurpose>
+            <software>
+                <swName>Windows</swName>
+                <swVersion>7 SP1</swVersion>
+                <swType>Operating System</swType>
+            </software>
+            <software>
+                <swName>Synedra View Personal</swName>
+                <swVersion>1.10.7</swVersion>
+                <swType>Dicom Viewer</swType>
+            </software>
+            <hardware>
+                <hwName>4GB RAM</hwName>
+                <hwType></hwType>
+                <hwOtherInformation>2GB minimum</hwOtherInformation>
+            </hardware>
+            <hardware>
+                <hwName>Intel x86</hwName>
+                <hwType></hwType>
+                <hwOtherInformation>2Ghz minimum</hwOtherInformation>
+            </hardware>
+        </environment>
+    </object>
+    <object xsi:type="file" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <objectIdentifier>
+            <objectIdentifierType>Ensure Datastream PID</objectIdentifierType>
+            <objectIdentifierValue>uuid:888d59de-6815-4103-99bf-459e687cba14</objectIdentifierValue>
+        </objectIdentifier>
+        <preservationLevel>
+            <preservationLevelValue>full</preservationLevelValue>
+        </preservationLevel>
+        <objectCharacteristics>
+            <compositionLevel>0</compositionLevel>
+            <fixity>
+                <messageDigestAlgorithm>CRC32</messageDigestAlgorithm>
+                <messageDigest>3796994844</messageDigest>
+                <messageDigestOriginator>JRE6.29</messageDigestOriginator>
+            </fixity>
+            <size>3971844</size>
+            <format>
+                <formatDesignation>
+                    <formatName>application/dicom</formatName>
+                    <formatVersion>2009</formatVersion>
+                </formatDesignation>
+                <formatRegistry>
+                    <formatRegistryName>ftp://medical.nema.org/medical/dicom/2009/</formatRegistryName>
+                    <formatRegistryKey>info:/image/dicom/3.0/2009</formatRegistryKey>
+                    <formatRegistryRole>specification</formatRegistryRole>
+                </formatRegistry>
+            </format>
+        </objectCharacteristics>
+        <originalName>example1_transformed\DICOM\IM_0003</originalName>
+        <environment>
+            <environmentCharacteristic>recommended</environmentCharacteristic>
+            <environmentPurpose>viewing</environmentPurpose>
+            <software>
+                <swName>Windows</swName>
+                <swVersion>7 SP1</swVersion>
+                <swType>Operating System</swType>
+            </software>
+            <software>
+                <swName>Synedra View Personal</swName>
+                <swVersion>1.10.7</swVersion>
+                <swType>Dicom Viewer</swType>
+            </software>
+            <hardware>
+                <hwName>4GB RAM</hwName>
+                <hwType></hwType>
+                <hwOtherInformation>2GB minimum</hwOtherInformation>
+            </hardware>
+            <hardware>
+                <hwName>Intel x86</hwName>
+                <hwType></hwType>
+                <hwOtherInformation>2Ghz minimum</hwOtherInformation>
+            </hardware>
+        </environment>
+    </object>
+    <object xsi:type="file" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <objectIdentifier>
+            <objectIdentifierType>Ensure Datastream PID</objectIdentifierType>
+            <objectIdentifierValue>uuid:391fa4dd-ad38-4047-abc3-6eff40e437d8</objectIdentifierValue>
+        </objectIdentifier>
+        <preservationLevel>
+            <preservationLevelValue>full</preservationLevelValue>
+        </preservationLevel>
+        <objectCharacteristics>
+            <compositionLevel>0</compositionLevel>
+            <fixity>
+                <messageDigestAlgorithm>CRC32</messageDigestAlgorithm>
+                <messageDigest>1212220384</messageDigest>
+                <messageDigestOriginator>JRE6.29</messageDigestOriginator>
+            </fixity>
+            <size>198184</size>
+            <format>
+                <formatDesignation>
+                    <formatName>application/dicom</formatName>
+                    <formatVersion>2009</formatVersion>
+                </formatDesignation>
+                <formatRegistry>
+                    <formatRegistryName>ftp://medical.nema.org/medical/dicom/2009/</formatRegistryName>
+                    <formatRegistryKey>info:/image/dicom/3.0/2009</formatRegistryKey>
+                    <formatRegistryRole>specification</formatRegistryRole>
+                </formatRegistry>
+            </format>
+        </objectCharacteristics>
+        <originalName>example1_transformed\DICOM\IM_0004</originalName>
+        <environment>
+            <environmentCharacteristic>recommended</environmentCharacteristic>
+            <environmentPurpose>viewing</environmentPurpose>
+            <software>
+                <swName>Windows</swName>
+                <swVersion>7 SP1</swVersion>
+                <swType>Operating System</swType>
+            </software>
+            <software>
+                <swName>Synedra View Personal</swName>
+                <swVersion>1.10.7</swVersion>
+                <swType>Dicom Viewer</swType>
+            </software>
+            <hardware>
+                <hwName>4GB RAM</hwName>
+                <hwType></hwType>
+                <hwOtherInformation>2GB minimum</hwOtherInformation>
+            </hardware>
+            <hardware>
+                <hwName>Intel x86</hwName>
+                <hwType></hwType>
+                <hwOtherInformation>2Ghz minimum</hwOtherInformation>
+            </hardware>
+        </environment>
+    </object>
+    <object xsi:type="file" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <objectIdentifier>
+            <objectIdentifierType>Ensure Datastream PID</objectIdentifierType>
+            <objectIdentifierValue>uuid:e70ade22-ba3b-4401-a1e5-c6d051bbae4e</objectIdentifierValue>
+        </objectIdentifier>
+        <preservationLevel>
+            <preservationLevelValue>full</preservationLevelValue>
+        </preservationLevel>
+        <objectCharacteristics>
+            <compositionLevel>0</compositionLevel>
+            <fixity>
+                <messageDigestAlgorithm>CRC32</messageDigestAlgorithm>
+                <messageDigest>1294694319</messageDigest>
+                <messageDigestOriginator>JRE6.29</messageDigestOriginator>
+            </fixity>
+            <size>2059510</size>
+            <format>
+                <formatDesignation>
+                    <formatName>application/dicom</formatName>
+                    <formatVersion>2009</formatVersion>
+                </formatDesignation>
+                <formatRegistry>
+                    <formatRegistryName>ftp://medical.nema.org/medical/dicom/2009/</formatRegistryName>
+                    <formatRegistryKey>info:/image/dicom/3.0/2009</formatRegistryKey>
+                    <formatRegistryRole>specification</formatRegistryRole>
+                </formatRegistry>
+            </format>
+        </objectCharacteristics>
+        <originalName>example1_transformed\DICOM\IM_0006</originalName>
+        <environment>
+            <environmentCharacteristic>recommended</environmentCharacteristic>
+            <environmentPurpose>viewing</environmentPurpose>
+            <software>
+                <swName>Windows</swName>
+                <swVersion>7 SP1</swVersion>
+                <swType>Operating System</swType>
+            </software>
+            <software>
+                <swName>Synedra View Personal</swName>
+                <swVersion>1.10.7</swVersion>
+                <swType>Dicom Viewer</swType>
+            </software>
+            <hardware>
+                <hwName>4GB RAM</hwName>
+                <hwType></hwType>
+                <hwOtherInformation>2GB minimum</hwOtherInformation>
+            </hardware>
+            <hardware>
+                <hwName>Intel x86</hwName>
+                <hwType></hwType>
+                <hwOtherInformation>2Ghz minimum</hwOtherInformation>
+            </hardware>
+        </environment>
+    </object>
+    <object xsi:type="file" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <objectIdentifier>
+            <objectIdentifierType>Ensure Datastream PID</objectIdentifierType>
+            <objectIdentifierValue>uuid:e0357e81-1f05-4c7c-8555-bf185e658a4d</objectIdentifierValue>
+        </objectIdentifier>
+        <preservationLevel>
+            <preservationLevelValue>full</preservationLevelValue>
+        </preservationLevel>
+        <objectCharacteristics>
+            <compositionLevel>0</compositionLevel>
+            <fixity>
+                <messageDigestAlgorithm>CRC32</messageDigestAlgorithm>
+                <messageDigest>1153005251</messageDigest>
+                <messageDigestOriginator>JRE6.29</messageDigestOriginator>
+            </fixity>
+            <size>6638148</size>
+            <format>
+                <formatDesignation>
+                    <formatName>application/dicom</formatName>
+                    <formatVersion>2009</formatVersion>
+                </formatDesignation>
+                <formatRegistry>
+                    <formatRegistryName>ftp://medical.nema.org/medical/dicom/2009/</formatRegistryName>
+                    <formatRegistryKey>info:/image/dicom/3.0/2009</formatRegistryKey>
+                    <formatRegistryRole>specification</formatRegistryRole>
+                </formatRegistry>
+            </format>
+        </objectCharacteristics>
+        <originalName>example1_transformed\DICOM\IM_0007</originalName>
+        <environment>
+            <environmentCharacteristic>recommended</environmentCharacteristic>
+            <environmentPurpose>viewing</environmentPurpose>
+            <software>
+                <swName>Windows</swName>
+                <swVersion>7 SP1</swVersion>
+                <swType>Operating System</swType>
+            </software>
+            <software>
+                <swName>Synedra View Personal</swName>
+                <swVersion>1.10.7</swVersion>
+                <swType>Dicom Viewer</swType>
+            </software>
+            <hardware>
+                <hwName>4GB RAM</hwName>
+                <hwType></hwType>
+                <hwOtherInformation>2GB minimum</hwOtherInformation>
+            </hardware>
+            <hardware>
+                <hwName>Intel x86</hwName>
+                <hwType></hwType>
+                <hwOtherInformation>2Ghz minimum</hwOtherInformation>
+            </hardware>
+        </environment>
+    </object>
+    <object xsi:type="file" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <objectIdentifier>
+            <objectIdentifierType>Ensure Datastream PID</objectIdentifierType>
+            <objectIdentifierValue>uuid:3e245338-81b2-436a-9d0c-e00802ab3290</objectIdentifierValue>
+        </objectIdentifier>
+        <preservationLevel>
+            <preservationLevelValue>full</preservationLevelValue>
+        </preservationLevel>
+        <objectCharacteristics>
+            <compositionLevel>0</compositionLevel>
+            <fixity>
+                <messageDigestAlgorithm>CRC32</messageDigestAlgorithm>
+                <messageDigest>4242483169</messageDigest>
+                <messageDigestOriginator>JRE6.29</messageDigestOriginator>
+            </fixity>
+            <size>7629472</size>
+            <format>
+                <formatDesignation>
+                    <formatName>application/dicom</formatName>
+                    <formatVersion>2009</formatVersion>
+                </formatDesignation>
+                <formatRegistry>
+                    <formatRegistryName>ftp://medical.nema.org/medical/dicom/2009/</formatRegistryName>
+                    <formatRegistryKey>info:/image/dicom/3.0/2009</formatRegistryKey>
+                    <formatRegistryRole>specification</formatRegistryRole>
+                </formatRegistry>
+            </format>
+        </objectCharacteristics>
+        <originalName>example1_transformed\DICOM\IM_0008</originalName>
+        <environment>
+            <environmentCharacteristic>recommended</environmentCharacteristic>
+            <environmentPurpose>viewing</environmentPurpose>
+            <software>
+                <swName>Windows</swName>
+                <swVersion>7 SP1</swVersion>
+                <swType>Operating System</swType>
+            </software>
+            <software>
+                <swName>Synedra View Personal</swName>
+                <swVersion>1.10.7</swVersion>
+                <swType>Dicom Viewer</swType>
+            </software>
+            <hardware>
+                <hwName>4GB RAM</hwName>
+                <hwType></hwType>
+                <hwOtherInformation>2GB minimum</hwOtherInformation>
+            </hardware>
+            <hardware>
+                <hwName>Intel x86</hwName>
+                <hwType></hwType>
+                <hwOtherInformation>2Ghz minimum</hwOtherInformation>
+            </hardware>
+        </environment>
+    </object>
+    <object xsi:type="file" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <objectIdentifier>
+            <objectIdentifierType>Ensure Datastream PID</objectIdentifierType>
+            <objectIdentifierValue>uuid:b557b850-b357-430e-be25-d5a452f28667</objectIdentifierValue>
+        </objectIdentifier>
+        <preservationLevel>
+            <preservationLevelValue>full</preservationLevelValue>
+        </preservationLevel>
+        <objectCharacteristics>
+            <compositionLevel>0</compositionLevel>
+            <fixity>
+                <messageDigestAlgorithm>CRC32</messageDigestAlgorithm>
+                <messageDigest>1987504563</messageDigest>
+                <messageDigestOriginator>JRE6.29</messageDigestOriginator>
+            </fixity>
+            <size>5701418</size>
+            <format>
+                <formatDesignation>
+                    <formatName>application/dicom</formatName>
+                    <formatVersion>2009</formatVersion>
+                </formatDesignation>
+                <formatRegistry>
+                    <formatRegistryName>ftp://medical.nema.org/medical/dicom/2009/</formatRegistryName>
+                    <formatRegistryKey>info:/image/dicom/3.0/2009</formatRegistryKey>
+                    <formatRegistryRole>specification</formatRegistryRole>
+                </formatRegistry>
+            </format>
+        </objectCharacteristics>
+        <originalName>example1_transformed\DICOM\IM_0009</originalName>
+        <environment>
+            <environmentCharacteristic>recommended</environmentCharacteristic>
+            <environmentPurpose>viewing</environmentPurpose>
+            <software>
+                <swName>Windows</swName>
+                <swVersion>7 SP1</swVersion>
+                <swType>Operating System</swType>
+            </software>
+            <software>
+                <swName>Synedra View Personal</swName>
+                <swVersion>1.10.7</swVersion>
+                <swType>Dicom Viewer</swType>
+            </software>
+            <hardware>
+                <hwName>4GB RAM</hwName>
+                <hwType></hwType>
+                <hwOtherInformation>2GB minimum</hwOtherInformation>
+            </hardware>
+            <hardware>
+                <hwName>Intel x86</hwName>
+                <hwType></hwType>
+                <hwOtherInformation>2Ghz minimum</hwOtherInformation>
+            </hardware>
+        </environment>
+    </object>
+    <object xsi:type="file" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <objectIdentifier>
+            <objectIdentifierType>Ensure Datastream PID</objectIdentifierType>
+            <objectIdentifierValue>uuid:7a307b67-b170-41f9-8cd0-9a89d3ebcedf</objectIdentifierValue>
+        </objectIdentifier>
+        <preservationLevel>
+            <preservationLevelValue>full</preservationLevelValue>
+        </preservationLevel>
+        <objectCharacteristics>
+            <compositionLevel>0</compositionLevel>
+            <fixity>
+                <messageDigestAlgorithm>CRC32</messageDigestAlgorithm>
+                <messageDigest>181842368</messageDigest>
+                <messageDigestOriginator>JRE6.29</messageDigestOriginator>
+            </fixity>
+            <size>12932</size>
+            <format>
+                <formatDesignation>
+                    <formatName>application/dicom</formatName>
+                    <formatVersion>2009</formatVersion>
+                </formatDesignation>
+                <formatRegistry>
+                    <formatRegistryName>ftp://medical.nema.org/medical/dicom/2009/</formatRegistryName>
+                    <formatRegistryKey>info:/image/dicom/3.0/2009</formatRegistryKey>
+                    <formatRegistryRole>specification</formatRegistryRole>
+                </formatRegistry>
+            </format>
+        </objectCharacteristics>
+        <originalName>example1_transformed\DICOM\SR_0005</originalName>
+        <environment>
+            <environmentCharacteristic>recommended</environmentCharacteristic>
+            <environmentPurpose>viewing</environmentPurpose>
+            <software>
+                <swName>Windows</swName>
+                <swVersion>7 SP1</swVersion>
+                <swType>Operating System</swType>
+            </software>
+            <software>
+                <swName>Synedra View Personal</swName>
+                <swVersion>1.10.7</swVersion>
+                <swType>Dicom Viewer</swType>
+            </software>
+            <hardware>
+                <hwName>4GB RAM</hwName>
+                <hwType></hwType>
+                <hwOtherInformation>2GB minimum</hwOtherInformation>
+            </hardware>
+            <hardware>
+                <hwName>Intel x86</hwName>
+                <hwType></hwType>
+                <hwOtherInformation>2Ghz minimum</hwOtherInformation>
+            </hardware>
+        </environment>
+    </object>
+    <object xsi:type="file" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <objectIdentifier>
+            <objectIdentifierType>Ensure Datastream PID</objectIdentifierType>
+            <objectIdentifierValue>uuid:05605bcf-beda-458e-9585-9057695af425</objectIdentifierValue>
+        </objectIdentifier>
+        <preservationLevel>
+            <preservationLevelValue>full</preservationLevelValue>
+        </preservationLevel>
+        <objectCharacteristics>
+            <compositionLevel>0</compositionLevel>
+            <fixity>
+                <messageDigestAlgorithm>CRC32</messageDigestAlgorithm>
+                <messageDigest>1222976617</messageDigest>
+                <messageDigestOriginator>JRE6.29</messageDigestOriginator>
+            </fixity>
+            <size>4464</size>
+            <format>
+                <formatDesignation>
+                    <formatName>application/dicom</formatName>
+                    <formatVersion>2009</formatVersion>
+                </formatDesignation>
+                <formatRegistry>
+                    <formatRegistryName>ftp://medical.nema.org/medical/dicom/2009/</formatRegistryName>
+                    <formatRegistryKey>info:/image/dicom/3.0/2009</formatRegistryKey>
+                    <formatRegistryRole>specification</formatRegistryRole>
+                </formatRegistry>
+            </format>
+        </objectCharacteristics>
+        <originalName>example1_transformed\DICOMDIR</originalName>
+        <environment>
+            <environmentCharacteristic>recommended</environmentCharacteristic>
+            <environmentPurpose>viewing</environmentPurpose>
+            <software>
+                <swName>Windows</swName>
+                <swVersion>7 SP1</swVersion>
+                <swType>Operating System</swType>
+            </software>
+            <software>
+                <swName>Synedra View Personal</swName>
+                <swVersion>1.10.7</swVersion>
+                <swType>Dicom Viewer</swType>
+            </software>
+            <hardware>
+                <hwName>4GB RAM</hwName>
+                <hwType></hwType>
+                <hwOtherInformation>2GB minimum</hwOtherInformation>
+            </hardware>
+            <hardware>
+                <hwName>Intel x86</hwName>
+                <hwType></hwType>
+                <hwOtherInformation>2Ghz minimum</hwOtherInformation>
+            </hardware>
+        </environment>
+    </object>
+</premis>

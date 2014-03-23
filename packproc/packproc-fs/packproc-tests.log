@@ -1,0 +1,205 @@
+Loaded configuration for xml-processor:process --> xml-processor[ re=".*?\.xml" ]{ }
+Loaded configuration for fs-processor:process --> fs-processor[ ]{ action{ XmlFileProcessor:process on selection{ re=".*?\.xml" } } }
+Processing fs-processor:process
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/package-processor-fs.iml
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/packproc-tests.log
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/pom.xml
+fs-processor:process container
+This XPath expression "//ns:process" does not identify any nodes.
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/.DS_Store
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/main/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/main
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/main/.DS_Store
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/main/java/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/main/java
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/main/java/.DS_Store
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/main/java/eu/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/main/java/eu
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/main/java/eu/.DS_Store
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/main/java/eu/ensure/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/main/java/eu/ensure
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/main/java/eu/ensure/.DS_Store
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/main/java/eu/ensure/packproc/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/main/java/eu/ensure/packproc
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/main/java/eu/ensure/packproc/.DS_Store
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/main/java/eu/ensure/packproc/fs/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/main/java/eu/ensure/packproc/fs
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/main/java/eu/ensure/packproc/fs/FileSystemEntry.java
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/main/java/eu/ensure/packproc/fs/FileSystemProcessor.java
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/main/resources/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/main/resources
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/main/resources/eu/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/main/resources/eu
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/main/resources/eu/ensure/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/main/resources/eu/ensure
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/main/resources/eu/ensure/packproc/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/main/resources/eu/ensure/packproc
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/test/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/test
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/test/java/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/test/java
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/test/java/eu/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/test/java/eu
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/test/java/eu/ensure/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/test/java/eu/ensure
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/test/java/eu/ensure/packproc/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/test/java/eu/ensure/packproc
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/test/java/eu/ensure/packproc/ProcessingTest.java
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/test/resources/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/test/resources
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/test/resources/eu/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/test/resources/eu
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/test/resources/eu/ensure/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/test/resources/eu/ensure
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/test/resources/eu/ensure/packproc/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/test/resources/eu/ensure/packproc
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/test/resources/eu/ensure/packproc/filesystem-processing-configuration.xml
+fs-processor:process container
+This XPath expression "//ns:process" identifies 1 node(s).
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/src/test/resources/eu/ensure/packproc/log-configuration.xml
+fs-processor:process container
+This XPath expression "//ns:process" does not identify any nodes.
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/classes/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/classes
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/classes/eu/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/classes/eu
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/classes/eu/ensure/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/classes/eu/ensure
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/classes/eu/ensure/packproc/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/classes/eu/ensure/packproc
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/classes/eu/ensure/packproc/fs/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/classes/eu/ensure/packproc/fs
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/classes/eu/ensure/packproc/fs/FileSystemEntry.class
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/classes/eu/ensure/packproc/fs/FileSystemProcessor.class
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/generated-sources/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/generated-sources
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/generated-sources/annotations/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/generated-sources/annotations
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/generated-test-sources/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/generated-test-sources
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/generated-test-sources/test-annotations/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/generated-test-sources/test-annotations
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/maven-archiver/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/maven-archiver
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/maven-archiver/pom.properties
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/maven-status/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/maven-status
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/maven-status/maven-compiler-plugin/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/maven-status/maven-compiler-plugin
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/maven-status/maven-compiler-plugin/compile/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/maven-status/maven-compiler-plugin/compile
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/maven-status/maven-compiler-plugin/compile/default-compile/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/maven-status/maven-compiler-plugin/compile/default-compile
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/maven-status/maven-compiler-plugin/testCompile/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/maven-status/maven-compiler-plugin/testCompile
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/createdFiles.lst
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/maven-status/maven-compiler-plugin/testCompile/default-testCompile/inputFiles.lst
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/package-processor-fs-1.0.jar
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/surefire/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/surefire
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/surefire/surefire8870358194453659482tmp
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/surefire/surefire889499335121396851tmp
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/surefire/surefirebooter3444197918043046577.jar
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/surefire-reports/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/surefire-reports
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/surefire-reports/eu.ensure.packproc.ProcessingTest.txt
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/surefire-reports/TEST-eu.ensure.packproc.ProcessingTest.xml
+fs-processor:process container
+This XPath expression "//ns:process" does not identify any nodes.
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/test-classes/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/test-classes
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/test-classes/eu/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/test-classes/eu
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/test-classes/eu/ensure/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/test-classes/eu/ensure
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/test-classes/eu/ensure/packproc/
+Processing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/test-classes/eu/ensure/packproc
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/test-classes/eu/ensure/packproc/filesystem-processing-configuration.xml
+fs-processor:process container
+This XPath expression "//ns:process" identifies 1 node(s).
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/test-classes/eu/ensure/packproc/log-configuration.xml
+fs-processor:process container
+This XPath expression "//ns:process" does not identify any nodes.
+
+### /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/test-classes/eu/ensure/packproc/ProcessingTest.class

@@ -1,0 +1,617 @@
+<?xml version="1.0" encoding="UTF-8"?><globalPreservationPlan>
+    <ID>2</ID>
+    <state>CANDIDATE</state>
+    <creationDate>2012-02-20T18:00:16.952+01:00</creationDate>
+    <validFrom>2012-02-21T18:00:16.952+01:00</validFrom>
+    <expirationDate>2013-02-10T18:00:16.952+01:00</expirationDate>
+    <description>Global Preservation Plan example created by Jorge</description>
+    <comments>Global Preservation Plan for health care use</comments>
+    <overallRating>0.0</overallRating>
+    <preservationConfiguration>
+        <id>1</id>
+        <pluginServicesInstances>
+            <id>2</id>
+            <pluginService>
+                <description>PDSCloud</description>
+                <id>2</id>
+                <plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="baseStorageServices">
+                    <description>PDSCloud</description>
+                    <efficiencyRating>5.5</efficiencyRating>
+                    <id>2</id>
+                    <location>URL OSGi Plugin</location>
+                    <pluginClass>BASE_STORAGE_SERVICES</pluginClass>
+                    <pluginType>COMPONENT_SPECIFIC</pluginType>
+                </plugin>
+            </pluginService>
+            <serviceReference>OSGi Service Reference. Y2 Demo</serviceReference>
+        </pluginServicesInstances>
+        <pluginServicesInstances>
+            <id>1</id>
+            <pluginService>
+                <description>Storage service Amazon</description>
+                <id>1</id>
+                <plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="storagePlugin">
+                    <dependences xsi:type="baseStorageServices">
+                        <description>PDSCloud</description>
+                        <efficiencyRating>5.5</efficiencyRating>
+                        <id>2</id>
+                        <location>URL OSGi Plugin</location>
+                        <pluginClass>BASE_STORAGE_SERVICES</pluginClass>
+                        <pluginType>COMPONENT_SPECIFIC</pluginType>
+                    </dependences>
+                    <description>AWS-S3-US</description>
+                    <efficiencyRating>4.8007812</efficiencyRating>
+                    <id>1</id>
+                    <location>URL OSGi Plugin</location>
+                    <pluginClass>STORAGE_SERVICE</pluginClass>
+                    <pluginType>COMPONENT_SPECIFIC</pluginType>
+                    <aggregations>
+                        <id>Medical_Encounters</id>
+                        <name>Medical Encounters</name>
+                        <description>Within Maccabi medical record, individual medical encounters are marked by discrete summations of a patient's medical history by a physician, nurse practitioner, or physician assistant and can take several forms.</description>
+                        <dataCategory>CLINIC_HISTORY</dataCategory>
+                        <format>
+                            <creationTime>2006-08-30T19:00:16.959+02:00</creationTime>
+                            <defaultExtension>.xml</defaultExtension>
+                            <deprecatedTime>2012-05-30T19:00:16.959+02:00</deprecatedTime>
+                            <description>Extensible Markup Language</description>
+                            <id>0</id>
+                            <mimeType>text/xml</mimeType>
+                            <name>XML</name>
+                            <obsolete>false</obsolete>
+                            <version>1.1</version>
+                        </format>
+                    </aggregations>
+                    <aggregations>
+                        <id>Medical_Images</id>
+                        <name>Medical Images</name>
+                        <description>Within Maccabi medical record, individual radiographies.</description>
+                        <dataCategory>RADIOGRAPHY</dataCategory>
+                        <format>
+                            <creationTime>2012-02-20T18:00:16.959+01:00</creationTime>
+                            <deprecatedTime>2012-11-02T18:00:16.959+01:00</deprecatedTime>
+                            <description>Digital Imaging and Communication in Medicine</description>
+                            <id>2</id>
+                            <mimeType>application/dicom</mimeType>
+                            <name>DICOM</name>
+                            <obsolete>false</obsolete>
+                            <version>2008</version>
+                        </format>
+                        <format>
+                            <creationTime>2012-02-20T18:00:16.959+01:00</creationTime>
+                            <deprecatedTime>2012-11-02T18:00:16.959+01:00</deprecatedTime>
+                            <description>Subset of DICOM 2008 + supplement 122 (for specimen) + private Philips attribute</description>
+                            <id>3</id>
+                            <mimeType>application/dicompl</mimeType>
+                            <name>DICOM_PHILIPS</name>
+                            <obsolete>false</obsolete>
+                            <version>2008</version>
+                        </format>
+                    </aggregations>
+                    <costRanges>
+                        <cost>0.111</cost>
+                        <currency>EURO</currency>
+                        <finalQuantity>50000.0</finalQuantity>
+                        <initQuantity>50.0</initQuantity>
+                        <pricingUnitNumber>1.0</pricingUnitNumber>
+                    </costRanges>
+                    <costRanges>
+                        <cost>0.09787</cost>
+                        <currency>EURO</currency>
+                        <finalQuantity>50.0</finalQuantity>
+                        <initQuantity>1.0</initQuantity>
+                        <pricingUnitNumber>1.0</pricingUnitNumber>
+                    </costRanges>
+                    <costRanges>
+                        <cost>0.11256</cost>
+                        <costRangeCategory>STORAGE</costRangeCategory>
+                        <costRangeType>ONLY_THIS_SLOT</costRangeType>
+                        <currency>EURO</currency>
+                        <finalQuantity>1.0</finalQuantity>
+                        <initQuantity>0.0</initQuantity>
+                        <pricingUnit>GB</pricingUnit>
+                        <pricingUnitNumber>1.0</pricingUnitNumber>
+                        <rangeUnit>TB/MONTH</rangeUnit>
+                    </costRanges>
+                    <costRanges>
+                        <cost>0.01</cost>
+                        <costRangeCategory>REQUEST_OTHER</costRangeCategory>
+                        <costRangeType>OVERRIDES_OTHERS</costRangeType>
+                        <currency>EURO</currency>
+                        <finalQuantity>1.0E9</finalQuantity>
+                        <initQuantity>0.0</initQuantity>
+                        <pricingUnitNumber>1.0</pricingUnitNumber>
+                    </costRanges>
+                    <costRanges>
+                        <cost>0.0</cost>
+                        <costRangeCategory>REQUEST_DEL</costRangeCategory>
+                        <costRangeType>OVERRIDES_OTHERS</costRangeType>
+                        <currency>EURO</currency>
+                        <finalQuantity>1.0E9</finalQuantity>
+                        <initQuantity>0.0</initQuantity>
+                        <pricingUnit>REQUEST</pricingUnit>
+                        <pricingUnitNumber>10000.0</pricingUnitNumber>
+                        <rangeUnit>REQUEST</rangeUnit>
+                    </costRanges>
+                    <costRanges>
+                        <cost>0.1</cost>
+                        <costRangeCategory>REQUEST_GET</costRangeCategory>
+                        <costRangeType>OVERRIDES_OTHERS</costRangeType>
+                        <currency>EURO</currency>
+                        <finalQuantity>1.0E9</finalQuantity>
+                        <initQuantity>0.0</initQuantity>
+                        <pricingUnit>1000 REQUESTS</pricingUnit>
+                        <pricingUnitNumber>1.0</pricingUnitNumber>
+                        <rangeUnit>GET</rangeUnit>
+                    </costRanges>
+                    <costRanges>
+                        <cost>0.1</cost>
+                        <costRangeCategory>DATA_TRANSFER_IN</costRangeCategory>
+                        <costRangeType>ONLY_THIS_SLOT</costRangeType>
+                        <currency>EURO</currency>
+                        <finalQuantity>1.0</finalQuantity>
+                        <initQuantity>0.0</initQuantity>
+                        <pricingUnit>GB</pricingUnit>
+                        <pricingUnitNumber>1.0</pricingUnitNumber>
+                        <rangeUnit>GB/MONTH</rangeUnit>
+                    </costRanges>
+                    <costRanges>
+                        <cost>0.1</cost>
+                        <costRangeCategory>DATA_TRANSFER_OUT</costRangeCategory>
+                        <costRangeType>ONLY_THIS_SLOT</costRangeType>
+                        <currency>EURO</currency>
+                        <finalQuantity>1.0</finalQuantity>
+                        <initQuantity>0.0</initQuantity>
+                        <pricingUnit>GB</pricingUnit>
+                        <pricingUnitNumber>1.0</pricingUnitNumber>
+                        <rangeUnit>GB/MONTH</rangeUnit>
+                    </costRanges>
+                    <hasRedundancy>false</hasRedundancy>
+                    <lossRate>0.9</lossRate>
+                    <lossRateUnit>FAILURE RATE</lossRateUnit>
+                    <meantimeBetweenFailures>8999.900390625</meantimeBetweenFailures>
+                    <meantimeBetweenFailuresUnit>HOUR</meantimeBetweenFailuresUnit>
+                    <storesAt>
+                        <code>USA</code>
+                        <id>840</id>
+                        <name>UNITED STATES</name>
+                    </storesAt>
+                    <usesConnection>
+                        <account>account-name</account>
+                        <connectionUserList>
+                            <id>1</id>
+                            <userid>user-id</userid>
+                            <password>password</password>
+                            <credential>credential-string</credential>
+                            <identity>identity-string</identity>
+                            <locationId>US</locationId>
+                            <aggregationId>Medical_Encounters</aggregationId>
+                            <aggregationId>Medical_Images</aggregationId>
+                        </connectionUserList>
+                        <hostAddress>http://conection.test.storage</hostAddress>
+                        <id>1</id>
+                        <platform>Amazon</platform>
+                        <provider>aws-s3</provider>
+                        <type>CLOUD</type>
+                    </usesConnection>
+                </plugin>
+            </pluginService>
+            <serviceReference>OSGi Service Reference. Y2 Demo</serviceReference>
+        </pluginServicesInstances>
+        <pluginServicesInstances>
+            <id>3</id>
+            <pluginService>
+                <description>PDALM DeployPlan</description>
+                <id>3</id>
+                <plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="pdalmPlugin">
+                    <description>Tessella PDALM</description>
+                    <efficiencyRating>7.9</efficiencyRating>
+                    <id>1</id>
+                    <location>URL OSGi Plugin</location>
+                </plugin>
+            </pluginService>
+            <serviceReference>OSGi Service Reference. Y2 Demo</serviceReference>
+        </pluginServicesInstances>
+        <pluginServicesInstances>
+            <id>4</id>
+            <pluginService>
+                <description>Transformation service</description>
+                <id>4</id>
+                <plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="fixityPlugin">
+                    <dependences xsi:type="baseStorageServices">
+                        <description>PDSCloud</description>
+                        <efficiencyRating>5.5</efficiencyRating>
+                        <id>2</id>
+                        <location>URL OSGi Plugin</location>
+                        <pluginClass>BASE_STORAGE_SERVICES</pluginClass>
+                        <pluginType>COMPONENT_SPECIFIC</pluginType>
+                    </dependences>
+                    <description>Fixity Plugin SHA512</description>
+                    <efficiencyRating>3.7213745</efficiencyRating>
+                    <id>4</id>
+                    <location>URL OSGi Plugin</location>
+                    <pluginClass>FIXITY_CHECK</pluginClass>
+                    <pluginType>COMPONENT_SPECIFIC</pluginType>
+                    <algorithm>SHA512</algorithm>
+                    <portabilityRating>0.3037567</portabilityRating>
+                </plugin>
+            </pluginService>
+            <serviceReference>OSGi Service Reference. Y2 Demo</serviceReference>
+        </pluginServicesInstances>
+        <pluginServicesInstances>
+            <id>6</id>
+            <pluginService>
+                <description>Fixity service</description>
+                <id>6</id>
+                <plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="fixityPlugin">
+                    <dependences xsi:type="baseStorageServices">
+                        <description>PDSCloud</description>
+                        <efficiencyRating>5.5</efficiencyRating>
+                        <id>2</id>
+                        <location>URL OSGi Plugin</location>
+                        <pluginClass>BASE_STORAGE_SERVICES</pluginClass>
+                        <pluginType>COMPONENT_SPECIFIC</pluginType>
+                    </dependences>
+                    <description>Fixity Plugin MD5</description>
+                    <efficiencyRating>5.5040283</efficiencyRating>
+                    <id>6</id>
+                    <location>URL OSGi Plugin</location>
+                    <pluginClass>FIXITY_CHECK</pluginClass>
+                    <pluginType>COMPONENT_SPECIFIC</pluginType>
+                    <algorithm>MD5</algorithm>
+                    <portabilityRating>5.656433</portabilityRating>
+                </plugin>
+            </pluginService>
+            <serviceReference>OSGi Service Reference. Y2 Demo</serviceReference>
+        </pluginServicesInstances>
+        <pluginServicesInstances>
+            <id>5</id>
+            <pluginService>
+                <description>Transformation Service</description>
+                <id>5</id>
+                <plugin>
+                    <dependences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="baseStorageServices">
+                        <description>PDSCloud</description>
+                        <efficiencyRating>5.5</efficiencyRating>
+                        <id>2</id>
+                        <location>URL OSGi Plugin</location>
+                        <pluginClass>BASE_STORAGE_SERVICES</pluginClass>
+                        <pluginType>COMPONENT_SPECIFIC</pluginType>
+                    </dependences>
+                    <description>Transformation from DICOM 2008 Philips Legacy to DICOM 2008 (reduced accuracy)</description>
+                    <efficiencyRating>7.1694946</efficiencyRating>
+                    <id>5</id>
+                    <location>URL OSGi Plugin</location>
+                    <pluginClass>TRANSFORMATION</pluginClass>
+                    <pluginType>DEPLOYABLE</pluginType>
+                </plugin>
+            </pluginService>
+            <serviceReference>OSGi Service Reference. Y2 Demo</serviceReference>
+        </pluginServicesInstances>
+        <pluginServicesInstances>
+            <id>11</id>
+            <pluginService>
+                <description>Ingest XML Template Service</description>
+                <id>11</id>
+                <plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="ingestXMLTemplatePlugin">
+                    <description>Ingest XML Template Registry Plugin</description>
+                    <efficiencyRating>4.066223</efficiencyRating>
+                    <id>11</id>
+                    <location>URL OSGi Plugin</location>
+                    <pluginClass>INGEST_TEMPLATE</pluginClass>
+                    <pluginType>DEPLOYABLE</pluginType>
+                    <appliesTo>
+                        <id>Medical_Images</id>
+                        <name>Medical Images</name>
+                        <description>Within Maccabi medical record, individual radiographies.</description>
+                        <dataCategory>RADIOGRAPHY</dataCategory>
+                        <format>
+                            <creationTime>2012-02-20T18:00:16.959+01:00</creationTime>
+                            <deprecatedTime>2012-11-02T18:00:16.959+01:00</deprecatedTime>
+                            <description>Digital Imaging and Communication in Medicine</description>
+                            <id>2</id>
+                            <mimeType>application/dicom</mimeType>
+                            <name>DICOM</name>
+                            <obsolete>false</obsolete>
+                            <version>2008</version>
+                        </format>
+                        <format>
+                            <creationTime>2012-02-20T18:00:16.959+01:00</creationTime>
+                            <deprecatedTime>2012-11-02T18:00:16.959+01:00</deprecatedTime>
+                            <description>Subset of DICOM 2008 + supplement 122 (for specimen) + private Philips attribute</description>
+                            <id>3</id>
+                            <mimeType>application/dicompl</mimeType>
+                            <name>DICOM_PHILIPS</name>
+                            <obsolete>false</obsolete>
+                            <version>2008</version>
+                        </format>
+                    </appliesTo>
+                    <name>DICOM</name>
+                    <qualityRating>9.471909</qualityRating>
+                    <storageRating>9.037903</storageRating>
+                </plugin>
+            </pluginService>
+            <serviceReference>OSGi Service Reference. Y2 Demo</serviceReference>
+        </pluginServicesInstances>
+        <pluginServicesInstances>
+            <id>7</id>
+            <pluginService>
+                <description>Base Access service</description>
+                <id>7</id>
+                <plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="baseAccessPlugin">
+                    <description>Base Access Plugin</description>
+                    <efficiencyRating>7.8251343</efficiencyRating>
+                    <id>7</id>
+                    <location>URL OSGi Plugin</location>
+                    <pluginClass>BASE_ACCESS</pluginClass>
+                    <pluginType>DEPLOYABLE</pluginType>
+                    <lossRate>1.21221E-6</lossRate>
+                    <lossRateUnit>request</lossRateUnit>
+                </plugin>
+            </pluginService>
+            <serviceReference>OSGi Service Reference. Y2 Demo</serviceReference>
+        </pluginServicesInstances>
+        <pluginServicesInstances>
+            <id>8</id>
+            <pluginService>
+                <description>Base Ingest service</description>
+                <id>8</id>
+                <plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="baseIngestPlugin">
+                    <description>Base Ingest Plugin</description>
+                    <efficiencyRating>6.9089127</efficiencyRating>
+                    <id>8</id>
+                    <location>URL OSGi Plugin</location>
+                    <pluginClass>BASE_INGEST</pluginClass>
+                    <pluginType>DEPLOYABLE</pluginType>
+                </plugin>
+            </pluginService>
+            <serviceReference>OSGi Service Reference. Y2 Demo</serviceReference>
+        </pluginServicesInstances>
+        <pluginServicesInstances>
+            <id>9</id>
+            <pluginService>
+                <description>Preservation Ontology Service</description>
+                <id>9</id>
+                <plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="preservationOntologyPlugin">
+                    <description>Preseration Ontology Registry Plugin</description>
+                    <efficiencyRating>4.6513367</efficiencyRating>
+                    <id>9</id>
+                    <location>URL OSGi Plugin</location>
+                    <pluginClass>PRESERVATION_ONTOLOGY</pluginClass>
+                    <pluginType>DEPLOYABLE</pluginType>
+                </plugin>
+            </pluginService>
+            <serviceReference>OSGi Service Reference. Y2 Demo</serviceReference>
+        </pluginServicesInstances>
+        <pluginServicesInstances>
+            <id>10</id>
+            <pluginService>
+                <description>Index Storage Service</description>
+                <id>10</id>
+                <plugin xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="searchIndexStoragePlugin">
+                    <description>Index Stotrage Plugin</description>
+                    <efficiencyRating>0.0345459</efficiencyRating>
+                    <id>10</id>
+                    <location>URL OSGi Plugin</location>
+                    <pluginClass>SEARCH_INDEX</pluginClass>
+                    <pluginType>DEPLOYABLE</pluginType>
+                </plugin>
+            </pluginService>
+            <serviceReference>OSGi Service Reference. Y2 Demo</serviceReference>
+        </pluginServicesInstances>
+    </preservationConfiguration>
+    <preservationPlan>
+        <aggregationActions>
+            <actions>
+                <id>1</id>
+                <actionType>STORAGE</actionType>
+                <description>Storage</description>
+                <startDateTime>2012-02-21T18:00:16.952+01:00</startDateTime>
+                <trigger>ON_INGEST</trigger>
+                <executionInterval>0.0</executionInterval>
+                <maximumNumberOfExecutions>0</maximumNumberOfExecutions>
+                <restrictions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="simpleExpression">
+                    <operator>LT</operator>
+                    <propertyName>SIZE</propertyName>
+                    <unit>GB</unit>
+                    <value>1</value>
+                </restrictions>
+                <pluginServiceInstanceId>1</pluginServiceInstanceId>
+            </actions>
+            <actions>
+                <id>3</id>
+                <actionType>FIXITYCHECK</actionType>
+                <description>Fixity Check for medical Encounters</description>
+                <startDateTime>2012-02-27T18:00:16.969+01:00</startDateTime>
+                <trigger>ON_TIME</trigger>
+                <executionInterval>14.0</executionInterval>
+                <executionIntervalUnit>DAY</executionIntervalUnit>
+                <maximumNumberOfExecutions>0</maximumNumberOfExecutions>
+            </actions>
+            <actions>
+                <id>13</id>
+                <actionType>USES</actionType>
+                <description>Uses this Base Access Plugin</description>
+                <trigger>ON_ACCESS</trigger>
+                <executionInterval>0.0</executionInterval>
+                <maximumNumberOfExecutions>0</maximumNumberOfExecutions>
+            </actions>
+            <actions>
+                <id>13</id>
+                <actionType>USES</actionType>
+                <description>Uses this Base Access Plugin</description>
+                <trigger>ON_ACCESS</trigger>
+                <executionInterval>0.0</executionInterval>
+                <maximumNumberOfExecutions>0</maximumNumberOfExecutions>
+            </actions>
+            <actions>
+                <id>15</id>
+                <actionType>USES</actionType>
+                <description>Uses this Preservation Ontology Plugin</description>
+                <trigger>ON_SEARCH</trigger>
+                <executionInterval>0.0</executionInterval>
+                <maximumNumberOfExecutions>0</maximumNumberOfExecutions>
+            </actions>
+            <actions>
+                <id>15</id>
+                <actionType>USES</actionType>
+                <description>Uses this Search Index Plugin</description>
+                <trigger>ON_SEARCH</trigger>
+                <executionInterval>0.0</executionInterval>
+                <maximumNumberOfExecutions>0</maximumNumberOfExecutions>
+            </actions>
+            <aggregation>
+                <id>Medical_Encounters</id>
+                <name>Medical Encounters</name>
+                <description>Within Maccabi medical record, individual medical encounters are marked by discrete summations of a patient's medical history by a physician, nurse practitioner, or physician assistant and can take several forms.</description>
+                <dataCategory>CLINIC_HISTORY</dataCategory>
+                <format>
+                    <creationTime>2006-08-30T19:00:16.959+02:00</creationTime>
+                    <defaultExtension>.xml</defaultExtension>
+                    <deprecatedTime>2012-05-30T19:00:16.959+02:00</deprecatedTime>
+                    <description>Extensible Markup Language</description>
+                    <id>0</id>
+                    <mimeType>text/xml</mimeType>
+                    <name>XML</name>
+                    <obsolete>false</obsolete>
+                    <version>1.1</version>
+                </format>
+            </aggregation>
+        </aggregationActions>
+        <aggregationActions>
+            <actions>
+                <id>2</id>
+                <actionType>STORAGE</actionType>
+                <description>Storage</description>
+                <startDateTime>2012-02-21T18:00:16.952+01:00</startDateTime>
+                <trigger>ON_INGEST</trigger>
+                <executionInterval>0.0</executionInterval>
+                <maximumNumberOfExecutions>0</maximumNumberOfExecutions>
+            </actions>
+            <actions>
+                <id>4</id>
+                <actionType>FIXITYCHECK</actionType>
+                <description>Fixity Check for medical Images</description>
+                <startDateTime>2012-02-27T18:00:16.969+01:00</startDateTime>
+                <trigger>ON_TIME</trigger>
+                <executionInterval>1.0</executionInterval>
+                <executionIntervalUnit>DAY</executionIntervalUnit>
+                <maximumNumberOfExecutions>0</maximumNumberOfExecutions>
+            </actions>
+            <actions>
+                <id>5</id>
+                <actionType>TRANSFORMATION</actionType>
+                <description>Transformation from DICOM to DICOM reduced accuracy</description>
+                <startDateTime>2012-02-27T18:00:16.969+01:00</startDateTime>
+                <trigger>ON_INGEST</trigger>
+                <executionInterval>2136.0</executionInterval>
+                <executionIntervalUnit>DAY</executionIntervalUnit>
+                <maximumNumberOfExecutions>1</maximumNumberOfExecutions>
+            </actions>
+            <actions>
+                <id>12</id>
+                <actionType>USES</actionType>
+                <description>Uses this template</description>
+                <trigger>ON_INGEST</trigger>
+                <executionInterval>0.0</executionInterval>
+                <maximumNumberOfExecutions>0</maximumNumberOfExecutions>
+            </actions>
+            <actions>
+                <id>13</id>
+                <actionType>USES</actionType>
+                <description>Uses this Base Access Plugin</description>
+                <trigger>ON_ACCESS</trigger>
+                <executionInterval>0.0</executionInterval>
+                <maximumNumberOfExecutions>0</maximumNumberOfExecutions>
+            </actions>
+            <actions>
+                <id>14</id>
+                <actionType>USES</actionType>
+                <description>Uses this Base Access Plugin</description>
+                <trigger>ON_INGEST</trigger>
+                <executionInterval>0.0</executionInterval>
+                <maximumNumberOfExecutions>0</maximumNumberOfExecutions>
+            </actions>
+            <actions>
+                <id>15</id>
+                <actionType>USES</actionType>
+                <description>Uses this Preservation Ontology Plugin</description>
+                <trigger>ON_SEARCH</trigger>
+                <executionInterval>0.0</executionInterval>
+                <maximumNumberOfExecutions>0</maximumNumberOfExecutions>
+            </actions>
+            <actions>
+                <id>15</id>
+                <actionType>USES</actionType>
+                <description>Uses this Search Index Plugin</description>
+                <trigger>ON_SEARCH</trigger>
+                <executionInterval>0.0</executionInterval>
+                <maximumNumberOfExecutions>0</maximumNumberOfExecutions>
+            </actions>
+            <aggregation>
+                <id>Medical_Images</id>
+                <name>Medical Images</name>
+                <description>Within Maccabi medical record, individual radiographies.</description>
+                <dataCategory>RADIOGRAPHY</dataCategory>
+                <format>
+                    <creationTime>2012-02-20T18:00:16.959+01:00</creationTime>
+                    <deprecatedTime>2012-11-02T18:00:16.959+01:00</deprecatedTime>
+                    <description>Digital Imaging and Communication in Medicine</description>
+                    <id>2</id>
+                    <mimeType>application/dicom</mimeType>
+                    <name>DICOM</name>
+                    <obsolete>false</obsolete>
+                    <version>2008</version>
+                </format>
+                <format>
+                    <creationTime>2012-02-20T18:00:16.959+01:00</creationTime>
+                    <deprecatedTime>2012-11-02T18:00:16.959+01:00</deprecatedTime>
+                    <description>Subset of DICOM 2008 + supplement 122 (for specimen) + private Philips attribute</description>
+                    <id>3</id>
+                    <mimeType>application/dicompl</mimeType>
+                    <name>DICOM_PHILIPS</name>
+                    <obsolete>false</obsolete>
+                    <version>2008</version>
+                </format>
+            </aggregation>
+        </aggregationActions>
+    </preservationPlan>
+    <isOwnedBy>
+        <country>
+            <code>ISR</code>
+            <id>376</id>
+            <name>ISRAEL</name>
+        </country>
+        <domain>maccabi-health.co.il</domain>
+        <id>1</id>
+        <name>Maccabi</name>
+        <ownerID>300629125119</ownerID>
+        <VAT>A28240743</VAT>
+    </isOwnedBy>
+    <createdBy>
+        <email>jorge.vaquero@atosresearch.eu</email>
+        <firstName>JORGE</firstName>
+        <id>1</id>
+        <lastName>VAQUERO</lastName>
+        <organisation>
+            <country>
+                <code>ISR</code>
+                <id>376</id>
+                <name>ISRAEL</name>
+            </country>
+            <domain>maccabi-health.co.il</domain>
+            <id>1</id>
+            <name>Maccabi</name>
+            <ownerID>300629125119</ownerID>
+            <VAT>A28240743</VAT>
+        </organisation>
+        <password>ensure</password>
+        <role>
+            <id>1</id>
+            <name>ADMIN</name>
+        </role>
+        <username>jorgevs</username>
+    </createdBy>
+    <previousGPPID>1</previousGPPID>
+</globalPreservationPlan>
+

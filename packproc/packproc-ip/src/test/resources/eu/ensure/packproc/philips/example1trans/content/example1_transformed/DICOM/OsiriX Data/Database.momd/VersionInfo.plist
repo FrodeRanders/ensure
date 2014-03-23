@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NSManagedObjectModel_CurrentVersionName</key>
+	<string>OsiriXDB_DataModel</string>
+	<key>NSManagedObjectModel_VersionHashes</key>
+	<dict>
+		<key>OsiriXDB_DataModel</key>
+		<dict>
+			<key>Album</key>
+			<data>
+			TnBBA0rEnEC9mXaS+jm3KyBi6ZYhKEUro/A5wbGlO9A=
+			</data>
+			<key>Image</key>
+			<data>
+			c4orYmyuPvD8qcyfEKQ1Z8wZSVIlAwDtARbRYT9dw5A=
+			</data>
+			<key>LogEntry</key>
+			<data>
+			M+e8Z2Xz2DShArDu6CeGYuiEfjyJTSGX3I4horG+nVU=
+			</data>
+			<key>Series</key>
+			<data>
+			dd4lhTdZ6FLfTwXwjVTId22Gkqhve3DhkIWWq9lPWVg=
+			</data>
+			<key>Study</key>
+			<data>
+			SBuo2ni5J2dLBHbyY+lggLAgdiUHO6t44pcAuErPz/Q=
+			</data>
+		</dict>
+	</dict>
+</dict>
+</plist>

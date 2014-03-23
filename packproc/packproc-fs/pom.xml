@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>eu.ensure</groupId>
+		<artifactId>package-processor-parent</artifactId>
+		<version>1.0</version>
+	</parent>
+
+	<groupId>eu.ensure</groupId>
+	<artifactId>package-processor-fs</artifactId>
+	<version>1.0</version>
+	
+	<name>Package processing module for file systems</name>
+	<inceptionYear>2011</inceptionYear>
+
+	<dependencies>
+        <dependency>
+            <groupId>eu.ensure</groupId>
+            <artifactId>commons</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>eu.ensure</groupId>
+           	<artifactId>package-processor-core</artifactId>
+           	<version>1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>eu.ensure</groupId>
+           	<artifactId>package-processor-xml</artifactId>
+           	<version>1.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.ws.commons.axiom</groupId>
+            <artifactId>axiom-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.ws.commons.axiom</groupId>
+            <artifactId>axiom-impl</artifactId>
+            <scope>test</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-compress</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+        </dependency>
+	</dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
+
+    <developers>
+        <developer>
+            <id>froran</id>
+            <name>Frode Randers</name>
+            <email>frode.randers@ltu.se</email>
+            <organization>Luleå University of Technology</organization>
+            <organizationUrl>http://www.ltu.se</organizationUrl>
+            <roles>
+                <role>architect</role>
+                <role>developer</role>
+            </roles>
+        </developer>
+    </developers>
+</project>

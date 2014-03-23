@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns:aip-processor="class:eu.ensure.packproc.ip.PackageProcessor"
+               xmlns:xfdu-processor="class:eu.ensure.packproc.ip.XfduProcessor"
+               xmlns:premis-processor="class:eu.ensure.packproc.ip.PremisProcessor"
+               xmlns:rdf-processor="class:eu.ensure.packproc.ip.RdfProcessor"
+			   xmlns:dicom-processor="class:eu.ensure.packproc.dicom.DicomProcessor">
+    
+    <aip-processor:process> <!-- corresponds to the information package itself -->
+
+        <!-- -->
+        <xfdu-processor:process name="manifest.xml">
+		    <extractBitstreamInformation />
+		</xfdu-processor:process>
+		
+        <!-- Provenance information in metadata/premis.xml -->
+        <premis-processor:process name="premis.xml">
+            <extractRepresentationInformation />
+            <extractBitstreamInformation />
+        </premis-processor:process>
+
+        <!-- -->
+        <rdf-processor:process name="rdfMetadata.xml">
+		    <extractBitstreamInformation />
+		</rdf-processor:process>
+
+        <!-- Content specific -->
+        <dicom-processor:process re="[A-Z]+_[0-9]+">
+            <dicom-processor:extractInformation re=".*?"/>
+        </dicom-processor:process>
+
+    </aip-processor:process>
+</configuration>

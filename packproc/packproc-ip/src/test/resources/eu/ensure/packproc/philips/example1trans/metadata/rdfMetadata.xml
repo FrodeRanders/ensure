@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rdf:RDF
+	xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+
+<rdf:Description rdf:about="urn:uuid:25b2d61e-7c81-4484-9b28-401eeb733d5e">
+	<rdf:type rdf:resource="http://aperture.semanticdesktop.org/ontology/2007/08/12/filesystemds#FileSystemDataSource"/>
+	<rdf:type rdf:resource="http://www.ensure.eu/fhg/ibmt/ontologies/ltdpao#ArchivalInformationPackage"/>
+	<aipVersionId xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ltdpao#">MAGIC_AIP_VERSION_ID</aipVersionId>
+	<aipCopyId xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ltdpao#">MAGIC_AIP_COPY_ID</aipCopyId>
+	<aipLogicalId xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ltdpao#">MAGIC_AIP_LOGICAL_ID</aipLogicalId>
+	<aipPath xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ltdpao#">MAGIC_AIP_PATH</aipPath>
+	<hasContentDataObject xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ltdpao#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/">
+	<rdf:type rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Folder"/>
+	<isContentDataObjectOf xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ltdpao#" rdf:resource="urn:uuid:25b2d61e-7c81-4484-9b28-401eeb733d5e"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:uuid:25b2d61e-7c81-4484-9b28-401eeb733d5e">
+	<rootFolder xmlns="http://aperture.semanticdesktop.org/ontology/2007/08/12/filesystemds#">C:\temp\indexer-test-review\philips\dicom\example1trans\content</rootFolder>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/">
+	<rdf:type rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileDataObject"/>
+	<fileLastModified xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2012-02-23T11:08:20.000+01:00</fileLastModified>
+	<fileName xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#">content</fileName>
+	<hasPart xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/">
+	<rdf:type rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileDataObject"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/">
+	<rdf:type rdf:resource="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#DataObject"/>
+	<rootElementOf xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#" rdf:resource="urn:uuid:25b2d61e-7c81-4484-9b28-401eeb733d5e"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/">
+	<fileLastModified xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2012-02-23T11:08:20.000+01:00</fileLastModified>
+	<fileName xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#">example1_transformed</fileName>
+	<belongsToContainer xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/"/>
+	<isPartOf xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/"/>
+	<hasPart xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/">
+	<rdf:type rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileDataObject"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/">
+	<hasPart xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOMDIR"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOMDIR">
+	<rdf:type rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileDataObject"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/">
+	<rdf:type rdf:resource="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#DataObject"/>
+	<rdf:type rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Folder"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/">
+	<fileLastModified xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2012-02-23T11:08:21.000+01:00</fileLastModified>
+	<fileName xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#">DICOM</fileName>
+	<belongsToContainer xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/"/>
+	<isPartOf xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/"/>
+	<hasPart xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/IM_0002"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/IM_0002">
+	<rdf:type rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileDataObject"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/">
+	<hasPart xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/IM_0003"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/IM_0003">
+	<rdf:type rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileDataObject"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/">
+	<hasPart xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/IM_0004"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/IM_0004">
+	<rdf:type rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileDataObject"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/">
+	<hasPart xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/IM_0006"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/IM_0006">
+	<rdf:type rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileDataObject"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/">
+	<hasPart xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/IM_0007"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/IM_0007">
+	<rdf:type rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileDataObject"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/">
+	<hasPart xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/IM_0008"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/IM_0008">
+	<rdf:type rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileDataObject"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/">
+	<hasPart xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/IM_0009"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/IM_0009">
+	<rdf:type rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileDataObject"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/">
+	<hasPart xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/SR_0005"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/SR_0005">
+	<rdf:type rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#FileDataObject"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/">
+	<rdf:type rdf:resource="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#DataObject"/>
+	<rdf:type rdf:resource="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#Folder"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/IM_0002">
+	<fileLastModified xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2012-02-22T14:24:36.000+01:00</fileLastModified>
+	<fileName xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#">IM_0002</fileName>
+	<belongsToContainer xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/"/>
+	<isPartOf xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/"/>
+	<fileSize xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#" rdf:datatype="http://www.w3.org/2001/XMLSchema#long">1897524</fileSize>
+	<rdf:type rdf:resource="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#DataObject"/>
+	<mimeType xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#">application/dicom</mimeType>
+	<rdf:type rdf:resource="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#DICOM_IOD"/>
+	<dataSource xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#" rdf:resource="urn:uuid:25b2d61e-7c81-4484-9b28-401eeb733d5e"/>
+	<belongsToFileset xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/"/>
+	<includesIE xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="urn:uuid:5d6e7603-ed07-43fe-83cc-86ca2a7d1e26"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:uuid:5d6e7603-ed07-43fe-83cc-86ca2a7d1e26">
+	<rdf:type rdf:resource="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#Patient_IE"/>
+	<includesPatientModule xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="urn:uuid:2922054e-aa7c-415d-baee-0b00b5f6e571"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:uuid:2922054e-aa7c-415d-baee-0b00b5f6e571">
+	<attributePatientID xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#">321387707</attributePatientID>
+	<attributePatientName xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#">Larisa Korski</attributePatientName>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/IM_0002">
+	<includesIE xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="urn:uuid:aff6fb3d-deaa-4b35-b369-fb05624ed973"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:uuid:aff6fb3d-deaa-4b35-b369-fb05624ed973">
+	<rdf:type rdf:resource="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#Visit_IE"/>
+	<includesVisitModule xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="urn:uuid:d3bc250a-fb8e-415c-95f2-73b252beb7f5"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:uuid:d3bc250a-fb8e-415c-95f2-73b252beb7f5">
+	<rdf:type rdf:resource="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#Visit_Module"/>
+	<attributeAdmittingDate xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2011-07-30T07:25:08+02:00</attributeAdmittingDate>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/IM_0003">
+	<fileLastModified xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2012-02-22T14:24:36.000+01:00</fileLastModified>
+	<fileName xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#">IM_0003</fileName>
+	<belongsToContainer xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/"/>
+	<isPartOf xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/"/>
+	<fileSize xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#" rdf:datatype="http://www.w3.org/2001/XMLSchema#long">3971844</fileSize>
+	<rdf:type rdf:resource="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#DataObject"/>
+	<mimeType xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#">application/dicom</mimeType>
+	<rdf:type rdf:resource="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#DICOM_IOD"/>
+	<dataSource xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#" rdf:resource="urn:uuid:25b2d61e-7c81-4484-9b28-401eeb733d5e"/>
+	<belongsToFileset xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/"/>
+	<includesIE xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="urn:uuid:365f32f0-6723-458c-95f0-98624f2d846a"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:uuid:365f32f0-6723-458c-95f0-98624f2d846a">
+	<rdf:type rdf:resource="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#Patient_IE"/>
+	<includesPatientModule xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="urn:uuid:ec10c14b-9dca-4602-85ac-c91e2c57d49a"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:uuid:ec10c14b-9dca-4602-85ac-c91e2c57d49a">
+	<attributePatientID xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#">321387707</attributePatientID>
+	<attributePatientName xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#">Larisa Korski</attributePatientName>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/IM_0003">
+	<includesIE xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="urn:uuid:b6f195d5-6733-40d0-831b-413a1f6711e4"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:uuid:b6f195d5-6733-40d0-831b-413a1f6711e4">
+	<rdf:type rdf:resource="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#Visit_IE"/>
+	<includesVisitModule xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="urn:uuid:1c358b9e-b4de-4d25-b417-45e474c10ee7"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:uuid:1c358b9e-b4de-4d25-b417-45e474c10ee7">
+	<rdf:type rdf:resource="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#Visit_Module"/>
+	<attributeAdmittingDate xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2011-07-30T07:25:08+02:00</attributeAdmittingDate>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/IM_0004">
+	<fileLastModified xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2012-02-22T14:24:36.000+01:00</fileLastModified>
+	<fileName xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#">IM_0004</fileName>
+	<belongsToContainer xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/"/>
+	<isPartOf xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/"/>
+	<fileSize xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#" rdf:datatype="http://www.w3.org/2001/XMLSchema#long">198184</fileSize>
+	<rdf:type rdf:resource="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#DataObject"/>
+	<mimeType xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#">application/dicom</mimeType>
+	<rdf:type rdf:resource="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#DICOM_IOD"/>
+	<dataSource xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#" rdf:resource="urn:uuid:25b2d61e-7c81-4484-9b28-401eeb733d5e"/>
+	<belongsToFileset xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/"/>
+	<includesIE xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="urn:uuid:dabee877-d80c-491a-a3b4-fa397f0785cf"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:uuid:dabee877-d80c-491a-a3b4-fa397f0785cf">
+	<rdf:type rdf:resource="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#Patient_IE"/>
+	<includesPatientModule xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="urn:uuid:9869f68e-be2a-4739-a62a-d64343311e2d"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:uuid:9869f68e-be2a-4739-a62a-d64343311e2d">
+	<attributePatientID xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#">321387707</attributePatientID>
+	<attributePatientName xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#">Larisa Korski</attributePatientName>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/IM_0004">
+	<includesIE xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="urn:uuid:dd30ef4d-987a-4af9-accc-17c647058987"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:uuid:dd30ef4d-987a-4af9-accc-17c647058987">
+	<rdf:type rdf:resource="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#Visit_IE"/>
+	<includesVisitModule xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="urn:uuid:45c3c124-d69d-4f9c-851d-78ffb9839226"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:uuid:45c3c124-d69d-4f9c-851d-78ffb9839226">
+	<rdf:type rdf:resource="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#Visit_Module"/>
+	<attributeAdmittingDate xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2011-07-30T07:25:08+02:00</attributeAdmittingDate>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/IM_0006">
+	<fileLastModified xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2012-02-22T14:24:36.000+01:00</fileLastModified>
+	<fileName xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#">IM_0006</fileName>
+	<belongsToContainer xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/"/>
+	<isPartOf xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/"/>
+	<fileSize xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#" rdf:datatype="http://www.w3.org/2001/XMLSchema#long">2059510</fileSize>
+	<rdf:type rdf:resource="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#DataObject"/>
+	<mimeType xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#">application/dicom</mimeType>
+	<rdf:type rdf:resource="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#DICOM_IOD"/>
+	<dataSource xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#" rdf:resource="urn:uuid:25b2d61e-7c81-4484-9b28-401eeb733d5e"/>
+	<belongsToFileset xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/"/>
+	<includesIE xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="urn:uuid:0a66f31f-c878-4949-a3c5-27c22b5adb86"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:uuid:0a66f31f-c878-4949-a3c5-27c22b5adb86">
+	<rdf:type rdf:resource="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#Patient_IE"/>
+	<includesPatientModule xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="urn:uuid:eb1ca5bd-ef65-4f31-81d8-7efa09ed2b45"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:uuid:eb1ca5bd-ef65-4f31-81d8-7efa09ed2b45">
+	<attributePatientID xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#">321387707</attributePatientID>
+	<attributePatientName xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#">Larisa Korski</attributePatientName>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/IM_0006">
+	<includesIE xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="urn:uuid:597808eb-5887-4d02-8f33-de529aef1f9d"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:uuid:597808eb-5887-4d02-8f33-de529aef1f9d">
+	<rdf:type rdf:resource="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#Visit_IE"/>
+	<includesVisitModule xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="urn:uuid:7fd560dc-9554-42fc-b9fd-e92abd8bd1ab"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:uuid:7fd560dc-9554-42fc-b9fd-e92abd8bd1ab">
+	<rdf:type rdf:resource="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#Visit_Module"/>
+	<attributeAdmittingDate xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2011-07-30T07:25:08+02:00</attributeAdmittingDate>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/IM_0007">
+	<fileLastModified xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2012-02-22T14:24:37.000+01:00</fileLastModified>
+	<fileName xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#">IM_0007</fileName>
+	<belongsToContainer xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/"/>
+	<isPartOf xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/"/>
+	<fileSize xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#" rdf:datatype="http://www.w3.org/2001/XMLSchema#long">6638148</fileSize>
+	<rdf:type rdf:resource="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#DataObject"/>
+	<mimeType xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#">application/dicom</mimeType>
+	<rdf:type rdf:resource="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#DICOM_IOD"/>
+	<dataSource xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#" rdf:resource="urn:uuid:25b2d61e-7c81-4484-9b28-401eeb733d5e"/>
+	<belongsToFileset xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/"/>
+	<includesIE xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="urn:uuid:50b3246d-c771-4097-a232-aaeb478875fd"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:uuid:50b3246d-c771-4097-a232-aaeb478875fd">
+	<rdf:type rdf:resource="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#Patient_IE"/>
+	<includesPatientModule xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="urn:uuid:741d18b8-22f4-4b80-9e1a-3db7aae96260"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:uuid:741d18b8-22f4-4b80-9e1a-3db7aae96260">
+	<attributePatientID xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#">321387707</attributePatientID>
+	<attributePatientName xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#">Larisa Korski</attributePatientName>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/IM_0007">
+	<includesIE xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="urn:uuid:6c926e56-66de-4476-9b14-facbd9793004"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:uuid:6c926e56-66de-4476-9b14-facbd9793004">
+	<rdf:type rdf:resource="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#Visit_IE"/>
+	<includesVisitModule xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="urn:uuid:88416840-e0a2-42fa-88bd-a26690c7bf1f"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:uuid:88416840-e0a2-42fa-88bd-a26690c7bf1f">
+	<rdf:type rdf:resource="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#Visit_Module"/>
+	<attributeAdmittingDate xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2011-07-30T07:25:08+02:00</attributeAdmittingDate>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/IM_0008">
+	<fileLastModified xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2012-02-22T14:24:37.000+01:00</fileLastModified>
+	<fileName xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#">IM_0008</fileName>
+	<belongsToContainer xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/"/>
+	<isPartOf xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/"/>
+	<fileSize xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#" rdf:datatype="http://www.w3.org/2001/XMLSchema#long">7629472</fileSize>
+	<rdf:type rdf:resource="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#DataObject"/>
+	<mimeType xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#">application/dicom</mimeType>
+	<rdf:type rdf:resource="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#DICOM_IOD"/>
+	<dataSource xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#" rdf:resource="urn:uuid:25b2d61e-7c81-4484-9b28-401eeb733d5e"/>
+	<belongsToFileset xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/"/>
+	<includesIE xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="urn:uuid:1fde566b-0917-4f88-a838-c2d77f62579e"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:uuid:1fde566b-0917-4f88-a838-c2d77f62579e">
+	<rdf:type rdf:resource="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#Patient_IE"/>
+	<includesPatientModule xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="urn:uuid:0a583fe1-2374-4d52-9dd3-99669d1483be"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:uuid:0a583fe1-2374-4d52-9dd3-99669d1483be">
+	<attributePatientID xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#">321387707</attributePatientID>
+	<attributePatientName xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#">Larisa Korski</attributePatientName>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/IM_0008">
+	<includesIE xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="urn:uuid:8bdae5ef-43dc-4206-a95d-cb0d1f1786af"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:uuid:8bdae5ef-43dc-4206-a95d-cb0d1f1786af">
+	<rdf:type rdf:resource="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#Visit_IE"/>
+	<includesVisitModule xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="urn:uuid:175e3d5a-5604-43ac-a9cc-0f79b1478d89"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:uuid:175e3d5a-5604-43ac-a9cc-0f79b1478d89">
+	<rdf:type rdf:resource="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#Visit_Module"/>
+	<attributeAdmittingDate xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2011-07-30T07:25:08+02:00</attributeAdmittingDate>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/IM_0009">
+	<fileLastModified xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2012-02-22T14:24:37.000+01:00</fileLastModified>
+	<fileName xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#">IM_0009</fileName>
+	<belongsToContainer xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/"/>
+	<isPartOf xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/"/>
+	<fileSize xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#" rdf:datatype="http://www.w3.org/2001/XMLSchema#long">5701418</fileSize>
+	<rdf:type rdf:resource="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#DataObject"/>
+	<mimeType xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#">application/dicom</mimeType>
+	<rdf:type rdf:resource="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#DICOM_IOD"/>
+	<dataSource xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#" rdf:resource="urn:uuid:25b2d61e-7c81-4484-9b28-401eeb733d5e"/>
+	<belongsToFileset xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/"/>
+	<includesIE xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="urn:uuid:d3b3626d-c184-4282-8961-4722c7a81b10"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:uuid:d3b3626d-c184-4282-8961-4722c7a81b10">
+	<rdf:type rdf:resource="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#Patient_IE"/>
+	<includesPatientModule xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="urn:uuid:a67bf260-baf9-4743-9abf-5e6fd66b28a0"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:uuid:a67bf260-baf9-4743-9abf-5e6fd66b28a0">
+	<attributePatientID xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#">321387707</attributePatientID>
+	<attributePatientName xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#">Larisa Korski</attributePatientName>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/IM_0009">
+	<includesIE xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="urn:uuid:14d31093-36a1-4989-bd53-d76b4d67f7d3"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:uuid:14d31093-36a1-4989-bd53-d76b4d67f7d3">
+	<rdf:type rdf:resource="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#Visit_IE"/>
+	<includesVisitModule xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="urn:uuid:ac2d720c-58fa-4b8a-8c9e-22307ce489e9"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:uuid:ac2d720c-58fa-4b8a-8c9e-22307ce489e9">
+	<rdf:type rdf:resource="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#Visit_Module"/>
+	<attributeAdmittingDate xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2011-07-30T07:25:08+02:00</attributeAdmittingDate>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/SR_0005">
+	<fileLastModified xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2012-02-22T14:24:36.000+01:00</fileLastModified>
+	<fileName xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#">SR_0005</fileName>
+	<belongsToContainer xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/"/>
+	<isPartOf xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/"/>
+	<fileSize xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#" rdf:datatype="http://www.w3.org/2001/XMLSchema#long">12932</fileSize>
+	<rdf:type rdf:resource="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#DataObject"/>
+	<mimeType xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#">application/dicom</mimeType>
+	<rdf:type rdf:resource="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#DICOM_IOD"/>
+	<dataSource xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#" rdf:resource="urn:uuid:25b2d61e-7c81-4484-9b28-401eeb733d5e"/>
+	<belongsToFileset xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/"/>
+	<includesIE xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="urn:uuid:d8821c68-09d6-4683-bd35-042dce93f359"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:uuid:d8821c68-09d6-4683-bd35-042dce93f359">
+	<rdf:type rdf:resource="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#Patient_IE"/>
+	<includesPatientModule xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="urn:uuid:a86b75fc-8d53-468c-86a7-f627f0ef15b7"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:uuid:a86b75fc-8d53-468c-86a7-f627f0ef15b7">
+	<attributePatientID xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#">321387707</attributePatientID>
+	<attributePatientName xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#">Larisa Korski</attributePatientName>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOM/SR_0005">
+	<includesIE xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="urn:uuid:72d86887-548d-40ea-807f-d6383440729b"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:uuid:72d86887-548d-40ea-807f-d6383440729b">
+	<rdf:type rdf:resource="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#Visit_IE"/>
+	<includesVisitModule xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="urn:uuid:28502b06-7aaa-4fa4-9775-1ebade675523"/>
+</rdf:Description>
+
+<rdf:Description rdf:about="urn:uuid:28502b06-7aaa-4fa4-9775-1ebade675523">
+	<rdf:type rdf:resource="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#Visit_Module"/>
+	<attributeAdmittingDate xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2011-07-30T07:25:38+02:00</attributeAdmittingDate>
+</rdf:Description>
+
+<rdf:Description rdf:about="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/DICOMDIR">
+	<fileLastModified xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#" rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime">2012-02-22T14:24:36.000+01:00</fileLastModified>
+	<fileName xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#">DICOMDIR</fileName>
+	<belongsToContainer xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/"/>
+	<isPartOf xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/"/>
+	<fileSize xmlns="http://www.semanticdesktop.org/ontologies/2007/03/22/nfo#" rdf:datatype="http://www.w3.org/2001/XMLSchema#long">4464</fileSize>
+	<rdf:type rdf:resource="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#DataObject"/>
+	<mimeType xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#">application/dicom</mimeType>
+	<rdf:type rdf:resource="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#DICOM_DIR"/>
+	<dataSource xmlns="http://www.semanticdesktop.org/ontologies/2007/01/19/nie#" rdf:resource="urn:uuid:25b2d61e-7c81-4484-9b28-401eeb733d5e"/>
+	<describesFileset xmlns="http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#" rdf:resource="file:/C:/temp/indexer-test-review/philips/dicom/example1trans/content/example1_transformed/"/>
+</rdf:Description>
+
+</rdf:RDF>

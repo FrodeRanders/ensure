@@ -1,0 +1,68 @@
+package eu.ensure.packproc.ip;
+
+import eu.ensure.packproc.model.StructureInputStream;
+import org.apache.commons.compress.archivers.ArchiveInputStream;
+
+import java.io.IOException;
+
+public class PackageInputStream extends StructureInputStream<PackageEntry> {
+
+	private ArchiveInputStream inputStream = null;
+
+    public PackageInputStream(ArchiveInputStream ais) throws IllegalArgumentException {
+		if (null == ais) {
+			throw new IllegalArgumentException("can not operate on null input stream");
+		}
+        inputStream = ais;
+    }
+
+    /*
+     * StructureInputStream methods
+     */
+    public PackageEntry getNextEntry() throws IOException {
+        return new PackageEntry(inputStream.getNextEntry());
+    }
+
+    public void closeEntry() throws IOException {
+        inputStream.close(); // may not be right
+    }
+
+    /*
+     * Standard InputStream methods
+     */
+    public int available() throws IOException {
+		return inputStream.available();
+    }
+
+    public void close() throws IOException {
+        inputStream.close();
+    }
+
+    public int read() throws IOException {
+        return inputStream.read();
+    }
+
+    public int read(byte[] b, int off, int len) throws IOException {
+        return inputStream.read(b, off, len);
+    }
+
+    public long skip(long n) throws IOException {
+        return inputStream.skip(n);
+    }
+
+    public int read(byte[] b) throws IOException {
+        return inputStream.read(b);
+    }
+
+    public boolean markSupported() {
+        return inputStream.markSupported();
+    }
+
+    public void mark(int readLimit) {
+        inputStream.mark(readLimit);
+    }
+
+    public void reset() throws IOException {
+        inputStream.reset();
+    }
+}
