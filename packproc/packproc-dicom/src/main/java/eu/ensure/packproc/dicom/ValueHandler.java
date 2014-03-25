@@ -356,7 +356,7 @@ public class ValueHandler {
                         for (String part : parts) {
                             list.add(Double.parseDouble(part));
                         }
-                        return new ReturnValue(list.toArray(TEMPLATE_DOUBLE_ARRAY));
+                        return new ReturnValue(list.toArray(new Double[list.size()]));
                     }
                     else {
                         return new ReturnValue(new Double[] { Double.parseDouble(s) });
@@ -404,7 +404,7 @@ public class ValueHandler {
                                 float v = byteBuf.getFloat();
                                 ary.add(v);
                             }
-                            return new ReturnValue(ary.toArray(TEMPLATE_FLOAT_ARRAY));
+                            return new ReturnValue(ary.toArray(new Float[ary.size()]));
                         } else {
                             float v = byteBuf.getFloat();
                             return new ReturnValue(v);
@@ -661,7 +661,7 @@ public class ValueHandler {
 
                 context.updateState(DicomDictionary.element2Tag(element), s);
 
-                if (null != s && !element.vr().isSingleValue(s)) {
+                if (!element.vr().isSingleValue(s)) {
                     String[] parts = s.split("\\\\");
                     return new ReturnValue(parts);
                 }
@@ -1068,20 +1068,11 @@ public class ValueHandler {
     public static String getTagInfo(DicomElement element) {
         String tag = DicomDictionary.element2Tag(element);
 
-        StringBuilder sb = new StringBuilder();
-        sb.append(tag).append(DicomDictionary.tagIsPrivate(tag) ? "p" : " ")
-          .append(" (").append(DicomDictionary.tag2Name(element)).append(") ")
-          .append(element.vr().toString())
-          .append(" [").append(element.length()).append("]").append(": ");
-        return sb.toString();
+        return tag + (DicomDictionary.tagIsPrivate(tag) ? "p" : " ") + " (" + DicomDictionary.tag2Name(element) + ") " + element.vr().toString() + " [" + element.length() + "]" + ": ";
     }
 
     public static String getTagInfo(String tag) {
-        StringBuilder sb = new StringBuilder();
-        sb.append(tag).append(DicomDictionary.tagIsPrivate(tag) ? "p" : " ")
-          .append(" (").append(DicomDictionary.tag2Name(tag)).append(") ");
-        sb.append(": ");
-        return sb.toString();
+        return tag + (DicomDictionary.tagIsPrivate(tag) ? "p" : " ") + " (" + DicomDictionary.tag2Name(tag) + ") " + ": ";
     }
 
     public static String indentDepth(DicomProcessorContext context) {

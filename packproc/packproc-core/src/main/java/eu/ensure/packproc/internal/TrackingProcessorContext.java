@@ -103,11 +103,11 @@ public class TrackingProcessorContext implements ProcessorContext {
     public int getDepth(String className) {
         int depth = 0;
 
-        ProcessorContext[] ary = getContextStack().toArray(new ProcessorContext[] {});
+        Collection<ProcessorContext> var = getContextStack();
+        ProcessorContext[] ary = var.toArray(new ProcessorContext[var.size()]);
         for (int i=ary.length-1; i >= 0; i--) {
             if (ary[i].getClass().getCanonicalName().equals(className)) {
                 ++depth;
-                continue;
             }
         }
         return depth;

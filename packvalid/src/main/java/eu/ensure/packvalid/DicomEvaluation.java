@@ -158,7 +158,8 @@ public class DicomEvaluation {
             throw new ProcessorException(info);
         }
 
-        String uniqueValue = (value.keySet().toArray(new String[] {}))[0];
+        Set<String> var = value.keySet();
+        String uniqueValue = (var.toArray(new String[var.size()]))[0];
         if (null == uniqueValue || uniqueValue.length() == 0) {
             String info = "Unexpectedly found empty value associated with key \"" + key + "\"";
             throw new ProcessorException(info);

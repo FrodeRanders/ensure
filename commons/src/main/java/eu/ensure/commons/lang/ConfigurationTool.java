@@ -118,7 +118,7 @@ public class ConfigurationTool {
 
     private ConfigurationTool() {} // may not be instantiated by user
 
-    private static Object lock = new Object();
+    private static final Object lock = new Object();
     private static Properties globalProperties = null; // if provided
 
     @SuppressWarnings("unchecked")

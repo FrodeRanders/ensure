@@ -25,6 +25,7 @@
  */
 package eu.ensure.packproc;
 
+import eu.ensure.commons.io.Closer;
 import eu.ensure.commons.lang.LoggingUtils;
 import eu.ensure.commons.lang.Stacktrace;
 import eu.ensure.packproc.internal.TrackingProcessorContext;
@@ -70,11 +71,10 @@ public class ProcessingTest extends TestCase {
                 info += "\n" + Stacktrace.asString(cause);
                 log.warn(info);
 
+                throw pe;
+
             } finally {
-                try {
-                    if (null != config) config.close();
-                } catch (Throwable ignore) {
-                }
+                Closer.close(config);
             }
 
             File cwd = new File(System.getProperty("user.dir"));

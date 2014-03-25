@@ -93,18 +93,11 @@ public class GeneralizedConfigurationInvocationHandler implements InvocationHand
                     return value;
                 }
                 else {
-                    StringBuilder info = new StringBuilder("Could not treat return value of ");
-                    info.append(method.getName())
-                        .append(" as \'")
-                        .append(targetType.getName())
-                        .append("' when in fact it was '")
-                        .append(value.getClass().getName())
-                        .append("'");
-                    throw new RuntimeException(info.toString());
+                    throw new RuntimeException("Could not treat return value of " + method.getName() + " as \'" + targetType.getName() + "' when in fact it was '" + value.getClass().getName() + "'");
                 }
             }
         }
-        if (null == value && targetType.isAssignableFrom(String.class)) {
+        if (targetType.isAssignableFrom(String.class)) {
             // No configured value for this key - fall back on default value (if it is a String)
             return binding.value().trim();
         }

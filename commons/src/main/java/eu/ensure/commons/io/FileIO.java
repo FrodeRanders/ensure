@@ -215,11 +215,14 @@ public class FileIO {
             return true; // by definition
 
         if (d.isDirectory()) {
-            for (File f : d.listFiles()) {
-                if (f.isDirectory()) {
-                    delete(f);
-                } else {
-                    f.delete();
+            File[] files = d.listFiles(); // and directories
+            if (null != files) {
+                for (File f : files) {
+                    if (f.isDirectory()) {
+                        delete(f);
+                    } else {
+                        f.delete();
+                    }
                 }
             }
         }

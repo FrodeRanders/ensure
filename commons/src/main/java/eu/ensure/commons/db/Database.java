@@ -247,7 +247,7 @@ public class Database {
                     log.info("Database deadlock has occurred during execute, trying again");
                     try {
                         Thread.sleep(DEADLOCK_SLEEP_TIME);
-                    } catch (Exception e) {
+                    } catch (Exception ignore) {
                     }
                 } else /* other SQLException */ {
                     throw se;
@@ -282,7 +282,7 @@ public class Database {
                     log.info("Database deadlock has occurred during executeQuery, trying again");
                     try {
                         Thread.sleep(DEADLOCK_SLEEP_TIME);
-                    } catch (Exception e) {
+                    } catch (Exception ignore) {
                     }
                 } else /* other SQLException */ {
                     throw se;
@@ -314,7 +314,7 @@ public class Database {
                     log.info("Database deadlock has occurred during executeUpdate, trying again");
                     try {
                         Thread.sleep(DEADLOCK_SLEEP_TIME);
-                    } catch (Exception e) {
+                    } catch (Exception ignore) {
                     }
                 } else /* other SQLException */ {
                     throw se;

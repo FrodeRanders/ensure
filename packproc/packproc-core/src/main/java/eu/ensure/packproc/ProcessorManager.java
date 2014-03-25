@@ -76,7 +76,7 @@ public class ProcessorManager {
             StAXOMBuilder builder = new StAXOMBuilder(reader);
             configuration = builder.getDocumentElement(); // <configuration />
 
-            if (!isValid(configuration)) {
+            if (isInvalid(configuration)) {
                 log.error("The configuration is invalid");
             }
         } catch (XMLStreamException se) {
@@ -243,11 +243,7 @@ public class ProcessorManager {
 
         if (log.isDebugEnabled())
         {
-            StringBuilder buf = new StringBuilder();
-            buf.append("Loaded configuration for ");
-            buf.append(namespace.getPrefix()).append(":").append(element.getLocalName());
-            buf.append(" --> ").append(processor);
-            log.debug(buf.toString());
+            log.debug("Loaded configuration for " + namespace.getPrefix() + ":" + element.getLocalName() + " --> " + processor);
         }
         return processor;
     }
@@ -320,14 +316,14 @@ public class ProcessorManager {
         return trimmedTxt;
     }
 
-    private boolean isValid(OMElement element) {
+    private boolean isInvalid(OMElement element) {
         for (Iterator<OMElement> i = element.getChildElements(); i.hasNext(); ) {
             OMElement e = i.next();
-            if (!isValid(e)) {
-                return false;
+            if (isInvalid(e)) {
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
     public void apply(String name, InputStream inputStream, OutputStream outputStream, ProcessorContext context)
@@ -430,9 +426,7 @@ public class ProcessorManager {
             throws ClassNotFoundException, IOException, ProcessorException
     {
         if (log.isDebugEnabled()) {
-            StringBuilder buf = new StringBuilder();
-            buf.append("Processing ").append(processor.getAlias()).append(":").append(method);
-            log.debug(buf.toString());
+            log.debug("Processing " + processor.getAlias() + ":" + method);
         }
 
         // Locate method (name matching current element name) and call. We have to explicitly
@@ -467,9 +461,7 @@ public class ProcessorManager {
             throws ClassNotFoundException, IOException, ProcessorException
     {
         if (log.isDebugEnabled()) {
-            StringBuilder buf = new StringBuilder();
-            buf.append("Processing ").append(processor.getAlias()).append(":").append(method);
-            log.debug(buf.toString());
+            log.debug("Processing " + processor.getAlias() + ":" + method);
         }
 
         // Locate method (name matching current element name) and call. We have to explicitly
@@ -518,9 +510,7 @@ public class ProcessorManager {
             throws ClassNotFoundException, IOException, ProcessorException
     {
         if (log.isDebugEnabled()) {
-            StringBuilder buf = new StringBuilder();
-            buf.append("Processing ").append(processor.getAlias()).append(":").append(method);
-            log.debug(buf.toString());
+            log.debug("Processing " + processor.getAlias() + ":" + method);
         }
 
         // Locate method (name matching current element name) and call. We have to explicitly

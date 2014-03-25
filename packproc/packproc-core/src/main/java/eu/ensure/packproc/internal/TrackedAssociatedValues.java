@@ -40,8 +40,7 @@ import java.util.Set;
  */
 public class TrackedAssociatedValues extends AssociatedValues {
 
-    private Map</* value */ String, /* claimants */ Set<String>> values =
-            new HashMap</* value */ String, /* claimants */ Set<String>>();
+    private Map</* value */ String, /* claimants */ Set<String>> values = new HashMap</* value */ String, /* claimants */ Set<String>>();
 
     public Set<String> getValues() {
         return values.keySet();

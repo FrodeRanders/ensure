@@ -66,9 +66,9 @@ public class MultiDigestInputStream extends FilterInputStream {
             digestList.add(MessageDigest.getInstance("MD5"));
             digestList.add(MessageDigest.getInstance("SHA-1"));
             digestList.add(MessageDigest.getInstance("SHA-512"));
-        } catch (NoSuchAlgorithmException nsae) {
+        } catch (NoSuchAlgorithmException ignore) {
         }
-        digests = digestList.toArray(DIGEST_ARRAY_TEMPLATE); // may be empty if exception
+        digests = digestList.toArray(new MessageDigest[digestList.size()]); // may be empty if exception
     }
 
     /**
@@ -86,11 +86,11 @@ public class MultiDigestInputStream extends FilterInputStream {
             } else {
                 try {
                     digestList.add(MessageDigest.getInstance(algorithm));
-                } catch (NoSuchAlgorithmException nsae) {
+                } catch (NoSuchAlgorithmException ignore) {
                 }
             }
         }
-        digests = digestList.toArray(DIGEST_ARRAY_TEMPLATE); // may be empty if exception
+        digests = digestList.toArray(new MessageDigest[digestList.size()]); // may be empty if exception
     }
 
 

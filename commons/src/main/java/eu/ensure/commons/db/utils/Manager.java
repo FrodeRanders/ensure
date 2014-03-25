@@ -290,10 +290,7 @@ public abstract class Manager {
             String info = "Giving up on deadlock after 20 retries";
             System.out.println(info);
 
-            if (null != last)
-                throw last;
-            else
-                throw new SQLException(info);
+            throw last;
 
         } catch (SQLException sqle) {
             if (!acceptFailure) {

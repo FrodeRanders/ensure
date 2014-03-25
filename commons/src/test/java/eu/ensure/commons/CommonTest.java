@@ -23,7 +23,7 @@
  * and remains the copyright holder of this material due to the
  * Teachers Exemption expressed in Swedish law (LAU 1949:345)
  */
-package  eu.ensure.commons;
+package eu.ensure.commons;
 
 import eu.ensure.commons.statistics.MovingAverage;
 import junit.framework.TestCase;
@@ -89,27 +89,27 @@ public class CommonTest extends TestCase {
                 if (null != config) config.close();
             }
         } catch (Exception e) {
+            System.err.println(e);
         }
     }
 
     @Test
     public void testProviders() {
         try {
-          Provider p[] = Security.getProviders();
-          for (int i = 0; i < p.length; i++) {
-              System.out.println("Provider: " + p[i]);
-              for (Enumeration e = p[i].keys(); e.hasMoreElements();) {
-                  Object key = e.nextElement();
-                  if (key.toString().startsWith("MessageDigest")) {
-                      System.out.println("  * " + key);
-                  }
-                  else {
-                      System.out.println("    " + key);
-                  }
-              }
-          }
+            Provider p[] = Security.getProviders();
+            for (int i = 0; i < p.length; i++) {
+                System.out.println("Provider: " + p[i]);
+                for (Enumeration e = p[i].keys(); e.hasMoreElements(); ) {
+                    Object key = e.nextElement();
+                    if (key.toString().startsWith("MessageDigest")) {
+                        System.out.println("  * " + key);
+                    } else {
+                        System.out.println("    " + key);
+                    }
+                }
+            }
         } catch (Exception e) {
-          System.out.println(e);
+            System.err.println(e);
         }
     }
 
@@ -117,7 +117,7 @@ public class CommonTest extends TestCase {
     public void testTimeDelta() {
         System.out.println("\nTesting human readable time periods (millisecs to text):");
 
-        long halfASecond = 500; 
+        long halfASecond = 500;
         System.out.println("500 ms -> " + TimeDelta.asHumanApproximate(BigInteger.valueOf(halfASecond)));
 
         long oneAndAHalfSecond = 1500;
@@ -155,7 +155,7 @@ public class CommonTest extends TestCase {
                 ma1.update(i); // cast
             }
 
-            assertEquals(((double) sum)/i, ma1.getAverage());
+            assertEquals(((double) sum) / i, ma1.getAverage());
             assertEquals(i, ma1.getCount());
         }
         {
@@ -187,7 +187,7 @@ public class CommonTest extends TestCase {
                 sum += sample;
             }
 
-            assertEquals(sum/i, ma3.getAverage(), /* acceptable delta */ 1E-15);
+            assertEquals(sum / i, ma3.getAverage(), /* acceptable delta */ 1E-15);
             assertEquals(i, ma3.getCount());
         }
     }

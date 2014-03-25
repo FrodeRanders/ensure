@@ -105,9 +105,7 @@ public class PropertiesConfigurationInvocationHandler implements InvocationHandl
             try {
                 return Integer.parseInt(value);
             } catch (NumberFormatException nfe) {
-                StringBuilder info = new StringBuilder("Could not treat return value of ");
-                info.append(name).append(" as integer.");
-                throw new RuntimeException(info.toString());
+                throw new RuntimeException("Could not treat return value of " + name + " as integer.");
             }
         } else if (targetType.isAssignableFrom(Boolean.class) || targetType.isAssignableFrom(boolean.class)) {
             return value.equalsIgnoreCase("true");

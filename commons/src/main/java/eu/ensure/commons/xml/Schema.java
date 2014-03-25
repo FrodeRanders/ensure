@@ -104,9 +104,6 @@ public class Schema {
         catch (IOException ioe) {
             return false;
         }
-        finally {
-
-        }
     }
 
     private javax.xml.validation.Schema createSchema() throws SAXException {
