@@ -27,6 +27,7 @@ package  eu.ensure.commons.lang;
 
 import eu.ensure.commons.lang.configuration.GeneralizedConfigurationInvocationHandler;
 import eu.ensure.commons.lang.configuration.PropertiesConfigurationInvocationHandler;
+import eu.ensure.commons.io.Closer;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -196,7 +197,7 @@ public class ConfigurationTool {
             is = new FileInputStream(propertiesFile);
             return load(is, isXML(propertiesFile));
         } finally {
-            if (null != is) is.close();
+            Closer.close(is);
         }
     }
 
@@ -210,7 +211,7 @@ public class ConfigurationTool {
             is = clazz.getResourceAsStream(resourceName);
             return load(is, isXML(resourceName));
         } finally {
-            if (null != is) is.close();
+            Closer.close(is);
         }
     }
 

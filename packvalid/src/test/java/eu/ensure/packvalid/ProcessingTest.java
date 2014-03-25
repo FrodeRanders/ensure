@@ -98,7 +98,7 @@ public class ProcessingTest extends TestCase {
     public void testAIPProcessing() {
         InputStream testPackage = null;
         try {
-            Year1Evaluation demoYear1 = new Year1Evaluation(getClass(), "test-configuration.xml");
+            DicomEvaluation evaluator = new DicomEvaluation(getClass(), "test-configuration.xml");
 
             //
             String aipName = "philips/aipexample1.tar";
@@ -108,7 +108,7 @@ public class ProcessingTest extends TestCase {
             }
 
             Collection<? extends AssociatedInformation> assocInfo1;
-            assocInfo1 = demoYear1.evaluateAip("test", aipName, testPackage);
+            assocInfo1 = evaluator.evaluateAip("test", aipName, testPackage);
             testPackage.close();
 
             //
@@ -118,11 +118,11 @@ public class ProcessingTest extends TestCase {
                 log.info("### Processing " + aipName);
             }
             Collection<? extends AssociatedInformation> assocInfo2;
-            assocInfo2 = demoYear1.evaluateAip("test", aipName, testPackage);
+            assocInfo2 = evaluator.evaluateAip("test", aipName, testPackage);
             testPackage.close();
             testPackage = null;
 
-            demoYear1.evaluateDelta("test", assocInfo1, assocInfo2);
+            evaluator.evaluateDelta("test", assocInfo1, assocInfo2);
 
             Collection<EvaluationStatement> evaluationStatements = TrackingProcessorContext.extractEvaluationStatements();
             TrackingProcessorContext.debugEvaluationStatements(evaluationStatements);
