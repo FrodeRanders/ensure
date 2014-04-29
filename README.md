@@ -36,6 +36,8 @@ The latter component assumes a structure of a preservation plan as laid out
 
 The former component does have implicit support for processing DICOM images packaged using the [XFDU](http://www.dcc.ac.uk/resources/external/xml-formatted-data-unit-xfdu) format, but it is in fact much more general. Among the examples are processing files in a file system (where the file system may be considered being the package) ([code](./packproc/packproc-fs/src/test/java/eu/ensure/packproc/ProcessingTest.java) and [configuration](./packproc/packproc-fs/src/test/resources/eu/ensure/packproc/filesystem-processing-configuration.xml)), processing files in TAR (which often is used as the wrapping file format for information packages in a preservation context) or ZIP files.
 
+A more elaborate example is processing two Archival Information Packages (AIPs) - before and after having applied a transformation on the contents of the AIP (in this case replacing a large digital pathology image with a smaller thumbnail and several full fidelity cut-outs corresponding to Regions of Interest in the original) - looking for DICOM files and validating the patient information (in those files) with the finding aid metadata (kept in metadata/rdfMetadata.xml) in each AIP, but also validating that the transformation of the one into the other did not destroy patient and study information  ([code](./packvalid/src/test/java/eu/ensure/packvalid/ProcessingTest.java) and [configuration](./packvalid/src/test/resources/eu/ensure/packvalid/test-configuration.xml)).
+
 Maven is used for managing external dependencies and building (and testing) the software, which facilitates building the software stand alone as well as importing the software into your favourite IDE.  
 
 
