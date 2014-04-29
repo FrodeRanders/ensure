@@ -54,7 +54,7 @@ public class JndiConfigurationResolver implements ConfigurationTool.Configuratio
     public Object resolve(String name) {
         try {
             if (name.contains("/")) {
-                // Handles things like "jdbc/..." typically at "jdbc:jdbc/..."
+                // Handles things like "jdbc/..."
                 Context ctx = new InitialContext();
                 Object value = ctx.lookup(name);
 
@@ -65,7 +65,7 @@ public class JndiConfigurationResolver implements ConfigurationTool.Configuratio
                 return value;
 
             } else {
-                // Handles the rest typically at "jdbc:comp/env/..."
+                // Handles the rest typically at "java:comp/env/..."
                 Context ctx = (Context) new InitialContext().lookup(jndiEnvironment);
                 Object value = ctx.lookup(name);
 

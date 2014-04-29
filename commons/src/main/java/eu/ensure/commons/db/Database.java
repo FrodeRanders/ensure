@@ -136,28 +136,6 @@ public class Database {
      */
     public static DataSource getDataSource(Configuration config) throws DatabaseException {
 
-        /*
-         * Check configuration for plausibility - even though we don't need all this right now.
-         */
-        String user = config.user();
-        if (null == user) {
-            throw new DatabaseException("Could not determine user name (user)");
-        }
-        user = user.trim();
-
-        String password = config.password();
-        if (null == password) {
-            throw new DatabaseException("Could not determine user password (password)");
-        }
-        password = password.trim();
-
-        // Name of database
-        String database = config.database();
-        if (null == database) {
-            throw new DatabaseException("Could not determine database name (database)");
-        }
-        database = database.trim();
-
         // Class implementing the DataSource
         String driver = config.driver();
         if (null == driver) {
@@ -169,7 +147,9 @@ public class Database {
         try {
             return createDataSource(driver, loadDataSource(driver));
         } catch (ClassNotFoundException cnfe) {
-            throw new DatabaseException(cnfe);
+            String info = "Could not instantiate DataSource: ";
+            info += cnfe.getMessage();
+            throw new DatabaseException(info, cnfe);
         }
     }
 
@@ -193,9 +173,9 @@ public class Database {
      */
     public static String squeeze(SQLException sqle) {
         SQLException e = sqle;
-        StringBuffer buf = new StringBuffer();
+        StringBuilder buf = new StringBuilder();
         while (e != null) {
-            buf.append("Exception [");
+            buf.append(sqle.getClass().getSimpleName() + " [");
             buf.append(e.getMessage());
             buf.append("], SQLstate(");
             buf.append(e.getSQLState());
@@ -212,9 +192,9 @@ public class Database {
      */
     public static String squeeze(SQLWarning sqlw) {
         SQLWarning w = sqlw;
-        StringBuffer buf = new StringBuffer();
+        StringBuilder buf = new StringBuilder();
         while (w != null) {
-            buf.append("Warning [");
+            buf.append(sqlw.getClass().getSimpleName() + " [");
             buf.append(w.getMessage());
             buf.append("], SQLstate(");
             buf.append(w.getSQLState());
@@ -226,14 +206,25 @@ public class Database {
         return buf.toString();
     }
 
-    /**
-     * Generic execute()
-     */
+    //
     private interface ExecutableCall {
         boolean execute() throws SQLException;
     }
 
-    private static boolean execute(ExecutableCall call) throws SQLException {
+    private interface QueryCall {
+        ResultSet query() throws SQLException;
+    }
+
+    private interface UpdateCall {
+        int update() throws SQLException;
+    }
+
+
+
+    /**
+     * Wraps an execute in deadlock detection
+     */
+    private static boolean executeWithDD(ExecutableCall call) throws SQLException {
         SQLException sqle = null;
         int i = DEADLOCK_MAX_RETRIES;
         do {
@@ -244,7 +235,7 @@ public class Database {
                 sqle = se;
                 // Is SQLException a deadlock? (40001)
                 if (se.getSQLState() != null && se.getSQLState().startsWith("40")) {
-                    log.info("Database deadlock has occurred during execute, trying again");
+                    log.info("Database deadlock has occurred during executeWithDD, trying again");
                     try {
                         Thread.sleep(DEADLOCK_SLEEP_TIME);
                     } catch (Exception ignore) {
@@ -254,7 +245,7 @@ public class Database {
                 }
             }
             if (log.isDebugEnabled()) {
-                log.debug("execute, retries=" + i);
+                log.debug("Execute, retries=" + i);
             }
         } while (--i > 0);
         log.error("Giving up deadlock retry");
@@ -262,13 +253,9 @@ public class Database {
     }
 
     /**
-     * Generic query()
+     * Wraps a query in deadlock detection
      */
-    private interface QueryCall {
-        ResultSet query() throws SQLException;
-    }
-
-    private static ResultSet query(QueryCall call) throws SQLException {
+    private static ResultSet queryWithDD(QueryCall call) throws SQLException {
         SQLException sqle = null;
         int i = DEADLOCK_MAX_RETRIES;
         do {
@@ -294,13 +281,9 @@ public class Database {
     }
 
     /**
-     * Generic update()
+     * Wraps an update in deadlock detection
      */
-    private interface UpdateCall {
-        int update() throws SQLException;
-    }
-
-    private static int update(UpdateCall call) throws SQLException {
+    private static int updateWithDD(UpdateCall call) throws SQLException {
         SQLException sqle = null;
         int i = DEADLOCK_MAX_RETRIES;
         do {
@@ -321,7 +304,7 @@ public class Database {
                 }
             }
             if (log.isDebugEnabled()) {
-                log.debug("executeUpdate, retries=" + i);
+                log.debug("Update, retries=" + i);
             }
         } while (--i > 0);
         log.error("Giving up deadlock retry");
@@ -333,7 +316,7 @@ public class Database {
      * detection and statement reruns.
      */
     public static void executeBatch(final Statement stmt) throws SQLException {
-        execute(new ExecutableCall() {
+        executeWithDD(new ExecutableCall() {
             @Override
             public boolean execute() throws SQLException {
                 int[] results = stmt.executeBatch();
@@ -350,11 +333,11 @@ public class Database {
     }
 
     /**
-     * Manages call to Statement.execute(), providing support for deadlock
+     * Manages call to Statement.executeWithDD(), providing support for deadlock
      * detection and statement reruns.
      */
     public static boolean execute(final Statement stmt, final String sql) throws SQLException {
-        return execute(new ExecutableCall() {
+        return executeWithDD(new ExecutableCall() {
             @Override
             public boolean execute() throws SQLException {
                 boolean results = stmt.execute(sql);
@@ -371,11 +354,11 @@ public class Database {
     }
 
     /**
-     * Manages call to PreparedStatement.execute(), providing support for deadlock
+     * Manages call to PreparedStatement.executeWithDD(), providing support for deadlock
      * detection and statement reruns.
      */
     public static boolean execute(final PreparedStatement pStmt) throws SQLException {
-        return execute(new ExecutableCall() {
+        return executeWithDD(new ExecutableCall() {
             @Override
             public boolean execute() throws SQLException {
                 boolean result = pStmt.execute();
@@ -392,11 +375,11 @@ public class Database {
     }
 
     /**
-     * Manages call to CallableStatement.execute(), providing support for deadlock
+     * Manages call to CallableStatement.executeWithDD(), providing support for deadlock
      * detection and statement reruns.
      */
     public static boolean execute(final CallableStatement cStmt) throws SQLException {
-        return execute(new ExecutableCall() {
+        return executeWithDD(new ExecutableCall() {
             @Override
             public boolean execute() throws SQLException {
                 boolean result = cStmt.execute();
@@ -417,7 +400,7 @@ public class Database {
      * detection and statement reruns.
      */
     public static ResultSet executeQuery(final PreparedStatement pStmt) throws SQLException {
-        return query(new QueryCall() {
+        return queryWithDD(new QueryCall() {
             @Override
             public ResultSet query() throws SQLException {
                 ResultSet rs = pStmt.executeQuery();
@@ -443,7 +426,7 @@ public class Database {
      * detection and statement reruns.
      */
     public static ResultSet executeQuery(final Statement stmt, final String sql) throws SQLException {
-        return query(new QueryCall() {
+        return queryWithDD(new QueryCall() {
             @Override
             public ResultSet query() throws SQLException {
                 ResultSet rs = stmt.executeQuery(sql);
@@ -469,7 +452,7 @@ public class Database {
      * detection and statement reruns.
      */
     public static int executeUpdate(final Statement stmt, final String sql) throws SQLException {
-        return update(new UpdateCall() {
+        return updateWithDD(new UpdateCall() {
             @Override
             public int update() throws SQLException {
                 int rows = stmt.executeUpdate(sql);
@@ -486,18 +469,18 @@ public class Database {
     }
 
     public static int executeUpdate(final PreparedStatement pStmt) throws SQLException {
-        return update(new UpdateCall() {
+        return updateWithDD(new UpdateCall() {
             @Override
             public int update() throws SQLException {
                 int rows = pStmt.executeUpdate();
 
-                 // Handle warning, if applicable
-                 SQLWarning warning = pStmt.getWarnings();
-                 if (null != warning) {
-                     log.info(squeeze(warning));
-                 }
+                // Handle warning, if applicable
+                SQLWarning warning = pStmt.getWarnings();
+                if (null != warning) {
+                    log.info(squeeze(warning));
+                }
 
-                 return rows;
+                return rows;
             }
         });
     }
