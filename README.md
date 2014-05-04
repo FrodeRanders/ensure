@@ -38,7 +38,17 @@ The former component does have implicit support for processing DICOM images pack
 
 A more elaborate example is processing two Archival Information Packages (AIPs) - before and after having applied a transformation on the contents of the AIP (in this case replacing a large digital pathology image with a smaller thumbnail and several full fidelity cut-outs corresponding to Regions of Interest in the original) - looking for DICOM files and validating the patient information (in those files) with the finding aid metadata (kept in metadata/rdfMetadata.xml) in each AIP, but also validating that the transformation of the one into the other did not destroy patient and study information  ([code](./packvalid/src/test/java/eu/ensure/packvalid/ProcessingTest.java) and [configuration](./packvalid/src/test/resources/eu/ensure/packvalid/test-configuration.xml)).
 
-Maven is used for managing external dependencies and building (and testing) the software, which facilitates building the software stand alone as well as importing the software into your favourite IDE.  
+Maven is used for managing external dependencies and building (and testing) the software, which facilitates building the software stand alone as well as importing the software into your favourite IDE.
+
+How to build...
+---------------
+In order to build this Java software, you may either choose to use Maven2 _or_ to import the maven project into your favourite IDE (Integrated Development Environment), such as Eclipse, Netbeans or IntelliJ. The latter three provide means to _import_ the externally defined POM (Project Object Model) and then fall back on their build handling.
+
+Building with maven is easy! [Download the maven binary](http://maven.apache.org/download.cgi) from the Apache Foundation web, unpack it somewhere convenient, update your PATH environment variable (or refer to the binary explicitly) and issue the following command:
+
+prompt> mvn install
+
+[Output from building from the command prompt can look somewhat like this](./doc/howto_build_from_os_prompt.txt) 
 
 
    

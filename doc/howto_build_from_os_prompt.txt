@@ -1,0 +1,359 @@
+>  echo $JAVA_HOME
+/Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home
+
+>  which mvn
+/opt/local/bin/mvn
+
+>  mvn -version
+Apache Maven 3.0.5 (r01de14724cdef164cd33c7c8c2fe155faf9602da; 2013-02-19 14:51:28+0100)
+Maven home: /opt/local/share/java/maven3
+Java version: 1.8.0, vendor: Oracle Corporation
+Java home: /Library/Java/JavaVirtualMachines/jdk1.8.0.jdk/Contents/Home/jre
+Default locale: en_US, platform encoding: US-ASCII
+OS name: "mac os x", version: "10.9.2", arch: "x86_64", family: "mac"
+
+>  mvn install
+[INFO] Scanning for projects...
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Build Order:
+[INFO] 
+[INFO] commons - Tools and utilities
+[INFO] Wrapper for the Package Processor components
+[INFO] Package Processing core component
+[INFO] Package processing module for XML files
+[INFO] Package processing module for Information Packages
+[INFO] Package processing module for DICOM files
+[INFO] Package processing module for file systems
+[INFO] Information package validator
+[INFO] Wrapper for the ENSURE software components
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building commons - Tools and utilities 1.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ commons ---
+[INFO] skip non existing resourceDirectory /Users/froran/Projects/ltu/ensure/commons/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ commons ---
+[INFO] Compiling 41 source files to /Users/froran/Projects/ltu/ensure/commons/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ commons ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ commons ---
+[INFO] Compiling 1 source file to /Users/froran/Projects/ltu/ensure/commons/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.10:test (default-test) @ commons ---
+[INFO] Surefire report directory: /Users/froran/Projects/ltu/ensure/commons/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running eu.ensure.commons.CommonTest
+Provider: SUN version 1.8
+  * MessageDigest.SHA
+  * MessageDigest.SHA-384
+  * MessageDigest.SHA-224
+  * MessageDigest.SHA-512
+  * MessageDigest.MD5
+  * MessageDigest.SHA-256
+  * MessageDigest.MD2
+Provider: SunRsaSign version 1.8
+Provider: SunEC version 1.8
+Provider: SunJSSE version 1.8
+Provider: SunJCE version 1.8
+Provider: SunJGSS version 1.8
+Provider: SunSASL version 1.8
+Provider: XMLDSig version 1.8
+Provider: SunPCSC version 1.8
+Provider: Apple version 1.8
+
+Testing human readable time periods (millisecs to text):
+500 ms -> 500ms
+1500 ms -> 1s 500ms
+65 s -> 1min 5s
+65 min -> 1hour 5mins
+25 hours -> 1day 1hour
+35 days -> 1month 5days
+13 months -> 1year 1month
+10 years -> 10years
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.192 sec
+
+Results :
+
+Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.3.2:jar (default-jar) @ commons ---
+[INFO] Building jar: /Users/froran/Projects/ltu/ensure/commons/target/commons-1.0.jar
+[INFO] 
+[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) @ commons >>>
+[INFO] 
+[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) @ commons <<<
+[INFO] 
+[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ commons ---
+[INFO] Building jar: /Users/froran/Projects/ltu/ensure/commons/target/commons-1.0-sources.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ commons ---
+[INFO] Installing /Users/froran/Projects/ltu/ensure/commons/target/commons-1.0.jar to /Users/froran/.m2/repository/eu/ensure/commons/1.0/commons-1.0.jar
+[INFO] Installing /Users/froran/Projects/ltu/ensure/commons/pom.xml to /Users/froran/.m2/repository/eu/ensure/commons/1.0/commons-1.0.pom
+[INFO] Installing /Users/froran/Projects/ltu/ensure/commons/target/commons-1.0-sources.jar to /Users/froran/.m2/repository/eu/ensure/commons/1.0/commons-1.0-sources.jar
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Wrapper for the Package Processor components 1.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ package-processor-parent ---
+[INFO] Installing /Users/froran/Projects/ltu/ensure/packproc/pom.xml to /Users/froran/.m2/repository/eu/ensure/package-processor-parent/1.0/package-processor-parent-1.0.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Package Processing core component 1.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ package-processor-core ---
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ package-processor-core ---
+[INFO] Compiling 24 source files to /Users/froran/Projects/ltu/ensure/packproc/packproc-core/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ package-processor-core ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ package-processor-core ---
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.10:test (default-test) @ package-processor-core ---
+[INFO] Surefire report directory: /Users/froran/Projects/ltu/ensure/packproc/packproc-core/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.3.2:jar (default-jar) @ package-processor-core ---
+[INFO] Building jar: /Users/froran/Projects/ltu/ensure/packproc/packproc-core/target/package-processor-core-1.0.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ package-processor-core ---
+[INFO] Installing /Users/froran/Projects/ltu/ensure/packproc/packproc-core/target/package-processor-core-1.0.jar to /Users/froran/.m2/repository/eu/ensure/package-processor-core/1.0/package-processor-core-1.0.jar
+[INFO] Installing /Users/froran/Projects/ltu/ensure/packproc/packproc-core/pom.xml to /Users/froran/.m2/repository/eu/ensure/package-processor-core/1.0/package-processor-core-1.0.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Package processing module for XML files 1.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ package-processor-xml ---
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ package-processor-xml ---
+[INFO] Compiling 1 source file to /Users/froran/Projects/ltu/ensure/packproc/packproc-xml/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ package-processor-xml ---
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ package-processor-xml ---
+[INFO] Compiling 1 source file to /Users/froran/Projects/ltu/ensure/packproc/packproc-xml/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.10:test (default-test) @ package-processor-xml ---
+[INFO] Surefire report directory: /Users/froran/Projects/ltu/ensure/packproc/packproc-xml/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running eu.ensure.packproc.ProcessingTest
+Pulling log configuration from resources (default): eu.ensure.packproc.ProcessingTest#log-configuration.xml
+Logging initiated...
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.113 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.3.2:jar (default-jar) @ package-processor-xml ---
+[INFO] Building jar: /Users/froran/Projects/ltu/ensure/packproc/packproc-xml/target/package-processor-xml-1.0.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ package-processor-xml ---
+[INFO] Installing /Users/froran/Projects/ltu/ensure/packproc/packproc-xml/target/package-processor-xml-1.0.jar to /Users/froran/.m2/repository/eu/ensure/package-processor-xml/1.0/package-processor-xml-1.0.jar
+[INFO] Installing /Users/froran/Projects/ltu/ensure/packproc/packproc-xml/pom.xml to /Users/froran/.m2/repository/eu/ensure/package-processor-xml/1.0/package-processor-xml-1.0.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Package processing module for Information Packages 1.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ package-processor-ip ---
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ package-processor-ip ---
+[INFO] Compiling 6 source files to /Users/froran/Projects/ltu/ensure/packproc/packproc-ip/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ package-processor-ip ---
+[INFO] Copying 48 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ package-processor-ip ---
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.10:test (default-test) @ package-processor-ip ---
+[INFO] Surefire report directory: /Users/froran/Projects/ltu/ensure/packproc/packproc-ip/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+
+Results :
+
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.3.2:jar (default-jar) @ package-processor-ip ---
+[INFO] Building jar: /Users/froran/Projects/ltu/ensure/packproc/packproc-ip/target/package-processor-ip-1.0.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ package-processor-ip ---
+[INFO] Installing /Users/froran/Projects/ltu/ensure/packproc/packproc-ip/target/package-processor-ip-1.0.jar to /Users/froran/.m2/repository/eu/ensure/package-processor-ip/1.0/package-processor-ip-1.0.jar
+[INFO] Installing /Users/froran/Projects/ltu/ensure/packproc/packproc-ip/pom.xml to /Users/froran/.m2/repository/eu/ensure/package-processor-ip/1.0/package-processor-ip-1.0.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Package processing module for DICOM files 1.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ package-processor-dicom ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ package-processor-dicom ---
+[INFO] Compiling 5 source files to /Users/froran/Projects/ltu/ensure/packproc/packproc-dicom/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ package-processor-dicom ---
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ package-processor-dicom ---
+[INFO] Compiling 1 source file to /Users/froran/Projects/ltu/ensure/packproc/packproc-dicom/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.10:test (default-test) @ package-processor-dicom ---
+[INFO] Surefire report directory: /Users/froran/Projects/ltu/ensure/packproc/packproc-dicom/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running eu.ensure.packproc.ProcessingTest
+Pulling log configuration from resources (default): eu.ensure.packproc.ProcessingTest#log-configuration.xml
+Logging initiated...
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.125 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.3.2:jar (default-jar) @ package-processor-dicom ---
+[INFO] Building jar: /Users/froran/Projects/ltu/ensure/packproc/packproc-dicom/target/package-processor-dicom-1.0.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ package-processor-dicom ---
+[INFO] Installing /Users/froran/Projects/ltu/ensure/packproc/packproc-dicom/target/package-processor-dicom-1.0.jar to /Users/froran/.m2/repository/eu/ensure/package-processor-dicom/1.0/package-processor-dicom-1.0.jar
+[INFO] Installing /Users/froran/Projects/ltu/ensure/packproc/packproc-dicom/pom.xml to /Users/froran/.m2/repository/eu/ensure/package-processor-dicom/1.0/package-processor-dicom-1.0.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Package processing module for file systems 1.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ package-processor-fs ---
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ package-processor-fs ---
+[INFO] Compiling 2 source files to /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ package-processor-fs ---
+[INFO] Copying 2 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ package-processor-fs ---
+[INFO] Compiling 1 source file to /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.10:test (default-test) @ package-processor-fs ---
+[INFO] Surefire report directory: /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running eu.ensure.packproc.ProcessingTest
+Pulling log configuration from resources (default): eu.ensure.packproc.ProcessingTest#log-configuration.xml
+Logging initiated...
+Processing filesystem; cwd=/Users/froran/Projects/ltu/ensure/packproc/packproc-fs
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.307 sec
+
+Results :
+
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.3.2:jar (default-jar) @ package-processor-fs ---
+[INFO] Building jar: /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/package-processor-fs-1.0.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ package-processor-fs ---
+[INFO] Installing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/target/package-processor-fs-1.0.jar to /Users/froran/.m2/repository/eu/ensure/package-processor-fs/1.0/package-processor-fs-1.0.jar
+[INFO] Installing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/pom.xml to /Users/froran/.m2/repository/eu/ensure/package-processor-fs/1.0/package-processor-fs-1.0.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Information package validator 1.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ package-validator ---
+[INFO] Copying 0 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ package-validator ---
+[INFO] Compiling 1 source file to /Users/froran/Projects/ltu/ensure/packvalid/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ package-validator ---
+[INFO] Copying 46 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ package-validator ---
+[INFO] Compiling 1 source file to /Users/froran/Projects/ltu/ensure/packvalid/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.10:test (default-test) @ package-validator ---
+[INFO] Surefire report directory: /Users/froran/Projects/ltu/ensure/packvalid/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running eu.ensure.packvalid.ProcessingTest
+Pulling log configuration from resources (default): eu.ensure.packvalid.ProcessingTest#log-configuration.xml
+Logging initiated...
+Created mutated output file: /var/folders/92/0nkwsryd025cf2hwy2qf6rkc0000gn/T/processed7001520952832462016.package
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.027 sec
+
+Results :
+
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:2.3.2:jar (default-jar) @ package-validator ---
+[INFO] Building jar: /Users/froran/Projects/ltu/ensure/packvalid/target/package-validator-1.0.jar
+[INFO] 
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ package-validator ---
+[INFO] Installing /Users/froran/Projects/ltu/ensure/packvalid/target/package-validator-1.0.jar to /Users/froran/.m2/repository/eu/ensure/package-validator/1.0/package-validator-1.0.jar
+[INFO] Installing /Users/froran/Projects/ltu/ensure/packvalid/pom.xml to /Users/froran/.m2/repository/eu/ensure/package-validator/1.0/package-validator-1.0.pom
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Wrapper for the ENSURE software components 1.0
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ ensure-parent ---
+[INFO] Installing /Users/froran/Projects/ltu/ensure/pom.xml to /Users/froran/.m2/repository/eu/ensure/ensure-parent/1.0/ensure-parent-1.0.pom
+[INFO] ------------------------------------------------------------------------
+[INFO] Reactor Summary:
+[INFO] 
+[INFO] commons - Tools and utilities ..................... SUCCESS [2.306s]
+[INFO] Wrapper for the Package Processor components ...... SUCCESS [0.002s]
+[INFO] Package Processing core component ................. SUCCESS [0.372s]
+[INFO] Package processing module for XML files ........... SUCCESS [0.388s]
+[INFO] Package processing module for Information Packages  SUCCESS [0.565s]
+[INFO] Package processing module for DICOM files ......... SUCCESS [0.519s]
+[INFO] Package processing module for file systems ........ SUCCESS [0.558s]
+[INFO] Information package validator ..................... SUCCESS [2.735s]
+[INFO] Wrapper for the ENSURE software components ........ SUCCESS [0.002s]
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 7.567s
+[INFO] Finished at: Sun May 04 21:43:30 CEST 2014
+[INFO] Final Memory: 23M/110M
+[INFO] ------------------------------------------------------------------------
