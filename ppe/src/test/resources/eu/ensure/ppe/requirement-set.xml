@@ -1,0 +1,1226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<requirementSet>
+   <configurationHorizonMonths>360</configurationHorizonMonths>
+   <currency>euro</currency>
+   <staffAnnualCost>0.0</staffAnnualCost>
+   <expectedBenefits>0.0</expectedBenefits>
+   <infrastructureCost>0.0</infrastructureCost>
+   <requirementsPerAggregation>
+      <accessRatePerMonth>0.0</accessRatePerMonth>
+      <accessVariationRate>0.0</accessVariationRate>
+      <adminReportsPerYear>0.0</adminReportsPerYear>
+      <annualExpectedGains>0.0</annualExpectedGains>
+      <annualExpectedGainsVariationRate>0.0</annualExpectedGainsVariationRate>
+      <annualStorageInGb>34455.0</annualStorageInGb>
+      <annualStorageVariationRate>0.0</annualStorageVariationRate>
+      <annualValueOfPreservedData>0.0</annualValueOfPreservedData>
+      <averageAIPSizeInMB>0.0</averageAIPSizeInMB>
+      <category>SILVER</category>
+      <dataRetentionPeriod>
+         <id>0</id>
+         <lowerBoundIncluded>true</lowerBoundIncluded>
+         <upperBoundIncluded>true</upperBoundIncluded>
+         <lowerBound>2</lowerBound>
+         <upperBound>6</upperBound>
+      </dataRetentionPeriod>
+      <encrypted>true</encrypted>
+      <expectedAnnualStorageInGb>34455.0</expectedAnnualStorageInGb>
+      <ingestRatePerMonth>0.0</ingestRatePerMonth>
+      <ingestVariationRate>0.0</ingestVariationRate>
+      <initialDataVolumeGB>0.0</initialDataVolumeGB>
+      <needAnonymization>false</needAnonymization>
+      <numberOfSubmittedFiles>0</numberOfSubmittedFiles>
+      <optionsFilesPerIngestedFile>0</optionsFilesPerIngestedFile>
+      <otherSoftwareCost>4500.0</otherSoftwareCost>
+      <purposes>
+         <id>0</id>
+         <type>HISTORY</type>
+      </purposes>
+      <relatedAggregation>
+         <id>Medical_Encounters</id>
+         <name>Medical Encounters</name>
+         <description>Within Maccabi medical record, individual medical encounters are marked by discrete summations of a patient's medical history by a physician, nurse practitioner, or physician assistant and can take several forms.</description>
+         <dataCategory>CLINIC_HISTORY</dataCategory>
+         <format>
+            <creationTime>2008-01-18T12:57:52.145+01:00</creationTime>
+            <defaultExtension>.xml</defaultExtension>
+            <deprecatedTime>2013-10-18T13:57:52.146+02:00</deprecatedTime>
+            <description>Extensible Markup Language</description>
+            <id>2</id>
+            <mimeType>text/xml</mimeType>
+            <name>XML</name>
+            <obsolete>false</obsolete>
+            <version>1.1</version>
+         </format>
+      </relatedAggregation>
+      <sizeAIPVariation>0.0</sizeAIPVariation>
+      <storageType>PUBLIC</storageType>
+      <timeConsumedPerReportHours>0.0</timeConsumedPerReportHours>
+   </requirementsPerAggregation>
+   <requirementsPerAggregation>
+      <accessRatePerMonth>0.0</accessRatePerMonth>
+      <accessVariationRate>0.0</accessVariationRate>
+      <adminReportsPerYear>0.0</adminReportsPerYear>
+      <annualExpectedGains>0.0</annualExpectedGains>
+      <annualExpectedGainsVariationRate>0.0</annualExpectedGainsVariationRate>
+      <annualStorageInGb>34455.0</annualStorageInGb>
+      <annualStorageVariationRate>0.0</annualStorageVariationRate>
+      <annualValueOfPreservedData>0.0</annualValueOfPreservedData>
+      <averageAIPSizeInMB>0.0</averageAIPSizeInMB>
+      <category>GOLD</category>
+      <dataRetentionPeriod>
+         <id>0</id>
+         <lowerBoundIncluded>true</lowerBoundIncluded>
+         <upperBoundIncluded>true</upperBoundIncluded>
+         <lowerBound>3</lowerBound>
+         <upperBound>7</upperBound>
+      </dataRetentionPeriod>
+      <encrypted>false</encrypted>
+      <expectedAnnualStorageInGb>34455.0</expectedAnnualStorageInGb>
+      <ingestRatePerMonth>0.0</ingestRatePerMonth>
+      <ingestVariationRate>0.0</ingestVariationRate>
+      <initialDataVolumeGB>0.0</initialDataVolumeGB>
+      <needAnonymization>false</needAnonymization>
+      <numberOfSubmittedFiles>0</numberOfSubmittedFiles>
+      <optionsFilesPerIngestedFile>0</optionsFilesPerIngestedFile>
+      <otherSoftwareCost>4500.0</otherSoftwareCost>
+      <purposes>
+         <id>0</id>
+         <type>DIAGNOSTIC</type>
+      </purposes>
+      <relatedAggregation>
+         <id>Medical_Images</id>
+         <name>Medical Images</name>
+         <description>Within Maccabi medical record, individual radiographies.</description>
+         <dataCategory>RADIOGRAPHY</dataCategory>
+         <format>
+            <creationTime>2013-07-10T13:57:52.147+02:00</creationTime>
+            <deprecatedTime>2014-03-23T12:57:52.147+01:00</deprecatedTime>
+            <description>Digital Imaging and Communication in Medicine</description>
+            <id>1</id>
+            <mimeType>application/dicom</mimeType>
+            <name>DICOM</name>
+            <obsolete>false</obsolete>
+            <version>2008</version>
+         </format>
+         <format>
+            <creationTime>2013-07-10T13:57:52.147+02:00</creationTime>
+            <deprecatedTime>2014-03-23T12:57:52.147+01:00</deprecatedTime>
+            <description>Subset of DICOM 2008 + supplement 122 (for specimen) + private Philips attribute</description>
+            <id>3</id>
+            <mimeType>application/dicompl</mimeType>
+            <name>DICOM_PHILIPS</name>
+            <obsolete>false</obsolete>
+            <version>2008</version>
+         </format>
+      </relatedAggregation>
+      <sizeAIPVariation>0.0</sizeAIPVariation>
+      <storageType>PRIVATE</storageType>
+      <timeConsumedPerReportHours>0.0</timeConsumedPerReportHours>
+   </requirementsPerAggregation>
+   <requirementsPerAggregation>
+      <accessRatePerMonth>0.0</accessRatePerMonth>
+      <accessVariationRate>0.0</accessVariationRate>
+      <adminReportsPerYear>0.0</adminReportsPerYear>
+      <annualExpectedGains>0.0</annualExpectedGains>
+      <annualExpectedGainsVariationRate>0.0</annualExpectedGainsVariationRate>
+      <annualStorageInGb>34455.0</annualStorageInGb>
+      <annualStorageVariationRate>0.0</annualStorageVariationRate>
+      <annualValueOfPreservedData>0.0</annualValueOfPreservedData>
+      <averageAIPSizeInMB>0.0</averageAIPSizeInMB>
+      <category>BRONZE</category>
+      <dataRetentionPeriod>
+         <id>0</id>
+         <lowerBoundIncluded>true</lowerBoundIncluded>
+         <upperBoundIncluded>true</upperBoundIncluded>
+         <lowerBound>2</lowerBound>
+         <upperBound>5</upperBound>
+      </dataRetentionPeriod>
+      <encrypted>true</encrypted>
+      <expectedAnnualStorageInGb>34455.0</expectedAnnualStorageInGb>
+      <ingestRatePerMonth>0.0</ingestRatePerMonth>
+      <ingestVariationRate>0.0</ingestVariationRate>
+      <initialDataVolumeGB>0.0</initialDataVolumeGB>
+      <needAnonymization>false</needAnonymization>
+      <numberOfSubmittedFiles>0</numberOfSubmittedFiles>
+      <optionsFilesPerIngestedFile>0</optionsFilesPerIngestedFile>
+      <otherSoftwareCost>4500.0</otherSoftwareCost>
+      <purposes>
+         <id>0</id>
+         <type>HISTORY</type>
+      </purposes>
+      <relatedAggregation>
+         <id>Information_Pages</id>
+         <name>Information Pages</name>
+         <description>Maccabi Information Pages.</description>
+         <dataCategory>DOCUMENT</dataCategory>
+         <format>
+            <creationTime>2013-07-10T13:57:52.147+02:00</creationTime>
+            <defaultExtension>pdf</defaultExtension>
+            <deprecatedTime>2014-03-23T12:57:52.147+01:00</deprecatedTime>
+            <description>PDF version 1.5</description>
+            <id>5</id>
+            <mimeType>application/pdf</mimeType>
+            <name>PDF</name>
+            <obsolete>false</obsolete>
+            <version>1.5</version>
+         </format>
+      </relatedAggregation>
+      <sizeAIPVariation>0.0</sizeAIPVariation>
+      <storageType>COMMUNITY</storageType>
+      <timeConsumedPerReportHours>0.0</timeConsumedPerReportHours>
+   </requirementsPerAggregation>
+   <requirementsPerAggregation>
+      <accessRatePerMonth>0.0</accessRatePerMonth>
+      <accessVariationRate>0.0</accessVariationRate>
+      <adminReportsPerYear>0.0</adminReportsPerYear>
+      <annualExpectedGains>0.0</annualExpectedGains>
+      <annualExpectedGainsVariationRate>0.0</annualExpectedGainsVariationRate>
+      <annualStorageInGb>34455.0</annualStorageInGb>
+      <annualStorageVariationRate>0.0</annualStorageVariationRate>
+      <annualValueOfPreservedData>0.0</annualValueOfPreservedData>
+      <averageAIPSizeInMB>0.0</averageAIPSizeInMB>
+      <category>GOLD</category>
+      <dataRetentionPeriod>
+         <id>0</id>
+         <lowerBoundIncluded>true</lowerBoundIncluded>
+         <upperBoundIncluded>true</upperBoundIncluded>
+         <lowerBound>3</lowerBound>
+         <upperBound>5</upperBound>
+      </dataRetentionPeriod>
+      <encrypted>true</encrypted>
+      <expectedAnnualStorageInGb>34455.0</expectedAnnualStorageInGb>
+      <ingestRatePerMonth>0.0</ingestRatePerMonth>
+      <ingestVariationRate>0.0</ingestVariationRate>
+      <initialDataVolumeGB>0.0</initialDataVolumeGB>
+      <needAnonymization>false</needAnonymization>
+      <numberOfSubmittedFiles>0</numberOfSubmittedFiles>
+      <optionsFilesPerIngestedFile>0</optionsFilesPerIngestedFile>
+      <otherSoftwareCost>4500.0</otherSoftwareCost>
+      <purposes>
+         <id>0</id>
+         <type>HISTORY</type>
+      </purposes>
+      <relatedAggregation>
+         <id>Storlets</id>
+         <name>Storlets</name>
+         <description>Maccabi Strolets.</description>
+         <dataCategory>STORLET</dataCategory>
+         <format>
+            <creationTime>2013-07-10T13:57:52.147+02:00</creationTime>
+            <deprecatedTime>2014-03-23T12:57:52.147+01:00</deprecatedTime>
+            <description>Storlet</description>
+            <id>6</id>
+            <mimeType>application/storlet</mimeType>
+            <name>STORLET</name>
+            <obsolete>false</obsolete>
+            <version>2012</version>
+         </format>
+      </relatedAggregation>
+      <sizeAIPVariation>0.0</sizeAIPVariation>
+      <storageType>PRIVATE</storageType>
+      <timeConsumedPerReportHours>0.0</timeConsumedPerReportHours>
+   </requirementsPerAggregation>
+   <requirementsPerAggregation>
+      <accessRatePerMonth>0.0</accessRatePerMonth>
+      <accessVariationRate>0.0</accessVariationRate>
+      <adminReportsPerYear>0.0</adminReportsPerYear>
+      <annualExpectedGains>0.0</annualExpectedGains>
+      <annualExpectedGainsVariationRate>0.0</annualExpectedGainsVariationRate>
+      <annualStorageInGb>34455.0</annualStorageInGb>
+      <annualStorageVariationRate>0.0</annualStorageVariationRate>
+      <annualValueOfPreservedData>0.0</annualValueOfPreservedData>
+      <averageAIPSizeInMB>0.0</averageAIPSizeInMB>
+      <category>GOLD</category>
+      <dataRetentionPeriod>
+         <id>0</id>
+         <lowerBoundIncluded>true</lowerBoundIncluded>
+         <upperBoundIncluded>true</upperBoundIncluded>
+         <lowerBound>3</lowerBound>
+         <upperBound>6</upperBound>
+      </dataRetentionPeriod>
+      <encrypted>true</encrypted>
+      <expectedAnnualStorageInGb>34455.0</expectedAnnualStorageInGb>
+      <ingestRatePerMonth>0.0</ingestRatePerMonth>
+      <ingestVariationRate>0.0</ingestVariationRate>
+      <initialDataVolumeGB>0.0</initialDataVolumeGB>
+      <needAnonymization>false</needAnonymization>
+      <numberOfSubmittedFiles>0</numberOfSubmittedFiles>
+      <optionsFilesPerIngestedFile>0</optionsFilesPerIngestedFile>
+      <otherSoftwareCost>4500.0</otherSoftwareCost>
+      <purposes>
+         <id>0</id>
+         <type>EVIDENCE</type>
+      </purposes>
+      <relatedAggregation>
+         <id>Data_Protection_Policies_Maccabi</id>
+         <name>Data Protection Policies</name>
+         <description>Data Protection Policies.</description>
+         <dataCategory>DATA_PROTECTION_POLICY</dataCategory>
+         <format>
+            <creationTime>2008-01-18T12:57:52.147+01:00</creationTime>
+            <defaultExtension>.xml</defaultExtension>
+            <deprecatedTime>2013-10-18T13:57:52.147+02:00</deprecatedTime>
+            <description>Extensible Markup Language</description>
+            <id>9</id>
+            <mimeType>text/xml</mimeType>
+            <name>XML</name>
+            <obsolete>false</obsolete>
+            <version>1.1</version>
+         </format>
+      </relatedAggregation>
+      <sizeAIPVariation>0.0</sizeAIPVariation>
+      <storageType>COMMUNITY</storageType>
+      <timeConsumedPerReportHours>0.0</timeConsumedPerReportHours>
+   </requirementsPerAggregation>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="highLevelUserPreference">
+      <id>0</id>
+      <kind>HIGH_LEVEL</kind>
+      <preference>MEDIUM</preference>
+      <type>QUALITY</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="highLevelUserPreference">
+      <id>0</id>
+      <kind>HIGH_LEVEL</kind>
+      <preference>MEDIUM</preference>
+      <type>COST</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <applicationLevel>PRESERVATION_PLAN</applicationLevel>
+      <type>INITIAL_INVESTMENT</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <applicationLevel>PRESERVATION_PLAN</applicationLevel>
+      <type>YEAR1_COST</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <applicationLevel>PRESERVATION_PLAN</applicationLevel>
+      <type>TOTAL_COSTS_CONFIGURATION_HORIZON</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <applicationLevel>PRESERVATION_PLAN</applicationLevel>
+      <type>CUSTOMER_IMPACT</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <applicationLevel>PRESERVATION_PLAN</applicationLevel>
+      <type>PROVIDER_IMPACT</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <applicationLevel>PRESERVATION_PLAN</applicationLevel>
+      <type>VARIANCE</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <aggregation>
+         <id>Medical_Encounters</id>
+         <name>Medical Encounters</name>
+         <description>Within Maccabi medical record, individual medical encounters are marked by discrete summations of a patient's medical history by a physician, nurse practitioner, or physician assistant and can take several forms.</description>
+         <dataCategory>CLINIC_HISTORY</dataCategory>
+         <format>
+            <creationTime>2008-01-18T12:57:52.145+01:00</creationTime>
+            <defaultExtension>.xml</defaultExtension>
+            <deprecatedTime>2013-10-18T13:57:52.146+02:00</deprecatedTime>
+            <description>Extensible Markup Language</description>
+            <id>2</id>
+            <mimeType>text/xml</mimeType>
+            <name>XML</name>
+            <obsolete>false</obsolete>
+            <version>1.1</version>
+         </format>
+      </aggregation>
+      <applicationLevel>AGGREGATION</applicationLevel>
+      <type>DATA_MANAGEMENT_COST</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <aggregation>
+         <id>Medical_Encounters</id>
+         <name>Medical Encounters</name>
+         <description>Within Maccabi medical record, individual medical encounters are marked by discrete summations of a patient's medical history by a physician, nurse practitioner, or physician assistant and can take several forms.</description>
+         <dataCategory>CLINIC_HISTORY</dataCategory>
+         <format>
+            <creationTime>2008-01-18T12:57:52.145+01:00</creationTime>
+            <defaultExtension>.xml</defaultExtension>
+            <deprecatedTime>2013-10-18T13:57:52.146+02:00</deprecatedTime>
+            <description>Extensible Markup Language</description>
+            <id>2</id>
+            <mimeType>text/xml</mimeType>
+            <name>XML</name>
+            <obsolete>false</obsolete>
+            <version>1.1</version>
+         </format>
+      </aggregation>
+      <applicationLevel>AGGREGATION</applicationLevel>
+      <type>INGEST_COST</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <aggregation>
+         <id>Medical_Encounters</id>
+         <name>Medical Encounters</name>
+         <description>Within Maccabi medical record, individual medical encounters are marked by discrete summations of a patient's medical history by a physician, nurse practitioner, or physician assistant and can take several forms.</description>
+         <dataCategory>CLINIC_HISTORY</dataCategory>
+         <format>
+            <creationTime>2008-01-18T12:57:52.145+01:00</creationTime>
+            <defaultExtension>.xml</defaultExtension>
+            <deprecatedTime>2013-10-18T13:57:52.146+02:00</deprecatedTime>
+            <description>Extensible Markup Language</description>
+            <id>2</id>
+            <mimeType>text/xml</mimeType>
+            <name>XML</name>
+            <obsolete>false</obsolete>
+            <version>1.1</version>
+         </format>
+      </aggregation>
+      <applicationLevel>AGGREGATION</applicationLevel>
+      <type>ACCESS_COST</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <aggregation>
+         <id>Medical_Encounters</id>
+         <name>Medical Encounters</name>
+         <description>Within Maccabi medical record, individual medical encounters are marked by discrete summations of a patient's medical history by a physician, nurse practitioner, or physician assistant and can take several forms.</description>
+         <dataCategory>CLINIC_HISTORY</dataCategory>
+         <format>
+            <creationTime>2008-01-18T12:57:52.145+01:00</creationTime>
+            <defaultExtension>.xml</defaultExtension>
+            <deprecatedTime>2013-10-18T13:57:52.146+02:00</deprecatedTime>
+            <description>Extensible Markup Language</description>
+            <id>2</id>
+            <mimeType>text/xml</mimeType>
+            <name>XML</name>
+            <obsolete>false</obsolete>
+            <version>1.1</version>
+         </format>
+      </aggregation>
+      <applicationLevel>AGGREGATION</applicationLevel>
+      <type>ARCHIVAL_COST</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <aggregation>
+         <id>Medical_Encounters</id>
+         <name>Medical Encounters</name>
+         <description>Within Maccabi medical record, individual medical encounters are marked by discrete summations of a patient's medical history by a physician, nurse practitioner, or physician assistant and can take several forms.</description>
+         <dataCategory>CLINIC_HISTORY</dataCategory>
+         <format>
+            <creationTime>2008-01-18T12:57:52.145+01:00</creationTime>
+            <defaultExtension>.xml</defaultExtension>
+            <deprecatedTime>2013-10-18T13:57:52.146+02:00</deprecatedTime>
+            <description>Extensible Markup Language</description>
+            <id>2</id>
+            <mimeType>text/xml</mimeType>
+            <name>XML</name>
+            <obsolete>false</obsolete>
+            <version>1.1</version>
+         </format>
+      </aggregation>
+      <applicationLevel>AGGREGATION</applicationLevel>
+      <type>ANNUAL_RUNNING_COST</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <aggregation>
+         <id>Medical_Encounters</id>
+         <name>Medical Encounters</name>
+         <description>Within Maccabi medical record, individual medical encounters are marked by discrete summations of a patient's medical history by a physician, nurse practitioner, or physician assistant and can take several forms.</description>
+         <dataCategory>CLINIC_HISTORY</dataCategory>
+         <format>
+            <creationTime>2008-01-18T12:57:52.145+01:00</creationTime>
+            <defaultExtension>.xml</defaultExtension>
+            <deprecatedTime>2013-10-18T13:57:52.146+02:00</deprecatedTime>
+            <description>Extensible Markup Language</description>
+            <id>2</id>
+            <mimeType>text/xml</mimeType>
+            <name>XML</name>
+            <obsolete>false</obsolete>
+            <version>1.1</version>
+         </format>
+      </aggregation>
+      <applicationLevel>AGGREGATION</applicationLevel>
+      <type>TOTAL_COST</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <aggregation>
+         <id>Medical_Encounters</id>
+         <name>Medical Encounters</name>
+         <description>Within Maccabi medical record, individual medical encounters are marked by discrete summations of a patient's medical history by a physician, nurse practitioner, or physician assistant and can take several forms.</description>
+         <dataCategory>CLINIC_HISTORY</dataCategory>
+         <format>
+            <creationTime>2008-01-18T12:57:52.145+01:00</creationTime>
+            <defaultExtension>.xml</defaultExtension>
+            <deprecatedTime>2013-10-18T13:57:52.146+02:00</deprecatedTime>
+            <description>Extensible Markup Language</description>
+            <id>2</id>
+            <mimeType>text/xml</mimeType>
+            <name>XML</name>
+            <obsolete>false</obsolete>
+            <version>1.1</version>
+         </format>
+      </aggregation>
+      <applicationLevel>AGGREGATION</applicationLevel>
+      <type>SCORE</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <aggregation>
+         <id>Medical_Images</id>
+         <name>Medical Images</name>
+         <description>Within Maccabi medical record, individual radiographies.</description>
+         <dataCategory>RADIOGRAPHY</dataCategory>
+         <format>
+            <creationTime>2013-07-10T13:57:52.147+02:00</creationTime>
+            <deprecatedTime>2014-03-23T12:57:52.147+01:00</deprecatedTime>
+            <description>Digital Imaging and Communication in Medicine</description>
+            <id>1</id>
+            <mimeType>application/dicom</mimeType>
+            <name>DICOM</name>
+            <obsolete>false</obsolete>
+            <version>2008</version>
+         </format>
+         <format>
+            <creationTime>2013-07-10T13:57:52.147+02:00</creationTime>
+            <deprecatedTime>2014-03-23T12:57:52.147+01:00</deprecatedTime>
+            <description>Subset of DICOM 2008 + supplement 122 (for specimen) + private Philips attribute</description>
+            <id>3</id>
+            <mimeType>application/dicompl</mimeType>
+            <name>DICOM_PHILIPS</name>
+            <obsolete>false</obsolete>
+            <version>2008</version>
+         </format>
+      </aggregation>
+      <applicationLevel>AGGREGATION</applicationLevel>
+      <type>DATA_MANAGEMENT_COST</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <aggregation>
+         <id>Medical_Images</id>
+         <name>Medical Images</name>
+         <description>Within Maccabi medical record, individual radiographies.</description>
+         <dataCategory>RADIOGRAPHY</dataCategory>
+         <format>
+            <creationTime>2013-07-10T13:57:52.147+02:00</creationTime>
+            <deprecatedTime>2014-03-23T12:57:52.147+01:00</deprecatedTime>
+            <description>Digital Imaging and Communication in Medicine</description>
+            <id>1</id>
+            <mimeType>application/dicom</mimeType>
+            <name>DICOM</name>
+            <obsolete>false</obsolete>
+            <version>2008</version>
+         </format>
+         <format>
+            <creationTime>2013-07-10T13:57:52.147+02:00</creationTime>
+            <deprecatedTime>2014-03-23T12:57:52.147+01:00</deprecatedTime>
+            <description>Subset of DICOM 2008 + supplement 122 (for specimen) + private Philips attribute</description>
+            <id>3</id>
+            <mimeType>application/dicompl</mimeType>
+            <name>DICOM_PHILIPS</name>
+            <obsolete>false</obsolete>
+            <version>2008</version>
+         </format>
+      </aggregation>
+      <applicationLevel>AGGREGATION</applicationLevel>
+      <type>INGEST_COST</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <aggregation>
+         <id>Medical_Images</id>
+         <name>Medical Images</name>
+         <description>Within Maccabi medical record, individual radiographies.</description>
+         <dataCategory>RADIOGRAPHY</dataCategory>
+         <format>
+            <creationTime>2013-07-10T13:57:52.147+02:00</creationTime>
+            <deprecatedTime>2014-03-23T12:57:52.147+01:00</deprecatedTime>
+            <description>Digital Imaging and Communication in Medicine</description>
+            <id>1</id>
+            <mimeType>application/dicom</mimeType>
+            <name>DICOM</name>
+            <obsolete>false</obsolete>
+            <version>2008</version>
+         </format>
+         <format>
+            <creationTime>2013-07-10T13:57:52.147+02:00</creationTime>
+            <deprecatedTime>2014-03-23T12:57:52.147+01:00</deprecatedTime>
+            <description>Subset of DICOM 2008 + supplement 122 (for specimen) + private Philips attribute</description>
+            <id>3</id>
+            <mimeType>application/dicompl</mimeType>
+            <name>DICOM_PHILIPS</name>
+            <obsolete>false</obsolete>
+            <version>2008</version>
+         </format>
+      </aggregation>
+      <applicationLevel>AGGREGATION</applicationLevel>
+      <type>ACCESS_COST</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <aggregation>
+         <id>Medical_Images</id>
+         <name>Medical Images</name>
+         <description>Within Maccabi medical record, individual radiographies.</description>
+         <dataCategory>RADIOGRAPHY</dataCategory>
+         <format>
+            <creationTime>2013-07-10T13:57:52.147+02:00</creationTime>
+            <deprecatedTime>2014-03-23T12:57:52.147+01:00</deprecatedTime>
+            <description>Digital Imaging and Communication in Medicine</description>
+            <id>1</id>
+            <mimeType>application/dicom</mimeType>
+            <name>DICOM</name>
+            <obsolete>false</obsolete>
+            <version>2008</version>
+         </format>
+         <format>
+            <creationTime>2013-07-10T13:57:52.147+02:00</creationTime>
+            <deprecatedTime>2014-03-23T12:57:52.147+01:00</deprecatedTime>
+            <description>Subset of DICOM 2008 + supplement 122 (for specimen) + private Philips attribute</description>
+            <id>3</id>
+            <mimeType>application/dicompl</mimeType>
+            <name>DICOM_PHILIPS</name>
+            <obsolete>false</obsolete>
+            <version>2008</version>
+         </format>
+      </aggregation>
+      <applicationLevel>AGGREGATION</applicationLevel>
+      <type>ARCHIVAL_COST</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <aggregation>
+         <id>Medical_Images</id>
+         <name>Medical Images</name>
+         <description>Within Maccabi medical record, individual radiographies.</description>
+         <dataCategory>RADIOGRAPHY</dataCategory>
+         <format>
+            <creationTime>2013-07-10T13:57:52.147+02:00</creationTime>
+            <deprecatedTime>2014-03-23T12:57:52.147+01:00</deprecatedTime>
+            <description>Digital Imaging and Communication in Medicine</description>
+            <id>1</id>
+            <mimeType>application/dicom</mimeType>
+            <name>DICOM</name>
+            <obsolete>false</obsolete>
+            <version>2008</version>
+         </format>
+         <format>
+            <creationTime>2013-07-10T13:57:52.147+02:00</creationTime>
+            <deprecatedTime>2014-03-23T12:57:52.147+01:00</deprecatedTime>
+            <description>Subset of DICOM 2008 + supplement 122 (for specimen) + private Philips attribute</description>
+            <id>3</id>
+            <mimeType>application/dicompl</mimeType>
+            <name>DICOM_PHILIPS</name>
+            <obsolete>false</obsolete>
+            <version>2008</version>
+         </format>
+      </aggregation>
+      <applicationLevel>AGGREGATION</applicationLevel>
+      <type>ANNUAL_RUNNING_COST</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <aggregation>
+         <id>Medical_Images</id>
+         <name>Medical Images</name>
+         <description>Within Maccabi medical record, individual radiographies.</description>
+         <dataCategory>RADIOGRAPHY</dataCategory>
+         <format>
+            <creationTime>2013-07-10T13:57:52.147+02:00</creationTime>
+            <deprecatedTime>2014-03-23T12:57:52.147+01:00</deprecatedTime>
+            <description>Digital Imaging and Communication in Medicine</description>
+            <id>1</id>
+            <mimeType>application/dicom</mimeType>
+            <name>DICOM</name>
+            <obsolete>false</obsolete>
+            <version>2008</version>
+         </format>
+         <format>
+            <creationTime>2013-07-10T13:57:52.147+02:00</creationTime>
+            <deprecatedTime>2014-03-23T12:57:52.147+01:00</deprecatedTime>
+            <description>Subset of DICOM 2008 + supplement 122 (for specimen) + private Philips attribute</description>
+            <id>3</id>
+            <mimeType>application/dicompl</mimeType>
+            <name>DICOM_PHILIPS</name>
+            <obsolete>false</obsolete>
+            <version>2008</version>
+         </format>
+      </aggregation>
+      <applicationLevel>AGGREGATION</applicationLevel>
+      <type>TOTAL_COST</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <aggregation>
+         <id>Medical_Images</id>
+         <name>Medical Images</name>
+         <description>Within Maccabi medical record, individual radiographies.</description>
+         <dataCategory>RADIOGRAPHY</dataCategory>
+         <format>
+            <creationTime>2013-07-10T13:57:52.147+02:00</creationTime>
+            <deprecatedTime>2014-03-23T12:57:52.147+01:00</deprecatedTime>
+            <description>Digital Imaging and Communication in Medicine</description>
+            <id>1</id>
+            <mimeType>application/dicom</mimeType>
+            <name>DICOM</name>
+            <obsolete>false</obsolete>
+            <version>2008</version>
+         </format>
+         <format>
+            <creationTime>2013-07-10T13:57:52.147+02:00</creationTime>
+            <deprecatedTime>2014-03-23T12:57:52.147+01:00</deprecatedTime>
+            <description>Subset of DICOM 2008 + supplement 122 (for specimen) + private Philips attribute</description>
+            <id>3</id>
+            <mimeType>application/dicompl</mimeType>
+            <name>DICOM_PHILIPS</name>
+            <obsolete>false</obsolete>
+            <version>2008</version>
+         </format>
+      </aggregation>
+      <applicationLevel>AGGREGATION</applicationLevel>
+      <type>SCORE</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <aggregation>
+         <id>Information_Pages</id>
+         <name>Information Pages</name>
+         <description>Maccabi Information Pages.</description>
+         <dataCategory>DOCUMENT</dataCategory>
+         <format>
+            <creationTime>2013-07-10T13:57:52.147+02:00</creationTime>
+            <defaultExtension>pdf</defaultExtension>
+            <deprecatedTime>2014-03-23T12:57:52.147+01:00</deprecatedTime>
+            <description>PDF version 1.5</description>
+            <id>5</id>
+            <mimeType>application/pdf</mimeType>
+            <name>PDF</name>
+            <obsolete>false</obsolete>
+            <version>1.5</version>
+         </format>
+      </aggregation>
+      <applicationLevel>AGGREGATION</applicationLevel>
+      <type>DATA_MANAGEMENT_COST</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <aggregation>
+         <id>Information_Pages</id>
+         <name>Information Pages</name>
+         <description>Maccabi Information Pages.</description>
+         <dataCategory>DOCUMENT</dataCategory>
+         <format>
+            <creationTime>2013-07-10T13:57:52.147+02:00</creationTime>
+            <defaultExtension>pdf</defaultExtension>
+            <deprecatedTime>2014-03-23T12:57:52.147+01:00</deprecatedTime>
+            <description>PDF version 1.5</description>
+            <id>5</id>
+            <mimeType>application/pdf</mimeType>
+            <name>PDF</name>
+            <obsolete>false</obsolete>
+            <version>1.5</version>
+         </format>
+      </aggregation>
+      <applicationLevel>AGGREGATION</applicationLevel>
+      <type>INGEST_COST</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <aggregation>
+         <id>Information_Pages</id>
+         <name>Information Pages</name>
+         <description>Maccabi Information Pages.</description>
+         <dataCategory>DOCUMENT</dataCategory>
+         <format>
+            <creationTime>2013-07-10T13:57:52.147+02:00</creationTime>
+            <defaultExtension>pdf</defaultExtension>
+            <deprecatedTime>2014-03-23T12:57:52.147+01:00</deprecatedTime>
+            <description>PDF version 1.5</description>
+            <id>5</id>
+            <mimeType>application/pdf</mimeType>
+            <name>PDF</name>
+            <obsolete>false</obsolete>
+            <version>1.5</version>
+         </format>
+      </aggregation>
+      <applicationLevel>AGGREGATION</applicationLevel>
+      <type>ACCESS_COST</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <aggregation>
+         <id>Information_Pages</id>
+         <name>Information Pages</name>
+         <description>Maccabi Information Pages.</description>
+         <dataCategory>DOCUMENT</dataCategory>
+         <format>
+            <creationTime>2013-07-10T13:57:52.147+02:00</creationTime>
+            <defaultExtension>pdf</defaultExtension>
+            <deprecatedTime>2014-03-23T12:57:52.147+01:00</deprecatedTime>
+            <description>PDF version 1.5</description>
+            <id>5</id>
+            <mimeType>application/pdf</mimeType>
+            <name>PDF</name>
+            <obsolete>false</obsolete>
+            <version>1.5</version>
+         </format>
+      </aggregation>
+      <applicationLevel>AGGREGATION</applicationLevel>
+      <type>ARCHIVAL_COST</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <aggregation>
+         <id>Information_Pages</id>
+         <name>Information Pages</name>
+         <description>Maccabi Information Pages.</description>
+         <dataCategory>DOCUMENT</dataCategory>
+         <format>
+            <creationTime>2013-07-10T13:57:52.147+02:00</creationTime>
+            <defaultExtension>pdf</defaultExtension>
+            <deprecatedTime>2014-03-23T12:57:52.147+01:00</deprecatedTime>
+            <description>PDF version 1.5</description>
+            <id>5</id>
+            <mimeType>application/pdf</mimeType>
+            <name>PDF</name>
+            <obsolete>false</obsolete>
+            <version>1.5</version>
+         </format>
+      </aggregation>
+      <applicationLevel>AGGREGATION</applicationLevel>
+      <type>ANNUAL_RUNNING_COST</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <aggregation>
+         <id>Information_Pages</id>
+         <name>Information Pages</name>
+         <description>Maccabi Information Pages.</description>
+         <dataCategory>DOCUMENT</dataCategory>
+         <format>
+            <creationTime>2013-07-10T13:57:52.147+02:00</creationTime>
+            <defaultExtension>pdf</defaultExtension>
+            <deprecatedTime>2014-03-23T12:57:52.147+01:00</deprecatedTime>
+            <description>PDF version 1.5</description>
+            <id>5</id>
+            <mimeType>application/pdf</mimeType>
+            <name>PDF</name>
+            <obsolete>false</obsolete>
+            <version>1.5</version>
+         </format>
+      </aggregation>
+      <applicationLevel>AGGREGATION</applicationLevel>
+      <type>TOTAL_COST</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <aggregation>
+         <id>Information_Pages</id>
+         <name>Information Pages</name>
+         <description>Maccabi Information Pages.</description>
+         <dataCategory>DOCUMENT</dataCategory>
+         <format>
+            <creationTime>2013-07-10T13:57:52.147+02:00</creationTime>
+            <defaultExtension>pdf</defaultExtension>
+            <deprecatedTime>2014-03-23T12:57:52.147+01:00</deprecatedTime>
+            <description>PDF version 1.5</description>
+            <id>5</id>
+            <mimeType>application/pdf</mimeType>
+            <name>PDF</name>
+            <obsolete>false</obsolete>
+            <version>1.5</version>
+         </format>
+      </aggregation>
+      <applicationLevel>AGGREGATION</applicationLevel>
+      <type>SCORE</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <aggregation>
+         <id>Storlets</id>
+         <name>Storlets</name>
+         <description>Maccabi Strolets.</description>
+         <dataCategory>STORLET</dataCategory>
+         <format>
+            <creationTime>2013-07-10T13:57:52.147+02:00</creationTime>
+            <deprecatedTime>2014-03-23T12:57:52.147+01:00</deprecatedTime>
+            <description>Storlet</description>
+            <id>6</id>
+            <mimeType>application/storlet</mimeType>
+            <name>STORLET</name>
+            <obsolete>false</obsolete>
+            <version>2012</version>
+         </format>
+      </aggregation>
+      <applicationLevel>AGGREGATION</applicationLevel>
+      <type>DATA_MANAGEMENT_COST</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <aggregation>
+         <id>Storlets</id>
+         <name>Storlets</name>
+         <description>Maccabi Strolets.</description>
+         <dataCategory>STORLET</dataCategory>
+         <format>
+            <creationTime>2013-07-10T13:57:52.147+02:00</creationTime>
+            <deprecatedTime>2014-03-23T12:57:52.147+01:00</deprecatedTime>
+            <description>Storlet</description>
+            <id>6</id>
+            <mimeType>application/storlet</mimeType>
+            <name>STORLET</name>
+            <obsolete>false</obsolete>
+            <version>2012</version>
+         </format>
+      </aggregation>
+      <applicationLevel>AGGREGATION</applicationLevel>
+      <type>INGEST_COST</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <aggregation>
+         <id>Storlets</id>
+         <name>Storlets</name>
+         <description>Maccabi Strolets.</description>
+         <dataCategory>STORLET</dataCategory>
+         <format>
+            <creationTime>2013-07-10T13:57:52.147+02:00</creationTime>
+            <deprecatedTime>2014-03-23T12:57:52.147+01:00</deprecatedTime>
+            <description>Storlet</description>
+            <id>6</id>
+            <mimeType>application/storlet</mimeType>
+            <name>STORLET</name>
+            <obsolete>false</obsolete>
+            <version>2012</version>
+         </format>
+      </aggregation>
+      <applicationLevel>AGGREGATION</applicationLevel>
+      <type>ACCESS_COST</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <aggregation>
+         <id>Storlets</id>
+         <name>Storlets</name>
+         <description>Maccabi Strolets.</description>
+         <dataCategory>STORLET</dataCategory>
+         <format>
+            <creationTime>2013-07-10T13:57:52.147+02:00</creationTime>
+            <deprecatedTime>2014-03-23T12:57:52.147+01:00</deprecatedTime>
+            <description>Storlet</description>
+            <id>6</id>
+            <mimeType>application/storlet</mimeType>
+            <name>STORLET</name>
+            <obsolete>false</obsolete>
+            <version>2012</version>
+         </format>
+      </aggregation>
+      <applicationLevel>AGGREGATION</applicationLevel>
+      <type>ARCHIVAL_COST</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <aggregation>
+         <id>Storlets</id>
+         <name>Storlets</name>
+         <description>Maccabi Strolets.</description>
+         <dataCategory>STORLET</dataCategory>
+         <format>
+            <creationTime>2013-07-10T13:57:52.147+02:00</creationTime>
+            <deprecatedTime>2014-03-23T12:57:52.147+01:00</deprecatedTime>
+            <description>Storlet</description>
+            <id>6</id>
+            <mimeType>application/storlet</mimeType>
+            <name>STORLET</name>
+            <obsolete>false</obsolete>
+            <version>2012</version>
+         </format>
+      </aggregation>
+      <applicationLevel>AGGREGATION</applicationLevel>
+      <type>ANNUAL_RUNNING_COST</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <aggregation>
+         <id>Storlets</id>
+         <name>Storlets</name>
+         <description>Maccabi Strolets.</description>
+         <dataCategory>STORLET</dataCategory>
+         <format>
+            <creationTime>2013-07-10T13:57:52.147+02:00</creationTime>
+            <deprecatedTime>2014-03-23T12:57:52.147+01:00</deprecatedTime>
+            <description>Storlet</description>
+            <id>6</id>
+            <mimeType>application/storlet</mimeType>
+            <name>STORLET</name>
+            <obsolete>false</obsolete>
+            <version>2012</version>
+         </format>
+      </aggregation>
+      <applicationLevel>AGGREGATION</applicationLevel>
+      <type>TOTAL_COST</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <aggregation>
+         <id>Storlets</id>
+         <name>Storlets</name>
+         <description>Maccabi Strolets.</description>
+         <dataCategory>STORLET</dataCategory>
+         <format>
+            <creationTime>2013-07-10T13:57:52.147+02:00</creationTime>
+            <deprecatedTime>2014-03-23T12:57:52.147+01:00</deprecatedTime>
+            <description>Storlet</description>
+            <id>6</id>
+            <mimeType>application/storlet</mimeType>
+            <name>STORLET</name>
+            <obsolete>false</obsolete>
+            <version>2012</version>
+         </format>
+      </aggregation>
+      <applicationLevel>AGGREGATION</applicationLevel>
+      <type>SCORE</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <aggregation>
+         <id>Data_Protection_Policies_Maccabi</id>
+         <name>Data Protection Policies</name>
+         <description>Data Protection Policies.</description>
+         <dataCategory>DATA_PROTECTION_POLICY</dataCategory>
+         <format>
+            <creationTime>2008-01-18T12:57:52.147+01:00</creationTime>
+            <defaultExtension>.xml</defaultExtension>
+            <deprecatedTime>2013-10-18T13:57:52.147+02:00</deprecatedTime>
+            <description>Extensible Markup Language</description>
+            <id>9</id>
+            <mimeType>text/xml</mimeType>
+            <name>XML</name>
+            <obsolete>false</obsolete>
+            <version>1.1</version>
+         </format>
+      </aggregation>
+      <applicationLevel>AGGREGATION</applicationLevel>
+      <type>DATA_MANAGEMENT_COST</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <aggregation>
+         <id>Data_Protection_Policies_Maccabi</id>
+         <name>Data Protection Policies</name>
+         <description>Data Protection Policies.</description>
+         <dataCategory>DATA_PROTECTION_POLICY</dataCategory>
+         <format>
+            <creationTime>2008-01-18T12:57:52.147+01:00</creationTime>
+            <defaultExtension>.xml</defaultExtension>
+            <deprecatedTime>2013-10-18T13:57:52.147+02:00</deprecatedTime>
+            <description>Extensible Markup Language</description>
+            <id>9</id>
+            <mimeType>text/xml</mimeType>
+            <name>XML</name>
+            <obsolete>false</obsolete>
+            <version>1.1</version>
+         </format>
+      </aggregation>
+      <applicationLevel>AGGREGATION</applicationLevel>
+      <type>INGEST_COST</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <aggregation>
+         <id>Data_Protection_Policies_Maccabi</id>
+         <name>Data Protection Policies</name>
+         <description>Data Protection Policies.</description>
+         <dataCategory>DATA_PROTECTION_POLICY</dataCategory>
+         <format>
+            <creationTime>2008-01-18T12:57:52.147+01:00</creationTime>
+            <defaultExtension>.xml</defaultExtension>
+            <deprecatedTime>2013-10-18T13:57:52.147+02:00</deprecatedTime>
+            <description>Extensible Markup Language</description>
+            <id>9</id>
+            <mimeType>text/xml</mimeType>
+            <name>XML</name>
+            <obsolete>false</obsolete>
+            <version>1.1</version>
+         </format>
+      </aggregation>
+      <applicationLevel>AGGREGATION</applicationLevel>
+      <type>ACCESS_COST</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <aggregation>
+         <id>Data_Protection_Policies_Maccabi</id>
+         <name>Data Protection Policies</name>
+         <description>Data Protection Policies.</description>
+         <dataCategory>DATA_PROTECTION_POLICY</dataCategory>
+         <format>
+            <creationTime>2008-01-18T12:57:52.147+01:00</creationTime>
+            <defaultExtension>.xml</defaultExtension>
+            <deprecatedTime>2013-10-18T13:57:52.147+02:00</deprecatedTime>
+            <description>Extensible Markup Language</description>
+            <id>9</id>
+            <mimeType>text/xml</mimeType>
+            <name>XML</name>
+            <obsolete>false</obsolete>
+            <version>1.1</version>
+         </format>
+      </aggregation>
+      <applicationLevel>AGGREGATION</applicationLevel>
+      <type>ARCHIVAL_COST</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <aggregation>
+         <id>Data_Protection_Policies_Maccabi</id>
+         <name>Data Protection Policies</name>
+         <description>Data Protection Policies.</description>
+         <dataCategory>DATA_PROTECTION_POLICY</dataCategory>
+         <format>
+            <creationTime>2008-01-18T12:57:52.147+01:00</creationTime>
+            <defaultExtension>.xml</defaultExtension>
+            <deprecatedTime>2013-10-18T13:57:52.147+02:00</deprecatedTime>
+            <description>Extensible Markup Language</description>
+            <id>9</id>
+            <mimeType>text/xml</mimeType>
+            <name>XML</name>
+            <obsolete>false</obsolete>
+            <version>1.1</version>
+         </format>
+      </aggregation>
+      <applicationLevel>AGGREGATION</applicationLevel>
+      <type>ANNUAL_RUNNING_COST</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <aggregation>
+         <id>Data_Protection_Policies_Maccabi</id>
+         <name>Data Protection Policies</name>
+         <description>Data Protection Policies.</description>
+         <dataCategory>DATA_PROTECTION_POLICY</dataCategory>
+         <format>
+            <creationTime>2008-01-18T12:57:52.147+01:00</creationTime>
+            <defaultExtension>.xml</defaultExtension>
+            <deprecatedTime>2013-10-18T13:57:52.147+02:00</deprecatedTime>
+            <description>Extensible Markup Language</description>
+            <id>9</id>
+            <mimeType>text/xml</mimeType>
+            <name>XML</name>
+            <obsolete>false</obsolete>
+            <version>1.1</version>
+         </format>
+      </aggregation>
+      <applicationLevel>AGGREGATION</applicationLevel>
+      <type>TOTAL_COST</type>
+   </userPrefences>
+   <userPrefences xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="specificUserPreference">
+      <id>0</id>
+      <kind>SPECIFIC</kind>
+      <preference>MEDIUM</preference>
+      <aggregation>
+         <id>Data_Protection_Policies_Maccabi</id>
+         <name>Data Protection Policies</name>
+         <description>Data Protection Policies.</description>
+         <dataCategory>DATA_PROTECTION_POLICY</dataCategory>
+         <format>
+            <creationTime>2008-01-18T12:57:52.147+01:00</creationTime>
+            <defaultExtension>.xml</defaultExtension>
+            <deprecatedTime>2013-10-18T13:57:52.147+02:00</deprecatedTime>
+            <description>Extensible Markup Language</description>
+            <id>9</id>
+            <mimeType>text/xml</mimeType>
+            <name>XML</name>
+            <obsolete>false</obsolete>
+            <version>1.1</version>
+         </format>
+      </aggregation>
+      <applicationLevel>AGGREGATION</applicationLevel>
+      <type>SCORE</type>
+   </userPrefences>
+</requirementSet>

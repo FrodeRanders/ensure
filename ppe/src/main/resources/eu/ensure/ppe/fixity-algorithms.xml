@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+   Source:
+      http://valerieaurora.org/hash.html
+      http://ehash.iaik.tugraz.at/wiki/The_Hash_Function_Zoo
+      http://ehash.iaik.tugraz.at/wiki/The_SHA-3_Zoo
+-->
+<f:fixity-algorithms xmlns:f="http://ensure.eu/ltu/schema/fixity-algorithms-1.0/"
+                     f:schemaLocation="fixity-algorithms.xsd">
+
+    <f:last-updated>2013-09-10</f:last-updated>
+
+    <f:algorithm f:name="Cellhash" f:issued-year="1991" f:creators="Daemen, Govaerts, Vandewalle">
+        <f:status>unbroken</f:status>
+        <f:classification>suspect</f:classification>
+    </f:algorithm>
+
+    <f:algorithm f:name="DASH" f:issued-year="2008" f:creators="Billet, Robshaw, Seurin, Yin">
+        <f:status>unbroken</f:status>
+        <f:classification>suspect</f:classification>
+    </f:algorithm>
+
+    <f:algorithm f:name="DHA-256" f:issued-year="2006" f:creators="Lee, Chang, Kim, Lee, Hong">
+        <f:status>unbroken</f:status>
+        <f:classification>suspect</f:classification>
+    </f:algorithm>
+
+    <f:algorithm f:name="Grindahl-512" f:issued-year="2007" f:creators="Knudsen, Rechberger, Thomsen">
+        <f:status>unbroken</f:status>
+        <f:classification>suspect</f:classification>
+    </f:algorithm>
+
+    <f:algorithm f:name="HAS-160" f:issued-year="2000" f:creators="Telecommunications Technology Association of Korea">
+        <f:status>unbroken</f:status>
+        <f:classification>suspect</f:classification>
+    </f:algorithm>
+
+    <f:algorithm f:name="LAKE" f:issued-year="2008" f:creators="Aumasson, Meier, Phan">
+        <f:status>unbroken</f:status>
+        <f:classification>suspect</f:classification>
+    </f:algorithm>
+
+    <f:algorithm f:name="MAME" f:issued-year="2007" f:creators="Yoshida, Watanabe, Okeya, Kitahara, Wu, Kucuk, Preneel">
+        <f:status>unbroken</f:status>
+        <f:classification>suspect</f:classification>
+    </f:algorithm>
+
+    <f:algorithm f:name="Parallel FFT-Hash" f:issued-year="1993" f:creators="Schnorr, Vaudenay">
+        <f:status>unbroken</f:status>
+        <f:classification>suspect</f:classification>
+    </f:algorithm>
+
+    <f:algorithm f:name="PARSHA-256" f:issued-year="2003" f:creators="Pal, Sarkar">
+        <f:status>unbroken</f:status>
+        <f:classification>suspect</f:classification>
+    </f:algorithm>
+
+    <f:algorithm f:name="RadioGatun" f:issued-year="2006" f:creators="Bertoni, Daemen, Peeters, van Assche">
+        <f:status>unbroken</f:status>
+        <f:classification>suspect</f:classification>
+    </f:algorithm>
+
+    <f:algorithm f:name="RIPEMD" f:issued-year="1990" f:creators="Dobbertin, Bosselaers, Preneel">
+        <f:status>broken</f:status>
+        <f:classification>weak</f:classification>
+        <f:comment>Deprecated 2004</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="RIPEMD-128" f:issued-year="1996" f:creators="Dobbertin, Bosselaers, Preneel">
+        <f:status>unbroken</f:status>
+        <f:classification>weak</f:classification>
+        <f:comment>Should not be used after 2000</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="RIPEMD-160" f:alias="RMD160" f:issued-year="1996" f:creators="Dobbertin, Bosselaers, Preneel">
+        <f:status>unbroken</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>Similar in strength to the SHA-2 family. Designed entirely outside the US-controlled NSA environment. Should not be used past 2010</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="SHA-256" f:alias="SHA256" f:issued-year="2000" f:creators="NIST/NSA">
+        <f:status>unbroken</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>Serious weakness discovered 2008</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="SHA-224" f:issued-year="2000" f:creators="NIST/NSA">
+        <f:status>broken</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>Serious weakness discovered 2008</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="SHA-512" f:alias="SHA512" f:issued-year="2000" f:creators="NIST/NSA">
+        <f:status>unbroken</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>Serious weakness discovered 2008</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="SHA-384" f:alias="SHA384" f:issued-year="2000" f:creators="NIST/NSA">
+        <f:status>broken</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>Serious weakness discovered 2008</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="SubHash" f:issued-year="1992" f:creators="Daemen">
+        <f:status>unbroken</f:status>
+        <f:classification>suspect</f:classification>
+    </f:algorithm>
+
+    <f:algorithm f:name="SWIFFT" f:issued-year="2008" f:creators="Lyubashevsky, Micciancio, Peikert, Rosen">
+        <f:status>unbroken</f:status>
+        <f:classification>suspect</f:classification>
+    </f:algorithm>
+
+    <f:algorithm f:name="VSH" f:issued-year="2005" f:creators="Contini, Lenstra, Steinfeld">
+        <f:status>unbroken</f:status>
+        <f:classification>suspect</f:classification>
+    </f:algorithm>
+
+    <f:algorithm f:name="Whirlpool" f:issued-year="2000" f:creators="Barreto and Rijmen">
+        <f:status>unbroken</f:status>
+        <f:classification>suspect</f:classification>
+    </f:algorithm>
+
+    <f:algorithm f:name="BLAKE" f:creators="Jean-Philippe Aumasson">
+        <f:status>unbroken</f:status>
+        <f:classification>competent</f:classification>
+        <f:comment>SHA-3 finalist</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="Grøstl" f:creators="Lars R. Knudsen">
+        <f:status>unbroken</f:status>
+        <f:classification>competent</f:classification>
+        <f:comment>SHA-3 finalist</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="JH" f:creators="Hongjun Wu">
+        <f:status>unbroken</f:status>
+        <f:classification>competent</f:classification>
+        <f:comment>SHA-3 finalist</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="SHA-3" f:alias="Keccak,SHA3" f:issued-year="2012" f:creators="The Keccak Team">
+        <f:status>unbroken</f:status>
+        <f:classification>strong</f:classification>
+        <f:comment>SHA-3 finalist and winner</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="Skein" f:creators="Bruce Schneier">
+        <f:status>unbroken</f:status>
+        <f:classification>competent</f:classification>
+        <f:comment>SHA-3 finalist</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="Blue Midnight Wish" f:creators="Svein Johan Knapskog">
+        <f:status>weakened</f:status>
+        <f:classification>competent</f:classification>
+        <f:comment>SHA-3 round 2</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="CubeHash" f:creators="Daniel J. Bernstein">
+        <f:status>weakened</f:status>
+        <f:classification>competent</f:classification>
+        <f:comment>SHA-3 round 2</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="ECHO" f:issued-year="" f:creators="Henri Gilbert">
+        <f:status>weakened</f:status>
+        <f:classification>competent</f:classification>
+        <f:comment>SHA-3 round 2</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="Fugue" f:creators="Charanjit S. Jutla">
+        <f:status>weakened</f:status>
+        <f:classification>competent</f:classification>
+        <f:comment>SHA-3 round 2</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="Hamsi" f:creators="Özgül Küçük">
+        <f:status>weakened</f:status>
+        <f:classification>competent</f:classification>
+        <f:comment>SHA-3 round 2</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="Luffa" f:creators="Dai Watanabe">
+        <f:status>weakened</f:status>
+        <f:classification>competent</f:classification>
+        <f:comment>SHA-3 round 2</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="Shabal" f:creators="Jean-François Misarsky">
+        <f:status>weakened</f:status>
+        <f:classification>competent</f:classification>
+        <f:comment>SHA-3 round 2</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="SHAvite-3" f:creators="Orr Dunkelman">
+        <f:status>weakened</f:status>
+        <f:classification>competent</f:classification>
+        <f:comment>SHA-3 round 2</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="SIMD" f:creators="Gaëtan Leurent">
+        <f:status>weakened</f:status>
+        <f:classification>competent</f:classification>
+        <f:comment>SHA-3 round 2</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="Abacus" f:creators="Neil Sholer">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="ARIRANG" f:creators="Jongin Lim">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="AURORA" f:creators="Masahiro Fujita">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="Blender" f:creators="Colin Bradbury">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="Boole" f:creators="Greg Rose">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="Cheetah" f:creators="Dmitry Khovratovich">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="CHI" f:creators="Phillip Hawkes">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="CRUNCH" f:creators="Jacques Patarin">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="DCH" f:creators="David A. Wilson">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="Dynamic SHA" f:creators="Xu Zijie">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="Dynamic SHA2" f:creators="Xu Zijie">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="ECOH" f:creators="Daniel R. L. Brown">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="Edon-R" f:creators="Danilo Gligoroski">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="EnRUPT" f:creators="Sean O'Neil">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="ESSENCE" f:creators="Jason Worth Martin">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="FSB" f:creators="Matthieu Finiasz">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="HASH 2X" f:creators="Jason Lee">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="Khichidi-1" f:creators="M. Vidyasagar">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="LANE" f:creators="Sebastiaan Indesteege">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="Lesamnta" f:issued-year="" f:creators="Hirotaka Yoshida">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="LUX" f:creators="Ivica Nikolić">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="Maraca" f:creators="Robert J. Jenkins">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="MCSSHA-3" f:creators="Mikhail Maslennikov">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="MD6" f:creators="Ronald L. Rivest">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="MeshHash" f:creators="Björn Fay">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="NaSHA" f:creators="Smile Markovski">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="NKS2D" f:creators="Geoffrey Park">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="Ponic" f:creators="Peter Schmidt-Nielsen">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="SANDstorm" f:issued-year="" f:creators="Rich Schroeppel">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="Sarmal" f:creators="Kerem Varıcı">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="Sgàil" f:creators="Peter Maxwell">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="SHAMATA" f:creators="Orhun Kara">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="Spectral Hash" f:creators="Çetin Kaya Koç">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="StreamHash" f:issued-year="" f:creators="Michal Trojnara">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="SWIFFTX" f:creators="Daniele Micciancio">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="Tangle" f:creators="Rafael Alvarez">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="TIB3" f:creators="Daniel Penazzi">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="Twister" f:creators="Michael Gorski">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="WaMM" f:creators="John Washburn">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="Waterfall" f:creators="Bob Hattersley">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="ZK-Crypt" f:creators="Carmi Gressel">
+        <f:status>weakened</f:status>
+        <f:classification>suspect</f:classification>
+        <f:comment>SHA-3 round 1</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="AR" f:issued-year="1992" f:creators="ISO">
+        <f:status>broken</f:status>
+        <f:classification>weak</f:classification>
+    </f:algorithm>
+
+    <f:algorithm f:name="Boognish" f:issued-year="1992" f:creators="Daemen">
+        <f:status>broken</f:status>
+        <f:classification>weak</f:classification>
+    </f:algorithm>
+
+    <f:algorithm f:name="FFT-Hash I" f:issued-year="1991" f:creators="Schnorr">
+        <f:status>broken</f:status>
+        <f:classification>weak</f:classification>
+    </f:algorithm>
+
+    <f:algorithm f:name="FFT-Hash II" f:issued-year="1992" f:creators="Schnorr">
+        <f:status>broken</f:status>
+        <f:classification>weak</f:classification>
+    </f:algorithm>
+
+    <f:algorithm f:name="FORK-256" f:issued-year="2006" f:creators="Hong, Chang, Sung, Lee, Hong, Lee, Moon, Chee">
+        <f:status>broken</f:status>
+        <f:classification>weak</f:classification>
+    </f:algorithm>
+
+    <f:algorithm f:name="GOST 34.11-94" f:issued-year="1990" f:creators="Government Committee of Russia for Standards">
+        <f:status>broken</f:status>
+        <f:classification>weak</f:classification>
+    </f:algorithm>
+
+    <f:algorithm f:name="Grindahl-256" f:issued-year="2007" f:creators="Knudsen, Rechberger, Thomsen">
+        <f:status>broken</f:status>
+        <f:classification>weak</f:classification>
+    </f:algorithm>
+
+    <f:algorithm f:name="HAS-V" f:issued-year="2000" f:creators="Park, Hwang, Lee">
+        <f:status>broken</f:status>
+        <f:classification>weak</f:classification>
+    </f:algorithm>
+
+    <f:algorithm f:name="HAVAL-128" f:alias="HAVAL" f:issued-year="1994" f:creators="Zheng, Pieprzyk, Seberry">
+        <f:status>broken</f:status>
+        <f:classification>weak</f:classification>
+        <f:comment>Weakened 2000, broken 2004</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="LASH-n" f:issued-year="2006" f:creators="Bentahar, Page, Saarinen, Silverman, Smart">
+        <f:status>broken</f:status>
+        <f:classification>weak</f:classification>
+    </f:algorithm>
+
+    <f:algorithm f:name="MD2" f:issued-year="1989" f:creators="Rivest">
+        <f:status>broken</f:status>
+        <f:classification>weak</f:classification>
+        <f:comment>Weakened 1995, broken 2004</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="MD4" f:issued-year="1990" f:creators="Rivest">
+        <f:status>broken</f:status>
+        <f:classification>weak</f:classification>
+        <f:comment>Weakened 1991, broken 1995</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="MD5" f:issued-year="1992" f:creators="Rivest">
+        <f:status>broken</f:status>
+        <f:classification>weak</f:classification>
+        <f:comment>Weakened 1994, broken 2004</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="N-Hash" f:issued-year="1990" f:creators="Miyaguchi, Ohta, Iwata">
+        <f:status>broken</f:status>
+        <f:classification>weak</f:classification>
+    </f:algorithm>
+
+    <f:algorithm f:name="PANAMA" f:issued-year="1998" f:creators="Daemen, Clapp">
+        <f:status>broken</f:status>
+        <f:classification>weak</f:classification>
+    </f:algorithm>
+
+    <f:algorithm f:name="PKC-HASH" f:issued-year="1998" f:creators="Shin, Rhee, Ryu, Lee">
+        <f:status>broken</f:status>
+        <f:classification>weak</f:classification>
+    </f:algorithm>
+
+    <f:algorithm f:name="RC4-HASH" f:issued-year="2006" f:creators="Chang, Gupta, Nandi">
+        <f:status>broken</f:status>
+        <f:classification>weak</f:classification>
+    </f:algorithm>
+
+    <f:algorithm f:name="SHA-0" f:alias="SHA0" f:issued-year="1991" f:creators="NIST/NSA">
+        <f:status>broken</f:status>
+        <f:classification>weak</f:classification>
+        <f:comment>Weakened 1998, broken 2004</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="SHA-1" f:alias="SHA1" f:issued-year="1993" f:creators="NIST/NSA">
+        <f:status>broken</f:status>
+        <f:classification>weak</f:classification>
+        <f:comment>Weakened 2004</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="SMASH" f:issued-year="2005" f:creators="Knudsen">
+        <f:status>broken</f:status>
+        <f:classification>weak</f:classification>
+    </f:algorithm>
+
+    <f:algorithm f:name="Snefru-n" f:alias="Snefru" f:issued-year="1990" f:creators="Merkle">
+        <f:status>broken</f:status>
+        <f:classification>weak</f:classification>
+        <f:comment>Broken 1993</f:comment>
+    </f:algorithm>
+
+    <f:algorithm f:name="StepRightUp" f:issued-year="1995" f:creators="Daemen">
+        <f:status>broken</f:status>
+        <f:classification>weak</f:classification>
+    </f:algorithm>
+
+    <f:algorithm f:name="Tiger" f:issued-year="1996" f:creators="Anderson, Biham">
+        <f:status>broken</f:status>
+        <f:classification>weak</f:classification>
+    </f:algorithm>
+
+    <f:algorithm f:name="Vortex" f:issued-year="2008" f:creators="Gueron, Kounavis">
+        <f:status>broken</f:status>
+        <f:classification>weak</f:classification>
+    </f:algorithm>
+</f:fixity-algorithms>

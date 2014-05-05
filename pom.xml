@@ -15,6 +15,7 @@
         <module>commons</module>
         <module>packproc</module>
         <module>packvalid</module>
+        <module>ppe</module>
     </modules>
 </project>
 

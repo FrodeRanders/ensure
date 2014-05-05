@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://ensure.eu/ltu/schema/fixity-algorithms-1.0/"
+           targetNamespace="http://ensure.eu/ltu/schema/fixity-algorithms-1.0/"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+    <xs:element name="last-updated" type="xs:date"/>
+    <xs:element name="fixity-algorithms" type="tns:AlgorithmType"/>
+
+    <xs:complexType name="AlgorithmType">
+        <xs:sequence>
+            <xs:element name="status" type="tns:StatusType"/>
+            <xs:element name="classification" type="tns:ClassificationType"/>
+            <xs:element name="comment" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="name" use="required" type="xs:string"/>
+        <xs:attribute name="alias" use="optional" type="xs:string"/>
+        <xs:attribute name="issued" use="optional" type="tns:IssuedType"/>
+        <xs:attribute name="creators" use="required" type="xs:string"/>
+    </xs:complexType>
+
+    <xs:simpleType name="StatusType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="unbroken"/>
+            <xs:enumeration value="weakened"/>
+            <xs:enumeration value="broken"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="ClassificationType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="strong"/>        <!-- Security strength: 256 bits -->
+            <xs:enumeration value="competent"/>     <!-- Security strength: 192 bits -->
+            <xs:enumeration value="suspect"/>       <!-- Security strength: 128 bits -->
+            <xs:enumeration value="weak"/>          <!-- Security strength: 80 bits or less -->
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="IssuedType">
+        <xs:restriction base="xs:integer">
+            <xs:pattern value="[12][09][0-9][0-9][0-9]"/>
+        </xs:restriction>
+    </xs:simpleType>
+</xs:schema>
