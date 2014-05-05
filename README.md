@@ -42,12 +42,12 @@ Maven is used for managing external dependencies and building (and testing) the 
 
 How to build...
 ---------------
-In order to build this Java software, you may either choose to use Maven2 _or_ to import the maven project into your favourite IDE (Integrated Development Environment), such as Eclipse, Netbeans or IntelliJ. The latter three provide means to _import_ the externally defined POM (Project Object Model) and then fall back on their build handling.
+In order to build this Java software, you may either choose to use Maven2 *or* to import the maven project into your favourite IDE (Integrated Development Environment), such as Eclipse, Netbeans or IntelliJ. The latter three provide means to _import_ the externally defined POM (Project Object Model) and then fall back on their build handling.
 
 Building with maven is easy! [Download the maven binary](http://maven.apache.org/download.cgi) from the Apache Foundation web, unpack it somewhere convenient, update your PATH environment variable (or refer to the binary explicitly) and issue the following command:
-
-prompt> mvn install
-
+```sh
+ mvn install
+```
 [Output from building from the command prompt can look somewhat like this](./doc/howto_build_from_os_prompt.txt) 
 
 
