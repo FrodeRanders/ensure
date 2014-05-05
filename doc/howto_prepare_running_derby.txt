@@ -1,0 +1,46 @@
+This is a description of how to load stored procedures into a running Apache Derby database. This description only applies when running Derby as a stand alone server and not, as we usually want, in embedded mode.
+
+Assume DERBY_HOME=/opt/local/db-derby-10.10.1.1-bin
+Assume JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_51.jdk/Contents/Home
+
+
+First, you have to update the security policy of Java to allow Derby to listen to network connections:
+
+Locate the file $JAVA_HOME/jre/lib/security/java.policy (in the case of using Java 7), and add the following lines
+
+// For JavaDB
+grant codeBase "file:/opt/local/db-derby-10.10.1.1-bin/lib/*" {
+        permission java.net.SocketPermission "localhost:1527", "listen,resolve";
+};
+
+
+Second, you have to start Derby.
+
+java -jar $DERBY_HOME/lib/derbyrun.jar server start &
+
+Sat Nov 02 16:50:33 CET 2013 : Security manager installed using the Basic server security policy.
+Sat Nov 02 16:50:34 CET 2013 : Apache Derby Network Server - 10.10.1.1 - (1458268) started and ready to accept connections on port 1527
+
+
+Next, create the database and tables using your favourite tools and define the stored procedures (that will refer to Java code that has to be loaded next).
+
+
+The last step is to load the stored procedure into the running Derby instance
+
+$>  $DERBY_HOME/bin/ij
+ij version 10.10
+ij> connect 'jdbc:derby://localhost:1527/ppe’;
+
+ij> CALL SQLJ.INSTALL_JAR('preservation-plan-quality-calculator-1.0-stored-procedures.jar', ‘ppe.StoredProcedures', 0);
+Statement executed.
+
+ij> CALL SYSCS_UTIL.SYSCS_SET_DATABASE_PROPERTY('derby.database.classpath', ‘ppe.StoredProcedures');
+Statement executed.
+
+ij> exit;
+
+
+Later, to shutdown the stand alone Derby database, use
+
+> java -jar $DERBY_HOME/lib/derbyrun.jar server shutdown
+Sat Nov 02 16:54:40 CET 2013 : Apache Derby Network Server - 10.10.1.1 - (1458268) shutdown

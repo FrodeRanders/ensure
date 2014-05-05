@@ -22,7 +22,8 @@
  * employed as a doctoral student by Luleå University of Technology
  * and remains the copyright holder of this material due to the
  * Teachers Exemption expressed in Swedish law (LAU 1949:345)
- */package eu.ensure.ppe.derby;
+ */
+package eu.ensure.ppe.derby;
 
 import org.apache.log4j.Logger;
 
