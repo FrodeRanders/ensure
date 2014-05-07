@@ -41,7 +41,7 @@ import org.apache.axiom.om.OMElement;
 public interface Processor {
     /**
      * Since all processors are dynamically loaded and instantiated (based upon the
-     * "class:"-based namespace definition) we have to provide an empty default
+     * "classpath:"-based namespace definition) we have to provide an empty default
      * constructor for the Processor implementations.
      * <p/>
      * Because of this, we depend on delayed initialization using this method.

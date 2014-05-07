@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<configuration xmlns:aip-processor="class:eu.ensure.packproc.ip.PackageProcessor"
-               xmlns:xfdu-processor="class:eu.ensure.packproc.ip.XfduProcessor"
-               xmlns:premis-processor="class:eu.ensure.packproc.ip.PremisProcessor"
-               xmlns:rdf-processor="class:eu.ensure.packproc.ip.RdfProcessor"
-			   xmlns:dicom-processor="class:eu.ensure.packproc.dicom.DicomProcessor">
+<configuration xmlns:aip-processor="classpath:eu.ensure.packproc.ip.PackageProcessor"
+               xmlns:xfdu-processor="classpath:eu.ensure.packproc.ip.XfduProcessor"
+               xmlns:premis-processor="classpath:eu.ensure.packproc.ip.PremisProcessor"
+               xmlns:rdf-processor="classpath:eu.ensure.packproc.ip.RdfProcessor"
+			   xmlns:dicom-processor="classpath:eu.ensure.packproc.dicom.DicomProcessor">
     
     <aip-processor:process> <!-- corresponds to the information package itself -->
 

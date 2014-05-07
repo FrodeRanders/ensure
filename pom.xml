@@ -16,6 +16,7 @@
         <module>packproc</module>
         <module>packvalid</module>
         <module>ppe</module>
+        <module>ipqet</module>
     </modules>
 </project>
 

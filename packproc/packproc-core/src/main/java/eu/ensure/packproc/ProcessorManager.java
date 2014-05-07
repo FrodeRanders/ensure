@@ -112,7 +112,7 @@ public class ProcessorManager {
                     // The child was not a processor at all, but at the <configuration/> level
                     // we are not prepared to handle non-processor configuration.
                     String info = "Encountered non-processor XML within the <configuration/> scope, ";
-                    info += "i.e. XML elements not belonging to any \"class:\"-based namespace or ";
+                    info += "i.e. XML elements not belonging to any \"classpath:\"-based namespace or ";
                     info += "with no namespace at all";
                     throw new ProcessorException(info);
                 }
@@ -140,7 +140,7 @@ public class ProcessorManager {
     ) throws ClassNotFoundException, ProcessorException {
         //----------------------------------------------------------------------------------------
         // To begin, this may not be a processor definition at all! It could easily be an XML
-        // configuration belonging to a processor. The absence of a "class:..." namespace will
+        // configuration belonging to a processor. The absence of a "classpath:..." namespace will
         // indicate if this is the case!
         // This is not an error, but on the other hand this element does not describe a
         // processor either. We will return 'null' and let the caller determine what to do.
@@ -149,17 +149,17 @@ public class ProcessorManager {
         if (null == namespace ||
             null == namespace.getNamespaceURI() ||
             namespace.getNamespaceURI().length() == 0 ||
-            !namespace.getNamespaceURI().startsWith("class:")) {
+            !namespace.getNamespaceURI().startsWith("classpath:")) {
 
             return null;
         }
-        String classSpecification = namespace.getNamespaceURI(); // xmlns:ns="class:com.xyz..."
+        String classSpecification = namespace.getNamespaceURI(); // xmlns:ns="classpath:com.xyz..."
 
         // Load current processor and initialize, class of processor identified via the namespace
         Processor processor;
         {
-            // Determine classname and alias (from the xmlns:<alias>="class:...")
-            String className = classSpecification.substring(/* right after "class:" */ 6);
+            // Determine classname and alias (from the xmlns:<alias>="classpath:...")
+            String className = classSpecification.substring(/* right after "classpath:" */ 10);
             String _alias = namespace.getPrefix();
             if (null == _alias || _alias.length() == 0) {
                 String[] parts = className.split("\\.");
@@ -195,7 +195,7 @@ public class ProcessorManager {
             String info = "Could not locate processor ";
             info += classSpecification + ":";
             info += element.getLocalName();
-            info += ". The class of the processor is identified by it's namespace (\"class:com.xyz...\") in the configuration file.";
+            info += ". The class of the processor is identified by it's namespace (\"classpath:com.xyz...\") in the configuration file.";
             throw new ProcessorException(info);
         }
 
@@ -222,7 +222,7 @@ public class ProcessorManager {
             if (null == childProcessor) {
                 // The child was not a processor at all. We will treat _ALL_ child elements
                 // as configuration to the current element - even elements that had the
-                // correct "class:"-based namespace!
+                // correct "classpath:"-based namespace!
                 // Therefore, we will escape this loop and reset the action list.
                 actions.clear();
                 containsPrivateData = true;

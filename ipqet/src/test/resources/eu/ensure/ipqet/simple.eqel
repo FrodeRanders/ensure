@@ -1,0 +1,80 @@
+/*
+   ----------- top level -------------
+   Independent of any specific AIS.
+   All claims expressed against information packages (ip),
+   or against content without saying anything about where
+   to locate this or even access this information.
+ */
+
+import "classpath:common.eqel"
+
+domain healthcare extends common {
+    purpose evidence {
+        // validations of specific claims of trustability,
+        // both on IP-level...
+        [mandatory] IP:contains context-information
+
+        // ...as well as on content. But content may have
+        // various file formats where we need content-
+        // specific plugins
+        [optional] Content:contains social-security-id
+    }
+
+    purpose informational {
+    }
+
+    purpose educational {
+    }
+
+    purpose historical {
+    }
+}
+
+
+/*
+   ----------- mid level -------------
+   Here we may express AIS-specific validations in terms of IP structure etc.
+
+   Individual validations are performed one step below where we have exact knowledge of
+   how to do it, but we do express AIS-specifics such as referring to internal IP structure etc.
+
+   In the following example, the Java class eu.ensure.ltu.ipqet.InformationPackageValidator
+   is responsible for actually sorting out IP-specific validations.
+
+   This class is derived from some kind of interface so we know we can instantiate it. The rest could
+   be sorted out dynamically, such as locating a method "contains" or something like it.
+ */
+validate IP using eu.ensure.ltu.ipqet.InformationPackageValidator {
+    verify contains {
+        fixity-information {
+            file "manifest.xml" {
+                "contains checksum"
+                "digest algorithm is specified"
+                "digest algorithm of sufficient quality > md5"
+            }
+        }
+
+        provenance-information {
+            file "manifest.xml" {
+                "bla bla bla"
+            }
+        }
+
+        context-information {
+            file "manifest.xml" {
+                "bla bla bla"
+            }
+        }
+    }
+}
+
+validate Content using eu.ensure.ltu.ipqet.ContentValidator {
+    verify contains {
+        social-security-id {
+            file "$content" {
+                "contains soc sec id"
+                "matches the one in ip?"
+            }
+        }
+    }
+}
