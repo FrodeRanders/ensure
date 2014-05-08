@@ -126,7 +126,7 @@ public class XmlFileProcessor extends BasicFileProcessor {
 
     /**
      * Processes an individual XML file.
-     * <p/>
+     * <p>
      * @param inputStream
      * @param outputStream
      * @throws IOException
@@ -146,7 +146,7 @@ public class XmlFileProcessor extends BasicFileProcessor {
 
     /**
      * Processes a file _entry_ in a structure.
-     * <p/>
+     * <p>
      * @param entry
      * @param entryInputStream
      * @param structureOutputStream

@@ -127,7 +127,7 @@ public class PackageProcessor implements ContainerStructureProcessor {
 
     /**
      * Tracks structural changes to an information package.
-     * <p/>
+     * <p>
      * Entries in a package may not be ordered, which is typically the case with entries in ZIP-files,
      * so that additional files may be appended to existing entries. We need to handle this kind of
      * behavior.
@@ -201,9 +201,9 @@ public class PackageProcessor implements ContainerStructureProcessor {
 
     /**
      * Generic entry to the information package-processor.
-     * <p/>
+     * <p>
      * Will route to more specific actions based on the plugin-specific configuration.
-     * <p/>
+     * <p>
      * @param name - name of entity (information package)
      * @param inputStream - input stream onto information package
      * @param outputStream - [optionally] output stream onto (new) information package

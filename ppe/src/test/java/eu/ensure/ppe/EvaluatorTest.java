@@ -45,7 +45,7 @@ import java.nio.channels.ReadableByteChannel;
 import java.util.*;
 
 /**
- * <p/>
+ * <p>
  * Created by Frode Randers at 2012-09-08 14:00
  */
 public class EvaluatorTest extends TestCase {

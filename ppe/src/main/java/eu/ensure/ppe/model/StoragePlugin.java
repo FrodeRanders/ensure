@@ -27,7 +27,7 @@ package eu.ensure.ppe.model;
 
 /**
  * Specifically models storage plugins in ENSURE.
- * <p/>
+ * <p>
  * Created by Frode Randers at 2012-10-24 21:42
  */
 public class StoragePlugin extends LocalizedPlugin {

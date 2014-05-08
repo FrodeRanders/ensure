@@ -42,7 +42,7 @@ import java.util.*;
 
 /**
  * Manages the local database.
- * <p/>
+ * <p>
  * Created by Frode Randers at 2012-12-03 10:47
  */
 public class EvaluationManager {

@@ -37,7 +37,7 @@ import java.io.OutputStream;
 public interface FileProcessor extends Processor {
     /**
      * Process an explicit file (optionally mutable)
-     * <p/>
+     * <p>
      * @param inputStream - input stream from file
      * @param outputStream - output stream to file (optionally null!)
      * @param context - processor context

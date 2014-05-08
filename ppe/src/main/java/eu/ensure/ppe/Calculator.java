@@ -36,7 +36,7 @@ import java.util.*;
 
 /**
  * Calculates score for Global Preservation Plans.
- * <p/>
+ * <p>
  * Written at an altitude of 11.277 meters, just above Le Mans, France.
  * The outside temperature is -55°C :)
  * </p>

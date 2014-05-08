@@ -36,7 +36,7 @@ import java.sql.SQLException;
 
 /**
  * Retrieves 'motivation' from the assessment database, to annotate consequence descriptions.
- * <p/>
+ * <p>
  * Created by Frode Randers at 2013-02-21 10:24
  */
 public class AssessmentInfoRetriever {

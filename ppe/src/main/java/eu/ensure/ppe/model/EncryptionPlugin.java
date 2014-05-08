@@ -27,7 +27,7 @@ package eu.ensure.ppe.model;
 
 /**
  * Specifically models encryption plugins in ENSURE.
- * <p/>
+ * <p>
  * Created by Frode Randers at 2013-01-17 00:13
  */
 public class EncryptionPlugin extends Plugin {

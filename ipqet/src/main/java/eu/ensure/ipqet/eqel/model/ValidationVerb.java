@@ -30,7 +30,7 @@ import java.util.LinkedList;
 
 /**
  * Description of ValidationVerb.
- * <p/>
+ * <p>
  * Created by Frode Randers at 2012-10-20 14:24
  */
 public class ValidationVerb {

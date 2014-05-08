@@ -44,7 +44,7 @@ import java.util.regex.Pattern;
 
 /**
  * Description of Listener.
- * <p/>
+ * <p>
  * Created by Frode Randers at 2014-01-22 21:38
  */
 public class Listener extends EqelBaseListener {

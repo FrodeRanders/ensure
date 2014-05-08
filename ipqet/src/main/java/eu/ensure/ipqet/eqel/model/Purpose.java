@@ -30,7 +30,7 @@ import java.util.LinkedList;
 
 /**
  * Description of Purpose.
- * <p/>
+ * <p>
  * Created by Frode Randers at 2012-10-20 12:43
  */
 public class Purpose {

@@ -38,8 +38,9 @@ import java.util.Hashtable;
 /**
  * Invokes methods on dynamically compiled Java programs, i.e. where we do not know the class
  * on compile-time and thus cannot use the DynamicLoader&lt;C&gt; functionality. Some methods
- * from DynamicLoader are replicated, but using compile-time "anonymous" Class and Object parameters.
- * <p/>
+ * from DynamicLoader are replicated, but using compile-time "anonymous" Class and Object
+ * parameters.
+ * <p>
  * Created by Frode Randers at 2012-07-28 17:24
 */
 public class DynamicInvoker {
@@ -50,7 +51,7 @@ public class DynamicInvoker {
 
     /**
      * Constructor.
-     * <p/>
+     * <p>
      * The <i>description</i> parameter is used when producing
      * log output and has no other function. It makes the log
      * a whole lot easier to read - do use it!
@@ -62,27 +63,27 @@ public class DynamicInvoker {
 
     /**
      * Invokes a method on an object. Will not dynamically determine parameter types.
-     * <p/>
+     * <p>
      * May be used to call methods with polymorphous parameters, i.e. methods
      * taking parameters such as List, Map, etc (that are abstract).
-     * <p/>
+     * <p>
      * Example:
      * <pre>
      * // Method name
      * String methodName = "assignList"; // predefined
      *
      * // Parameter types and values
-     * Object[] parameters = { new Vector<String>() };
+     * Object[] parameters = { new Vector&lt;String&gt;() };
      * Class[] types = { List.class };
      *
      * // Method call
      * callMethodOn(object, methodName, parameters, types);
      * </pre>
-     * <p/>
-     * @param className - name of class in classpath
-     * @param methodName - name of (public) method
-     * @param parameters - an array of values matching the parameterTypes array
-     * @param parameterTypes - an array of parameter types (Class) matching parameters array
+     * <p>
+     * @param className name of class in classpath
+     * @param methodName name of (public) method
+     * @param parameters an array of values matching the parameterTypes array
+     * @param parameterTypes an array of parameter types (Class) matching parameters array
      * @throws ClassNotFoundException - if method is not found, method is not public, parameters does not match, etc.
      */
     public void invoke(String className, String methodName, Object[] parameters, Class[] parameterTypes)

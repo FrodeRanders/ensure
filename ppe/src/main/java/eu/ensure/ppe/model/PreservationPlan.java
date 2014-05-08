@@ -31,7 +31,7 @@ import java.util.List;
 /**
  * Models all things GPP, such as sets of proposed plans for individual aggregations
  * and calculations that pertain to the super-aggregation level.
- * <p/>
+ * <p>
  * Created by Frode Randers at 2012-09-10 14:56
  */
 public class PreservationPlan {

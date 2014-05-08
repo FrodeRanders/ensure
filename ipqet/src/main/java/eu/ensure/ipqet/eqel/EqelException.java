@@ -29,8 +29,8 @@ import org.antlr.v4.runtime.*;
 
 /**
  * Description of EqelException:
- * <p/>
- * <p/>
+ * <p>
+ * <p>
  * Created by Frode Randers at 2011-11-04 14:14
  */
 public class EqelException extends RuntimeException {

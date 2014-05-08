@@ -27,8 +27,8 @@ package  eu.ensure.commons.xml;
 
 /*
  * Description of XmlException
- * <p/>
- * <p/>
+ * <p>
+ * <p>
  * Created by Frode Randers at 2012-04-11 21:50
  */
 public class XmlException extends Exception {

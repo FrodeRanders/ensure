@@ -40,7 +40,7 @@ import java.util.*;
 
 /**
  * Makes assessments of message digest/hash/fixity algorithms.
- * <p/>
+ * <p>
  * Created by Frode Randers at 2012-10-24 22:19
  */
 public class FixityAssessment {
@@ -212,7 +212,7 @@ public class FixityAssessment {
 
     /**
      * Returns a ranking for any (assumed unbroken) algorithm.
-     * <p/>
+     * <p>
      * @param algorithm
      * @return
      */

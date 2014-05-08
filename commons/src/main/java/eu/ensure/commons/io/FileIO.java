@@ -37,7 +37,7 @@ import java.util.List;
 
 /**
  * Various handy file IO related functions.
- * <p/>
+ * <p>
  * Created by Frode Randers at 2012-12-18 01:09
  */
 public class FileIO {
@@ -207,7 +207,7 @@ public class FileIO {
 
     /**
      * Removes a file or, if a directory, a directory substructure...
-     * <p/>
+     * <p>
      * @param d a file or a directory
      */
     public static boolean delete(File d) {
@@ -231,7 +231,7 @@ public class FileIO {
 
     /**
      * Retrieves file from a remote location identified by a URL.
-     * <p/>
+     * <p>
      *
      * @param url
      * @return

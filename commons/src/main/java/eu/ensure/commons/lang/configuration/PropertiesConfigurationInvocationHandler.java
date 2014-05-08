@@ -35,8 +35,8 @@ import java.util.*;
 
 /**
  * Description of PropertiesConfigurationInvocationHandler:
- * <p/>
- * <p/>
+ * <p>
+ * <p>
  * Created by Frode Randers at 2011-11-04 14:14
  */
 public class PropertiesConfigurationInvocationHandler implements InvocationHandler {

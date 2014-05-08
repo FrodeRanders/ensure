@@ -33,8 +33,8 @@ import org.jaxen.JaxenException;
 
 /*
  * Description of XPath
- * <p/>
- * <p/>
+ * <p>
+ * <p>
  * Created by Frode Randers at 2012-04-11 21:50
  */
 public class XPath {

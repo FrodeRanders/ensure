@@ -45,15 +45,15 @@ import java.util.Properties;
  * Implements an abstraction over properties-files (or other configuration schemas) and
  * allows <strong>type safe</strong> access to configuration parameters - even though the
  * Properties-class only deals with Strings.
- * <p/>
+ * <p>
  * Use as follows:
  * <pre>
  * public class MyClass {
  *     private interface MyConfiguration {
- *         @Configurable(property = "key", value = "default value, if needed")
+ *         &#64;Configurable(property = "key", value = "default value, if needed")
  *         String aString();
  *
- *         @Configurable(property = "some other key")
+ *         &#64;Configurable(property = "some other key")
  *         int anInt();
  *     }
  *
@@ -70,7 +70,7 @@ import java.util.Properties;
  *     }
  * }
  * </pre>
- * <p/>
+ * <p>
  * Other means to load the configuration is provided by ConfigurationTool, such as:
  * <pre>
  *     Properties props1 = ConfigurationTool.load("/path/to/my/configuration.properties");
@@ -79,7 +79,7 @@ import java.util.Properties;
  *     File file = new File("/some/other/path/to/a/configuration.xml");
  *     Properties props3 = ConfigurationTool.load(file);
  * </pre>
- * <p/>
+ * <p>
  * Note that ConfigurationTool will handle both classic .properties files as well as XML-files using the
  * properties DTD:
  * <pre>
@@ -98,14 +98,14 @@ import java.util.Properties;
  *     &lt;/entry&gt;
  * &lt;/properties&gt;
  * </pre>
- * <p/>
+ * <p>
  * Created by Frode Randers at 2011-11-04 14:14
  */
 public class ConfigurationTool {
 
     /**
      * [Default] path to the environment location.
-     * <p/>
+     * <p>
      * The value is
      * <I>"java:comp/env"</I>
      */

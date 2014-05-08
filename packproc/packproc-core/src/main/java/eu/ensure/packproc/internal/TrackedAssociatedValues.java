@@ -34,7 +34,7 @@ import java.util.Set;
 
 /**
  * Description of TrackedAssociatedValues:
- * <p/>
+ * <p>
  *
  * Created by Frode Randers at 2012-03-22 20:55
  */

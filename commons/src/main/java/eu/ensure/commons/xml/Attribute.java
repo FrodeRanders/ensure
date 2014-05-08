@@ -33,8 +33,8 @@ import javax.xml.namespace.QName;
 
 /*
  * Description of Attribute
- * <p/>
- * <p/>
+ * <p>
+ * <p>
  * Created by Frode Randers at 2012-04-11 21:50
  */
 public class Attribute {

@@ -39,7 +39,7 @@ import java.util.*;
 
 /**
  * Calculates score for localized plugins (such as StoragePlugin:s or ComputePlugin:s).
- * <p/>
+ * <p>
  * Created by Frode Randers at 2012-10-16 17:57
  */
 public class LocalizedPluginCalculator {

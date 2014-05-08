@@ -30,8 +30,8 @@ import org.apache.log4j.Logger;
 import java.util.Map;
 
 /**
- * This configuration resolver will (try to) lookup configuration in a Map<String, String>.
- * <p/>
+ * This configuration resolver will (try to) lookup configuration in a Map&lt;String, String&gt;.
+ * <p>
  * Created by Frode Randers at 2014-02-06 16:17
  */
 public class StringMapConfigurationResolver implements ConfigurationTool.ConfigurationResolver {

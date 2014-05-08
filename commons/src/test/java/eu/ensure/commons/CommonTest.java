@@ -49,7 +49,7 @@ import java.util.Enumeration;
 import eu.ensure.commons.lang.TimeDelta;
 
 /**
- * <p/>
+ * <p>
  * Created by Frode Randers at 2012-10-23 11:00
  */
 public class CommonTest extends TestCase {

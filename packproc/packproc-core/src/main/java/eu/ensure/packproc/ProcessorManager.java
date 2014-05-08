@@ -250,9 +250,9 @@ public class ProcessorManager {
 
     /**
      * Lookup (value) variable in properties.
-     * <p/>
+     * <p>
      * Handles weird cases such as prefix-${property-${nested-property}}-suffix
-     * <p/>
+     * <p>
      * @param txt
      * @return
      */
@@ -282,9 +282,9 @@ public class ProcessorManager {
 
     /**
      * Lookup (value) variable in properties.
-     * <p/>
+     * <p>
      * Handles cases such as prefix-${property-1}-${property-2}-suffix
-     * <p/>
+     * <p>
      * @param txt
      * @return
      */
@@ -491,7 +491,7 @@ public class ProcessorManager {
      * operating on a container file, but in this case we don't want to treat the file as
      * a container file. Normally this method is used with "plain" files such as text-files,
      * XML-files, etc.
-     * <p/>
+     * <p>
      * @param processor
      * @param method
      * @param inputStream
@@ -540,10 +540,10 @@ public class ProcessorManager {
      * operating on a container file, but in this case we don't want to treat the file as
      * a container file. Normally this method is used with "plain" files such as text-files,
      * source code-files, XML-files, but also individual entries in a DICOM file.
-     * <p/>
+     * <p>
      * Called when operating on an encompassing structure, in which we have configured to
      * process a single file entry.
-     * <p/>
+     * <p>
      * @param processor
      * @param method
      * @param structureEntry

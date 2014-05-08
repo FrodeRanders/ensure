@@ -33,7 +33,7 @@ import javax.naming.NamingException;
 
 /**
  * This configuration resolver will (try to) lookup configuration in the JNDI tree.
- * <p/>
+ * <p>
  * Created by Frode Randers at 2014-02-06 16:07
  */
 public class JndiConfigurationResolver implements ConfigurationTool.ConfigurationResolver {

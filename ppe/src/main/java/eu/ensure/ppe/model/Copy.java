@@ -28,7 +28,7 @@ package eu.ensure.ppe.model;
 /**
  * Models what happens to a copy of an object accepted into an aggregation from a
  * storage perspective.
- * <p/>
+ * <p>
  * Created by Frode Randers at 2013-02-20 11:38
  */
 public class Copy {

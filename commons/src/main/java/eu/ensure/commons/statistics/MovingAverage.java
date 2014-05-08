@@ -27,8 +27,8 @@ package  eu.ensure.commons.statistics;
 
 /*
  * Calculates statistics based on a Moving Average (MA) algorithm.
- * <p/>
- * <p/>
+ * <p>
+ * <p>
  * Created by Frode Randers at 2012-09-21 14:29
  * Amended by Göran Lindqvist at 2012-09-22 17:26
  */
@@ -90,7 +90,7 @@ public class MovingAverage {
 
     /**
      * Updates statistics with 'sample'
-     * <p/>
+     * <p>
      * @param sample
      */
     public void update(double sample) {

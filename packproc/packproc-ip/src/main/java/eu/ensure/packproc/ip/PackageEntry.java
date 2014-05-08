@@ -33,7 +33,7 @@ public class PackageEntry extends StructureEntry<ArchiveEntry> {
 
     /**
      * This constructor is used to wrap an ArchiveEntry retrieved from, say, a TAR file.
-     * <p/>
+     * <p>
      * @param entry
      */
     public PackageEntry(ArchiveEntry entry) {

@@ -28,7 +28,7 @@ package  eu.ensure.commons.lang;
 /**
  * A dynamic initializer is used to initiate <i>dynamically loaded</i>
  * objects, see {@link  eu.ensure.commons.lang.DynamicLoader}&lt;C&gt;.
- * <p/>
+ * <p>
  * Since dynamically loaded objects may not have elaborated
  * constructors (they <b>must</b> have a default constructor),
  * we are depending on calling some kind of initializer
@@ -36,7 +36,7 @@ package  eu.ensure.commons.lang;
  *
  * This class wraps this behaviour when used together with
  * the {@link  eu.ensure.commons.lang.DynamicLoader}&lt;C&gt;.
- * <p/>
+ * <p>
  * In the general case, use as follows:
  * <pre>
  *   final String arg0 = "holy";
@@ -48,8 +48,8 @@ package  eu.ensure.commons.lang;
  *       }
  *   };
  * </pre>
- * <p/>
- * <p/>
+ * <p>
+ * <p>
  * Created by Frode Randers at 2011-11-04 14:14
  */
 public interface DynamicInitializer<C> {

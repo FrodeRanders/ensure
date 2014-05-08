@@ -37,9 +37,9 @@ import java.util.List;
 
 /**
  * Dynamically compile a Java program
- * <p/>
+ * <p>
  * Adapted from example in http://www.java2s.com/Code/Java/JDK-6/CompilingfromMemory.htm
- * <p/>
+ * <p>
  * Created by Frode Randers at 2012-07-28 17:24
  */
 public class DynamicCompiler {

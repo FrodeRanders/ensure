@@ -33,7 +33,7 @@ public class DicomStructureEntry extends StructureEntry<DicomElement> {
 
     /**
      * This constructor is used to wrap an ArchiveEntry retrieved from, say, a TAR file.
-     * <p/>
+     * <p>
      * @param entry
      */
     public DicomStructureEntry(DicomElement entry) {

@@ -44,7 +44,7 @@ import java.util.*;
 
 /**
  * Reads Global Preservation Plans.
- * <p/>
+ * <p>
  * Created by Frode Randers at 2012-09-13 14:34
  */
 public class ConfigurationReader {
@@ -577,7 +577,7 @@ public class ConfigurationReader {
      * Reads the preservation plan part of the GPP. It contains several aggregations with individual
      * actions (using plugins), but also some "system wide" actions (system actions) that apply equally
      * to all aggregations.
-     * <p/>
+     * <p>
      * @param gpp
      * @param namespaces
      * @param _pluginMap
@@ -601,7 +601,7 @@ public class ConfigurationReader {
 
     /**
      * Reads the aggregation specific part of the preservation plans for individual aggregations.
-     * <p/>
+     * <p>
      * @param _customer
      * @param gpp
      * @param namespaces
@@ -677,7 +677,7 @@ public class ConfigurationReader {
 
     /**
      * Reads actions that are specific to an aggregation.
-     * <p/>
+     * <p>
      * @param aggregation
      * @param aggregationAction
      * @param xpath
@@ -725,7 +725,7 @@ public class ConfigurationReader {
 
     /**
      * Reads individual actions for an aggregation.
-     * <p/>
+     * <p>
      * @param aggregation
      * @param action
      * @param xpath
@@ -844,7 +844,7 @@ public class ConfigurationReader {
 
     /**
      * Reads individual copy actions for an aggregation.
-     * <p/>
+     * <p>
      * @param aggregation
      * @param action
      * @param xpath
@@ -937,7 +937,7 @@ public class ConfigurationReader {
 
     /**
      * Reads the system actions (which applies to all aggregations).
-     * <p/>
+     * <p>
      * @param _customer
      * @param gpp
      * @param namespaces
@@ -971,7 +971,7 @@ public class ConfigurationReader {
 
     /**
      * Reads individual actions for an aggregation.
-     * <p/>
+     * <p>
      * @param action
      * @param xpath
      * @param pluginMap

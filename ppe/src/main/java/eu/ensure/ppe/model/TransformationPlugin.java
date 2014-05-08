@@ -27,7 +27,7 @@ package eu.ensure.ppe.model;
 
 /**
  * Specifically models transformation plugins in ENSURE.
- * <p/>
+ * <p>
  * Created by Frode Randers at 2012-10-25 16:29
  */
 public class TransformationPlugin extends Plugin {

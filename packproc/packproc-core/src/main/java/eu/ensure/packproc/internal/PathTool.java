@@ -35,7 +35,7 @@ public class PathTool {
 
     /**
      * Returns basename of path, i.e. "/path/to/file" returns "file".
-     * <p/>
+     * <p>
      * @param path
      * @return
      */
@@ -50,7 +50,7 @@ public class PathTool {
 
     /**
      * Returns dirname of path, i.e. "/path/to/file" returns "/path/to".
-     * <p/>
+     * <p>
      * @param path
      * @return
      */
@@ -73,10 +73,10 @@ public class PathTool {
     /**
      * Generates a substitute path, where basename in original path
      * is replaced by filename.
-     * <p/>
+     * <p>
      * We have to generate a path, so that "path/to/old-file" is replaced
      * by "path/to/replacement-file".
-     * <p/>
+     * <p>
      * @param path
      * @param filename
      * @return
@@ -97,11 +97,11 @@ public class PathTool {
 
     /**
      * Determines whether we are referring to an entry within a substructure.
-     * <p/>
+     * <p>
      * By checking whether the entry (a file or a directory) or any parent directories
      * are found among the 'removedEntries', we may be able to deduce that an entry should
      * not be processed.
-     * <p/>
+     * <p>
      * @param path
      * @param subStructures
      * @return

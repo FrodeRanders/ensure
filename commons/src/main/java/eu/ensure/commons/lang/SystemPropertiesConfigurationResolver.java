@@ -29,7 +29,7 @@ import org.apache.log4j.Logger;
 
 /**
  * This configuration resolver will (try to) lookup configuration among the system properties.
- * <p/>
+ * <p>
  * Created by Frode Randers at 2014-02-06 16:13
  */
 public class SystemPropertiesConfigurationResolver implements ConfigurationTool.ConfigurationResolver {

@@ -31,14 +31,14 @@ import java.io.IOException;
 
 /*
  * Implements a data source that does not cache (large) files in memory.
- * <p/>
+ * <p>
  * Is assumed to be used together with a javax.activation.DataHandler (like this)
  * <pre>
  *     InputStream is = request.getInputStream();
  *     StreamingDataSource ds = new StreamingDataSource("doc.xml", "text/xml", is);
  *     DataHandler dh = new javax.activation.DataHandler(ds);
  * </pre>
- * <p/>
+ * <p>
  * Created by Frode Randers at 2012-11-29 15:37
  */
 public class StreamingDataSource implements javax.activation.DataSource {

@@ -42,14 +42,14 @@ import java.io.UnsupportedEncodingException;
 
 /*
  * Description of Serializer.
- * <p/>
+ * <p>
  * Serializes any object into XML (String) that has the JAXB annotations:
  * <pre>
  * @XmlRootElement
  * @XmlAccessorType(XmlAccessType.FIELD)
  * set on the type (class)
  * </pre>
- * <p/>
+ * <p>
  * Created by Frode Randers at 2013-01-27 23:21
  */
 public class Serializer {
@@ -69,7 +69,7 @@ public class Serializer {
 
 
     /** Serializes an object into XML
-     * <p/>
+     * <p>
      * You need to catch the JAXBException, but beware that the cause is not conveyed correctly through getCause().
      * Take a peek at the internal 'cause' member and look out for detailed information about the problem.
      *

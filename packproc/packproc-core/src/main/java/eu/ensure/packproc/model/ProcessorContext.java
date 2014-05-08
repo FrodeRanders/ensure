@@ -31,7 +31,7 @@ import java.util.Map;
 
 /**
  * Description of ProcessorContext:
- * <p/>*
+ * <p>*
  * Created by Frode Randers at 2011-12-14 00:26
  */
 public interface ProcessorContext {

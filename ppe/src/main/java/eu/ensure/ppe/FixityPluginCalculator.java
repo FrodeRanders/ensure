@@ -34,7 +34,7 @@ import java.util.*;
 
 /**
  * Calculates score for fixity plugins.
- * <p/>
+ * <p>
  * Hash functions that are collision-resistant are called cryptographic hash functions
  * and are used for message authentication, digital signatures, obscuring passwords, etc.
  * (Valerie Aurora, 2007)
@@ -42,10 +42,10 @@ import java.util.*;
  * The most important characteristics of cryptographic hashes are that the collision-
  * resistance property degrades over time.
  * (Valerie Aurora, 2007)
- * <p/>
+ * <p>
  * We will try to assess the "strength" - or collision-resistance in this case - of such
  * hash functions for the purpose of (message) authentication in digital preservation.
- * <p/>
+ * <p>
  * Something about computational complexity - output from 'openssl speed' on my Mac:
  * <pre>
  *     The 'numbers' are in 1000s of bytes per second processed.
@@ -83,7 +83,7 @@ import java.util.*;
  *     ghash              833276.33k  1410963.22k  1645274.45k  1722450.94k  1739508.39k
  *
  * </pre>
- * <p/>
+ * <p>
  * Created by Frode Randers at 2012-10-16 17:57
  */
 public class FixityPluginCalculator {

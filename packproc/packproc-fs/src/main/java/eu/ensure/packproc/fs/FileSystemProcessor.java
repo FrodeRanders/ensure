@@ -102,8 +102,8 @@ public class FileSystemProcessor implements DispersedStructureProcessor {
     /**
      * Generic entry to the file system-processor. Will route to more specific actions based on the
      * plugin-specific configuration.
-     * <p/>
-     * <p/>
+     * <p>
+     * <p>
      * @param inputNode
      * @throws java.io.IOException
      * @throws eu.ensure.packproc.ProcessorException

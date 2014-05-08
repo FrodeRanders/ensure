@@ -34,7 +34,7 @@ import java.util.Vector;
 
 /**
  * Models events in the preservation process, such as obsolescence notices or the like.
- * <p/>
+ * <p>
  * Created by Frode Randers at 2012-09-10 14:56
  */
 public class Event {

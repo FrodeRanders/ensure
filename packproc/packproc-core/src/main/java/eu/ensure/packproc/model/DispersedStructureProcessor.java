@@ -38,7 +38,7 @@ import java.io.InputStream;
 public interface DispersedStructureProcessor extends Processor {
     /**
      * Processes a non-mutable file system structure
-     * <p/>
+     * <p>
      * @param name - entity name
      * @param inputNode - input node onto entity
      * @throws java.io.IOException

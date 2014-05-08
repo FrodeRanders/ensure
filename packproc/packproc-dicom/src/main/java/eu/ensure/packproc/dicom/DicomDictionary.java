@@ -40,9 +40,9 @@ import java.util.Set;
 
 /**
  * Description of DicomDictionary:
- * <p/>
+ * <p>
  * Helper class that maps DicomElement tag to a name (tag2name) and tag UID-values to a description.
- * <p/>
+ * <p>
  * Created by Frode Randers at 2011-12-16 12:07
  */
 public class DicomDictionary {

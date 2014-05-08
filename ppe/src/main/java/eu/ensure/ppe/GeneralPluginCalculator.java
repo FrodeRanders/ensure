@@ -39,7 +39,7 @@ import java.util.*;
 
 /**
  * Calculates score for Global Preservation Plans.
- * <p/>
+ * <p>
  * Created by Frode Randers at 2012-10-16 17:57
  */
 public class GeneralPluginCalculator {

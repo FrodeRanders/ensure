@@ -36,7 +36,7 @@ import java.util.Collection;
 
 /**
  * Calculates score for encryption plugins.
- * <p/>
+ * <p>
  * Created by Frode Randers at 2012-10-16 17:57
  */
 public class EncryptionPluginCalculator {

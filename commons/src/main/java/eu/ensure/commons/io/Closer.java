@@ -29,7 +29,7 @@ import java.io.Closeable;
 
 /**
  * Description of Closer.
- * <p/>
+ * <p>
  * Created by Frode Randers at 2013-09-06 12:46
  */
 public class Closer {

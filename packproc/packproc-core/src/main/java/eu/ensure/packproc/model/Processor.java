@@ -43,7 +43,7 @@ public interface Processor {
      * Since all processors are dynamically loaded and instantiated (based upon the
      * "classpath:"-based namespace definition) we have to provide an empty default
      * constructor for the Processor implementations.
-     * <p/>
+     * <p>
      * Because of this, we depend on delayed initialization using this method.
      */
     void initialize(
@@ -59,7 +59,7 @@ public interface Processor {
      * the PackageProcessor (that knows how to treat TAR-structures) will be
      * created with sub-processors (actions) that knows how to treat individual
      * files within that TAR-structure.
-     * <p/>
+     * <p>
      * A contrived example could be an Information Package with an embedded Information
      * Package, in which case the sub-processor (action) would be an PackageProcessor.
      */

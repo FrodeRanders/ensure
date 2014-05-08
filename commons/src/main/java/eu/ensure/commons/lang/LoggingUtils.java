@@ -67,7 +67,7 @@ public class LoggingUtils {
 
     /**
      * Initializes (and sets up) logging.
-     * <p/>
+     * <p>
      * @param clazz
      * @param resourceName
      * @return
@@ -204,7 +204,7 @@ public class LoggingUtils {
 
     /**
      * Initializes (and sets up) logging _if_ not done already.
-     * <p/>
+     * <p>
      * @param clazz
      * @param resourceName
      * @return

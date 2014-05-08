@@ -42,7 +42,7 @@ public interface ContainerStructureProcessor extends Processor {
 
     /**
      * Processes a (optionally mutable) structure
-     * <p/>
+     * <p>
      * @param name - entity name
      * @param inputStream - input stream onto entity
      * @param outputStream - output stream (may be null!)

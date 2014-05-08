@@ -35,7 +35,7 @@ import java.util.Map;
 
 /**
  * Description of DicomProcessorContext:
- * <p/>*
+ * <p>*
  * Created by Frode Randers at 2011-12-14 00:46
  */
 public class DicomProcessorContext extends BasicProcessorContext {

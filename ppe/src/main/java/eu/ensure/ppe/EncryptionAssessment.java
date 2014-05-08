@@ -40,7 +40,7 @@ import java.util.*;
 
 /**
  * Makes assessments of encryption algorithms.
- * <p/>
+ * <p>
  * Created by Frode Randers at 2012-10-24 22:19
  */
 public class EncryptionAssessment {
@@ -66,7 +66,7 @@ public class EncryptionAssessment {
 
     /**
      * Returns a ranking for any (assumed unbroken) algorithm.
-     * <p/>
+     * <p>
      * @param algorithm
      * @return
      */

@@ -27,8 +27,8 @@ package eu.ensure.commons.db.utils;
 
 /**
  * Description of Options:
- * <p/>
- * <p/>
+ * <p>
+ * <p>
  * Created by Frode Randers at 2011-11-04 14:14
  */
 public class Options {

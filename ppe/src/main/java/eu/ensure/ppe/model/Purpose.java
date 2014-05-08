@@ -27,7 +27,7 @@ package eu.ensure.ppe.model;
 
 /**
  * Models a limited set of known purposes.
- * <p/>
+ * <p>
  * Created by Frode Randers at 2013-02-19 16:37
  */
 public class Purpose {

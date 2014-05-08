@@ -36,8 +36,7 @@ import org.apache.log4j.Logger;
 
 /**
  * Description of Database:
- * <p/>
- * <p/>
+ * <p>
  * Created by Frode Randers at 2011-11-04 14:14
  */
 public class Database {
@@ -46,7 +45,11 @@ public class Database {
     private static int DEADLOCK_MAX_RETRIES = 100;
     private static int DEADLOCK_SLEEP_TIME = 200; // milliseconds
 
-    //
+    /**
+     * The database configuration can be accessed through this interface,
+     * that is implemented behind the scene using proxy objects and bound
+     * to the provided configuration properties.
+     */
     public interface Configuration {
         @Configurable(value = "derby")
         String manager();
@@ -77,8 +80,8 @@ public class Database {
 
     /**
      * Deduces configuration from properties, handling default values where appropriate...
-     * @param properties
-     * @return
+     * @param properties containing key/value pairs, where key name matches entries in the Configuration interface.
+     * @return a configuration proxy object bound to the provided properties.
      */
     public static Configuration getConfiguration(Properties properties) {
         Configuration config = ConfigurationTool.bindProperties(Configuration.class, properties);
@@ -97,42 +100,43 @@ public class Database {
      * have to use a construction along the lines of these examples
      * on the returned DataSource.
      * <pre>
-     *     String appName = "MyApplication"; 
+     * String appName = "MyApplication";
      *
-     *     Properties properties = ...;
-     *     DataSource dataSource = getDataSource(properties);
-     *     Database.Configuration config = Database.getConfiguration(properties);
+     * Properties properties = ...;
+     * DataSource dataSource = getDataSource(properties);
+     * Database.Configuration config = Database.getConfiguration(properties);
      *
-     *     if (driver.equals("net.sourceforge.jtds.jdbcx.JtdsDataSource")) {
-     *         net.sourceforge.jtds.jdbcx.JtdsDataSource ds = (net.sourceforge.jtds.jdbcx.JtdsDataSource)dataSource;
-     *         ds.setAppName(appName); // std
-     *         ds.setDatabaseName(config.database()); // std
-     *         ds.setUser(config.user()); // std
-     *         ds.setPassword(config.password()); // std
+     * if (driver.equals("net.sourceforge.jtds.jdbcx.JtdsDataSource")) {
+     *     net.sourceforge.jtds.jdbcx.JtdsDataSource ds = (net.sourceforge.jtds.jdbcx.JtdsDataSource)dataSource;
+     *     ds.setAppName(appName); // std
+     *     ds.setDatabaseName(config.database()); // std
+     *     ds.setUser(config.user()); // std
+     *     ds.setPassword(config.password()); // std
      *
-     *         ds.setServerName(config.server());  // jtds specific
-     *         ds.setPortNumber(Integer.parseInt(config.port())); // jtds specific
-     *     }
-     *     else if (driver.equals("org.apache.derby.jdbc.EmbeddedDataSource")) {
-     *         org.apache.derby.jdbc.EmbeddedDataSource ds = (org.apache.derby.jdbc.EmbeddedDataSource)dataSource;
-     *         ds.setDescription(appName); // std
-     *         ds.setDatabaseName(config.database()); // std
-     *         ds.setUser(config.user()); // std
-     *         ds.setPassword(config.password()); // std
+     *     ds.setServerName(config.server());  // jtds specific
+     *     ds.setPortNumber(Integer.parseInt(config.port())); // jtds specific
+     * }
+     * else if (driver.equals("org.apache.derby.jdbc.EmbeddedDataSource")) {
+     *     org.apache.derby.jdbc.EmbeddedDataSource ds = (org.apache.derby.jdbc.EmbeddedDataSource)dataSource;
+     *     ds.setDescription(appName); // std
+     *     ds.setDatabaseName(config.database()); // std
+     *     ds.setUser(config.user()); // std
+     *     ds.setPassword(config.password()); // std
      * 
-     *         ds.setCreateDatabase("create");  // derby specific
-     *     }
-     *     else if (driver.equals("sun.jdbc.odbc.ee.DataSource")) {
-     *         sun.jdbc.odbc.ee.DataSource ds = (sun.jdbc.odbc.ee.DataSource)dataSource;
-     *         ds.setDescription(appName); // std
-     *         ds.setDatabaseName(config.database()); // std
-     *         ds.setUser(config.user()); // std
-     *         ds.setPassword(config.password()); // std
+     *     ds.setCreateDatabase("create");  // derby specific
+     * }
+     * else if (driver.equals("sun.jdbc.odbc.ee.DataSource")) {
+     *     sun.jdbc.odbc.ee.DataSource ds = (sun.jdbc.odbc.ee.DataSource)dataSource;
+     *     ds.setDescription(appName); // std
+     *     ds.setDatabaseName(config.database()); // std
+     *     ds.setUser(config.user()); // std
+     *     ds.setPassword(config.password()); // std
      * }
      * </pre>
      * <p>
-     * @return
-     * @throws Exception
+     * @param config the configuration for accessing the database (driver etc).
+     * @return a datasource matching the provided configuration.
+     * @throws DatabaseException if a suitable driver was not found or could not be instantiated.
      */
     public static DataSource getDataSource(Configuration config) throws DatabaseException {
 
@@ -155,6 +159,8 @@ public class Database {
 
     /**
      * Dynamically loads the named class (fully qualified classname).
+     * <p>
+     * @param className specifies the fully qualified class name of a class (implementing DataSource).
      */
     public static Class loadDataSource(String className) throws ClassNotFoundException {
         return loader.createClass(className);
@@ -162,45 +168,57 @@ public class Database {
 
     /**
      * Creates a DataSource object instance from a DataSource class.
-     * <p/>
+     * <p>
+     * @param className specifies the fully qualified class name of a class (implementing DataSource).
+     * @param clazz specifies the class from which the object will be drawn.
      */
     public static DataSource createDataSource(String className, Class clazz) throws ClassNotFoundException {
         return loader.createObject(className, clazz);
     }
     
     /**
-     * Support for explicit logging of SQL exceptions to error log.
+     * Support for explicit logging of SQL exceptions to error log, by extracting all relevant information
+     * from the SQLException.
+     * <p>
+     * @param sqle an SQLException from which to extract information
      */
     public static String squeeze(SQLException sqle) {
-        SQLException e = sqle;
         StringBuilder buf = new StringBuilder();
+
+        SQLException e = sqle;
         while (e != null) {
-            buf.append(sqle.getClass().getSimpleName() + " [");
-            buf.append(e.getMessage());
-            buf.append("], SQLstate(");
-            buf.append(e.getSQLState());
-            buf.append("), Vendor code(");
-            buf.append(e.getErrorCode());
-            buf.append(")\n");
+            buf.append(e.getClass().getSimpleName())
+               .append(" [")
+               .append(e.getMessage())
+               .append("], SQLstate(")
+               .append(e.getSQLState())
+               .append("), Vendor code(")
+               .append(e.getErrorCode())
+               .append(")\n");
             e = e.getNextException();
         }
         return buf.toString();
     }
 
     /**
-     * Support for explicit logging of SQL warnings to warning log.
+     * Support for explicit logging of SQL warnings to warning log, by extracting all relevant information
+     * from the SQLWarning.
+     * <p>
+     * @param sqlw an SQLWarning from which to extract information.
      */
     public static String squeeze(SQLWarning sqlw) {
-        SQLWarning w = sqlw;
         StringBuilder buf = new StringBuilder();
+
+        SQLWarning w = sqlw;
         while (w != null) {
-            buf.append(sqlw.getClass().getSimpleName() + " [");
-            buf.append(w.getMessage());
-            buf.append("], SQLstate(");
-            buf.append(w.getSQLState());
-            buf.append("), Vendor code(");
-            buf.append(w.getErrorCode());
-            buf.append(")\n");
+            buf.append(w.getClass().getSimpleName())
+               .append(" [")
+               .append(w.getMessage())
+               .append("], SQLstate(")
+               .append(w.getSQLState())
+               .append("), Vendor code(")
+               .append(w.getErrorCode())
+               .append(")\n");
             w = w.getNextWarning();
         }
         return buf.toString();

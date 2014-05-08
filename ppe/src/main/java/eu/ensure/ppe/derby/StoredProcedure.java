@@ -33,8 +33,8 @@ import eu.ensure.commons.db.Database;
 
 /**
  * Description of StoredProcedure:
- * <p/>
- * <p/>
+ * <p>
+ * <p>
  * Created by Frode Randers at 2012-09-08 14:14
  */
 public class StoredProcedure {
@@ -107,7 +107,7 @@ public class StoredProcedure {
 
     /**
      * Generic object allocation method for allocating a RANGE of ids.
-     * <p/>
+     * <p>
      */
     private static void allocateIdRange(String tableName, int valueCount, int[] out1, int[] out2) {
         // In case table is empty, this is what we want
@@ -179,14 +179,14 @@ public class StoredProcedure {
 
     /**
      * Implementation of the SQL procedure 'ppe_allocate_id'.
-     * <p/>
+     * <p>
      * <pre>
      * CREATE PROCEDURE ppe_allocate_id(IN value_count INTEGER,
      *   OUT first_id INTEGER, OUT last_id INTEGER)
      *   PARAMETER STYLE JAVA MODIFIES SQL DATA LANGUAGE JAVA
      *   EXTERNAL NAME 'eu.ensure.ppe.derby.StoredProcedure.allocateId';
      * </pre>
-     * <p/>
+     * <p>
      */
     public static void allocateId(int valueCount, int[] out1, int[] out2) {
         allocateIdRange("ppe_unique_keystore", valueCount, out1, out2);
@@ -211,7 +211,7 @@ public class StoredProcedure {
      *     END IF;
      * END;
      * </pre>
-     * <p/>
+     * <p>
      */
     private static void recalculateByMaximizing(
             Connection conn, String srcTableName, String srcColumnName, int defaultValue)

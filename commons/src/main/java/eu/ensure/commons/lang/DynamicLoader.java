@@ -35,9 +35,9 @@ import java.lang.reflect.InvocationTargetException;
 
 /**
  * A dynamic loader is used to dynamically load objects.
- * <p/>
+ * <p>
  * Example:
- * <p/>
+ * <p>
  * We have an XML-file describing processors, containing a processor name
  * (the key) and a class to implement that processor. In the general case
  * this could be any mapping to any kind of plugin:
@@ -82,7 +82,7 @@ import java.lang.reflect.InvocationTargetException;
  * </pre>
  * Being a Hashtable&lt;String, C&gt;, we may now refer to the individual
  * processors (plugins) through the <i>processors</i> object.
- * <p/>
+ * <p>
  * The next example is the process() method of the processor.
  * <pre>
  * public boolean process(String action, String path, FileChannel fileChannel) throws ProcessorException {
@@ -106,12 +106,12 @@ import java.lang.reflect.InvocationTargetException;
  * is to inject some kind of initialization into the loading
  * process, reading class names from an XML file and instantiating
  * objects.
- * <p/>
+ * <p>
  * The solution is to use a
  * {@link  eu.ensure.commons.lang.DynamicInitializer}&lt;Processor&gt;,
  * specifically targeted at Processor plugins.
- * <p/>
- * <p/>
+ * <p>
+ * <p>
  * Created by Frode Randers at 2011-11-04 14:14
  */
 public class DynamicLoader<C> extends Hashtable<String, C> {
@@ -121,7 +121,7 @@ public class DynamicLoader<C> extends Hashtable<String, C> {
 
     /**
      * Constructor.
-     * <p/>
+     * <p>
      * The <i>description</i> parameter is used when producing
      * log output and has no other function. It makes the log
      * a whole lot easier to read - do use it!
@@ -133,10 +133,10 @@ public class DynamicLoader<C> extends Hashtable<String, C> {
     /**
      * Dynamically loads objects from an InputStream, containing the content of
      * a Properties object (either XML or normal Properties-files layout).
-     * <p/>
+     * <p>
      * Supports the use of a dynamic initializer
      * (see {@link  eu.ensure.commons.lang.DynamicInitializer}&lt;C&gt;)
-     * <p/>
+     * <p>
      * The <i>assignKey</i> parameter instructs the loader to
      * assign the key name to the dynamic object by calling
      * the method assignKey(String key) - if it exists.
@@ -150,7 +150,7 @@ public class DynamicLoader<C> extends Hashtable<String, C> {
     /**
      * Dynamically loads objects from an InputStream, containing the content of
      * a Properties object (either XML or normal Properties-files layout).
-     * <p/>
+     * <p>
      * Supports the use of a dynamic initializer
      * (see {@link  eu.ensure.commons.lang.DynamicInitializer}&lt;C&gt;)
      */
@@ -168,10 +168,10 @@ public class DynamicLoader<C> extends Hashtable<String, C> {
 
     /**
      * Dynamically loads objects from a Properties object.
-     * <p/>
+     * <p>
      * Supports the use of a dynamic initializer
      * (see {@link  eu.ensure.commons.lang.DynamicInitializer}&lt;C&gt;)
-     * <p/>
+     * <p>
      * The <i>assignKey</i> parameter instructs the loader to
      * assign the key name to the dynamic object by calling
      * the method assignKey(String key) - if it exists.
@@ -210,7 +210,7 @@ public class DynamicLoader<C> extends Hashtable<String, C> {
 
     /**
      * Dynamically loads objects from a Properties object.
-     * <p/>
+     * <p>
      * Supports the use of a dynamic initializer
      * (see {@link  eu.ensure.commons.lang.DynamicInitializer}&lt;C&gt;)
      */
@@ -228,7 +228,7 @@ public class DynamicLoader<C> extends Hashtable<String, C> {
     /**
      * Dynamically loads the named class (fully qualified classname) and
      * creates an instance from it.
-     * <p/>
+     * <p>
      * Supports the use of a dynamic initializer
      * (see {@link  eu.ensure.commons.lang.DynamicInitializer}&lt;C&gt;)
      */
@@ -269,7 +269,7 @@ public class DynamicLoader<C> extends Hashtable<String, C> {
 
     /**
      * Creates an instance from a Class.
-     * <p/>
+     * <p>
      * Supports the use of a dynamic initializer
      * (see {@link  eu.ensure.commons.lang.DynamicInitializer}&lt;C&gt;)
      */
@@ -317,12 +317,12 @@ public class DynamicLoader<C> extends Hashtable<String, C> {
      * Calls a method on an object. Beware that this version of callMethodOn() will
      * assume the exact parameter types in the designated method as has the parameters
      * to this call.
-     * <p/>
+     * <p>
      * An effect of this is that if you call a method assuming a type T with an
      * object of the derived type D, the method call will fail. In this case (when
      * using polymorphous parameters) you should use the version also taking an
      * array of parameter types (see below).
-     * <p/>
+     * <p>
      * Example:
      * <pre>
      * // Method name
@@ -334,7 +334,7 @@ public class DynamicLoader<C> extends Hashtable<String, C> {
      * // Method call
      * callMethodOn(object, methodName, parameters);
      * </pre>
-     * <p/>
+     * <p>
      * @param object - any object
      * @param methodName - name of (public) method
      * @param parameters - an array of values matching the parameterTypes array
@@ -380,23 +380,23 @@ public class DynamicLoader<C> extends Hashtable<String, C> {
 
     /**
      * Calls a method on an object. Will not dynamically determine parameter types.
-     * <p/>
+     * <p>
      * May be used to call methods with polymorphous parameters, i.e. methods
      * taking parameters such as List, Map, etc (that are abstract).
-     * <p/>
+     * <p>
      * Example:
      * <pre>
      * // Method name
      * String methodName = "assignList"; // predefined
      *
      * // Parameter types and values
-     * Object[] parameters = { new Vector<String>() };
+     * Object[] parameters = { new Vector&lt;String&gt;() };
      * Class[] types = { List.class };
      *
      * // Method call
      * callMethodOn(object, methodName, parameters, types);
      * </pre>
-     * <p/>
+     * <p>
      * @param object - any object
      * @param methodName - name of (public) method
      * @param parameters - an array of values matching the parameterTypes array
@@ -433,34 +433,5 @@ public class DynamicLoader<C> extends Hashtable<String, C> {
             info += nsme.getMessage();
             throw new ClassNotFoundException(info);
         }
-    }
-
-    /**
-     *
-     */
-    public class ParameterData {
-        Object[] values;
-        Class[] types;
-
-        ParameterData(Object[] values, Class[] types) {
-            this.values = values;
-            this.types = types;
-        }
-
-        public Object[] getValues() {
-            return values;
-        }
-
-        public Class[] getTypes() {
-            return types;
-        }
-    }
-
-    public ParameterData getParameterData(Object... args) {
-        Class[] types = new Class[args.length];
-        for (int i=0; i<args.length; i++) {
-            types[i] = args[i].getClass();
-        }
-        return new ParameterData(args, types);
     }
 }

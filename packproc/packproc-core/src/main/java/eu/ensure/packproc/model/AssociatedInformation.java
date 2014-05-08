@@ -29,7 +29,7 @@ import java.util.*;
 
 /**
  * Description of AssociatedInformation:
- * <p/>
+ * <p>
  *
  * Created by Frode Randers at 2012-03-16 13:58
  */

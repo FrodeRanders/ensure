@@ -38,7 +38,7 @@ import java.util.*;
 
 /**
  * Description of ValueHandler:
- * <p/>*
+ * <p>*
  * Created by Frode Randers at 2011-12-16 12:04
  */
 public class ValueHandler {

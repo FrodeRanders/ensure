@@ -27,10 +27,10 @@ package eu.ensure.ppe.model;
 
 /**
  * Models the consequences of picking a specific plugin in a preservation plan.
- * <p/>
+ * <p>
  * Specifically tracks the 'suitability' of picking a plugin and the 'probability'
  * of this consequence coming to action.
- * <p/>
+ * <p>
  * Created by Frode Randers at 2013-11-11 13:50
  */
 public class Consequence {

@@ -36,14 +36,14 @@ import java.io.StringReader;
 
 /*
  * Description of Deserializer.
- * <p/>
+ * <p>
  * Deserializes an XML node hierarchy into an object. The class of that object need to have the JAXB annotations:
  * <pre>
  * @XmlRootElement  ???
  * @XmlAccessorType(XmlAccessType.FIELD)
  * set on the type (class)
  * </pre>
- * <p/>
+ * <p>
  * Created by Frode Randers at 2013-02-17 10:43
  */
 public class Deserializer {

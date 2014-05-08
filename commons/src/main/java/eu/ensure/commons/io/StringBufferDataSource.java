@@ -32,7 +32,7 @@ import java.io.OutputStream;
 
 /*
  * Implements a data source that caches (possibly large) buffers of data in memory.
- * <p/>
+ * <p>
  * Is assumed to be used together with a javax.activation.DataHandler (like this)
  * <pre>
  *     StringBuffer buf = new StringBuffer();
@@ -40,7 +40,7 @@ import java.io.OutputStream;
  *     StringBufferDataSource ds = new StringBufferDataSource("data", "binary/octet-stream", buf);
  *     DataHandler dh = new javax.activation.DataHandler(ds);
  * </pre>
- * <p/>
+ * <p>
  * Created by Frode Randers at 2013-01-23 00:33
  */
 public class StringBufferDataSource implements javax.activation.DataSource {

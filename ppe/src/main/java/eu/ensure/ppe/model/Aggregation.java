@@ -29,7 +29,7 @@ import java.util.*;
 
 /**
  * Models an aggregation and calculations that pertain to the aggregation level.
- * <p/>
+ * <p>
  * Objects accepted into an aggregation experiences a lifetime consisting of a series of
  * events in a flow. At each event (such as 'ingest') a series of plugins may be applied to
  * the object.
@@ -48,7 +48,7 @@ import java.util.*;
  * is used.
  *
  * As a consequence of this, we will treat storage plugins and compute plugins separately.
- * <p/>
+ * <p>
  * Created by Frode Randers at 2012-09-10 14:56
  */
 public class Aggregation {

@@ -34,7 +34,7 @@ public class FileSystemEntry extends StructureEntry<File> {
 
     /**
      * This constructor is used to wrap a File.
-     * <p/>
+     * <p>
      * @param entry
      */
     public FileSystemEntry(File entry) {

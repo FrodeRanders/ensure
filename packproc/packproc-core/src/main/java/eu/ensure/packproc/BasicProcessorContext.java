@@ -30,7 +30,7 @@ import eu.ensure.packproc.model.ProcessorContext;
 
 /**
  * Description of BasicProcessorContext:
- * <p/>*
+ * <p>*
  * Created by Frode Randers at 2011-12-14 00:33
  */
 public class BasicProcessorContext extends TrackingProcessorContext implements ProcessorContext {

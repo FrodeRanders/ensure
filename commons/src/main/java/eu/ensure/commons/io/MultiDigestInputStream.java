@@ -41,8 +41,8 @@ import java.util.zip.CRC32;
 
 /*
  * Description of MultiDigestInputStream
- * <p/>
- * <p/>
+ * <p>
+ * <p>
  * Created by Frode Randers at 2012-02-29 10:12
  */
 public class MultiDigestInputStream extends FilterInputStream {
@@ -73,7 +73,7 @@ public class MultiDigestInputStream extends FilterInputStream {
 
     /**
      * This is the preferred constructor
-     * <p/>
+     * <p>
      * @param algorithms
      * @param is
      */

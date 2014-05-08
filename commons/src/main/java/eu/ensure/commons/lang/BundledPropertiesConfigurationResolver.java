@@ -35,7 +35,7 @@ import java.util.Properties;
 /**
  * This configuration resolver will (try to) lookup configuration among the bundled properties, bundled
  * together with some class.
- * <p/>
+ * <p>
  * Format of the properties file should be as follows:
  * <pre>
  *   &lt;?xml version="1.0" encoding="UTF-8"?&gt;
@@ -47,13 +47,13 @@ import java.util.Properties;
  *     &lt;/comment&gt;
  *     &lt;entry key="key 1"&gt;
  *       value 1
- *     &lt;/entry>
+ *     &lt;/entry&gt;
  *     &lt;entry key="key 2"&gt;
  *       value 2
  *     &lt;/entry&gt;
  *   &lt;/properties&gt;
  * </pre>
- * <p/>
+ * <p>
  * Created by Frode Randers at 2014-02-06 22:13
  */
 public class BundledPropertiesConfigurationResolver implements ConfigurationTool.ConfigurationResolver {

@@ -27,7 +27,7 @@ package eu.ensure.ppe.model;
 
 /**
  * Specifically models fixity plugins in ENSURE.
- * <p/>
+ * <p>
  * Created by Frode Randers at 2012-10-24 21:36
  */
 public class FixityPlugin extends Plugin {

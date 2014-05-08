@@ -32,8 +32,8 @@ import java.util.Locale;
 
 /*
  * Description of Number
- * <p/>
- * <p/>
+ * <p>
+ * <p>
  * Created by Frode Randers at 2012-02-29 10:10
  */
 public class Number {

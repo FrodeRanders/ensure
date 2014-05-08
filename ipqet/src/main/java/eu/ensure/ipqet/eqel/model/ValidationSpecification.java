@@ -30,7 +30,7 @@ import java.util.Map;
 
 /**
  * Description of ValidationSpecification.
- * <p/>
+ * <p>
  * Created by Frode Randers at 2012-10-20 14:24
  */
 public class ValidationSpecification {

@@ -43,7 +43,7 @@ import java.util.List;
 
 /**
  * Makes assessments of message digest/hash/fixity algorithms.
- * <p/>
+ * <p>
  * Created by Frode Randers at 2012-10-25 16:59
  */
 public class Schema {

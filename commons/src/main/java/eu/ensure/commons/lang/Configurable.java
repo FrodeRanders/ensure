@@ -32,8 +32,8 @@ import java.lang.annotation.Target;
 
 /**
  * Description of Configurable:
- * <p/>
- * <p/>
+ * <p>
+ * <p>
  * Created by Frode Randers at 2011-11-04 14:14
  */
 @Target(ElementType.METHOD)
@@ -41,7 +41,7 @@ import java.lang.annotation.Target;
 public @interface Configurable {
     /**
      * Name of configurable property. If not provided, the name of the method is assumed.
-     * <p/>
+     * <p>
      * @return name of property
      */
     public String property() default "";
@@ -49,7 +49,7 @@ public @interface Configurable {
     /**
      * Default value of configurable property. This is only applicable if the
      * return type is String.
-     * <p/>
+     * <p>
      * @return default value if configurable property was not found
      */
     public String value() default "";

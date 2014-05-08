@@ -119,7 +119,7 @@ public class DicomProcessor implements ContainerStructureProcessor {
 
     /**
      * extracts an entry in DICOM file
-     * <p/>
+     * <p>
      * @param dicomObject
      * @param objectInputStream
      * @throws IOException
@@ -190,8 +190,8 @@ public class DicomProcessor implements ContainerStructureProcessor {
     /**
      * Generic entry to the DICOM-processor. Will route to more specific actions based on the
      * plugin-specific configuration.
-     * <p/>
-     * <p/>
+     * <p>
+     * <p>
      * @param inputStream
      * @param context
      * @throws java.io.IOException

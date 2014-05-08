@@ -27,7 +27,7 @@ package eu.ensure.ppe.model;
 
 /**
  * Specifically models plugins in ENSURE that has a locality.
- * <p/>
+ * <p>
  * Created by Frode Randers at 2013-01-17 00:09
  */
 public abstract class LocalizedPlugin extends Plugin {

@@ -33,8 +33,8 @@ import java.util.Locale;
 
 /*
  * Description of TimeDelta
- * <p/>
- * <p/>
+ * <p>
+ * <p>
  * Created by Frode Randers at 2013-01-10 00:56
  */
 public class TimeDelta {

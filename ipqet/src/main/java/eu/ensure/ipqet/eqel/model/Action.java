@@ -27,7 +27,7 @@ package eu.ensure.ipqet.eqel.model;
 
 /**
  * Description of Action.
- * <p/>
+ * <p>
  * Created by Frode Randers at 2012-10-20 14:25
  */
 public class Action {

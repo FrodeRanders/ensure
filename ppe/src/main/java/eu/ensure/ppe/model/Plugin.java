@@ -27,7 +27,7 @@ package eu.ensure.ppe.model;
 
 /**
  * Models plugins that are used to implement functionality in ENSURE.
- * <p/>
+ * <p>
  * Created by Frode Randers at 2012-09-10 14:56
  */
 public class Plugin {
