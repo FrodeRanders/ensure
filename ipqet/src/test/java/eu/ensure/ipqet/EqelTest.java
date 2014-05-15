@@ -36,9 +36,9 @@ import eu.ensure.ipqet.eqel.model.DomainSpecification;
 import eu.ensure.ipqet.eqel.model.ValidationSpecification;
 import junit.framework.TestCase;
 
-import org.antlr.stringtemplate.*;
+import org.stringtemplate.v4.*;
+//import org.antlr.stringtemplate.language.DefaultTemplateLexer;
 
-import org.antlr.stringtemplate.language.DefaultTemplateLexer;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 
@@ -80,10 +80,10 @@ public class EqelTest extends TestCase {
         // Simple template test
         String decl =
             "int[] values = { $values; separator=\", \"$ };";
-        StringTemplate st = new StringTemplate(decl);
-        st.setAttribute("values", "42");
-        st.setAttribute("values", "43");
-        st.setAttribute("values", "44");
+        ST st = new ST(decl);
+        st.add("values", "42");
+        st.add("values", "43");
+        st.add("values", "44");
         System.out.println(st);
 
         System.out.println("\nTesting code generation:");
@@ -91,35 +91,35 @@ public class EqelTest extends TestCase {
         // A more elaborate string template test
 		InputStream is = null;
 		try {
-            // is = Thread.currentThread().getContextClassLoader().getResourceAsStream("test.st");
+            is = Thread.currentThread().getContextClassLoader().getResourceAsStream("test.st");
 			is = getClass().getResourceAsStream("test.st");
-            Reader reader = new InputStreamReader(is);
+            File template = FileIO.writeToTempFile(is, "test", "st");
 
             StringBuilder src = new StringBuilder();
 
             // Preamble
-            StringTemplateGroup group =  new StringTemplateGroup(reader, DefaultTemplateLexer.class);
-            StringTemplate preamble = group.getInstanceOf("preamble");
-            src.append(preamble.toString());
+            STGroup group =  new STGroup();
+            //group.verbose = true;
+
+            group.loadGroupFile("/", "file:" + template.getAbsolutePath());
+
+            ST preamble = group.getInstanceOf("preamble");
+            src.append(preamble.render());
 
             // Some code from a template
             String packageName = "test";
             String className = "Test";
 
-            StringTemplate block = group.getInstanceOf("block");
-            block.setAttribute("package", packageName);
-            block.setAttribute("name", className);
+            ST block = group.getInstanceOf("block");
+            block.add("package", packageName);
+            block.add("name", className);
+            block.add("strings", Arrays.asList("Alpha", "Beta", "Gamma", "Delta"));
+            block.add("doViewCompileTimeData", true);
 
-            block.setAttribute("strings", "Alpha");
-            block.setAttribute("strings", "Beta");
-            block.setAttribute("strings", "Gamma");
-            block.setAttribute("strings", "Delta");
-            block.setAttribute("doViewCompileTimeData", true);
-
-            System.out.println(block.toString());
+            System.out.println(block.render());
 
             System.out.println("\nTesting generated code execution:");
-            src.append(block.toString());
+            src.append(block.render());
 
             File cwd = new File(System.getProperty("user.dir"));
             DynamicCompiler compiler = new DynamicCompiler(cwd);

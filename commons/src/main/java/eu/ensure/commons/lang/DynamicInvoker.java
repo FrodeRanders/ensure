@@ -138,7 +138,7 @@ public class DynamicInvoker {
     }
 
     /**
-     * Dynamically creates the object
+     * Dynamically creates an object
      */
     public Object createObject(String className, Class clazz) throws ClassNotFoundException {
         Object object;

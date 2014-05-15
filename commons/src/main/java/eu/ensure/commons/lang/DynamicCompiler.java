@@ -28,8 +28,7 @@ package  eu.ensure.commons.lang;
 import org.apache.log4j.Logger;
 
 import javax.tools.*;
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -79,16 +78,19 @@ public class DynamicCompiler {
         classPath += workDirectory.getAbsolutePath();
 
         optionList.addAll(
-                Arrays.asList(
-                        "-classpath", classPath,       // Classpath also contains workDirectory
-                        "-d", workDirectory.getPath(), // Compiler output goes here
-                        "-s", workDirectory.getPath(), // Compiler output goes here
-                        "-Xlint"
-                        // "-verbose"
-                )
+            Arrays.asList(
+                    "-classpath", classPath,       // Classpath also contains workDirectory
+                    "-d", workDirectory.getPath(), // Compiler output goes here
+                    "-s", workDirectory.getPath(), // Compiler output goes here
+                    "-proc:none",
+                    "-Xlint",
+                    "-verbose"
+            )
         );
 
-        JavaCompiler.CompilationTask task = compiler.getTask(null, null, diagnostics, optionList, null, compilationUnits);
+        //Writer writer = new BufferedWriter(new PrintWriter(System.out)); // TODO!
+        Writer writer = null;
+        JavaCompiler.CompilationTask task = compiler.getTask(writer, null, diagnostics, optionList, null, compilationUnits);
 
         boolean success = task.call();
         for (Diagnostic diagnostic : diagnostics.getDiagnostics()) {

@@ -1,5 +1,7 @@
 group test;
 
+delimiters "$", "$"
+
 preamble() ::= <<
 /*
  * This code was automatically generated. Manual modifications to this source code file will be ignored!
