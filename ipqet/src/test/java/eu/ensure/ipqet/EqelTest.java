@@ -91,9 +91,9 @@ public class EqelTest extends TestCase {
         // A more elaborate string template test
 		InputStream is = null;
 		try {
-            is = Thread.currentThread().getContextClassLoader().getResourceAsStream("test.st");
-			is = getClass().getResourceAsStream("test.st");
-            File template = FileIO.writeToTempFile(is, "test", "st");
+            is = Thread.currentThread().getContextClassLoader().getResourceAsStream("test.stg");
+			is = getClass().getResourceAsStream("test.stg");
+            File template = FileIO.writeToTempFile(is, "test", "stg");
 
             StringBuilder src = new StringBuilder();
 
