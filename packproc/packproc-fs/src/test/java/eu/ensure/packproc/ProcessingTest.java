@@ -28,25 +28,12 @@ package eu.ensure.packproc;
 import eu.ensure.commons.io.Closer;
 import eu.ensure.commons.lang.LoggingUtils;
 import eu.ensure.commons.lang.Stacktrace;
-import eu.ensure.packproc.internal.TrackingProcessorContext;
-import eu.ensure.packproc.model.AssociatedInformation;
-import eu.ensure.packproc.model.EvaluationStatement;
-import eu.ensure.packproc.model.ProcessorContext;
 import junit.framework.TestCase;
 import org.apache.log4j.Logger;
-import org.apache.log4j.xml.DOMConfigurator;
 import org.junit.Test;
 
 import java.io.*;
 import java.util.*;
-
-// Used when loading the Log4J configuration manually
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import org.w3c.dom.Document;
-import org.xml.sax.EntityResolver;
-import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
 
 /**
  */

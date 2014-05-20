@@ -37,7 +37,6 @@ import eu.ensure.ipqet.eqel.model.ValidationSpecification;
 import junit.framework.TestCase;
 
 import org.stringtemplate.v4.*;
-//import org.antlr.stringtemplate.language.DefaultTemplateLexer;
 
 import org.apache.log4j.Logger;
 import org.junit.Test;

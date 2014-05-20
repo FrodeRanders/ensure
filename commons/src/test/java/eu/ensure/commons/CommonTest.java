@@ -25,21 +25,11 @@
  */
 package eu.ensure.commons;
 
+import eu.ensure.commons.lang.LoggingUtils;
 import eu.ensure.commons.statistics.MovingAverage;
 import junit.framework.TestCase;
 import org.apache.log4j.Logger;
-import org.apache.log4j.xml.DOMConfigurator;
 import org.junit.Test;
-import org.w3c.dom.Document;
-import org.xml.sax.EntityResolver;
-import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
-
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.StringReader;
 
 import java.math.BigInteger;
 import java.security.Provider;
@@ -53,45 +43,7 @@ import eu.ensure.commons.lang.TimeDelta;
  * Created by Frode Randers at 2012-10-23 11:00
  */
 public class CommonTest extends TestCase {
-    private static Logger log = null;
-
-    static {
-        try {
-            DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
-            /*
-            docBuilderFactory.setValidating(false);
-            docBuilderFactory.setFeature("http://xml.org/sax/features/namespaces", false);
-            docBuilderFactory.setFeature("http://xml.org/sax/features/validation", false);
-            docBuilderFactory.setFeature("http://apache.org/xml/features/nonvalidating/load-dtd-grammar", false);
-            docBuilderFactory.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
-            docBuilderFactory.setFeature("http://apache.org/xml/features/validation/schema", false);
-            */
-            DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
-            docBuilder.setEntityResolver(new EntityResolver() {
-                public InputSource resolveEntity(String publicId, String systemId)
-                        throws SAXException, IOException {
-                    if (systemId.contains("log4j.dtd")) {
-                        return new InputSource(new StringReader(""));
-                    } else {
-                        return null;
-                    }
-                }
-            });
-            InputStream config = null;
-            try {
-                config = CommonTest.class.getResourceAsStream("log-configuration.xml");
-                Document doc = docBuilder.parse(config);
-                DOMConfigurator.configure(doc.getDocumentElement());
-                log = Logger.getLogger(CommonTest.class);
-                log.info("Logging commences...");
-
-            } finally {
-                if (null != config) config.close();
-            }
-        } catch (Exception e) {
-            System.err.println(e);
-        }
-    }
+    private static final Logger log = LoggingUtils.setupLoggingFor(CommonTest.class, "log-configuration.xml");
 
     @Test
     public void testProviders() {
