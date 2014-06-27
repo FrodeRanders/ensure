@@ -17,7 +17,11 @@
 	<name>Package processing module for XML files</name>
 	<inceptionYear>2011</inceptionYear>
 
-	<dependencies>
+    <prerequisites>
+        <maven>2.2.1</maven>
+    </prerequisites>
+
+    <dependencies>
         <dependency>
             <groupId>eu.ensure</groupId>
             <artifactId>commons</artifactId>
@@ -67,6 +71,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
             </plugin>
         </plugins>
     </build>

@@ -11,6 +11,10 @@
     <name>Wrapper for the ENSURE software components</name>
     <inceptionYear>2011</inceptionYear>
 
+    <prerequisites>
+        <maven>2.2.1</maven>
+    </prerequisites>
+
     <modules>
         <module>commons</module>
         <module>packproc</module>

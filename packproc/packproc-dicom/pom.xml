@@ -17,6 +17,10 @@
 	<name>Package processing module for DICOM files</name>
 	<inceptionYear>2011</inceptionYear>
 
+    <prerequisites>
+        <maven>2.2.1</maven>
+    </prerequisites>
+
     <repositories>
         <repository>
             <id>dcm4che.public</id>
@@ -93,6 +97,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
             </plugin>
         </plugins>
     </build>

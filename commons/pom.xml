@@ -11,6 +11,10 @@
     <name>commons - Tools and utilities</name>
     <inceptionYear>2011</inceptionYear>
 
+    <prerequisites>
+        <maven>2.2.1</maven>
+    </prerequisites>
+
     <properties>
         <project.build.sourceEncoding>ISO8859-1</project.build.sourceEncoding>
     </properties>
@@ -54,7 +58,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.0</version>
+                <version>3.1</version>
                 <configuration>
                     <source>1.6</source>
                     <target>1.6</target>

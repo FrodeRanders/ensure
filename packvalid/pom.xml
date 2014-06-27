@@ -17,6 +17,10 @@
 	<name>Information package validator</name>
 	<inceptionYear>2011</inceptionYear>
 
+    <prerequisites>
+        <maven>2.2.1</maven>
+    </prerequisites>
+
     <repositories>
         <repository>
             <id>dcm4che.public</id>
@@ -108,7 +112,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.0</version>
+                <version>3.1</version>
                 <configuration>
                     <source>1.6</source>
                     <target>1.6</target>
