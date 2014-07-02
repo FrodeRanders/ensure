@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns:aging-simulator="class:eu.ensure.ltu.strupro.aging.GenericAgingProcessor">
+    
+    <aging-simulator:process>
+        <touch-tar-header flip-bit-in-name="${flip-bit-in-name}"
+                          flip-bit-in-uname="${flip-bit-in-uname}"
+                          update-checksum="${update-checksum}" />
+    </aging-simulator:process>
+
+</configuration>
