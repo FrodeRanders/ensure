@@ -167,6 +167,34 @@ public class FileIO {
     }
 
     /**
+     * Writes a ByteBuffer (internally a series of byte[]) to a temporary file
+     */
+    public static File writeToTempFile(ByteBuffer byteBuffer, File directory, String prefix, String suffix) throws IOException {
+        File tmpOutputFile = null;
+        RandomAccessFile outputRaf = null;
+        try {
+            // Create temporary file
+            tmpOutputFile = File.createTempFile(prefix, "." + suffix, directory);
+            outputRaf = new RandomAccessFile(tmpOutputFile, "rw");
+            FileChannel outputChannel = outputRaf.getChannel();
+
+            outputChannel.write(byteBuffer);
+
+        } catch (IOException ioe) {
+            String info = "Failed to write to temporary file: " + ioe.getMessage();
+            throw new IOException(info, ioe);
+
+        } finally {
+            // Close temporary resources and such
+            try {
+                if (null != outputRaf) outputRaf.close(); // closes the associated FileChannel as well
+            } catch (Throwable ignore) {
+            }
+        }
+        return tmpOutputFile;
+    }
+
+    /**
      * Writes a list of byte[] to a temporary file
      */
     public static File writeToTempFile(List<byte[]> bytesList, String prefix, String suffix) throws IOException {
