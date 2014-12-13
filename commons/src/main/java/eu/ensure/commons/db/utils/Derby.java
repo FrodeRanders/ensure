@@ -28,6 +28,11 @@ package eu.ensure.commons.db.utils;
 import javax.sql.DataSource;
 import java.util.Properties;
 
+// For shutdown() purposes
+import java.sql.DriverManager; 
+import java.sql.SQLException;
+import eu.ensure.commons.db.Database;
+
 /**
  * Description of Derby:
  * <p>
@@ -49,4 +54,27 @@ public class Derby extends Manager {
         // Always print database name to stdout.
         System.out.println("Target database: Derby");
     }
+
+    public void shutdown() {
+        try {
+            DriverManager.getConnection("jdbc:derby:;shutdown=true");
+
+        } catch (SQLException sqle) {
+            // This connection request explicitly shuts down the database, which
+            // ensures that database files are in a consistent state and there are
+            // no outstanding records in the transaction log.
+            // SQL state "08006" indicates no error per se -
+            // it just confirms a successful shutdown.
+
+            String info = "Database shutdown ";
+            String state = sqle.getSQLState();
+            if ("08006".equals(state) || "XJ015".equals(state)) {
+                info += "was successful";
+            } else {
+                info += "reports error: ";
+                info += Database.squeeze(sqle);
+            }
+            System.err.println(info);
+        }
+    }    
 }

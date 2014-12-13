@@ -373,5 +373,7 @@ public abstract class Manager {
             throw sqle;
         }
     }
+
+    public void shutdown() {}
 }
 
