@@ -4,16 +4,14 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-    <!--<parent>
+    <parent>
         <groupId>eu.ensure</groupId>
        	<artifactId>ensure-parent</artifactId>
-       	<version>1.0</version>
-    </parent>-->
+       	<version>1.1</version>
+    </parent>
 
-	<groupId>eu.ensure</groupId>
 	<artifactId>package-validator</artifactId>
-	<version>1.0</version>
-	
+
 	<name>Information package validator</name>
 	<inceptionYear>2011</inceptionYear>
 
@@ -32,29 +30,30 @@
         <dependency>
             <groupId>eu.ensure</groupId>
             <artifactId>commons</artifactId>
-            <version>1.0</version>
+            <version>${project.version}</version>
         </dependency>
 
         <dependency>
             <groupId>eu.ensure</groupId>
            	<artifactId>package-processor-core</artifactId>
-           	<version>1.0</version>
+           	<version>${project.version}</version>
         </dependency>
 
         <dependency>
             <groupId>eu.ensure</groupId>
            	<artifactId>package-processor-ip</artifactId>
-           	<version>1.0</version>
+           	<version>${project.version}</version>
             <scope>test</scope>
         </dependency>
 
         <dependency>
             <groupId>eu.ensure</groupId>
            	<artifactId>package-processor-dicom</artifactId>
-           	<version>1.0</version>
+           	<version>${project.version}</version>
             <scope>test</scope>
         </dependency>
 
+        <!-- -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
@@ -70,13 +69,13 @@
         <dependency>
             <groupId>org.apache.ws.commons.axiom</groupId>
             <artifactId>axiom-api</artifactId>
-            <version>1.2.14</version>
+            <version>1.2.15</version>
         </dependency>
 
         <dependency>
             <groupId>org.apache.ws.commons.axiom</groupId>
             <artifactId>axiom-impl</artifactId>
-            <version>1.2.14</version>
+            <version>1.2.15</version>
             <scope>test</scope>
         </dependency>
 

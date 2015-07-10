@@ -7,13 +7,11 @@
 	<parent>
 		<groupId>eu.ensure</groupId>
 		<artifactId>package-processor-parent</artifactId>
-		<version>1.0</version>
+		<version>1.1</version>
 	</parent>
 
-	<groupId>eu.ensure</groupId>
 	<artifactId>package-processor-fs</artifactId>
-	<version>1.0</version>
-	
+
 	<name>Package processing module for file systems</name>
 	<inceptionYear>2011</inceptionYear>
 
@@ -25,21 +23,22 @@
         <dependency>
             <groupId>eu.ensure</groupId>
             <artifactId>commons</artifactId>
-            <version>1.0</version>
+            <version>${project.version}</version>
         </dependency>
 
         <dependency>
             <groupId>eu.ensure</groupId>
            	<artifactId>package-processor-core</artifactId>
-           	<version>1.0</version>
+           	<version>${project.version}</version>
         </dependency>
 
         <dependency>
             <groupId>eu.ensure</groupId>
            	<artifactId>package-processor-xml</artifactId>
-           	<version>1.0</version>
+           	<version>${project.version}</version>
         </dependency>
 
+        <!-- -->
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>

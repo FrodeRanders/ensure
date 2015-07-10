@@ -78,8 +78,8 @@ public class Listener extends EqelBaseListener {
 
     /**
      *
-   	 */
-   	@Override public void enterIMPORT(@NotNull EqelParser.IMPORTContext ctx) {
+     */
+   @Override public void enterIMPORT(@NotNull EqelParser.IMPORTContext ctx) {
         EqelParser.ImportStmtContext stmt = ctx.importStmt();
 
         // importStmt : 'import' STRING
@@ -97,7 +97,7 @@ public class Listener extends EqelBaseListener {
 
     /**
      */
-   	@Override public void enterVALIDATION(@NotNull EqelParser.VALIDATIONContext ctx) {
+   @Override public void enterVALIDATION(@NotNull EqelParser.VALIDATIONContext ctx) {
         EqelParser.ValidationSpecContext validationSpec = ctx.validationSpec();
 
         // validationSpec : 'validate' name=IDENT 'using' CLASSNAME '{' validationVerb* '}'
@@ -133,7 +133,7 @@ public class Listener extends EqelBaseListener {
                     _verificationSpecification.addActionSpecification(_actionSpecification);
 
                     // NOTE: Since both pattern and actions are STRING tokens, this list will
-                    //       also contain the patter. Step past it when iterating over actions.
+                    //       also contain the pattern. Step past it when iterating over actions.
                     List<TerminalNode> actions = verificationAction.STRING();
                     for (TerminalNode action : actions.subList(1, actions.size())) {
                         final String text = action.getText();
@@ -152,7 +152,7 @@ public class Listener extends EqelBaseListener {
 
     /**
      */
-   	@Override public void enterDOMAIN(@NotNull EqelParser.DOMAINContext ctx) {
+   @Override public void enterDOMAIN(@NotNull EqelParser.DOMAINContext ctx) {
         EqelParser.DomainSpecContext domainSpec = ctx.domainSpec();
 
         // domainSpec : 'domain' domain=IDENT ('extends' baseDomain=IDENT)? '{' purposeSpec* '}'
