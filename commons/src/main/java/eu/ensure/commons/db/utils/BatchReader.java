@@ -26,7 +26,6 @@
 package eu.ensure.commons.db.utils;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.List;

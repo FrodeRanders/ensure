@@ -32,7 +32,8 @@ import eu.ensure.commons.xml.XmlException;
 import eu.ensure.ppe.model.*;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.impl.builder.StAXOMBuilder;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
@@ -48,7 +49,7 @@ import java.util.*;
  * Created by Frode Randers at 2012-09-13 14:34
  */
 public class ConfigurationReader {
-    private static final Logger log = Logger.getLogger(ConfigurationReader.class);
+    private static final Logger log = LogManager.getLogger(ConfigurationReader.class);
 
     private static final String ENSURE = "ENSURE";
     private static final String UNKNOWN = "UNKNOWN";

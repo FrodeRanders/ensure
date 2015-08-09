@@ -28,7 +28,10 @@ package eu.ensure.packproc.model;
 import eu.ensure.packproc.ProcessorException;
 import org.apache.commons.compress.archivers.ArchiveException;
 
-import java.io.*;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 /**
  * Some kind of processor operating on contained _structures_, i.e. _file_ containers,

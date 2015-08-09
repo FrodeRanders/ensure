@@ -25,9 +25,9 @@
  */
 package  eu.ensure.commons.io;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.io.IOException;
 
 /*
  * Implements a data source that does not cache (large) files in memory.

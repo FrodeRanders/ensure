@@ -32,9 +32,9 @@ import eu.ensure.commons.xml.XmlException;
 import eu.ensure.packproc.ProcessorException;
 import eu.ensure.packproc.XmlFileProcessor;
 import eu.ensure.packproc.model.ProcessorContext;
-
 import org.apache.axiom.om.OMElement;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 import java.util.HashMap;
@@ -47,7 +47,7 @@ import java.util.Map;
  * Processes XML files, using XPath-expressions to locate elements
  */
 public class XfduProcessor extends XmlFileProcessor {
-    private static final Logger log = Logger.getLogger(XfduProcessor.class);
+    private static final Logger log = LogManager.getLogger(XfduProcessor.class);
 
     public XfduProcessor() {
         alias = "XFDU-processor"; // a reasonable default

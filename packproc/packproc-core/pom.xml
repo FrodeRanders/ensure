@@ -7,7 +7,7 @@
 	<parent>
 		<groupId>eu.ensure</groupId>
 		<artifactId>package-processor-parent</artifactId>
-		<version>1.1</version>
+		<version>1.2</version>
 	</parent>
 
 	<artifactId>package-processor-core</artifactId>
@@ -29,12 +29,12 @@
         <!-- -->
         <dependency>
             <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-log4j12</artifactId>
+            <artifactId>slf4j-api</artifactId>
         </dependency>
 
         <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
         </dependency>
 
         <dependency>

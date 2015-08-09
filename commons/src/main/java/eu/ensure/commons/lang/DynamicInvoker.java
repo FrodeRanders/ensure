@@ -25,7 +25,8 @@
  */
 package  eu.ensure.commons.lang;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 import java.lang.reflect.InvocationTargetException;
@@ -33,7 +34,6 @@ import java.lang.reflect.Method;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
-import java.util.Hashtable;
 
 /**
  * Invokes methods on dynamically compiled Java programs, i.e. where we do not know the class
@@ -44,7 +44,7 @@ import java.util.Hashtable;
  * Created by Frode Randers at 2012-07-28 17:24
 */
 public class DynamicInvoker {
-    private static final Logger log = Logger.getLogger(DynamicInvoker.class);
+    private static final Logger log = LogManager.getLogger(DynamicInvoker.class);
 
     private final File root;
     private final String description;

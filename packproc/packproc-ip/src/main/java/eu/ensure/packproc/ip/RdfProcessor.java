@@ -32,11 +32,14 @@ import eu.ensure.commons.xml.XmlException;
 import eu.ensure.packproc.ProcessorException;
 import eu.ensure.packproc.XmlFileProcessor;
 import eu.ensure.packproc.model.ProcessorContext;
-
 import org.apache.axiom.om.OMElement;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -45,7 +48,7 @@ import java.util.regex.Pattern;
  * Processes XML files, using XPath-expressions to locate elements
  */
 public class RdfProcessor extends XmlFileProcessor {
-    private static final Logger log = Logger.getLogger(RdfProcessor.class);
+    private static final Logger log = LogManager.getLogger(RdfProcessor.class);
 
     public RdfProcessor() {
         alias = "RDF-processor"; // a reasonable default

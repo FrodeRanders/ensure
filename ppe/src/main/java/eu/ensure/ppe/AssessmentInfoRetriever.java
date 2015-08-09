@@ -26,7 +26,8 @@
 package eu.ensure.ppe;
 
 import eu.ensure.commons.db.Database;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -40,7 +41,7 @@ import java.sql.SQLException;
  * Created by Frode Randers at 2013-02-21 10:24
  */
 public class AssessmentInfoRetriever {
-    private static final Logger log = Logger.getLogger(AssessmentInfoRetriever.class);
+    private static final Logger log = LogManager.getLogger(AssessmentInfoRetriever.class);
 
     static final String RETRIEVE_ASSESSMENT_MOTIVATION_STMT =
                 "SELECT source, motivation, condition, description FROM ppe_assessments WHERE assessmentid = ?";

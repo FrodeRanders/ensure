@@ -25,13 +25,13 @@
  */
 package eu.ensure.packproc.dicom;
 
-import eu.ensure.commons.lang.Number;
 import eu.ensure.commons.lang.Date;
+import eu.ensure.commons.lang.Number;
 import eu.ensure.packproc.ProcessorException;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.dcm4che2.data.DicomElement;
 
-import java.lang.String;
 import java.nio.BufferUnderflowException;
 import java.nio.ByteBuffer;
 import java.util.*;
@@ -42,7 +42,7 @@ import java.util.*;
  * Created by Frode Randers at 2011-12-16 12:04
  */
 public class ValueHandler {
-    private static final Logger log = Logger.getLogger(ValueHandler.class);
+    private static final Logger log = LogManager.getLogger(ValueHandler.class);
 
     private static final int MAX_DEBUG_ARRAY_LENGTH = 256;
 

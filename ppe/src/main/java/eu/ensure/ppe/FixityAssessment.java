@@ -30,13 +30,16 @@ import eu.ensure.commons.xml.Namespaces;
 import eu.ensure.commons.xml.XPath;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.impl.builder.StAXOMBuilder;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamReader;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
-import java.util.*;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Makes assessments of message digest/hash/fixity algorithms.
@@ -44,7 +47,7 @@ import java.util.*;
  * Created by Frode Randers at 2012-10-24 22:19
  */
 public class FixityAssessment {
-    private static final Logger log = Logger.getLogger(FixityAssessment.class);
+    private static final Logger log = LogManager.getLogger(FixityAssessment.class);
 
     public static final double STRONG_ALGORITHM_SCORE = 100.0;
     public static final double COMPETENT_ALGORITHM_SCORE = 90.0;

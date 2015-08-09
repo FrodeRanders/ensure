@@ -25,13 +25,14 @@
  */
 package eu.ensure.commons.db.utils;
 
+import eu.ensure.commons.db.Database;
+
 import javax.sql.DataSource;
+import java.sql.DriverManager;
+import java.sql.SQLException;
 import java.util.Properties;
 
 // For shutdown() purposes
-import java.sql.DriverManager; 
-import java.sql.SQLException;
-import eu.ensure.commons.db.Database;
 
 /**
  * Description of Derby:

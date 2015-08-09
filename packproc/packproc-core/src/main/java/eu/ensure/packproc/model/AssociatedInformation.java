@@ -25,7 +25,8 @@
  */
 package eu.ensure.packproc.model;
 
-import java.util.*;
+import java.util.Map;
+import java.util.Set;
 
 /**
  * Description of AssociatedInformation:

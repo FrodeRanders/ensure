@@ -31,9 +31,9 @@ import eu.ensure.packproc.ProcessorManager;
 import eu.ensure.packproc.internal.Action;
 import eu.ensure.packproc.internal.FileTool;
 import eu.ensure.packproc.model.*;
-
 import org.apache.axiom.om.OMElement;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.dcm4che2.data.DicomElement;
 import org.dcm4che2.data.DicomObject;
 import org.dcm4che2.io.DicomInputStream;
@@ -46,7 +46,7 @@ import java.util.*;
  * Operates on DICOM (container) streams
  */
 public class DicomProcessor implements ContainerStructureProcessor {
-    private static final Logger log = Logger.getLogger(DicomProcessor.class);
+    private static final Logger log = LogManager.getLogger(DicomProcessor.class);
 
     private String alias = "dicom-processor"; // a reasonable default
 

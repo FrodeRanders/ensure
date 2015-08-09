@@ -26,34 +26,37 @@
 package eu.ensure.packproc;
 
 import eu.ensure.commons.xml.Namespaces;
-
-import eu.ensure.packproc.internal.*;
+import eu.ensure.packproc.internal.BasicFileProcessor;
 import eu.ensure.packproc.model.*;
-
+import org.apache.axiom.om.OMAttribute;
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.OMNode;
 import org.apache.axiom.om.impl.builder.StAXOMBuilder;
 import org.apache.axiom.om.util.StAXParserConfiguration;
 import org.apache.axiom.om.util.StAXUtils;
 import org.apache.axiom.om.xpath.AXIOMXPath;
-import org.apache.log4j.Logger;
-import org.apache.axiom.om.*;
-
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.jaxen.JaxenException;
 
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLStreamReader;
-import java.io.*;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.Writer;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
 import java.nio.channels.WritableByteChannel;
-import java.util.List;
 import java.util.Iterator;
+import java.util.List;
 
 
 /**
  * Processes XML files, using XPath-expressions to locate elements
  */
 public class XmlFileProcessor extends BasicFileProcessor {
-    private static final Logger log = Logger.getLogger(XmlFileProcessor.class);
+    private static final Logger log = LogManager.getLogger(XmlFileProcessor.class);
 
     public XmlFileProcessor() {
         alias = "XML-processor"; // a reasonable default

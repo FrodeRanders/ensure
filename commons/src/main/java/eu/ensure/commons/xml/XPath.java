@@ -25,11 +25,14 @@
  */
 package  eu.ensure.commons.xml;
 
-import java.util.LinkedList;
-import java.util.List;
-import org.apache.axiom.om.*;
+import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.OMNode;
+import org.apache.axiom.om.OMText;
 import org.apache.axiom.om.xpath.AXIOMXPath;
 import org.jaxen.JaxenException;
+
+import java.util.LinkedList;
+import java.util.List;
 
 /*
  * Description of XPath

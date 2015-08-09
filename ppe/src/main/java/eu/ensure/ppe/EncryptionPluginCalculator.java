@@ -29,7 +29,8 @@ package eu.ensure.ppe;
 import eu.ensure.ppe.model.Aggregation;
 import eu.ensure.ppe.model.Consequence;
 import eu.ensure.ppe.model.EncryptionPlugin;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.sql.DataSource;
 import java.util.Collection;
@@ -40,7 +41,7 @@ import java.util.Collection;
  * Created by Frode Randers at 2012-10-16 17:57
  */
 public class EncryptionPluginCalculator {
-    private static final Logger log = Logger.getLogger(EncryptionPluginCalculator.class);
+    private static final Logger log = LogManager.getLogger(EncryptionPluginCalculator.class);
 
     private AssessmentInfoRetriever infoRetriever;
     private DataSource dataSource;

@@ -26,30 +26,31 @@
 package eu.ensure.ppe;
 
 import eu.ensure.commons.db.DatabaseException;
-
 import eu.ensure.commons.io.Closer;
 import eu.ensure.commons.lang.LoggingUtils;
 import eu.ensure.commons.lang.Stacktrace;
 import eu.ensure.commons.xml.Namespaces;
 import eu.ensure.ppe.model.Plugin;
 import eu.ensure.ppe.model.PreservationPlan;
-
-import org.apache.log4j.Logger;
-
 import junit.framework.TestCase;
+import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.InputStream;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
-import java.util.*;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
 
 /**
  * <p>
  * Created by Frode Randers at 2012-09-08 14:00
  */
 public class EvaluatorTest extends TestCase {
-    private static Logger log = LoggingUtils.setupLoggingFor(EvaluatorTest.class, "log-configuration.xml");
+    private static Logger log = LoggingUtils.setupLoggingFor(EvaluatorTest.class, "log4j2.xml");
 
     private EvaluationManager evaluationManager = EvaluationManager.getInstance();
 

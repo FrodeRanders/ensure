@@ -33,7 +33,8 @@ import eu.ensure.packproc.internal.Action;
 import eu.ensure.packproc.internal.FileTool;
 import eu.ensure.packproc.model.*;
 import org.apache.axiom.om.OMElement;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.*;
 import java.nio.ByteBuffer;
@@ -43,7 +44,7 @@ import java.util.*;
  * Operates on file container streams
  */
 public class FileSystemProcessor implements DispersedStructureProcessor {
-    private static final Logger log = Logger.getLogger(FileSystemProcessor.class);
+    private static final Logger log = LogManager.getLogger(FileSystemProcessor.class);
 
     private String alias = "fs-processor"; // a reasonable default
 

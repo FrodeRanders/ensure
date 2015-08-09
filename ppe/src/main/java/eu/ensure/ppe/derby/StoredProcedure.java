@@ -25,11 +25,11 @@
  */
 package eu.ensure.ppe.derby;
 
-import org.apache.log4j.Logger;
+import eu.ensure.commons.db.Database;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.sql.*;
-
-import eu.ensure.commons.db.Database;
 
 /**
  * Description of StoredProcedure:
@@ -39,7 +39,7 @@ import eu.ensure.commons.db.Database;
  */
 public class StoredProcedure {
 
-    protected static Logger log = Logger.getLogger(StoredProcedure.class);
+    protected static Logger log = LogManager.getLogger(StoredProcedure.class);
 
     public static final int INITIAL_ID = 1000;
 

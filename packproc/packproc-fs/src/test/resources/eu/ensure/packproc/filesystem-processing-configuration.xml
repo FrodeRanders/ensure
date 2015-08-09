@@ -5,7 +5,7 @@
     <fs-processor:process> <!-- corresponds to the current working directory (in this test) -->
 
         <!-- Practically meaning: "find myself" :) -->
-        <xml-processor:process re=".*?\.xml" xmlns:ns="classpath:eu.ensure.packproc.XmlFileProcessor">
+        <xml-processor:process re=".*?\.xml">
 		    <contains node="//ns:process"/>
 		</xml-processor:process>
 

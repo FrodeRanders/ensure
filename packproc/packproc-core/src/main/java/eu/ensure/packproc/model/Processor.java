@@ -27,12 +27,11 @@ package eu.ensure.packproc.model;
 
 import eu.ensure.packproc.ProcessorManager;
 import eu.ensure.packproc.internal.Action;
+import org.apache.axiom.om.OMElement;
 
 import java.util.List;
 import java.util.Map;
 import java.util.Stack;
-
-import org.apache.axiom.om.OMElement;
 
 /**
  * Some kind of _recursive_ processor operating on _structures_ (such as ZIP- or TAR-files,

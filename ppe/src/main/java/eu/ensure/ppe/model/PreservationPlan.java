@@ -25,8 +25,10 @@
  */
 package eu.ensure.ppe.model;
 
-import java.util.*;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Vector;
 
 /**
  * Models all things GPP, such as sets of proposed plans for individual aggregations

@@ -35,19 +35,20 @@ import eu.ensure.ipqet.eqel.EqelLoader;
 import eu.ensure.ipqet.eqel.model.DomainSpecification;
 import eu.ensure.ipqet.eqel.model.ValidationSpecification;
 import junit.framework.TestCase;
-
-import org.stringtemplate.v4.*;
-
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.junit.Test;
+import org.stringtemplate.v4.ST;
+import org.stringtemplate.v4.STGroup;
 
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.*;
 
 /**
  */
 public class EqelTest extends TestCase {
-    private static final Logger log = LoggingUtils.setupLoggingFor(EqelTest.class, "log-configuration.xml");
+    private static final Logger log = LoggingUtils.setupLoggingFor(EqelTest.class, "log4j2.xml");
 
     @Test
     public void testEqelParser()

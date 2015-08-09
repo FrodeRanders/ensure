@@ -26,7 +26,8 @@
 package eu.ensure.packproc.dicom;
 
 import eu.ensure.commons.lang.Stacktrace;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.dcm4che2.data.DicomElement;
 import org.dcm4che2.data.Tag;
 import org.dcm4che2.data.UIDDictionary;
@@ -36,7 +37,6 @@ import java.io.InputStream;
 import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Properties;
-import java.util.Set;
 
 /**
  * Description of DicomDictionary:
@@ -46,7 +46,7 @@ import java.util.Set;
  * Created by Frode Randers at 2011-12-16 12:07
  */
 public class DicomDictionary {
-    private static final Logger log = Logger.getLogger(DicomDictionary.class);
+    private static final Logger log = LogManager.getLogger(DicomDictionary.class);
 
     private static final String DICOM_TAG_MAPPING_FILE = "dicom-tags.xml";
     //

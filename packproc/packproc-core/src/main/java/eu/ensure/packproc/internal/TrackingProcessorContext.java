@@ -28,7 +28,8 @@ package eu.ensure.packproc.internal;
 import eu.ensure.packproc.model.AssociatedInformation;
 import eu.ensure.packproc.model.EvaluationStatement;
 import eu.ensure.packproc.model.ProcessorContext;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.*;
 
@@ -38,7 +39,7 @@ import java.util.*;
  * Created by Frode Randers at 2011-12-14 00:34
  */
 public class TrackingProcessorContext implements ProcessorContext {
-    private static final Logger log = Logger.getLogger(TrackingProcessorContext.class);
+    private static final Logger log = LogManager.getLogger(TrackingProcessorContext.class);
 
     // This is a collection of statements regarding the state of the information package
     private static Collection<EvaluationStatement> evaluationStatements =

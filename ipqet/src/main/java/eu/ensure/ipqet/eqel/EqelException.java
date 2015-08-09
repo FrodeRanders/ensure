@@ -25,8 +25,6 @@
  */
 package eu.ensure.ipqet.eqel;
 
-import org.antlr.v4.runtime.*;
-
 /**
  * Description of EqelException:
  * <p>

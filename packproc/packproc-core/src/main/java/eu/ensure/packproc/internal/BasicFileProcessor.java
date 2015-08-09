@@ -25,26 +25,25 @@
  */
 package eu.ensure.packproc.internal;
 
-import org.apache.log4j.Logger;
-//import org.dom4j.*;
-import org.apache.axiom.om.*;
-
 import eu.ensure.packproc.ProcessorException;
 import eu.ensure.packproc.ProcessorManager;
 import eu.ensure.packproc.model.*;
+import org.apache.axiom.om.OMElement;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.*;
-import java.nio.channels.*;
-import java.nio.ByteBuffer;
+import java.nio.channels.Channels;
+import java.nio.channels.FileChannel;
+import java.nio.channels.ReadableByteChannel;
+import java.nio.channels.WritableByteChannel;
 import java.util.*;
-import java.net.URL;
-import java.net.URLConnection;
 
 /**
  *
  */
 public abstract class BasicFileProcessor implements FileProcessor {
-    private static final Logger log = Logger.getLogger(BasicFileProcessor.class);
+    private static final Logger log = LogManager.getLogger(BasicFileProcessor.class);
 
     protected String alias = "BasicFileProcessor"; // Please override
     

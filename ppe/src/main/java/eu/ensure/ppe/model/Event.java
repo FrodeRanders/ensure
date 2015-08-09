@@ -26,7 +26,8 @@
 package eu.ensure.ppe.model;
 
 import eu.ensure.ppe.EvaluationException;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.List;
 import java.util.Map;
@@ -38,7 +39,7 @@ import java.util.Vector;
  * Created by Frode Randers at 2012-09-10 14:56
  */
 public class Event {
-    private static final Logger log = Logger.getLogger(Event.class);
+    private static final Logger log = LogManager.getLogger(Event.class);
 
     public enum EventType {
         UNKNOWN,

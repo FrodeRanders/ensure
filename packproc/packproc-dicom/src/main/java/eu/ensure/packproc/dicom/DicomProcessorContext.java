@@ -26,7 +26,8 @@
 package eu.ensure.packproc.dicom;
 
 import eu.ensure.packproc.BasicProcessorContext;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.dcm4che2.data.SpecificCharacterSet;
 
 import java.nio.ByteOrder;
@@ -39,7 +40,7 @@ import java.util.Map;
  * Created by Frode Randers at 2011-12-14 00:46
  */
 public class DicomProcessorContext extends BasicProcessorContext {
-    private static final Logger log = Logger.getLogger(DicomProcessorContext.class);
+    private static final Logger log = LogManager.getLogger(DicomProcessorContext.class);
 
     private int cachedDepth = -1;
 

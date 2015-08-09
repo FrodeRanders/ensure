@@ -5,7 +5,7 @@
 
     <groupId>eu.ensure</groupId>
     <artifactId>ensure-parent</artifactId>
-    <version>1.1</version>
+    <version>1.2</version>
     <packaging>pom</packaging>
 
     <name>Wrapper for the ENSURE software components</name>
