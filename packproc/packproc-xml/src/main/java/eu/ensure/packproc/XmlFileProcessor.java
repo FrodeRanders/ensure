@@ -30,6 +30,7 @@ import eu.ensure.packproc.internal.BasicFileProcessor;
 import eu.ensure.packproc.model.*;
 import org.apache.axiom.om.OMAttribute;
 import org.apache.axiom.om.OMElement;
+import org.apache.axiom.om.OMNamespace;
 import org.apache.axiom.om.OMNode;
 import org.apache.axiom.om.impl.builder.StAXOMBuilder;
 import org.apache.axiom.om.util.StAXParserConfiguration;
@@ -38,6 +39,7 @@ import org.apache.axiom.om.xpath.AXIOMXPath;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jaxen.JaxenException;
+import org.jaxen.UnresolvableException;
 
 import javax.xml.namespace.QName;
 import javax.xml.stream.XMLStreamReader;
@@ -50,6 +52,7 @@ import java.nio.channels.ReadableByteChannel;
 import java.nio.channels.WritableByteChannel;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 
 /**
@@ -71,22 +74,30 @@ public class XmlFileProcessor extends BasicFileProcessor {
         return new XmlFileCallable() {
             public void call(OMElement document, Namespaces namespaces, ProcessorContext context) throws Exception {
                 if (null == configElement) {
-                    String info = "Cannot process XML-file - no configuration";
+                    String info = "Cannot process " + alias + " configuration - no configuration";
                     log.warn(info);
                     throw new ProcessorException(info);
                 }
 
                 // Retrieve XPath expressions from the configuration
-                for (Iterator<OMElement> ei = configElement.getChildElements(); ei.hasNext(); ) {
-                    OMElement element = ei.next();
-                    String operation = element.getLocalName(); // Ignore namespace!!!
+                try {
+                    for (Iterator<OMElement> ei = configElement.getChildElements(); ei.hasNext(); ) {
+                        OMElement element = ei.next();
+                        String operation = element.getLocalName(); // Ignore namespace!!!
 
-                    if ("contains".equalsIgnoreCase(operation)) {
-                        contains(element, document, namespaces);
+                        if ("contains".equalsIgnoreCase(operation)) {
+                            contains(element, document, namespaces);
 
-                    } else {
-                        throw new ProcessorException("Unknown processor operation: " + operation);
+                        } else {
+                            throw new ProcessorException("Unknown processor operation: " + operation);
+                        }
                     }
+                } catch (Throwable t) {
+                    String info = "Cannot process configuration for " + alias + ": ";
+                    info += t.getMessage();
+                    log.warn(info);
+
+                    throw new ProcessorException(info, t);
                 }
             }
         };
@@ -108,6 +119,7 @@ public class XmlFileProcessor extends BasicFileProcessor {
                 );
 
                 if (null != reader) {
+                    // new: StAXOMBuilder(OMFactory factory, XMLStreamReader parser, OMElement element, String characterEncoding)
                     StAXOMBuilder builder = new StAXOMBuilder(reader);
                     OMElement document = builder.getDocumentElement();
 
@@ -194,8 +206,22 @@ public class XmlFileProcessor extends BasicFileProcessor {
             } else if (nodes.size() == 0) {
                 handleNoNodes(expression);
             }
+        } catch (UnresolvableException ure) {
+            String info = "Could not resolve namespace(s) in expression \"" + expression + "\": ";
+            info += "Known namespaces are: [";
+            for (OMNamespace namespace : namespaces.getNamespaces().values())
+            {
+                String prefix = namespace.getPrefix();
+                String uri = namespace.getNamespaceURI();
+                info += "{\"" + prefix + "\"->\"" + uri + "\"}";
+            }
+            info += "]: ";
+            info +=  ure.getMessage();
+            throw new ProcessorException(info, ure);
+
         } catch (JaxenException je) {
-            throw new ProcessorException("Could not query using expression \"" + expression + "\": " + je.getMessage(), je);
+            String info = "Could not query using expression \"" + expression + "\": " + je.getMessage();
+            throw new ProcessorException(info, je);
         }
     }
 

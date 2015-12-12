@@ -55,23 +55,31 @@ public class PremisProcessor extends XmlFileProcessor {
         return new XmlFileCallable() {
             public void call(OMElement document, Namespaces namespaces, ProcessorContext context) throws Exception {
                 if (null == configElement) {
-                    String info = "Cannot process PREMIS-file - no configuration";
+                    String info = "Cannot process " + alias + " configuration - no configuration";
                     log.warn(info);
                     throw new ProcessorException(info);
                 }
 
                 // Retrieve XPath expressions from the configuration
-                for (Iterator<OMElement> ei = configElement.getChildElements(); ei.hasNext(); ) {
-                    OMElement configuration = ei.next();
-                    String operation = configuration.getLocalName(); // Ignore namespace!!!
+                try {
+                    for (Iterator<OMElement> ei = configElement.getChildElements(); ei.hasNext(); ) {
+                        OMElement configuration = ei.next();
+                        String operation = configuration.getLocalName(); // Ignore namespace!!!
 
-                    if ("extractRepresentationInformation".equalsIgnoreCase(operation)) {
-                        extractRepresentationInformation(configuration, document, namespaces, context);
-                    } else if ("extractBitstreamInformation".equalsIgnoreCase(operation)) {
-                            extractBitstreamInformation(configuration, document, namespaces, context);
-                    } else {
-                        throw new ProcessorException("Unknown processor operation: " + operation);
+                        if ("extractRepresentationInformation".equalsIgnoreCase(operation)) {
+                            extractRepresentationInformation(configuration, document, namespaces, context);
+                        } else if ("extractBitstreamInformation".equalsIgnoreCase(operation)) {
+                                extractBitstreamInformation(configuration, document, namespaces, context);
+                        } else {
+                            throw new ProcessorException("Unknown processor operation: " + operation);
+                        }
                     }
+                } catch (Throwable t) {
+                    String info = "Cannot process configuration for " + alias + ": ";
+                    info += t.getMessage();
+                    log.warn(info);
+
+                    throw new ProcessorException(info, t);
                 }
             }
         };

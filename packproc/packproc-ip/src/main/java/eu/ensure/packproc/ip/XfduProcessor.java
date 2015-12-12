@@ -57,22 +57,30 @@ public class XfduProcessor extends XmlFileProcessor {
         return new XmlFileCallable() {
             public void call(OMElement document, Namespaces namespaces, ProcessorContext context) throws Exception {
                 if (null == configElement) {
-                    String info = "Cannot process manifest-file (XFDU) - no configuration";
+                    String info = "Cannot process " + alias + " configuration - no configuration";
                     log.warn(info);
                     throw new ProcessorException(info);
                 }
 
                 // Retrieve XPath expressions from the configuration
-                for (Iterator<OMElement> ei = configElement.getChildElements(); ei.hasNext(); ) {
-                    OMElement element = ei.next();
-                    String operation = element.getLocalName(); // Ignore namespace!!!
+                try {
+                    for (Iterator<OMElement> ei = configElement.getChildElements(); ei.hasNext(); ) {
+                        OMElement element = ei.next();
+                        String operation = element.getLocalName(); // Ignore namespace!!!
 
-                    if ("extractBitstreamInformation".equalsIgnoreCase(operation)) {
-                        extractBitstreamInformation(element, document, namespaces, context);
+                        if ("extractBitstreamInformation".equalsIgnoreCase(operation)) {
+                            extractBitstreamInformation(element, document, namespaces, context);
 
-                    } else {
-                        throw new ProcessorException("Unknown processor operation: " + operation);
+                        } else {
+                            throw new ProcessorException("Unknown processor operation: " + operation);
+                        }
                     }
+                } catch (Throwable t) {
+                    String info = "Cannot process configuration for " + alias + ": ";
+                    info += t.getMessage();
+                    log.warn(info);
+
+                    throw new ProcessorException(info, t);
                 }
             }
         };
