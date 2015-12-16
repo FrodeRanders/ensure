@@ -33,6 +33,7 @@
         <module>packproc-ip</module>
         <module>packproc-dicom</module>
         <module>packproc-fs</module>
+        <module>packproc-warc</module>
     </modules>
 
     <developers>

@@ -38,7 +38,7 @@ import java.util.Locale;
  */
 public class Number {
 
-    private final static long BYTES_MAX = 2048L;
+    public final static long BYTES_MAX = 2048L;
     private final static long KB_MAX = BYTES_MAX * 1024L;
     private final static long MB_MAX = KB_MAX * 1024L;
     private final static long GB_MAX = MB_MAX * 1024L;

@@ -232,7 +232,7 @@ public class DicomProcessor implements ContainerStructureProcessor {
                     while (ait.hasNext()) {
                         Action action = ait.next();
 
-                        if (action.match(structureEntry.getName())) {
+                        if (action.matchOnName(structureEntry.getName())) {
                             if (log.isDebugEnabled()) {
                                 // log.debug(me() + ":process dicom-file"); TODO
                             }

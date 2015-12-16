@@ -52,7 +52,6 @@ import java.nio.channels.ReadableByteChannel;
 import java.nio.channels.WritableByteChannel;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 
 
 /**
@@ -70,23 +69,17 @@ public class XmlFileProcessor extends BasicFileProcessor {
         void call(OMElement root, Namespaces namespaces, ProcessorContext context) throws Exception;
     }
 
-    public XmlFileCallable getWhatToDo() {
+    protected XmlFileCallable getSpecificCallable() {
         return new XmlFileCallable() {
-            public void call(OMElement document, Namespaces namespaces, ProcessorContext context) throws Exception {
-                if (null == configElement) {
-                    String info = "Cannot process " + alias + " configuration - no configuration";
-                    log.warn(info);
-                    throw new ProcessorException(info);
-                }
-
+            public void call(OMElement target, Namespaces namespaces, ProcessorContext context) throws Exception {
                 // Retrieve XPath expressions from the configuration
                 try {
                     for (Iterator<OMElement> ei = configElement.getChildElements(); ei.hasNext(); ) {
-                        OMElement element = ei.next();
-                        String operation = element.getLocalName(); // Ignore namespace!!!
+                        OMElement configuration = ei.next();
+                        String operation = configuration.getLocalName(); // Ignore namespace!!!
 
                         if ("contains".equalsIgnoreCase(operation)) {
-                            contains(element, document, namespaces);
+                            contains(configuration, target, namespaces);
 
                         } else {
                             throw new ProcessorException("Unknown processor operation: " + operation);
@@ -107,6 +100,12 @@ public class XmlFileProcessor extends BasicFileProcessor {
         return new FileProcessorCallable() {
             public void call(ReadableByteChannel inputChannel, WritableByteChannel outputChannel, FileProcessor p, ProcessorContext context) throws Exception {
 
+                if (null == configElement) {
+                    String info = "Cannot process " + alias + " configuration - no configuration";
+                    log.warn(info);
+                    throw new ProcessorException(info);
+                }
+
                 // Since the XPath expressions need to refer to namespaces in
                 // the target file, we will define the relevant namespaces in
                 // the processor configuration and refer to those later on.
@@ -124,7 +123,7 @@ public class XmlFileProcessor extends BasicFileProcessor {
                     OMElement document = builder.getDocumentElement();
 
                     //
-                    XmlFileCallable xmlCallable = getWhatToDo();
+                    XmlFileCallable xmlCallable = getSpecificCallable();
                     xmlCallable.call(document, namespaces, context);
 
                     // In case we have been mutating the document, dump it to the output
@@ -181,10 +180,10 @@ public class XmlFileProcessor extends BasicFileProcessor {
     }
 
 
-    private void contains(OMElement element, OMElement document, Namespaces namespaces) throws ProcessorException {
+    private void contains(OMElement configuration, OMElement document, Namespaces namespaces) throws ProcessorException {
 
         // We need a 'node'-attribute (the XPath expression)
-        OMAttribute expr = element.getAttribute(new QName("node"));
+        OMAttribute expr = configuration.getAttribute(new QName("node"));
         if (null == expr) {
             throw new ProcessorException("Could not locate the 'node'-attribute to the <contains /> operation");
         }

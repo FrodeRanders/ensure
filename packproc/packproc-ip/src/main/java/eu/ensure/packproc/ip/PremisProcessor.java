@@ -51,15 +51,9 @@ public class PremisProcessor extends XmlFileProcessor {
         alias = "PREMIS-processor"; // a reasonable default
     }
 
-    public XmlFileCallable getWhatToDo() {
+    protected XmlFileCallable getSpecificCallable() {
         return new XmlFileCallable() {
-            public void call(OMElement document, Namespaces namespaces, ProcessorContext context) throws Exception {
-                if (null == configElement) {
-                    String info = "Cannot process " + alias + " configuration - no configuration";
-                    log.warn(info);
-                    throw new ProcessorException(info);
-                }
-
+            public void call(OMElement target, Namespaces namespaces, ProcessorContext context) throws Exception {
                 // Retrieve XPath expressions from the configuration
                 try {
                     for (Iterator<OMElement> ei = configElement.getChildElements(); ei.hasNext(); ) {
@@ -67,9 +61,9 @@ public class PremisProcessor extends XmlFileProcessor {
                         String operation = configuration.getLocalName(); // Ignore namespace!!!
 
                         if ("extractRepresentationInformation".equalsIgnoreCase(operation)) {
-                            extractRepresentationInformation(configuration, document, namespaces, context);
+                            extractRepresentationInformation(configuration, target, namespaces, context);
                         } else if ("extractBitstreamInformation".equalsIgnoreCase(operation)) {
-                                extractBitstreamInformation(configuration, document, namespaces, context);
+                                extractBitstreamInformation(configuration, target, namespaces, context);
                         } else {
                             throw new ProcessorException("Unknown processor operation: " + operation);
                         }
@@ -87,14 +81,14 @@ public class PremisProcessor extends XmlFileProcessor {
 
 
     private void extractRepresentationInformation(
-            OMElement configuration, OMElement document, Namespaces namespaces, ProcessorContext context
+            OMElement configuration, OMElement target, Namespaces namespaces, ProcessorContext context
     ) throws ProcessorException, XmlException {
 
         namespaces.defineNamespace("info:lc/xmlns/premis-v2", "premis");
         namespaces.defineNamespace("http://www.w3.org/2001/XMLSchema-instance", "xsi");
 
         String expression = "//premis:object[@xsi:type='representation']";
-        OMElement representation = XPath.getElementFrom(document, namespaces, expression);
+        OMElement representation = XPath.getElementFrom(target, namespaces, expression);
 
         Map<String, String> map = new HashMap<String, String>();
 

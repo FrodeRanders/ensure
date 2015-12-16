@@ -42,19 +42,23 @@ public class EntrySelection {
     private String re;
     private Pattern pattern = null;
     private String name;
+    private String type;
 
     private boolean hasSpecifiedLocation = false;
     private boolean hasSpecifiedName = false;
     private boolean hasSpecifiedRE = false;
+    private boolean hasSpecifiedType = false;
 
     public EntrySelection(Map<String, String> attributes, String method) {
         location = attributes.get("location");
         re = attributes.get("re");
         name = attributes.get("name");
+        type = attributes.get("type");
 
         hasSpecifiedLocation = null != location && location.length() > 0;
         hasSpecifiedName = null != name && name.length() > 0;
         hasSpecifiedRE = null != re && re.length() > 0;
+        hasSpecifiedType = null != type && type.length() > 0;
 
         // Name precedes re, being more specific
         if (hasSpecifiedName && hasSpecifiedRE) {
@@ -112,8 +116,12 @@ public class EntrySelection {
         return hasSpecifiedName;
     }
 
+    public boolean hasType() {
+        return hasSpecifiedType;
+    }
+
     public boolean hasConstraint() {
-        return hasSpecifiedLocation | hasSpecifiedRE | hasSpecifiedName;
+        return hasSpecifiedLocation | hasSpecifiedRE | hasSpecifiedName | hasSpecifiedType;
     }
 
     public String getLocation() {
@@ -142,6 +150,10 @@ public class EntrySelection {
     
     public String getName() {
         return name;
+    }
+
+    public String getType() {
+        return type;
     }
 
     public String toString() {

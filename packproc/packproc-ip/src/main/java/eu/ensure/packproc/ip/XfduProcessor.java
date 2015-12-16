@@ -53,23 +53,17 @@ public class XfduProcessor extends XmlFileProcessor {
         alias = "XFDU-processor"; // a reasonable default
     }
 
-    public XmlFileCallable getWhatToDo() {
+    protected XmlFileCallable getSpecificCallable() {
         return new XmlFileCallable() {
-            public void call(OMElement document, Namespaces namespaces, ProcessorContext context) throws Exception {
-                if (null == configElement) {
-                    String info = "Cannot process " + alias + " configuration - no configuration";
-                    log.warn(info);
-                    throw new ProcessorException(info);
-                }
-
+            public void call(OMElement target, Namespaces namespaces, ProcessorContext context) throws Exception {
                 // Retrieve XPath expressions from the configuration
                 try {
                     for (Iterator<OMElement> ei = configElement.getChildElements(); ei.hasNext(); ) {
-                        OMElement element = ei.next();
-                        String operation = element.getLocalName(); // Ignore namespace!!!
+                        OMElement configuration = ei.next();
+                        String operation = configuration.getLocalName(); // Ignore namespace!!!
 
                         if ("extractBitstreamInformation".equalsIgnoreCase(operation)) {
-                            extractBitstreamInformation(element, document, namespaces, context);
+                            extractBitstreamInformation(configuration, target, namespaces, context);
 
                         } else {
                             throw new ProcessorException("Unknown processor operation: " + operation);
@@ -88,7 +82,7 @@ public class XfduProcessor extends XmlFileProcessor {
 
 
     private void extractBitstreamInformation(
-            OMElement configuration, OMElement document, Namespaces namespaces, ProcessorContext context
+            OMElement configuration, OMElement target, Namespaces namespaces, ProcessorContext context
     ) throws ProcessorException, XmlException {
 
         namespaces.defineNamespace("urn:ccsds:schema:xfdu:1", "xfdu");
@@ -97,7 +91,7 @@ public class XfduProcessor extends XmlFileProcessor {
 
         // Locate the bit streams of this package
         String expression = "//byteStream";
-        List<OMElement> nodes = xpath.getElementsFrom(document, expression);
+        List<OMElement> nodes = xpath.getElementsFrom(target, expression);
         if (nodes.size() > 0) {
             if (log.isDebugEnabled()) {
                 String info = "This XPath expression \"";
