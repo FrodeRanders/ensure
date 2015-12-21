@@ -5,8 +5,8 @@
     <warc-processor:process> <!-- corresponds to the WARC file (in this test) -->
 
         <resource-processor:process type="application/http;msgtype=response">
-            <migrate type="image/jpeg"/>
-            <index/>
+            <!--<migrate type="text/plain" target-format="pdf" />-->
+            <index type="text/plain" />
         </resource-processor:process>
 
     </warc-processor:process>

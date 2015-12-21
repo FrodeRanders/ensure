@@ -68,7 +68,10 @@ public class WebResourceProcessor extends BasicFileProcessor {
 
         //log.info(me() + ":process web-resource");
         FileProcessorCallable callable = new FileProcessorCallable() {
-            public void call(ReadableByteChannel inputChannel, WritableByteChannel outputChannel, FileProcessor p, ProcessorContext context) throws Exception {
+            public void call(
+                    ReadableByteChannel inputChannel, WritableByteChannel outputChannel,
+                    FileProcessor p, ProcessorContext context
+            ) throws Exception {
 
                 if (null == configElement) {
                     String info = "Cannot process " + alias + " configuration - no configuration";
@@ -87,16 +90,33 @@ public class WebResourceProcessor extends BasicFileProcessor {
                         OMElement configuration = ei.next();
                         String operation = configuration.getLocalName(); // Ignore namespace!!!
 
-                        WarcRecordEntry warcRecord = (WarcRecordEntry)entry;
+                        HttpTransportMetricsImpl metrics = new HttpTransportMetricsImpl();
+                        InputBuffer inputBuffer = new InputBuffer(metrics, /* buffersize */ 1024);
 
-                        if ("index".equalsIgnoreCase(operation)) {
-                            //log.debug("INDEX " + warcRecord.getContentType());
-                            parse(inputChannel);
+                        inputBuffer.bind(inputChannel);
 
-                        } else if ("migrate".equalsIgnoreCase(operation)) {
-                            //log.debug("MIGRATE " + warcRecord.getContentType());
+                        DefaultHttpResponseParser parser = new DefaultHttpResponseParser(inputBuffer);
+                        HttpResponse response = parser.parse();
+
+                        int status = response.getStatusLine().getStatusCode();
+                        if (status >= HttpStatus.SC_OK
+                                && status != HttpStatus.SC_NO_CONTENT
+                                && status != HttpStatus.SC_NOT_MODIFIED
+                                && status != HttpStatus.SC_RESET_CONTENT) {
+
+                            if ("index".equalsIgnoreCase(operation)) {
+                                index(entry, response, inputBuffer, configuration, namespaces);
+
+                            } else if ("migrate".equalsIgnoreCase(operation)) {
+                                // TODO: Migrate has to operate on WritableByteChannel outputChannel
+                                migrate(entry, response, inputBuffer, configuration, namespaces);
+
+                            } else {
+                                throw new ProcessorException("Unknown processor operation: " + operation);
+                            }
                         } else {
-                            throw new ProcessorException("Unknown processor operation: " + operation);
+                            String info = "No content: status = " + status;
+                            log.debug(info);
                         }
                     }
                 } catch (Throwable t) {
@@ -114,66 +134,99 @@ public class WebResourceProcessor extends BasicFileProcessor {
         process(entry, entryInputStream, structureOutputStream, callable, this, context);
     }
 
-    private void parse(final ReadableByteChannel inputChannel) throws IOException, HttpException {
+    private void index(
+            StructureEntry entry, HttpResponse httpResponse, InputBuffer inputBuffer,
+            OMElement configuration, Namespaces namespaces
+    ) throws ProcessorException, IOException {
 
-        HttpTransportMetricsImpl metrics = new HttpTransportMetricsImpl();
-        InputBuffer inputBuffer = new InputBuffer(metrics, /* buffersize */ 1024);
-        inputBuffer.bind(inputChannel);
+        log.info("Index");
 
-        DefaultHttpResponseParser parser = new DefaultHttpResponseParser(inputBuffer);
-        HttpResponse response = parser.parse();
-
-        int status = response.getStatusLine().getStatusCode();
-        log.debug("Status: " + status);
-        if (status >= HttpStatus.SC_OK
-            && status != HttpStatus.SC_NO_CONTENT
-            && status != HttpStatus.SC_NOT_MODIFIED
-            && status != HttpStatus.SC_RESET_CONTENT) {
-
-            Header[] contentType = response.getHeaders("Content-Type");
-            if (contentType.length > 0) {
-                log.debug(contentType[0].getName() + " is " + contentType[0].getValue());
-            }
-
-            /*
-            ByteBuffer bytes = ByteBuffer.allocateDirect(1024);
-            CharsetDecoder decoder = Charset.defaultCharset().newDecoder();
-            int bytesRead = inputChannel.read(bytes);
-            while ((bytesRead = inputChannel.read(bytes)) > 0) {
-                bytes.flip();
-                log.debug(decoder.decode(bytes));
-                bytes.clear();
-            }
-            */
+        String contentType = "binary/octet-stream";
+        Header[] contentTypeHeader = httpResponse.getHeaders("Content-Type");
+        if (contentTypeHeader.length > 0) {
+            log.debug(contentTypeHeader[0].getName() + " is " + contentTypeHeader[0].getValue());
+            contentType = contentTypeHeader[0].getValue();
         }
-    }
-
-    private void index(OMElement configuration, OMElement target, Namespaces namespaces) throws ProcessorException {
 
         // We need a 'node'-attribute (the XPath expression)
-        OMAttribute expr = configuration.getAttribute(new QName("node"));
+        OMAttribute expr = configuration.getAttribute(new QName("type"));
         if (null == expr) {
-            throw new ProcessorException("Could not locate the 'node'-attribute to the <contains /> operation");
+            throw new ProcessorException("Could not locate the 'type'-attribute to the <index /> operation");
         }
 
         // String expression = "//ns:param-value[(../ns:param-name = 'mets-this-or-that')]";
         String expression = manager.resolve(expr.getAttributeValue());
 
-        log.info("Index");
+        CharsetDecoder decoder = Charset.defaultCharset().newDecoder();
+        ByteBuffer bytes = ByteBuffer.allocateDirect(1024);
+        byte[] buf = new byte[1024];
+        int bytesRead = -1;
+
+        while ((bytesRead = inputBuffer.read(buf, 0, 1024)) > 0) {
+            bytes.put(buf, 0, bytesRead);
+            bytes.flip();
+
+            /*
+             * TODO: Here is where we handle different types of input.
+             *       Right now, this is only a stub.
+             */
+            if (contentType.startsWith("text")) {
+                String data = decoder.decode(bytes).toString();
+                log.debug(data);
+            } else {
+                log.debug("<binary data>");
+            }
+            bytes.clear();
+        }
     }
 
-    private void migrate(OMElement configuration, OMElement target, Namespaces namespaces) throws ProcessorException {
-        log.info("Migrate (XML)");
+    private void migrate(
+            StructureEntry entry, HttpResponse httpResponse, InputBuffer inputBuffer,
+            OMElement configuration, Namespaces namespaces
+    ) throws ProcessorException, IOException {
+
+        log.info("Migrate");
+
+        String contentType = "binary/octet-stream";
+        Header[] contentTypeHeader = httpResponse.getHeaders("Content-Type");
+        if (contentTypeHeader.length > 0) {
+            log.debug(contentTypeHeader[0].getName() + " is " + contentTypeHeader[0].getValue());
+            contentType = contentTypeHeader[0].getValue();
+        }
+
+        // We need a 'node'-attribute (the XPath expression)
+        OMAttribute expr = configuration.getAttribute(new QName("target-format"));
+        if (null == expr) {
+            throw new ProcessorException("Could not locate the 'target-format'-attribute to the <migrate /> operation");
+        }
+
+        // String expression = "//ns:param-value[(../ns:param-name = 'mets-this-or-that')]";
+        String expression = manager.resolve(expr.getAttributeValue());
+
+        CharsetDecoder decoder = Charset.defaultCharset().newDecoder();
+        ByteBuffer bytes = ByteBuffer.allocateDirect(1024);
+        byte[] buf = new byte[1024];
+        int bytesRead = -1;
+
+        while ((bytesRead = inputBuffer.read(buf, 0, 1024)) > 0) {
+            bytes.put(buf, 0, bytesRead);
+            bytes.flip();
+
+            /*
+             * TODO: Here is where we handle different types of input.
+             *       Right now, this is only a stub.
+             */
+            if (contentType.startsWith("text")) {
+                String data = decoder.decode(bytes).toString();
+                log.debug(data);
+            } else {
+                log.debug("<binary data>");
+            }
+            bytes.clear();
+        }
     }
 
     private void migrate(StructureEntry entry, InputStream is, StructureOutputStream os, ProcessorContext context) {
         log.info("Migrate");
     }
-
-	public void handleNoNodes(String expression) {
-		String info = "This XPath expression \"";
-		info += expression;
-		info += "\" does not identify any nodes.";
-		log.warn(info);
-	}
 }
