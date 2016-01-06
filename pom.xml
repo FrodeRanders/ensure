@@ -38,13 +38,13 @@
             <dependency>
                 <groupId>org.apache.ws.commons.axiom</groupId>
                 <artifactId>axiom-api</artifactId>
-                <version>1.2.16</version>
+                <version>1.2.17</version>
             </dependency>
 
             <dependency>
                 <groupId>org.apache.ws.commons.axiom</groupId>
                 <artifactId>axiom-impl</artifactId>
-                <version>1.2.16</version>
+                <version>1.2.17</version>
                 <scope>test</scope>
             </dependency>
 
