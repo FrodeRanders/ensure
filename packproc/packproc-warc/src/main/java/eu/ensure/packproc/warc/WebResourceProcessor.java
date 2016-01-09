@@ -20,7 +20,6 @@ import eu.ensure.commons.xml.Namespaces;
 import eu.ensure.packproc.ProcessorException;
 import eu.ensure.packproc.internal.BasicFileProcessor;
 import eu.ensure.packproc.model.*;
-import it.unimi.dsi.fastutil.chars.CharSet;
 import org.apache.axiom.om.OMAttribute;
 import org.apache.axiom.om.OMElement;
 import org.apache.http.*;
