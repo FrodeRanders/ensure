@@ -64,11 +64,19 @@ public class XmlFileProcessor extends BasicFileProcessor {
         alias = "XML-processor"; // a reasonable default
     }
 
+    /**
+     * A specific callable for all file processors derived from XmlFileProcessor,
+     * defining what to do with the XML document being operated upon.
+     */
     public interface XmlFileCallable {
         // Non-mutable processing of input XML file
         void call(OMElement root, Namespaces namespaces, ProcessorContext context) throws Exception;
     }
 
+    /**
+     * A callable for a processor that want to operate upon a file, which has
+     * to be implemented by classes derived form BasicFileProcessor.
+     */
     protected XmlFileCallable getSpecificCallable() {
         return new XmlFileCallable() {
             public void call(OMElement target, Namespaces namespaces, ProcessorContext context) throws Exception {
@@ -96,8 +104,8 @@ public class XmlFileProcessor extends BasicFileProcessor {
         };
     }
 
-    private FileProcessorCallable getCallable() {
-        return new FileProcessorCallable() {
+    private FileProcessorUsingChannelsCallable getCallable() {
+        return new FileProcessorUsingChannelsCallable() {
             public void call(ReadableByteChannel inputChannel, WritableByteChannel outputChannel, FileProcessor p, ProcessorContext context) throws Exception {
 
                 if (null == configElement) {
@@ -154,7 +162,7 @@ public class XmlFileProcessor extends BasicFileProcessor {
     ) throws IOException, ProcessorException, ClassNotFoundException {
 
         log.info(me() + ":process xml-file");
-        FileProcessorCallable callable = getCallable();
+        FileProcessorUsingChannelsCallable callable = getCallable();
         process(inputStream, outputStream, callable, this, context);
     }
 
@@ -175,7 +183,7 @@ public class XmlFileProcessor extends BasicFileProcessor {
     ) throws IOException, ProcessorException {
 
         //log.info(me() + ":process xml-file");
-        FileProcessorCallable callable = getCallable();
+        FileProcessorUsingChannelsCallable callable = getCallable();
         process(entry, entryInputStream, structureOutputStream, callable, this, context);
     }
 

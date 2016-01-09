@@ -131,7 +131,7 @@ public abstract class BasicFileProcessor implements FileProcessor {
     public void process(
             InputStream inputStream,
             OutputStream outputStream,
-            FileProcessorCallable callable,
+            FileProcessorUsingChannelsCallable callable,
             FileProcessor processor,
             ProcessorContext context
     ) throws IOException, ProcessorException {
@@ -152,6 +152,7 @@ public abstract class BasicFileProcessor implements FileProcessor {
             log.warn(me() + ": " + info);
         }
 
+        // Adapt to Streams, wrapping them in channels
         ReadableByteChannel inputChannel = null;
         WritableByteChannel outputChannel = null;
         try {
@@ -173,10 +174,43 @@ public abstract class BasicFileProcessor implements FileProcessor {
     }
 
     public void process(
+            InputStream inputStream,
+            OutputStream outputStream,
+            FileProcessorUsingStreamsCallable callable,
+            FileProcessor processor,
+            ProcessorContext context
+    ) throws IOException, ProcessorException {
+
+        if (null == configElement) {
+            String info = "The (file) processor does not have any associated configuration! ";
+            info += "This can occur if a file processor entry in the configuration file does not have any sub-elements";
+            log.warn(me() + ": " + info);
+            throw new ProcessorException(info);
+        }
+
+        // We really should have no (sub) actions since we are a file processor and not a
+        // structure processor.
+        for (Action action : actions) {
+            String info = "Ignoring unexpected (sub) action on a file processor! " + action;
+            info += ". This can occur if a file processor entry in the configuration file has sub-elements ";
+            info += "(which is applicable to structure processors only)";
+            log.warn(me() + ": " + info);
+        }
+
+        try {
+            callable.call(inputStream, outputStream, processor, context);
+
+        } catch (Exception e) {
+            String info = "Failed to operate on file: " + e.getMessage();
+            throw new ProcessorException(info, e);
+        }
+    }
+
+    public void process(
            StructureEntry entry,
            InputStream entryInputStream,
            StructureOutputStream structureOutputStream,
-           FileProcessorCallable callable,
+           FileProcessorUsingChannelsCallable callable,
            FileProcessor processor,
            ProcessorContext context
     ) throws IOException, ProcessorException {
@@ -248,6 +282,86 @@ public abstract class BasicFileProcessor implements FileProcessor {
         } finally {
             // Close temporary resources and such
             if (null != outputRaf) outputRaf.close(); // closes the associated FileChannel as well
+
+            // Remove temporary files
+            if (null != tmpOutputFile) tmpOutputFile.delete();
+        }
+    }
+
+    public void process(
+            StructureEntry entry,
+            InputStream entryInputStream,
+            StructureOutputStream structureOutputStream,
+            FileProcessorUsingStreamsCallable callable,
+            FileProcessor processor,
+            ProcessorContext context
+    ) throws IOException, ProcessorException {
+
+        // Some sanity checks first...
+        if (null == entry) {
+            throw new ProcessorException("no (file) entry");
+        }
+
+        if (entry.isDirectory()) {
+            String info = "You may not operate on a structure with a file processor. ";
+            info += "File processors may only operate on individual files. ";
+            info += "You tried to operate on the _directory_ " + entry.getName();
+            throw new ProcessorException(info);
+        }
+
+        if (null == configElement) {
+            String info = "The (file) processor does not have any associated configuration! ";
+            info += "This can occur if a file processor entry in the configuration file does not have any sub-elements";
+            log.warn(me() + ": " + info);
+            //throw new ProcessorException(info);
+        }
+
+        // We really should have no (sub) actions since we are a file processor and not a
+        // structure processor.
+        for (Action action : actions) {
+            String info = "Ignoring unexpected (sub) action on a file processor! " + action;
+            info += ". This can occur if a file processor entry in the configuration file has sub-elements ";
+            info += "(which is applicable to structure processors only)";
+            log.warn(me() + ": " + info);
+        }
+
+        boolean isMutableCall = null != structureOutputStream;
+
+        File tmpOutputFile = null;
+        RandomAccessFile outputRaf = null;
+        try {
+            // Create temporary files (if needed)
+            OutputStream outputStream = null;
+            if (isMutableCall) {
+                // Only need to create temporary output file if we are going to
+                // do a mutable call for this entry
+                tmpOutputFile = File.createTempFile(getPrefix() + "-output", ".raw");
+                outputRaf = new RandomAccessFile(tmpOutputFile, "rw");
+                outputStream = new FileOutputStream(outputRaf.getFD());
+            }
+
+            try {
+                callable.call(entryInputStream, outputStream, processor, context);
+                if (isMutableCall) {
+                    // We only have to take care of output if we did a mutable call
+                    // for this entry
+                    structureOutputStream.replaceEntry(entry, tmpOutputFile);
+                    {
+                        WritableByteChannel outputChannel = Channels.newChannel(structureOutputStream);
+                        if (tmpOutputFile.length() > 0) {
+                            FileChannel outputFileChannel = outputRaf.getChannel();
+                            outputFileChannel.transferTo(0L, tmpOutputFile.length(), outputChannel);
+                        }
+                    }
+                    structureOutputStream.closeEntry();
+                }
+            } catch (Exception e) {
+                String info = "Failed to operate on file: " + e.getMessage();
+                throw new ProcessorException(info, e);
+            }
+        } finally {
+            // Close temporary resources and such
+            if (null != outputRaf) outputRaf.close(); // closes associated streams and channels as well
 
             // Remove temporary files
             if (null != tmpOutputFile) tmpOutputFile.delete();

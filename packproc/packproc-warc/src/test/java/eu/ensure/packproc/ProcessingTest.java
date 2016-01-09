@@ -63,7 +63,7 @@ public class ProcessingTest extends TestCase {
             }
         } catch (ProcessorException pe) {
             Throwable cause = Stacktrace.getBaseCause(pe);
-            String info = "Failed to process test file system traversing: " + cause.getMessage();
+            String info = "Failed to process WARC: " + cause.getMessage();
             System.err.println(info + "\n" + Stacktrace.asString(cause));
             fail(info);
 

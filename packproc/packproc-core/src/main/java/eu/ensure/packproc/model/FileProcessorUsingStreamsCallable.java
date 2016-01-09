@@ -25,17 +25,13 @@
  */
 package eu.ensure.packproc.model;
 
-import java.nio.channels.ReadableByteChannel;
-import java.nio.channels.WritableByteChannel;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 /**
- * Anything that works upon temporary files. 'java.util.concurrent.Callable' defines the call()
- * method, but as it does not take any parameters we need to roll our own.
- *
- * There are different types of file processors though and depending on the third party software
- * we will be using, sometimes it is more convenient to operate on Streams while in other cases
- * Channels make more sense. Thus we will have specific callables that address these cases:
- * See {@link FileProcessorUsingStreamsCallable}, {@link FileProcessorUsingChannelsCallable}
+ * A callable addressing file processors that works with InputStream and OutputStream.
  */
-public interface FileProcessorCallable {
+public interface FileProcessorUsingStreamsCallable extends FileProcessorCallable {
+    // Processing of input file - optionally mutable if an outputStream is provided
+    void call(InputStream inputStream, OutputStream outputStream, FileProcessor p, ProcessorContext context) throws Exception;
 }

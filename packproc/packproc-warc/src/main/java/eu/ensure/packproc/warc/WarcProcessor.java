@@ -180,8 +180,8 @@ public class WarcProcessor implements ContainerStructureProcessor {
                 // are not really interesting. Rather we want to look for file types
                 // or URLs
 
-                MultiDigestInputStream entryInputStream = null;
-                try {
+                InputStream entryInputStream = null; // Don't use the MultiDigestInputStream
+                {
                     // Directories are not processed per se
                     Iterator<Action> ait = actions.iterator();
                     while (ait.hasNext()) {
@@ -194,7 +194,7 @@ public class WarcProcessor implements ContainerStructureProcessor {
                                 log.debug(me() + ":process container");
                             }
 
-                            entryInputStream = new MultiDigestInputStream(structureEntry.getInputStream());
+                            entryInputStream = structureEntry.getInputStream();
 
                             Processor processor = action.getProcessor();
                             if (processor instanceof ContainerStructureProcessor) {
@@ -259,54 +259,6 @@ public class WarcProcessor implements ContainerStructureProcessor {
                     if (isMutableCall /* && !addedEntries.contains(structureEntry.getName()) */) {
                         // We may safely copy file
                         // TODO copyEntry(structureEntry, entryInputStream, archiveOutputStream);
-                    }
-                } finally {
-                    if (structureEntry.isResponseRecord()) {
-                        // Collect bitstream information - this is where we associate _actual_ values,
-                        // i.e. calculated checksums and calculated byte lengths.
-                        Map<String, String> bitstreamInfo = new HashMap<>();
-
-                        // OBSERVE: The following might not be completely valid in all circumstances,
-                        // as InputStream.getSize() only returns the number of bytes that you can read
-                        // and not necessarily the number of bytes in the stream. But in this case,
-                        // I believe it to be valid...
-                        if (null != entryInputStream && entryInputStream.getSize() > 0) {
-                            bitstreamInfo.put("size", "" + entryInputStream.getSize());
-
-                            Map<String, byte[]> digests = entryInputStream.getDigests();
-                            for (String key : digests.keySet()) {
-                                byte[] digest = digests.get(key);
-
-                                if (digest.length == 8) {
-                                    ByteBuffer buf = ByteBuffer.wrap(digest);
-                                    String value = "" + buf.getLong();
-                                    bitstreamInfo.put(key, value);
-                                } else {
-                                    StringBuffer hexString = new StringBuffer();
-                                    for (int i = 0; i < digest.length; i++) {
-                                        hexString.append(Integer.toHexString(0xFF & digest[i]));
-                                    }
-                                    String value = hexString.toString();
-                                    bitstreamInfo.put(key, value);
-                                }
-                            }
-
-                            // Create a package-relative path...
-                            File top = new File("/");
-                            File contentStream = top; // starting point relative to top
-
-                            // ...and reassemble
-                            int start = url.startsWith("/") ? 0 : 1; /* skip [example1]/content/... */
-
-                            String[] parts = url.split("/");
-                            for (int i = start; i < parts.length; i++) {
-                                contentStream = new File(contentStream, parts[i]);
-                            }
-                            bitstreamInfo.put("fileName", parts[parts.length - 1]);
-
-                            String path = contentStream.getPath().replace("\\", "/"); // in case we're on Windoze
-                            context.associate("CALCULATED", path, path, bitstreamInfo);
-                        }
                     }
                 }
             }
