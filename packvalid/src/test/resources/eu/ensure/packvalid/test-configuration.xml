@@ -25,7 +25,7 @@
 
         <!-- Content specific -->
         <dicom-processor:process re="[A-Z]+_[0-9]+">
-            <dicom-processor:extractInformation re=".*?"/>
+            <dump re=".*?"/>
         </dicom-processor:process>
 
     </aip-processor:process>

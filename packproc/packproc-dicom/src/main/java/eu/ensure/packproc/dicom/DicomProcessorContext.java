@@ -27,7 +27,7 @@ package eu.ensure.packproc.dicom;
 
 import eu.ensure.packproc.BasicProcessorContext;
 import org.apache.log4j.Logger;
-import org.dcm4che2.data.SpecificCharacterSet;
+import org.dcm4che3.data.SpecificCharacterSet;
 
 import java.nio.ByteOrder;
 import java.util.HashMap;
@@ -128,7 +128,7 @@ public class DicomProcessorContext extends BasicProcessorContext {
             {
                 if (null != value && value.length() > 0) {
                     log.debug("# Specific character set: " + value);
-                    context.charSet = SpecificCharacterSet.valueOf(new String[]{ value });
+                    //context.charSet = SpecificCharacterSet.valueOf(new String[]{ value });
                 }
                 else {
                     log.debug("# Specific character set: <unknown>");
@@ -140,7 +140,6 @@ public class DicomProcessorContext extends BasicProcessorContext {
     private ByteOrder byteOrder = ByteOrder.nativeOrder();
 
     //
-    public final SpecificCharacterSet iso8859_1 = new SpecificCharacterSet("ISO8859-1");
     private final HashMap<String, String> collectedValues = new HashMap<String, String>();
 
     private SpecificCharacterSet charSet = null;
@@ -160,7 +159,7 @@ public class DicomProcessorContext extends BasicProcessorContext {
 
     public SpecificCharacterSet getCharacterSet() {
         if (null == charSet)
-            return iso8859_1;
+            return SpecificCharacterSet.DEFAULT;
         return charSet;
     }
 
@@ -191,36 +190,3 @@ public class DicomProcessorContext extends BasicProcessorContext {
     }
 }
 
-class DicomProcessorSubContext extends DicomProcessorContext {
-
-    private DicomProcessorContext parent = null;
-
-    DicomProcessorSubContext(DicomProcessorContext ctx) {
-        super("<subcontext>", /* no interesting tags */ null);
-        parent = ctx;
-    }
-
-    public String getContextName() {
-        return null; // Sub context has no name
-    }
-
-    public ByteOrder getByteOrder() {
-        return parent.getByteOrder();
-    }
-
-    public SpecificCharacterSet getCharacterSet() {
-        return parent.getCharacterSet();
-    }
-
-    public void updateState(String tag, String value) {
-        parent.updateState(tag, value);
-    }
-
-    public Map<String, String> getCollectedValues() {
-        return parent.getCollectedValues();
-    }
-
-    public int getDepth() {
-        return parent.getDepth()+1;
-    }
-}
