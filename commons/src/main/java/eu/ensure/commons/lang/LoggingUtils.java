@@ -26,30 +26,26 @@
 package  eu.ensure.commons.lang;
 
 import eu.ensure.commons.io.FileIO;
-import org.apache.log4j.Appender;
-import org.apache.log4j.Logger;
-import org.apache.log4j.xml.DOMConfigurator;
-
-import javax.naming.Context;
-import javax.naming.InitialContext;
-import javax.naming.NamingException;
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-
-import org.xml.sax.EntityResolver;
-import org.xml.sax.InputSource;
-import org.xml.sax.SAXException;
-import org.w3c.dom.Document;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.core.Appender;
+import org.apache.logging.log4j.core.LifeCycle;
+import org.apache.logging.log4j.core.LoggerContext;
+import org.apache.logging.log4j.core.config.ConfigurationSource;
+import org.apache.logging.log4j.core.config.Configurator;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.StringReader;
 import java.io.InputStream;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Map;
+import java.util.Properties;
 
 public class LoggingUtils {
-    public static final String JNDI_ENVIRONMENT = "java:comp/env";
-    public static final String DEFAULT_CONFIGURATION_FILE_NAME = "log-configuration.xml";
+    public static final String DEFAULT_CONFIGURATION_FILE_NAME = "log4j2.xml";
+    public static final String NON_DEFAULT_APPENDER = "CONSOLE"; // Just a choice, but forcing us to always define CONSOLE
 
     public interface Configuration {
         @Configurable(property = "log-configuration-file", value = DEFAULT_CONFIGURATION_FILE_NAME)
@@ -117,67 +113,75 @@ public class LoggingUtils {
             }
         }
 
+        // Changes as per http://stackoverflow.com/questions/21083834/load-log4j2-configuration-file-programmatically
         Logger log = null;
         try {
-            DocumentBuilderFactory docBuilderFactory = DocumentBuilderFactory.newInstance();
-            /*
-            docBuilderFactory.setValidating(false);
-            docBuilderFactory.setFeature("http://xml.org/sax/features/namespaces", false);
-            docBuilderFactory.setFeature("http://xml.org/sax/features/validation", false);
-            docBuilderFactory.setFeature("http://apache.org/xml/features/nonvalidating/load-dtd-grammar", false);
-            docBuilderFactory.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
-            docBuilderFactory.setFeature("http://apache.org/xml/features/validation/schema", false);
-            */
-            DocumentBuilder docBuilder = docBuilderFactory.newDocumentBuilder();
-            docBuilder.setEntityResolver(new EntityResolver() {
-                public InputSource resolveEntity(String publicId, String systemId)
-                        throws SAXException, IOException {
-                    if (systemId.contains("log4j.dtd")) {
-                        return new InputSource(new StringReader(""));
-                    } else {
-                        return null;
-                    }
-                }
-            });
+            ConfigurationSource source = null;
             InputStream config = null;
             try {
                 switch (strategy) {
                     case CREATE_FROM_TEMPLATE:
-                        config = clazz.getResourceAsStream(resourceName);
-                        try {
-                            configFile = FileIO.writeToFile(config, configFile);
-                            DOMConfigurator.configureAndWatch(configFile.getAbsolutePath(), configuration.delay() * 1000);
+                        try (InputStream sourceConfig = clazz.getResourceAsStream(resourceName)) {
+                            configFile = FileIO.writeToFile(sourceConfig, configFile);
+                            config = new FileInputStream(configFile);
+                            source = new ConfigurationSource(config, configFile);
+
                             System.out.println("Pulling log configuration from file: " + configFile.getAbsolutePath());
                             break;
+
                         } catch (Exception e) {
                             String info = "Failed to create log configuration file from internal template: ";
                             info += e.getMessage();
                             info += " - [falling back on default configuration]";
                             System.out.println(info);
 
-                            // OBSERVE! We are doing a fall-through to the next clause...
-                        } finally {
-                            config.close();
+                            //----------------------------------------------------------------------
+                            // OBSERVE!
+                            //   Upon failure, we are doing a fall-through to the next clause...
+                            //----------------------------------------------------------------------
                         }
 
                     case PULL_FROM_RESOURCES:
                         config = clazz.getResourceAsStream(resourceName);
-                        Document doc = docBuilder.parse(config);
-                        DOMConfigurator.configure(doc.getDocumentElement());
-                        System.out.println(
-                                "Pulling log configuration from resources (default): " + clazz.getName() + "#" + fileName
-                        );
+                        source = new ConfigurationSource(config);
+
+                        System.out.println("Pulling log configuration from resources (default): " + clazz.getName() + "#" + fileName);
                         break;
 
                     case PULL_FROM_FILE_ON_DISK:
-                        DOMConfigurator.configureAndWatch(configFile.getAbsolutePath(), configuration.delay() * 1000);
+                        config = new FileInputStream(configFile);
+                        source = new ConfigurationSource(config, configFile);
+
                         System.out.println("Pulling log configuration from file: " + configFile.getAbsolutePath());
                         break;
-
                 }
 
-                log = Logger.getLogger(clazz);
-                System.out.println("Logging initiated...");
+                boolean doRestart = false;
+                Logger rootLogger = LogManager.getRootLogger();
+                if (null != rootLogger) {
+                    // Need the core Logger in order to extract a LoggerContext
+                    org.apache.logging.log4j.core.LoggerContext context =
+                            ((org.apache.logging.log4j.core.Logger)rootLogger).getContext();
+
+                    if (context.getState() == LifeCycle.State.STARTED) {
+                        String info = "Log4j2 is already running (with a default configuration)";
+                        System.out.println(info);
+
+                        doRestart = true;
+                        context.stop();
+                    }
+                }
+
+                LoggerContext context = Configurator.initialize(/* class loader */ null, source);
+
+                if (doRestart) {
+                    String info = "Re-starting Log4j2";
+                    System.out.println(info);
+                    ((org.apache.logging.log4j.core.Logger)LogManager.getRootLogger()).getContext().start();
+                }
+
+                log = LogManager.getLogger(clazz);
+                System.out.println("Logging initiated (by " + clazz.getCanonicalName() + ")...");
 
             } catch (IOException ioe) {
                 String info = "Could not load logging configuration from resource \"" + resourceName + "\" ";
@@ -212,28 +216,35 @@ public class LoggingUtils {
     public static Logger conditionallySetupLoggingFor(Class clazz, String resourceName) {
         boolean doInitialize = true;
 
-        Logger rootLogger = Logger.getRootLogger();
+        Logger rootLogger = LogManager.getRootLogger();
         if (null != rootLogger) {
-            Enumeration _appenders = rootLogger.getAllAppenders();
-            if (null != _appenders) {
-                List<String> appenders = new LinkedList<String>();
-                while (_appenders.hasMoreElements()) {
-                    appenders.add(((Appender)_appenders.nextElement()).getName());
-                }
+            // Need the core Logger in order to extract a LoggerContext
+            org.apache.logging.log4j.core.LoggerContext context =
+                    ((org.apache.logging.log4j.core.Logger)rootLogger).getContext();
 
-                boolean hasConsoleAppender = appenders.contains("CONSOLE");
-                int count = appenders.size();
-                doInitialize = (0 == count) || (1 == count && hasConsoleAppender);
+            if (context.getState() == LifeCycle.State.STARTED) {
+                // Look through the appenders and check if a non-default appender is defined,
+                // taking this as an indication that our configuration is used
+                org.apache.logging.log4j.core.config.Configuration configuration
+                        = context.getConfiguration();
 
-                if (!doInitialize) {
-                    StringBuilder buf = new StringBuilder();
-                    buf.append("Logging already initialized for appenders: ");
-                    for (int i = 0; i < count; i++) {
-                        buf.append(appenders.get(i));
-                        if (i < count)
-                            buf.append(", ");
+                Map<String, Appender> appenders = configuration.getAppenders();
+                if (null != appenders) {
+
+                    boolean hasConsoleAppender = appenders.containsKey(NON_DEFAULT_APPENDER);
+                    int count = appenders.size();
+                    doInitialize = (0 == count) || (1 == count && hasConsoleAppender);
+
+                    if (!doInitialize) {
+                        StringBuilder buf = new StringBuilder();
+                        buf.append("Logging already initialized for appenders: ");
+                        for (int i = 0; i < count; i++) {
+                            buf.append(appenders.get(i));
+                            if (i < count)
+                                buf.append(", ");
+                        }
+                        System.out.println(buf.toString());
                     }
-                    System.out.println(buf.toString());
                 }
             }
         }
@@ -242,7 +253,8 @@ public class LoggingUtils {
             return setupLoggingFor(clazz, resourceName);
         }
         else {
-            return Logger.getLogger(clazz);
+            // RE-use whatever logging configuation already defined
+            return LogManager.getLogger(clazz);
         }
     }
 }

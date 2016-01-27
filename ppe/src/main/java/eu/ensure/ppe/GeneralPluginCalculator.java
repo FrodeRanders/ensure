@@ -27,15 +27,19 @@ package eu.ensure.ppe;
 
 
 import eu.ensure.commons.db.Database;
-import eu.ensure.ppe.model.*;
-import org.apache.log4j.Logger;
+import eu.ensure.ppe.model.Aggregation;
+import eu.ensure.ppe.model.Consequence;
+import eu.ensure.ppe.model.Plugin;
+import eu.ensure.ppe.model.Purpose;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.*;
+import java.util.Collection;
 
 /**
  * Calculates score for Global Preservation Plans.
@@ -43,7 +47,7 @@ import java.util.*;
  * Created by Frode Randers at 2012-10-16 17:57
  */
 public class GeneralPluginCalculator {
-    private static final Logger log = Logger.getLogger(GeneralPluginCalculator.class);
+    private static final Logger log = LogManager.getLogger(GeneralPluginCalculator.class);
 
     /*
         CALL SYSCS_UTIL.SYSCS_SET_RUNTIMESTATISTICS(1);

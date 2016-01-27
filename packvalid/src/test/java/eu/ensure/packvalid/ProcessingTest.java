@@ -28,25 +28,26 @@ package eu.ensure.packvalid;
 import eu.ensure.commons.io.Closer;
 import eu.ensure.commons.lang.LoggingUtils;
 import eu.ensure.commons.lang.Stacktrace;
+import eu.ensure.packproc.BasicProcessorContext;
+import eu.ensure.packproc.ProcessorException;
+import eu.ensure.packproc.ProcessorManager;
 import eu.ensure.packproc.internal.TrackingProcessorContext;
 import eu.ensure.packproc.model.AssociatedInformation;
 import eu.ensure.packproc.model.EvaluationStatement;
 import eu.ensure.packproc.model.ProcessorContext;
-import eu.ensure.packproc.BasicProcessorContext;
-import eu.ensure.packproc.ProcessorException;
-import eu.ensure.packproc.ProcessorManager;
 import junit.framework.TestCase;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 
 import java.io.*;
-import java.util.*;
+import java.util.Collection;
+import java.util.Properties;
 
 
 /**
  */
 public class ProcessingTest extends TestCase {
-    private static Logger log = LoggingUtils.setupLoggingFor(ProcessingTest.class, "log-configuration.xml");
+    private static Logger log = LoggingUtils.setupLoggingFor(ProcessingTest.class, "log4j2.xml");
 
 
     @Test

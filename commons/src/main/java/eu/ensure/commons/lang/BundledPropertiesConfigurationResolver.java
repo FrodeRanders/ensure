@@ -26,7 +26,8 @@
 package  eu.ensure.commons.lang;
 
 import eu.ensure.commons.io.Closer;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -57,7 +58,7 @@ import java.util.Properties;
  * Created by Frode Randers at 2014-02-06 22:13
  */
 public class BundledPropertiesConfigurationResolver implements ConfigurationTool.ConfigurationResolver {
-    private static final Logger log = Logger.getLogger(BundledPropertiesConfigurationResolver.class);
+    private static final Logger log = LogManager.getLogger(BundledPropertiesConfigurationResolver.class);
 
     private final Properties properties;
 

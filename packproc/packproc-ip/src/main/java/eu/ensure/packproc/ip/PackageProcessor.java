@@ -26,19 +26,20 @@
 package eu.ensure.packproc.ip;
 
 import eu.ensure.commons.io.MultiDigestInputStream;
+import eu.ensure.commons.lang.Number;
 import eu.ensure.packproc.BasicProcessorContext;
 import eu.ensure.packproc.ProcessorException;
 import eu.ensure.packproc.ProcessorManager;
 import eu.ensure.packproc.internal.Action;
 import eu.ensure.packproc.internal.FileTool;
 import eu.ensure.packproc.model.*;
-
-import eu.ensure.commons.lang.Number;
-
 import org.apache.axiom.om.OMElement;
-import org.apache.commons.compress.archivers.*;
-
-import org.apache.log4j.Logger;
+import org.apache.commons.compress.archivers.ArchiveEntry;
+import org.apache.commons.compress.archivers.ArchiveException;
+import org.apache.commons.compress.archivers.ArchiveInputStream;
+import org.apache.commons.compress.archivers.ArchiveStreamFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.*;
 import java.nio.ByteBuffer;
@@ -48,7 +49,7 @@ import java.util.*;
  * Operates on file container streams
  */
 public class PackageProcessor implements ContainerStructureProcessor {
-    private static final Logger log = Logger.getLogger(PackageProcessor.class);
+    private static final Logger log = LogManager.getLogger(PackageProcessor.class);
 
     private String alias = "ip-processor"; // a reasonable default
 
@@ -262,7 +263,7 @@ public class PackageProcessor implements ContainerStructureProcessor {
                     while (ait.hasNext()) {
                         Action action = ait.next();
 
-                        if (action.match(structureEntry.getName())) {
+                        if (action.matchOnName(structureEntry.getName())) {
                             if (log.isDebugEnabled()) {
                                 log.debug(me() + ":process container");
                             }

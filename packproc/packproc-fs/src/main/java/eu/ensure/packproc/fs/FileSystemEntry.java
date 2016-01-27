@@ -27,7 +27,10 @@ package eu.ensure.packproc.fs;
 
 import eu.ensure.packproc.model.StructureEntry;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 
 public class FileSystemEntry extends StructureEntry<File> {
     private File entry = null;

@@ -64,7 +64,10 @@ public class Action {
         return method;
     }
 
-    public boolean match(String path) {
+    public boolean matchOnName(String path) {
+        if (null == path || path.length() == 0)
+            return false;
+
         matchedRegularExpression = false;
 
         // Possibly align path with the provided location. If it was "absolute" within the structure,
@@ -119,8 +122,27 @@ public class Action {
             //System.out.println("Match? Entry " + entryName + " matches RE " + selection.getRE());
         }
 
+        // OK -- we may not actually be matching on name at all.
+        // Do we try to match on type?
+        if (selection.hasType())
+            return false;
+
         // By now, we must match some entry selection constraint
         return true;
+    }
+
+    public boolean matchOnType(String type) {
+        if (null == type || type.length() == 0)
+            return false;
+
+        // Does the name match a type?
+        if (selection.hasType()) {
+            if (type.equalsIgnoreCase(selection.getType())) {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     public String toString() {

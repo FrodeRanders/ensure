@@ -25,14 +25,15 @@
  */
 package eu.ensure.commons.db;
 
-import java.sql.*;
-import java.util.Properties;
-import javax.sql.DataSource;
-
 import eu.ensure.commons.lang.Configurable;
 import eu.ensure.commons.lang.ConfigurationTool;
 import eu.ensure.commons.lang.DynamicLoader;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
+import javax.sql.DataSource;
+import java.sql.*;
+import java.util.Properties;
 
 /**
  * Description of Database:
@@ -40,7 +41,7 @@ import org.apache.log4j.Logger;
  * Created by Frode Randers at 2011-11-04 14:14
  */
 public class Database {
-    private static final Logger log = Logger.getLogger(Database.class);
+    private static final Logger log = LogManager.getLogger(Database.class);
 
     private static int DEADLOCK_MAX_RETRIES = 100;
     private static int DEADLOCK_SLEEP_TIME = 200; // milliseconds

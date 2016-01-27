@@ -32,11 +32,14 @@ import eu.ensure.commons.xml.XmlException;
 import eu.ensure.packproc.ProcessorException;
 import eu.ensure.packproc.XmlFileProcessor;
 import eu.ensure.packproc.model.ProcessorContext;
-
 import org.apache.axiom.om.OMElement;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -45,39 +48,41 @@ import java.util.regex.Pattern;
  * Processes XML files, using XPath-expressions to locate elements
  */
 public class RdfProcessor extends XmlFileProcessor {
-    private static final Logger log = Logger.getLogger(RdfProcessor.class);
+    private static final Logger log = LogManager.getLogger(RdfProcessor.class);
 
     public RdfProcessor() {
         alias = "RDF-processor"; // a reasonable default
     }
 
-    public XmlFileCallable getWhatToDo() {
+    protected XmlFileCallable getSpecificCallable() {
         return new XmlFileCallable() {
-            public void call(OMElement document, Namespaces namespaces, ProcessorContext context) throws Exception {
-                if (null == configElement) {
-                    String info = "Cannot process manifest-file (RDF) - no configuration";
-                    log.warn(info);
-                    throw new ProcessorException(info);
-                }
-
+            public void call(OMElement target, Namespaces namespaces, ProcessorContext context) throws Exception {
                 // Retrieve XPath expressions from the configuration
-                for (Iterator<OMElement> ei = configElement.getChildElements(); ei.hasNext(); ) {
-                    OMElement element = ei.next();
-                    String operation = element.getLocalName(); // Ignore namespace!!!
+                try {
+                    for (Iterator<OMElement> ei = configElement.getChildElements(); ei.hasNext(); ) {
+                        OMElement configuration = ei.next();
+                        String operation = configuration.getLocalName(); // Ignore namespace!!!
 
-                    if ("extractBitstreamInformation".equalsIgnoreCase(operation)) {
-                        extractBitstreamInformation(element, document, namespaces, context);
+                        if ("extractBitstreamInformation".equalsIgnoreCase(operation)) {
+                            extractBitstreamInformation(configuration, target, namespaces, context);
 
-                    } else {
-                        throw new ProcessorException("Unknown processor operation: " + operation);
+                        } else {
+                            throw new ProcessorException("Unknown processor operation: " + operation);
+                        }
                     }
+                } catch (Throwable t) {
+                    String info = "Cannot process configuration for " + alias + ": ";
+                    info += t.getMessage();
+                    log.warn(info);
+
+                    throw new ProcessorException(info, t);
                 }
             }
         };
     }
 
     private void extractBitstreamInformation(
-            OMElement element, OMElement document, Namespaces namespaces, ProcessorContext context
+            OMElement configration, OMElement target, Namespaces namespaces, ProcessorContext context
     ) throws ProcessorException, XmlException {
 
         Map<String, List<OMElement>> statements = new HashMap<String, List<OMElement>>();
@@ -96,7 +101,7 @@ public class RdfProcessor extends XmlFileProcessor {
         namespaces.defineNamespace("http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#", "ddmo");
 
         // Define these namespaces in the document - needed later when querying
-        namespaces.applyNamespacesOn(document);
+        namespaces.applyNamespacesOn(target);
 
         XPath xpath = new XPath(namespaces);
         Attribute attribute = new Attribute(namespaces);
@@ -105,7 +110,7 @@ public class RdfProcessor extends XmlFileProcessor {
         String aipResourceId;
         {
             String expression = "//rdf:Description[(./rdf:type[contains(@rdf:resource, 'http://www.ensure.eu/fhg/ibmt/ontologies/ltdpao#ArchivalInformationPackage')])]";
-            OMElement node = xpath.getElementFrom(document, expression);
+            OMElement node = xpath.getElementFrom(target, expression);
     
             aipResourceId = attribute.getValueFrom(node, "rdf", "about");
     
@@ -126,7 +131,7 @@ public class RdfProcessor extends XmlFileProcessor {
         String rootFolder;
         {
             String expression = "//rdf:Description[contains(@rdf:about, '" + aipResourceId + "')]/fs:rootFolder";
-            String path = xpath.getTextFrom(document, expression);
+            String path = xpath.getTextFrom(target, expression);
 
             // Normalize path
             path = path.replace("\\", "/"); // just in case Windoze was in the loop somewhere
@@ -144,7 +149,7 @@ public class RdfProcessor extends XmlFileProcessor {
 
             expression = "//rdf:Description[contains(@rdf:about, '" + urn + "')]" +
                          "/ltdpao:isContentDataObjectOf[contains(@rdf:resource, '" + aipResourceId + "')]";
-            List<OMElement> nodes = xpath.getElementsFrom(document, expression);
+            List<OMElement> nodes = xpath.getElementsFrom(target, expression);
             if (nodes.size() != 1) {
                 String info = "Validation failure: The AIP root folder is not marked as content data object for AIP: ";
                 info += "Using search expression: " + expression;
@@ -153,7 +158,7 @@ public class RdfProcessor extends XmlFileProcessor {
 
             expression = "//rdf:Description[contains(@rdf:about, '" + urn + "')]" +
                          "/nie:rootElementOf[contains(@rdf:resource, '" + aipResourceId + "')]";
-            nodes = xpath.getElementsFrom(document, expression);
+            nodes = xpath.getElementsFrom(target, expression);
             if (nodes.size() != 1) {
                 String info = "Validation failure: The AIP root folder is not marked as root element for AIP: ";
                 info += "Using search expression: " + expression;
@@ -181,10 +186,10 @@ public class RdfProcessor extends XmlFileProcessor {
             rootDriveIsLowerCase = ('a' <= rootDriveLetter && rootDriveLetter <= 'z');
         }
 
-        // Year 1 demo - DICOM SPECIFIC!!
+        // DICOM SPECIFIC!!
         {
             String expression = "//rdf:Description[(./rdf:type[contains(@rdf:resource, 'http://www.ensure.eu/fhg/ibmt/ontologies/ddmo#DICOM_IOD')])]";
-            List<OMElement> nodes = xpath.getElementsFrom(document, expression);
+            List<OMElement> nodes = xpath.getElementsFrom(target, expression);
             for (OMElement node : nodes) {
                 // This is a DICOM file
                 String providedURI = attribute.getValueFrom(node, "rdf", "about");
@@ -201,11 +206,11 @@ public class RdfProcessor extends XmlFileProcessor {
                     String moduleResource = attribute.getValueFrom(moduleRef, "rdf", "resource");
 
                     expression = "//rdf:Description[contains(@rdf:about, '" + moduleResource + "')]/ddmo:includesPatientModule";
-                    OMElement moduleRefRef = xpath.getElementFrom(document, expression);
+                    OMElement moduleRefRef = xpath.getElementFrom(target, expression);
                     String patientModuleResource = attribute.getValueFrom(moduleRefRef, "rdf", "resource");
 
                     expression = "//rdf:Description[contains(@rdf:about, '" + patientModuleResource + "')]";
-                    OMElement patientModule = xpath.getElementFrom(document, expression);
+                    OMElement patientModule = xpath.getElementFrom(target, expression);
                     patientId = xpath.getTextFrom(patientModule, "ddmo:attributePatientID");
                     patientName = xpath.getTextFrom(patientModule, "ddmo:attributePatientName");
                 }

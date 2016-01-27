@@ -25,7 +25,8 @@
  */
 package  eu.ensure.commons.lang;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 /**
  * This configuration resolver will (try to) lookup configuration among the system properties.
@@ -33,7 +34,7 @@ import org.apache.log4j.Logger;
  * Created by Frode Randers at 2014-02-06 16:13
  */
 public class SystemPropertiesConfigurationResolver implements ConfigurationTool.ConfigurationResolver {
-    private static final Logger log = Logger.getLogger(SystemPropertiesConfigurationResolver.class);
+    private static final Logger log = LogManager.getLogger(SystemPropertiesConfigurationResolver.class);
 
     @Override
     public Object resolve(String name) {

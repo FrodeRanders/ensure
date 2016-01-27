@@ -30,7 +30,6 @@ import org.apache.commons.compress.archivers.ArchiveException;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 
 /**
  * Some kind of processor operating on dispersed _structures_ such as the filesystem.

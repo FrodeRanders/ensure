@@ -26,31 +26,33 @@
 
 package eu.ensure.packproc;
 
+import eu.ensure.commons.lang.DynamicInitializer;
+import eu.ensure.commons.lang.DynamicLoader;
+import eu.ensure.commons.lang.Stacktrace;
+import eu.ensure.packproc.internal.Action;
+import eu.ensure.packproc.internal.EntrySelection;
+import eu.ensure.packproc.model.*;
 import org.apache.axiom.om.OMAttribute;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMNamespace;
 import org.apache.axiom.om.impl.builder.StAXOMBuilder;
-import org.apache.log4j.Logger;
-
-import eu.ensure.commons.lang.DynamicInitializer;
-import eu.ensure.commons.lang.DynamicLoader;
-import eu.ensure.commons.lang.Stacktrace;
-
-import eu.ensure.packproc.internal.Action;
-import eu.ensure.packproc.internal.EntrySelection;
-import eu.ensure.packproc.model.*;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.xml.stream.XMLInputFactory;
 import javax.xml.stream.XMLStreamException;
 import javax.xml.stream.XMLStreamReader;
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.*;
 
 /**
  * Loads the configuration from file and applies the processor machinery
  */
 public class ProcessorManager {
-    private static final Logger log = Logger.getLogger(ProcessorManager.class);
+    private static final Logger log = LogManager.getLogger(ProcessorManager.class);
 
     private DynamicLoader<Processor> processorLoader = new DynamicLoader<Processor>("processor");
 

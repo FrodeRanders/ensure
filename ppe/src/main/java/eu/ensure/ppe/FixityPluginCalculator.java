@@ -26,11 +26,15 @@
 package eu.ensure.ppe;
 
 
-import eu.ensure.ppe.model.*;
-import org.apache.log4j.Logger;
+import eu.ensure.ppe.model.Aggregation;
+import eu.ensure.ppe.model.Consequence;
+import eu.ensure.ppe.model.FixityPlugin;
+import eu.ensure.ppe.model.Purpose;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import javax.sql.DataSource;
-import java.util.*;
+import java.util.Collection;
 
 /**
  * Calculates score for fixity plugins.
@@ -87,7 +91,7 @@ import java.util.*;
  * Created by Frode Randers at 2012-10-16 17:57
  */
 public class FixityPluginCalculator {
-    private static final Logger log = Logger.getLogger(FixityPluginCalculator.class);
+    private static final Logger log = LogManager.getLogger(FixityPluginCalculator.class);
 
     private AssessmentInfoRetriever infoRetriever;
     private DataSource dataSource;

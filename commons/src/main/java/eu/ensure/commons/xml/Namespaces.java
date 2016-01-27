@@ -32,9 +32,7 @@ import org.apache.axiom.om.OMNamespace;
 import org.apache.axiom.om.xpath.AXIOMXPath;
 import org.jaxen.JaxenException;
 
-import java.util.Hashtable;
-import java.util.Iterator;
-import java.util.Map;
+import java.util.*;
 
 /*
  * Description of Namespaces
@@ -43,7 +41,7 @@ import java.util.Map;
  * Created by Frode Randers at 2012-04-11 21:50
  */
 public class Namespaces {
-    private Hashtable<String, OMNamespace> namespaces = new Hashtable<String, OMNamespace>();
+    private Map<String, OMNamespace> namespaces = new HashMap<>();
 
     public Namespaces() {
         // No default namespaces defined yet...
@@ -83,5 +81,9 @@ public class Namespaces {
 
     public OMNamespace get(String prefix) {
         return namespaces.get(prefix);
+    }
+
+    public Map<String, OMNamespace> getNamespaces() {
+        return Collections.unmodifiableMap(namespaces);
     }
 }

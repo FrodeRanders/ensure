@@ -29,11 +29,17 @@ import eu.ensure.commons.io.Closer;
 import eu.ensure.commons.io.FileIO;
 import eu.ensure.ipqet.eqel.model.DomainSpecification;
 import eu.ensure.ipqet.eqel.model.ValidationSpecification;
-import org.antlr.v4.runtime.*;
-import org.antlr.v4.runtime.tree.*;
-import org.antlr.v4.runtime.atn.*;
+import org.antlr.v4.runtime.ANTLRInputStream;
+import org.antlr.v4.runtime.CommonTokenStream;
+import org.antlr.v4.runtime.ParserRuleContext;
+import org.antlr.v4.runtime.RecognitionException;
+import org.antlr.v4.runtime.atn.PredictionMode;
+import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
-import java.io.*;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.net.URL;
 import java.util.Map;
 

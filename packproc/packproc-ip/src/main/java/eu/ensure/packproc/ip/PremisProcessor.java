@@ -31,9 +31,9 @@ import eu.ensure.commons.xml.XmlException;
 import eu.ensure.packproc.ProcessorException;
 import eu.ensure.packproc.XmlFileProcessor;
 import eu.ensure.packproc.model.ProcessorContext;
-
-import org.apache.log4j.Logger;
-import org.apache.axiom.om.*;
+import org.apache.axiom.om.OMElement;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.util.HashMap;
 import java.util.Iterator;
@@ -45,33 +45,35 @@ import java.util.Map;
  * Processes XML files, using XPath-expressions to locate elements
  */
 public class PremisProcessor extends XmlFileProcessor {
-    private static final Logger log = Logger.getLogger(PremisProcessor.class);
+    private static final Logger log = LogManager.getLogger(PremisProcessor.class);
 
     public PremisProcessor() {
         alias = "PREMIS-processor"; // a reasonable default
     }
 
-    public XmlFileCallable getWhatToDo() {
+    protected XmlFileCallable getSpecificCallable() {
         return new XmlFileCallable() {
-            public void call(OMElement document, Namespaces namespaces, ProcessorContext context) throws Exception {
-                if (null == configElement) {
-                    String info = "Cannot process PREMIS-file - no configuration";
-                    log.warn(info);
-                    throw new ProcessorException(info);
-                }
-
+            public void call(OMElement target, Namespaces namespaces, ProcessorContext context) throws Exception {
                 // Retrieve XPath expressions from the configuration
-                for (Iterator<OMElement> ei = configElement.getChildElements(); ei.hasNext(); ) {
-                    OMElement configuration = ei.next();
-                    String operation = configuration.getLocalName(); // Ignore namespace!!!
+                try {
+                    for (Iterator<OMElement> ei = configElement.getChildElements(); ei.hasNext(); ) {
+                        OMElement configuration = ei.next();
+                        String operation = configuration.getLocalName(); // Ignore namespace!!!
 
-                    if ("extractRepresentationInformation".equalsIgnoreCase(operation)) {
-                        extractRepresentationInformation(configuration, document, namespaces, context);
-                    } else if ("extractBitstreamInformation".equalsIgnoreCase(operation)) {
-                            extractBitstreamInformation(configuration, document, namespaces, context);
-                    } else {
-                        throw new ProcessorException("Unknown processor operation: " + operation);
+                        if ("extractRepresentationInformation".equalsIgnoreCase(operation)) {
+                            extractRepresentationInformation(configuration, target, namespaces, context);
+                        } else if ("extractBitstreamInformation".equalsIgnoreCase(operation)) {
+                                extractBitstreamInformation(configuration, target, namespaces, context);
+                        } else {
+                            throw new ProcessorException("Unknown processor operation: " + operation);
+                        }
                     }
+                } catch (Throwable t) {
+                    String info = "Cannot process configuration for " + alias + ": ";
+                    info += t.getMessage();
+                    log.warn(info);
+
+                    throw new ProcessorException(info, t);
                 }
             }
         };
@@ -79,14 +81,14 @@ public class PremisProcessor extends XmlFileProcessor {
 
 
     private void extractRepresentationInformation(
-            OMElement configuration, OMElement document, Namespaces namespaces, ProcessorContext context
+            OMElement configuration, OMElement target, Namespaces namespaces, ProcessorContext context
     ) throws ProcessorException, XmlException {
 
         namespaces.defineNamespace("info:lc/xmlns/premis-v2", "premis");
         namespaces.defineNamespace("http://www.w3.org/2001/XMLSchema-instance", "xsi");
 
         String expression = "//premis:object[@xsi:type='representation']";
-        OMElement representation = XPath.getElementFrom(document, namespaces, expression);
+        OMElement representation = XPath.getElementFrom(target, namespaces, expression);
 
         Map<String, String> map = new HashMap<String, String>();
 

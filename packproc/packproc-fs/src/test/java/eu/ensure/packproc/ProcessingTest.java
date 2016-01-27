@@ -29,16 +29,18 @@ import eu.ensure.commons.io.Closer;
 import eu.ensure.commons.lang.LoggingUtils;
 import eu.ensure.commons.lang.Stacktrace;
 import junit.framework.TestCase;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 
-import java.io.*;
-import java.util.*;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Properties;
 
 /**
  */
 public class ProcessingTest extends TestCase {
-    private static Logger log = LoggingUtils.setupLoggingFor(ProcessingTest.class, "log-configuration.xml");
+    private static Logger log = LoggingUtils.setupLoggingFor(ProcessingTest.class, "log4j2.xml");
 
     @Test
     public void testFilesystemProcessing() {

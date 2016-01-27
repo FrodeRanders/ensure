@@ -29,8 +29,8 @@ import eu.ensure.commons.lang.Configurable;
 import eu.ensure.commons.lang.ConfigurationTool;
 import eu.ensure.commons.lang.StringMapConfigurationResolver;
 
-import java.lang.reflect.Method;
 import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.Method;
 import java.util.*;
 
 /**

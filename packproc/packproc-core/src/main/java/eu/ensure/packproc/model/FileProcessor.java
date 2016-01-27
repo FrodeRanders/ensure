@@ -29,7 +29,6 @@ import eu.ensure.packproc.ProcessorException;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 
 /**
  * Some kind of processor operating on _files_

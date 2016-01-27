@@ -21,7 +21,8 @@ import eu.ensure.packproc.internal.Action;
 import eu.ensure.packproc.internal.BasicFileProcessor;
 import eu.ensure.packproc.model.*;
 import org.apache.axiom.om.OMElement;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.dcm4che3.data.*;
 import org.dcm4che3.io.DicomInputStream;
 import org.dcm4che3.util.TagUtils;
@@ -42,7 +43,7 @@ import java.util.Vector;
  * Operates on DICOM (container) streams
  */
 public class DicomProcessor extends BasicFileProcessor {
-    private static final Logger log = Logger.getLogger(DicomProcessor.class);
+    private static final Logger log = LogManager.getLogger(DicomProcessor.class);
 
     public DicomProcessor() {
         alias = "dicom-processor";
@@ -64,8 +65,8 @@ public class DicomProcessor extends BasicFileProcessor {
             "0008,2111"  // Derivation Description
     };
 
-    private FileProcessorCallable getCallable() {
-        return new FileProcessorCallable() {
+    private FileProcessorUsingChannelsCallable getCallable() {
+        return new FileProcessorUsingChannelsCallable() {
             public void call(ReadableByteChannel inputChannel, WritableByteChannel outputChannel, FileProcessor p, ProcessorContext context) throws Exception {
 
                 final String name = context.getContextName();
@@ -152,6 +153,7 @@ public class DicomProcessor extends BasicFileProcessor {
         };
     }
 
+
     /**
      * Processes an individual Dicom file.
      * <p>
@@ -169,7 +171,7 @@ public class DicomProcessor extends BasicFileProcessor {
     ) throws IOException, ProcessorException, ClassNotFoundException {
 
         log.info(me() + ":process dicom-file");
-        FileProcessorCallable callable = getCallable();
+        FileProcessorUsingChannelsCallable callable = getCallable();
         process(inputStream, outputStream, callable, this, context);
     }
 
@@ -191,7 +193,7 @@ public class DicomProcessor extends BasicFileProcessor {
     ) throws IOException, ProcessorException {
 
         log.info(me() + ":process dicom-file");
-        FileProcessorCallable callable = getCallable();
+        FileProcessorUsingChannelsCallable callable = getCallable();
         process(entry, entryInputStream, structureOutputStream, callable, this, context);
     }
 
@@ -570,6 +572,36 @@ public class DicomProcessor extends BasicFileProcessor {
 
                     context.updateState(TagUtils.toString(tag), value);
 
+                    /*
+                    Map<String, String> collectedValues = dicomContext.getCollectedValues();
+                    List<String> toRemove = new Vector<String>();
+                    for (String key : collectedValues.keySet()) {
+                        if (null == collectedValues.get(key)) {
+                            toRemove.add(key);
+                        }
+                    }
+                    for (String key : toRemove) {
+                        collectedValues.remove(key);
+                    }
+
+                    if (! collectedValues.isEmpty()) {
+                        // Create a package-relative path...
+                        File top = new File("/");
+                        File contentStream = top; // starting point relative to top
+
+                        // ...and reassemble
+                        int start = name.startsWith("/") ? 0 : 1; /* skip [example1]/content/... * /
+
+                            String[] parts = name.split("/");
+                            for (int i=start; i < parts.length; i++) {
+                                contentStream = new File(contentStream, parts[i]);
+                            }
+
+                            String path = contentStream.getPath().replace("\\", "/");  // in case we're on Windoze
+                            context.associate("DICOM", path, path, collectedValues);
+                        }
+                    }
+                    */
                     return true;
                 }
             }, /* visit nested? */ false);

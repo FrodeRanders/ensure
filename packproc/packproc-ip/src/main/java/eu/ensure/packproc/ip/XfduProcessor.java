@@ -32,9 +32,9 @@ import eu.ensure.commons.xml.XmlException;
 import eu.ensure.packproc.ProcessorException;
 import eu.ensure.packproc.XmlFileProcessor;
 import eu.ensure.packproc.model.ProcessorContext;
-
 import org.apache.axiom.om.OMElement;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.File;
 import java.util.HashMap;
@@ -47,32 +47,34 @@ import java.util.Map;
  * Processes XML files, using XPath-expressions to locate elements
  */
 public class XfduProcessor extends XmlFileProcessor {
-    private static final Logger log = Logger.getLogger(XfduProcessor.class);
+    private static final Logger log = LogManager.getLogger(XfduProcessor.class);
 
     public XfduProcessor() {
         alias = "XFDU-processor"; // a reasonable default
     }
 
-    public XmlFileCallable getWhatToDo() {
+    protected XmlFileCallable getSpecificCallable() {
         return new XmlFileCallable() {
-            public void call(OMElement document, Namespaces namespaces, ProcessorContext context) throws Exception {
-                if (null == configElement) {
-                    String info = "Cannot process manifest-file (XFDU) - no configuration";
-                    log.warn(info);
-                    throw new ProcessorException(info);
-                }
-
+            public void call(OMElement target, Namespaces namespaces, ProcessorContext context) throws Exception {
                 // Retrieve XPath expressions from the configuration
-                for (Iterator<OMElement> ei = configElement.getChildElements(); ei.hasNext(); ) {
-                    OMElement element = ei.next();
-                    String operation = element.getLocalName(); // Ignore namespace!!!
+                try {
+                    for (Iterator<OMElement> ei = configElement.getChildElements(); ei.hasNext(); ) {
+                        OMElement configuration = ei.next();
+                        String operation = configuration.getLocalName(); // Ignore namespace!!!
 
-                    if ("extractBitstreamInformation".equalsIgnoreCase(operation)) {
-                        extractBitstreamInformation(element, document, namespaces, context);
+                        if ("extractBitstreamInformation".equalsIgnoreCase(operation)) {
+                            extractBitstreamInformation(configuration, target, namespaces, context);
 
-                    } else {
-                        throw new ProcessorException("Unknown processor operation: " + operation);
+                        } else {
+                            throw new ProcessorException("Unknown processor operation: " + operation);
+                        }
                     }
+                } catch (Throwable t) {
+                    String info = "Cannot process configuration for " + alias + ": ";
+                    info += t.getMessage();
+                    log.warn(info);
+
+                    throw new ProcessorException(info, t);
                 }
             }
         };
@@ -80,7 +82,7 @@ public class XfduProcessor extends XmlFileProcessor {
 
 
     private void extractBitstreamInformation(
-            OMElement configuration, OMElement document, Namespaces namespaces, ProcessorContext context
+            OMElement configuration, OMElement target, Namespaces namespaces, ProcessorContext context
     ) throws ProcessorException, XmlException {
 
         namespaces.defineNamespace("urn:ccsds:schema:xfdu:1", "xfdu");
@@ -89,7 +91,7 @@ public class XfduProcessor extends XmlFileProcessor {
 
         // Locate the bit streams of this package
         String expression = "//byteStream";
-        List<OMElement> nodes = xpath.getElementsFrom(document, expression);
+        List<OMElement> nodes = xpath.getElementsFrom(target, expression);
         if (nodes.size() > 0) {
             if (log.isDebugEnabled()) {
                 String info = "This XPath expression \"";

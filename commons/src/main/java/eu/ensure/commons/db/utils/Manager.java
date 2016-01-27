@@ -29,10 +29,14 @@ import eu.ensure.commons.db.Database;
 import eu.ensure.commons.db.DatabaseException;
 
 import javax.sql.DataSource;
-import java.io.*;
-import java.sql.*;
-import java.util.Properties;
+import java.io.File;
+import java.io.Reader;
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.List;
+import java.util.Properties;
 
 
 /**

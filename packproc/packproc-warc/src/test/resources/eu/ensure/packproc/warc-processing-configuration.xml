@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<configuration xmlns:warc-processor="classpath:eu.ensure.packproc.warc.WarcProcessor"
+               xmlns:resource-processor="classpath:eu.ensure.packproc.warc.WebResourceProcessor">
+    
+    <warc-processor:process> <!-- corresponds to the WARC file (in this test) -->
+
+        <resource-processor:process type="application/http;msgtype=response">
+            <migrate type="image/jpeg" target-format="pdf" />
+            <index type="text/plain" />
+        </resource-processor:process>
+
+    </warc-processor:process>
+</configuration>

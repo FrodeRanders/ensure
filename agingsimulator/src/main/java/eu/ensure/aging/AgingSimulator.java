@@ -32,7 +32,7 @@ import eu.ensure.packproc.BasicProcessorContext;
 import eu.ensure.packproc.ProcessorException;
 import eu.ensure.packproc.ProcessorManager;
 import org.apache.commons.cli.*;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 
 import java.io.*;
 import java.nio.channels.Channels;
@@ -232,7 +232,7 @@ public class AgingSimulator {
 
     private static void simulateAging(String name, InputStream is, OutputStream os, Properties properties) {
 
-        Logger log = LoggingUtils.setupLoggingFor(AgingSimulator.class, "log-configuration.xml");
+        Logger log = LoggingUtils.setupLoggingFor(AgingSimulator.class, "log4j2.xml");
 
         try {
             ProcessorManager manager = null;

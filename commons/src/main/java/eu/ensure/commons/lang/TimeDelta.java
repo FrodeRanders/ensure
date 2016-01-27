@@ -26,10 +26,7 @@
 package  eu.ensure.commons.lang;
 
 import java.math.BigInteger;
-import java.text.DecimalFormat;
-import java.text.DecimalFormatSymbols;
 import java.text.NumberFormat;
-import java.util.Locale;
 
 /*
  * Description of TimeDelta

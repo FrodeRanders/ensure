@@ -26,9 +26,10 @@
 package eu.ensure.commons;
 
 import eu.ensure.commons.lang.LoggingUtils;
+import eu.ensure.commons.lang.TimeDelta;
 import eu.ensure.commons.statistics.MovingAverage;
 import junit.framework.TestCase;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 
 import java.math.BigInteger;
@@ -36,14 +37,12 @@ import java.security.Provider;
 import java.security.Security;
 import java.util.Enumeration;
 
-import eu.ensure.commons.lang.TimeDelta;
-
 /**
  * <p>
  * Created by Frode Randers at 2012-10-23 11:00
  */
 public class CommonTest extends TestCase {
-    private static final Logger log = LoggingUtils.setupLoggingFor(CommonTest.class, "log-configuration.xml");
+    private static final Logger log = LoggingUtils.setupLoggingFor(CommonTest.class, "log4j2.xml");
 
     @Test
     public void testProviders() {

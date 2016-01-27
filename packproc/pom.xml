@@ -4,62 +4,25 @@
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>eu.ensure</groupId>
+    <parent>
+        <groupId>eu.ensure</groupId>
+        <artifactId>ensure-parent</artifactId>
+        <version>1.3</version>
+    </parent>
+
 	<artifactId>package-processor-parent</artifactId>
-	<version>1.0</version>
+    <version>1.3</version>
     <packaging>pom</packaging>
 
 	<name>Wrapper for the Package Processor components</name>
 	<inceptionYear>2011</inceptionYear>
-
-    <prerequisites>
-        <maven>2.2.1</maven>
-    </prerequisites>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>eu.ensure</groupId>
                 <artifactId>commons</artifactId>
-                <version>1.0</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.slf4j</groupId>
-                <artifactId>slf4j-log4j12</artifactId>
-                <version>1.7.12</version>
-            </dependency>
-
-            <dependency>
-                <groupId>log4j</groupId>
-                <artifactId>log4j</artifactId>
-                <version>1.2.17</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.ws.commons.axiom</groupId>
-                <artifactId>axiom-api</artifactId>
-                <version>1.2.14</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.ws.commons.axiom</groupId>
-                <artifactId>axiom-impl</artifactId>
-                <version>1.2.14</version>
-                <scope>test</scope>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.commons</groupId>
-                <artifactId>commons-compress</artifactId>
-                <version>1.9</version>
-            </dependency>
-
-            <dependency>
-                <groupId>junit</groupId>
-                <artifactId>junit</artifactId>
-                <version>4.12</version>
-                <scope>test</scope>
+                <version>${project.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -70,23 +33,8 @@
         <module>packproc-ip</module>
         <module>packproc-dicom</module>
         <module>packproc-fs</module>
+        <module>packproc-warc</module>
     </modules>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.2</version>
-                <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                    <maxmem>1024m</maxmem>
-                    <encoding>ISO8859-1</encoding>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
     <developers>
         <developer>

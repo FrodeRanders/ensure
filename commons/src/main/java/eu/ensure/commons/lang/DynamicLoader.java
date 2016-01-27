@@ -25,13 +25,16 @@
  */
 package  eu.ensure.commons.lang;
 
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.*;
-import java.lang.reflect.Method;
 import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.Hashtable;
+import java.util.Iterator;
+import java.util.Properties;
 
 /**
  * A dynamic loader is used to dynamically load objects.
@@ -115,7 +118,7 @@ import java.lang.reflect.InvocationTargetException;
  * Created by Frode Randers at 2011-11-04 14:14
  */
 public class DynamicLoader<C> extends Hashtable<String, C> {
-    private static final Logger log = Logger.getLogger(DynamicLoader.class);
+    private static final Logger log = LogManager.getLogger(DynamicLoader.class);
 
     private String description;
 

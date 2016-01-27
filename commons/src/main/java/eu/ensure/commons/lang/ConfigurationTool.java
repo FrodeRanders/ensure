@@ -25,9 +25,9 @@
  */
 package  eu.ensure.commons.lang;
 
+import eu.ensure.commons.io.Closer;
 import eu.ensure.commons.lang.configuration.GeneralizedConfigurationInvocationHandler;
 import eu.ensure.commons.lang.configuration.PropertiesConfigurationInvocationHandler;
-import eu.ensure.commons.io.Closer;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;

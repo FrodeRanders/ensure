@@ -25,8 +25,8 @@
  */
 package  eu.ensure.commons.lang;
 
-import java.io.PrintWriter;
 import java.io.ByteArrayOutputStream;
+import java.io.PrintWriter;
 
 /*
  * Description of Stacktrace
