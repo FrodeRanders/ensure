@@ -5,11 +5,11 @@
     <parent>
         <groupId>eu.ensure</groupId>
         <artifactId>ensure-parent</artifactId>
-        <version>1.2</version>
+        <version>1.3</version>
     </parent>
 
     <artifactId>aging-simulator</artifactId>
-    <version>1.2</version>
+    <version>1.3</version>
 
     <name>aging-simulator - Utility used for aging simulation</name>
     <inceptionYear>2013</inceptionYear>
