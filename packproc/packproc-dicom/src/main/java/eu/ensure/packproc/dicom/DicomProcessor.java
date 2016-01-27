@@ -228,9 +228,14 @@ public class DicomProcessor extends BasicFileProcessor {
         collect(dataset, context, /* level */ 0, /* index */ 0, /* collect? */ false);
     }
 
-    private String collect(String description, Object actualValue, boolean verbose) {
+    /**
+     *
+     */
+    private String compose(String description, Object actualValue, boolean verbose) {
         return (verbose ? "{" + description + "} " + actualValue : "" + actualValue);
     }
+
+
     /**
      *
      */
@@ -262,35 +267,35 @@ public class DicomProcessor extends BasicFileProcessor {
                                 // Character data [Naming devices, people, and instances]
                                 // StringValueType.ASCII
                                 Object strings =
-                                        value = collect("Application entity", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
+                                        value = compose("Application entity", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
                                 break;
 
                             case AS: // Age string
                                 // Character data [Date and time]
                                 // Format: nnnW or nnnM or nnnY
                                 // StringValueType.ASCII
-                                value = collect("Age string", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
+                                value = compose("Age string", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
                                 break;
 
                             case AT: // Attribute tag
                                 // Two 2-byte integers [Numbers in binary format]
                                 // Format: gggg,eeee
                                 // BinaryValueType.TAG
-                                value = collect("Attribute tag", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
+                                value = compose("Attribute tag", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
                                 break;
 
                             case DT: // Date time
                                 // Character data [Date and time]
                                 // Format: YYYYMMDDHHMMSS.FFFFFF&ZZZZ (&ZZZ is optional & = + or -)
                                 // StringValueType.DT
-                                value = collect("Date and time", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
+                                value = compose("Date and time", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
                                 break;
 
                             case IS: // Integer string
                                 // Character data [Numbers in text format]
                                 // Integer encoded as string. May be padded
                                 // StringValueType.IS
-                                value = collect("Integer string", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
+                                value = compose("Integer string", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
                                 break;
 
                             case LO: // Long string
@@ -311,51 +316,51 @@ public class DicomProcessor extends BasicFileProcessor {
                                         value += (String) o;
                                     }
                                 }
-                                value = collect("Long string", value, !doCollect);
+                                value = compose("Long string", value, !doCollect);
                                 break;
 
                             case LT: // Long text
                                 // Character data, Max length: 10,240 [Text]
                                 // NOTE: Leading spaces are significant, trailing spaces are not
                                 // StringValueType.TEXT
-                                value = collect("Long text", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
+                                value = compose("Long text", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
                                 break;
 
                             case SH: // Short string
                                 // Character data, Max length: 16 [Text]
                                 // NOTE: may be padded
                                 // StringValueType.STRING
-                                value = collect("Short string", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
+                                value = compose("Short string", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
                                 break;
 
                             case TM: // Time
                                 // Format: hhmmss.frac (or older format: hh:mm:ss.frac)
                                 // StringValueType.TM
-                                value = collect("Time", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
+                                value = compose("Time", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
                                 break;
 
                             case UI: // Unique identifier (UID)
                                 // Character data [Naming devices, people, and instances]
                                 // Format: delimiter = ., 0-9 characters only, trailing space to make even number
                                 // StringValueType.ASCII
-                                value = collect("Unique identifier", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
+                                value = compose("Unique identifier", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
                                 break;
 
                             case UT: // Unlimited text
                                 // Character data, Max length: 4,294,967,294 [Text]
                                 // NOTE: Trailing spaces ignored
                                 // StringValueType.TEXT
-                                value = collect("Unlimited text", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
+                                value = compose("Unlimited text", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
                                 break;
 
                             case UC: // Unlimited characters
                                 // StringValueType.STRING
-                                value = collect("Unlimited characters", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
+                                value = compose("Unlimited characters", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
                                 break;
 
                             case UR: // URI or URL
                                 // StringValueType.UR
-                                value = collect("URI/URL", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
+                                value = compose("URI/URL", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
                                 break;
 
 
@@ -379,20 +384,20 @@ public class DicomProcessor extends BasicFileProcessor {
                                         value += (String) o;
                                     }
                                 }
-                                value = collect("Code string", value, !doCollect);
+                                value = compose("Code string", value, !doCollect);
                                 break;
 
                             case PN: // Person name
                                 // Character data [Naming devices, people, and instances]
                                 // NOTE: 64 byte max per component, 5 components with delimiter = ^
                                 // StringValueType.PN
-                                value = collect("Person name", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
+                                value = compose("Person name", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
                                 break;
 
                             case ST: // Short text
                                 // Character data, Max length: 1024 [Text]
                                 // StringValueType.TEXT
-                                value = collect("Short text", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
+                                value = compose("Short text", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
                                 break;
 
                             /****************
@@ -402,7 +407,7 @@ public class DicomProcessor extends BasicFileProcessor {
                                 // Eight characters [Date and time]
                                 // Format: yyyymmdd (check for yyyy.mm.dd also and convert)
                                 // StringValueType.DA
-                                value = collect("Date", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
+                                value = compose("Date", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
                                 break;
 
                             /****************
@@ -425,7 +430,7 @@ public class DicomProcessor extends BasicFileProcessor {
                                         value += (String) o;
                                     }
                                 }
-                                value = collect("Decimal string", value, !doCollect);
+                                value = compose("Decimal string", value, !doCollect);
                                 break;
 
                             /****************
@@ -435,7 +440,7 @@ public class DicomProcessor extends BasicFileProcessor {
                                 // 8-byte floating point [Numbers in binary format]
                                 // Double precision floating point number (double)
                                 // BinaryValeuType.DOUBLE
-                                value = collect("Floating point double", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
+                                value = compose("Floating point double", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
                                 break;
 
                             /****************
@@ -445,7 +450,7 @@ public class DicomProcessor extends BasicFileProcessor {
                                 // 4-byte floating point [Numbers in binary format]
                                 // Single precision floating point number (float)
                                 // BinaryValueType.FLOAT
-                                value = collect("Floating point single", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
+                                value = compose("Floating point single", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
                                 break;
 
                             /****************
@@ -454,13 +459,13 @@ public class DicomProcessor extends BasicFileProcessor {
                             case SL: // Signed long
                                 // 4-byte integer [Numbers in binary format]
                                 // BinaryValueType.INT
-                                value = collect("Signed long", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
+                                value = compose("Signed long", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
                                 break;
 
                             case US: // Unsigned short
                                 // 2-byte integer [Numbers in binary format]
                                 // BinaryValueType.USHORT
-                                value = collect("Unsigned short", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
+                                value = compose("Unsigned short", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
                                 break;
 
                             /****************
@@ -469,7 +474,7 @@ public class DicomProcessor extends BasicFileProcessor {
                             case SS: // Signed short
                                 // 2-byte integer [Numbers in binary format]
                                 // BinaryValueType.SHORT
-                                value = collect("Signed short", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
+                                value = compose("Signed short", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
                                 break;
 
                             /****************
@@ -478,7 +483,7 @@ public class DicomProcessor extends BasicFileProcessor {
                             case UL: // Unsigned long
                                 // 4-byte integer [Numbers in binary format]
                                 // BinaryValueType.INT
-                                value = collect("Unsigned long", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
+                                value = compose("Unsigned long", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
                                 break;
 
                             /****************
@@ -488,18 +493,18 @@ public class DicomProcessor extends BasicFileProcessor {
                                 // 1-byte integers [Numbers in binary format]
                                 // NOTE: Has single trailing 0x00 to make even number of bytes. Transfer Syntax determines length
                                 // BinaryValueType.BYTE
-                                value = collect("Other byte", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
+                                value = compose("Other byte", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
                                 break;
 
                             case OD: // Other double string
                                 // BinaryValyeType.DOUBLE
-                                value = collect("Other byte", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
+                                value = compose("Other byte", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
                                 break;
 
                             case OF: // Other float string
                                 // 4-byte floating point [Numbers in binary format]
                                 // BinaryValueType.FLOAT
-                                value = collect("Other float", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
+                                value = compose("Other float", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
                                 break;
 
                             //case OL: // Other long string
@@ -511,7 +516,7 @@ public class DicomProcessor extends BasicFileProcessor {
                                 // 2-byte integers [Numbers in binary format]
                                 // Max length: -
                                 // BinaryValueType.SHORT
-                                value = collect("Other word", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
+                                value = compose("Other word", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
                                 break;
 
                             case SQ: // Sequence of items
@@ -539,16 +544,16 @@ public class DicomProcessor extends BasicFileProcessor {
                                     }
                                     return true;
                                 }
-                                value = collect("Sequence" , "<null>" , !doCollect);
+                                value = compose("Sequence", "<null>", !doCollect);
                                 break;
 
                             case UN: // Unknown
                                 // StringValueType.BYTE
-                                value = collect("Unknown", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
+                                value = compose("Unknown", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
                                 break;
 
                             default: //
-                                value = collect("<unknown>", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
+                                value = compose("<unknown>", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
                                 break;
                         }
                     } catch (Throwable t) {
