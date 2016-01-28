@@ -34,10 +34,7 @@ import java.io.OutputStream;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
 import java.nio.channels.WritableByteChannel;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Vector;
+import java.util.*;
 
 /**
  * Operates on DICOM (container) streams
@@ -98,17 +95,27 @@ public class DicomProcessor extends BasicFileProcessor {
                         OMElement element = ei.next();
                         String operation = element.getLocalName(); // Ignore namespace!!!
 
-                        if ("extractInformation".equalsIgnoreCase(operation)) {
-                            extractInformation(ds, dicomContext);
+                        switch (operation) {
+                            case "extractInformation":
+                                extractInformation(ds, dicomContext);
+                                break;
 
-                        } else if ("dump".equalsIgnoreCase(operation)) {
-                            dump(ds, dicomContext);
+                            case "dump":
+                                dump(ds, dicomContext);
+                                break;
 
-                        } else {
-                            throw new ProcessorException("Unknown processor operation: " + operation);
+                            case "study":
+                                study(ds, dicomContext);
+                                break;
+
+                            case "dicomdir":
+                                dicomdir(ds, dicomContext, name);
+                                break;
+
+                            default:
+                                throw new ProcessorException("Unknown processor operation: " + operation);
                         }
                     }
-
 
                     // In case we have been mutating the document, dump it to the output
                     if (null != outputChannel) {
@@ -117,6 +124,7 @@ public class DicomProcessor extends BasicFileProcessor {
                     }
                 } finally {
 
+                    /*
                     Map<String, String> collectedValues = dicomContext.getCollectedValues();
                     List<String> toRemove = new Vector<String>();
                     for (String key : collectedValues.keySet()) {
@@ -134,7 +142,7 @@ public class DicomProcessor extends BasicFileProcessor {
                         File contentStream = top; // starting point relative to top
 
                         // ...and reassemble
-                        int start = name.startsWith("/") ? 0 : 1; /* skip [example1]/content/... */
+                        int start = name.startsWith("/") ? 0 : 1; /* skip [example1]/content/... * /
 
                         String[] parts = name.split("/");
                         for (int i = start; i < parts.length; i++) {
@@ -144,6 +152,7 @@ public class DicomProcessor extends BasicFileProcessor {
                         String path = contentStream.getPath().replace("\\", "/");  // in case we're on Windoze
                         context.associate("DICOM", path, path, collectedValues);
                     }
+                    */
 
                     context.pop();
                 }
@@ -197,6 +206,193 @@ public class DicomProcessor extends BasicFileProcessor {
         process(entry, entryInputStream, structureOutputStream, callable, this, context);
     }
 
+    private String directoryRecordType(final Attributes dataset,
+                                     DicomProcessorContext context
+    ) {
+        String directoryRecordType = dataset.getString(TagUtils.toTag(0x0004, 0x1430));
+        if (null != directoryRecordType) {
+            log.debug("directoryRecordType = " + directoryRecordType);
+        }
+        return directoryRecordType;
+    }
+
+    private String patientID(final Attributes dataset,
+                           DicomProcessorContext context
+    ) {
+        String patientId = dataset.getString(TagUtils.toTag(0x0010, 0x0020));
+        if (null != patientId) {
+            log.debug("patientID = " + patientId);
+        }
+        return patientId;
+    }
+
+    private String studyInstanceUID(final Attributes dataset,
+                                  DicomProcessorContext context
+    ) {
+        String studyInstanceUid = dataset.getString(TagUtils.toTag(0x0020, 0x000D));
+        if (null != studyInstanceUid) {
+            log.debug("studyInstanceUID = " + studyInstanceUid);
+        }
+        return studyInstanceUid;
+    }
+
+    private String seriesInstanceUID(final Attributes dataset,
+                                  DicomProcessorContext context
+    ) {
+        String seriesInstanceUid = dataset.getString(TagUtils.toTag(0x0020, 0x000E));
+        if (null != seriesInstanceUid) {
+            log.debug("seriesInstanceUID = " + seriesInstanceUid);
+        }
+        return seriesInstanceUid;
+    }
+
+    private String seriesDescription(final Attributes dataset,
+                                   DicomProcessorContext context
+    ) {
+        String seriesDescription = dataset.getString(TagUtils.toTag(0x0008, 0x103E));
+        if (null != seriesDescription) {
+            log.debug("seriesDescription = " + seriesDescription);
+        }
+        return seriesDescription;
+    }
+
+    private String sopInstanceUID(final Attributes dataset,
+                                   DicomProcessorContext context
+    ) {
+        String sopInstanceUid = dataset.getString(TagUtils.toTag(0x0008, 0x0018));
+        if (null != sopInstanceUid) {
+            log.debug("sopInstanceUID = " + sopInstanceUid);
+        }
+        return sopInstanceUid;
+    }
+
+    private String modality(final Attributes dataset,
+                                DicomProcessorContext context
+    ) {
+        String modality = dataset.getString(TagUtils.toTag(0x0008, 0x0060));
+        if (null != modality) {
+            log.debug("modality = " + modality);
+        }
+        return modality;
+    }
+
+    private String performingPhysicianName(final Attributes dataset,
+                                         DicomProcessorContext context
+    ) {
+        String performingPhysicianName = dataset.getString(TagUtils.toTag(0x0008, 0x1050));
+        if (null != performingPhysicianName) {
+            log.debug("performingPhysicianName = " + performingPhysicianName);
+        }
+        return performingPhysicianName;
+    }
+
+    /**
+     *
+     >(0008,0021) (SeriesDate) index=8 vr=DA value={Date} 20140522
+     >(0008,0023) (ContentDate) index=8 vr=DA value={Date} 20140522
+     >(0008,0031) (SeriesTime) index=8 vr=TM value={Time} 101638.000
+     >(0008,0033) (ContentTime) index=8 vr=TM value={Time} 101638.000
+     >(0008,0060) (Modality) index=8 vr=CS value={Code string} SR
+     >(0008,0080) (InstitutionName) index=8 vr=LO value={Long string} NLL
+     >(0008,1010) (StationName) index=8 vr=SH value={Short string} MMK1
+     >(0008,103E) (SeriesDescription) index=8 vr=LO value={Long string} Anamnes
+     >(0008,1050) (PerformingPhysicianName) index=8 vr=SH value={Short string} <null>
+     >(0020,000D) (StudyInstanceUID) index=8 vr=UI value={Unique identifier} 1.2.752.99.1.1.1.0140131203
+     >(0020,000E) (SeriesInstanceUID) index=8 vr=UI value={Unique identifier} 1.2.276.0.69.10.29.1.2135.20140522101638561.253295
+     >(0020,0011) (SeriesNumber) index=8 vr=IS value={Integer string} 1
+     >(0020,0013) (InstanceNumber) index=8 vr=IS value={Integer string} 3
+     >(0040,0275) (RequestAttributesSequence) index=8 vr=SQ size=1
+     >>(0040,1001) (RequestedProcedureID) index=0 vr=SH value={Short string} 0140131203
+     >(0040,A043) (ConceptNameCodeSequence) index=8 vr=SQ size=1
+     >>(0008,0100) (CodeValue) index=0 vr=SH value={Short string} 111400
+     >>(0008,0102) (CodingSchemeDesignator) index=0 vr=SH value={Short string} DCM
+     >>(0008,0103) (CodingSchemeVersion) index=0 vr=SH value={Short string} 1.0
+     >>(0008,0104) (CodeMeaning) index=0 vr=LO value={Long string} Breast Imaging Report
+     >(0040,A491) (CompletionFlag) index=8 vr=CS value={Code string} COMPLETE
+     >(0040,A493) (VerificationFlag) index=8 vr=CS value={Code string} VERIFIED
+     */
+    public void dicomdir(final Attributes dataset,
+                         DicomProcessorContext context,
+                         final String name
+    ) throws IOException, ProcessorException, ClassNotFoundException {
+
+        Map<String, String> data = new HashMap<>();
+
+        // (0004,1220) (DirectoryRecordSequence)
+        Sequence sequence = dataset.getSequence(TagUtils.toTag(0x0004, 0x1220));
+        if (null != sequence) {
+            for (int i = 0; i < sequence.size(); i++) {
+                Attributes record = sequence.get(i);
+                String recordType = directoryRecordType(record, context);
+
+                switch (recordType) {
+                    case "PATIENT":
+                        data.put("PatientID", patientID(record, context));
+                        break;
+
+                    case "STUDY":
+                        data.put("StudyInstanceUID", studyInstanceUID(record, context));
+                        break;
+
+                    case "SR DOCUMENT":
+                        String seriesInstanceUid = seriesInstanceUID(record, context);
+                        String seriesDescription = seriesDescription(record, context);
+                        String sopInstanceUid = sopInstanceUID(record, context);
+                        String modality = modality(record, context);
+                        String physicianName = performingPhysicianName(record, context);
+                        String info = "name=\"" + name + "\"";
+
+                        String[] referencedFileId = record.getStrings(TagUtils.toTag(0x0004, 0x1500));
+                        if (null != referencedFileId) {
+                            info += " path=\"";
+                            for (String part : referencedFileId) {
+                                info += "/" + part;
+                            }
+                            info += "\"";
+                        }
+
+                        log.debug(info);
+                        break;
+
+                    case "SERIES":
+                    case "IMAGE":
+                    default:
+                        break;
+                }
+
+                log.debug("------------------------------------------------------------------------------------------");
+            }
+        }
+    }
+
+    /**
+     *
+     */
+    public void study(final Attributes dataset,
+                      DicomProcessorContext context
+    ) throws IOException, ProcessorException, ClassNotFoundException {
+
+        // (0004,1220) (DirectoryRecordSequence)
+        Sequence sequence = dataset.getSequence(TagUtils.toTag(0x0004, 0x1220));
+        if (null != sequence) {
+
+
+        }
+
+        // DICOM Information Hierarchy
+        // "0010,0020", // Patient ID (Patient level)
+        // "0020,000D", // Study Instance UID (Study level)
+        // "0020,000E", // Series Instance UID (Series level)
+        // "0008,0018", // SOP Instance UID (Image level)
+
+        String patientId = dataset.getString(TagUtils.toTag(0x0010, 0x0020));
+        String studyInstanceUid = dataset.getString(TagUtils.toTag(0x0020, 0x000D));
+        String seriesInstanceUid = dataset.getString(TagUtils.toTag(0x0020, 0x000E));
+        String sopInstanceUid = dataset.getString(TagUtils.toTag(0x0008, 0x0018));
+
+        String info = patientId + "/" + studyInstanceUid + "/" + seriesInstanceUid + "/" + sopInstanceUid;
+        log.info(info);
+    }
 
     /**
      * Dumps information from an entry in DICOM file
@@ -281,7 +477,24 @@ public class DicomProcessor extends BasicFileProcessor {
                                 // Two 2-byte integers [Numbers in binary format]
                                 // Format: gggg,eeee
                                 // BinaryValueType.TAG
-                                value = compose("Attribute tag", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
+                                value = "";
+                                {
+                                    Object o = vr.toStrings(_value, isBE, characterSet);
+                                    if (isNull) {
+                                        value += "<null>";
+                                    } else if (o instanceof String[]) {
+                                        for (String s : (String[]) o) {
+                                            int _tag = Integer.parseInt(s, 16);
+                                            value += TagUtils.toString(_tag);
+                                            value += " (" + dict.keywordOf(_tag) + "), ";
+                                        }
+                                    } else {
+                                        int _tag = Integer.parseInt((String)o, 16);
+                                        value += TagUtils.toString(_tag);
+                                        value += " (" + dict.keywordOf(_tag) + ")";
+                                    }
+                                }
+                                value = compose("Attribute tag", value, !doCollect);
                                 break;
 
                             case DT: // Date time
@@ -463,7 +676,20 @@ public class DicomProcessor extends BasicFileProcessor {
                                 // 4-byte floating point [Numbers in binary format]
                                 // Single precision floating point number (float)
                                 // BinaryValueType.FLOAT
-                                value = compose("Floating point single", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
+                                value = "";
+                                {
+                                    Object o = vr.toStrings(_value, isBE, characterSet);
+                                    if (isNull) {
+                                        value += "<null>";
+                                    } else if (o instanceof String[]) {
+                                        for (String s : (String[]) o) {
+                                            value += s + ", ";
+                                        }
+                                    } else {
+                                        value += o;
+                                    }
+                                }
+                                value = compose("Floating point single", value, !doCollect);
                                 break;
 
                             /****************
@@ -472,15 +698,35 @@ public class DicomProcessor extends BasicFileProcessor {
                             case SL: // Signed long
                                 // 4-byte integer [Numbers in binary format]
                                 // BinaryValueType.INT
-                                value = compose("Signed long", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
+                                value = "";
+                                {
+                                    Object o = vr.toStrings(_value, isBE, characterSet);
+                                    if (isNull) {
+                                        value += "<null>";
+                                    } else if (o instanceof String[]) {
+                                        for (String s : (String[]) o) {
+                                            value += s + ", ";
+                                        }
+                                    } else {
+                                        value += o;
+                                    }
+                                }
+                                value = compose("Signed long", value, !doCollect);
                                 break;
 
                             case US: // Unsigned short
                                 // 2-byte integer [Numbers in binary format]
                                 // BinaryValueType.USHORT
                                 {
-                                    byte[] _ow = vr.toBytes(_value, characterSet);
-                                    value = "<data size=" + eu.ensure.commons.lang.Number.asHumanApproximate(_ow.length) + ">";
+                                    byte[] _us = vr.toBytes(_value, characterSet);
+                                    value = "";
+                                    if (_us.length <= 80) {
+                                        for (byte b : _us) {
+                                            value += "" + b + ", ";
+                                        }
+                                    } else {
+                                        value = "<data size=" + eu.ensure.commons.lang.Number.asHumanApproximate(_us.length) + ">";
+                                    }
                                     value = compose("Unsigned short", value, !doCollect);
                                 }
                                 break;
@@ -502,7 +748,14 @@ public class DicomProcessor extends BasicFileProcessor {
                                 // BinaryValueType.INT
                                 {
                                     int[] _ul = vr.toInts(_value, isBE);
-                                    value = "<data size=" + eu.ensure.commons.lang.Number.asHumanApproximate(_ul.length) + ">";
+                                    value = "";
+                                    if (_ul.length <= 80) {
+                                        for (int i : _ul) {
+                                            value += "" + i + ", ";
+                                        }
+                                    } else {
+                                        value = "<data size=" + eu.ensure.commons.lang.Number.asHumanApproximate(_ul.length) + ">";
+                                    }
                                     value = compose("Unsigned long", value, !doCollect);
                                 }
                                 break;
@@ -516,7 +769,14 @@ public class DicomProcessor extends BasicFileProcessor {
                                 // BinaryValueType.BYTE
                                 {
                                     byte[] _ob = vr.toBytes(_value, characterSet);
-                                    value = "<data size=" + eu.ensure.commons.lang.Number.asHumanApproximate(_ob.length) + ">";
+                                    value = "";
+                                    if (_ob.length <= 80) {
+                                        for (byte b : _ob) {
+                                            value += "" + b + ", ";
+                                        }
+                                    } else {
+                                        value = "<data size=" + eu.ensure.commons.lang.Number.asHumanApproximate(_ob.length) + ">";
+                                    }
                                     value = compose("Other byte", value, !doCollect);
                                 }
                                 break;
@@ -543,7 +803,14 @@ public class DicomProcessor extends BasicFileProcessor {
                                 // BinaryValueType.SHORT
                                 {
                                     byte[] _ow = vr.toBytes(_value, characterSet);
-                                    value = "<data size=" + eu.ensure.commons.lang.Number.asHumanApproximate(_ow.length) + ">";
+                                    value = "";
+                                    if (_ow.length <= 80) {
+                                        for (byte b : _ow) {
+                                            value += "" + b + ", ";
+                                        }
+                                    } else {
+                                        value = "<data size=" + eu.ensure.commons.lang.Number.asHumanApproximate(_ow.length) + ">";
+                                    }
                                     value = compose("Other word", value, !doCollect);
                                 }
                                 break;
@@ -580,7 +847,11 @@ public class DicomProcessor extends BasicFileProcessor {
                                 // BinaryValueType.BYTE
                                 {
                                     byte[] _un = vr.toBytes(_value, characterSet);
-                                    value = "<data size=" + eu.ensure.commons.lang.Number.asHumanApproximate(_un.length) + ">";
+                                    if (_un.length <= 80) {
+                                        value = new String(_un, "ISO-8859-1");
+                                    } else {
+                                        value = "<data size=" + eu.ensure.commons.lang.Number.asHumanApproximate(_un.length) + ">";
+                                    }
                                     value = compose("Unknown", value, !doCollect);
                                 }
                                 break;
