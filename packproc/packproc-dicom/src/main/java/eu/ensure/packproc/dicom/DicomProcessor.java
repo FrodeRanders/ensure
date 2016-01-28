@@ -295,7 +295,20 @@ public class DicomProcessor extends BasicFileProcessor {
                                 // Character data [Numbers in text format]
                                 // Integer encoded as string. May be padded
                                 // StringValueType.IS
-                                value = compose("Integer string", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
+                                value = "";
+                                {
+                                    Object o = vr.toStrings(_value, isBE, characterSet);
+                                    if (isNull) {
+                                        value += "<null>";
+                                    } else if (o instanceof String[]) {
+                                        for (String s : (String[]) o) {
+                                            value += s + ", ";
+                                        }
+                                    } else {
+                                        value += o;
+                                    }
+                                }
+                                value = compose("Integer string", value, !doCollect);
                                 break;
 
                             case LO: // Long string
@@ -313,7 +326,7 @@ public class DicomProcessor extends BasicFileProcessor {
                                             value += s + ", ";
                                         }
                                     } else {
-                                        value += (String) o;
+                                        value += o;
                                     }
                                 }
                                 value = compose("Long string", value, !doCollect);
@@ -381,7 +394,7 @@ public class DicomProcessor extends BasicFileProcessor {
                                             value += s + ", ";
                                         }
                                     } else {
-                                        value += (String) o;
+                                        value += o;
                                     }
                                 }
                                 value = compose("Code string", value, !doCollect);
@@ -427,7 +440,7 @@ public class DicomProcessor extends BasicFileProcessor {
                                             value += s + ", ";
                                         }
                                     } else {
-                                        value += (String) o;
+                                        value += o;
                                     }
                                 }
                                 value = compose("Decimal string", value, !doCollect);
@@ -465,7 +478,11 @@ public class DicomProcessor extends BasicFileProcessor {
                             case US: // Unsigned short
                                 // 2-byte integer [Numbers in binary format]
                                 // BinaryValueType.USHORT
-                                value = compose("Unsigned short", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
+                                {
+                                    byte[] _ow = vr.toBytes(_value, characterSet);
+                                    value = "<data size=" + eu.ensure.commons.lang.Number.asHumanApproximate(_ow.length) + ">";
+                                    value = compose("Unsigned short", value, !doCollect);
+                                }
                                 break;
 
                             /****************
@@ -483,7 +500,11 @@ public class DicomProcessor extends BasicFileProcessor {
                             case UL: // Unsigned long
                                 // 4-byte integer [Numbers in binary format]
                                 // BinaryValueType.INT
-                                value = compose("Unsigned long", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
+                                {
+                                    int[] _ul = vr.toInts(_value, isBE);
+                                    value = "<data size=" + eu.ensure.commons.lang.Number.asHumanApproximate(_ul.length) + ">";
+                                    value = compose("Unsigned long", value, !doCollect);
+                                }
                                 break;
 
                             /****************
@@ -493,7 +514,11 @@ public class DicomProcessor extends BasicFileProcessor {
                                 // 1-byte integers [Numbers in binary format]
                                 // NOTE: Has single trailing 0x00 to make even number of bytes. Transfer Syntax determines length
                                 // BinaryValueType.BYTE
-                                value = compose("Other byte", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
+                                {
+                                    byte[] _ob = vr.toBytes(_value, characterSet);
+                                    value = "<data size=" + eu.ensure.commons.lang.Number.asHumanApproximate(_ob.length) + ">";
+                                    value = compose("Other byte", value, !doCollect);
+                                }
                                 break;
 
                             case OD: // Other double string
@@ -516,7 +541,11 @@ public class DicomProcessor extends BasicFileProcessor {
                                 // 2-byte integers [Numbers in binary format]
                                 // Max length: -
                                 // BinaryValueType.SHORT
-                                value = compose("Other word", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
+                                {
+                                    byte[] _ow = vr.toBytes(_value, characterSet);
+                                    value = "<data size=" + eu.ensure.commons.lang.Number.asHumanApproximate(_ow.length) + ">";
+                                    value = compose("Other word", value, !doCollect);
+                                }
                                 break;
 
                             case SQ: // Sequence of items
@@ -548,8 +577,12 @@ public class DicomProcessor extends BasicFileProcessor {
                                 break;
 
                             case UN: // Unknown
-                                // StringValueType.BYTE
-                                value = compose("Unknown", (isNull ? "<null>" : vr.toStrings(_value, isBE, characterSet)), !doCollect);
+                                // BinaryValueType.BYTE
+                                {
+                                    byte[] _un = vr.toBytes(_value, characterSet);
+                                    value = "<data size=" + eu.ensure.commons.lang.Number.asHumanApproximate(_un.length) + ">";
+                                    value = compose("Unknown", value, !doCollect);
+                                }
                                 break;
 
                             default: //
