@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.input.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" fx:id="rootPane" prefHeight="700.0" prefWidth="1000.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="eu.ensure.visualizr.VisualizrGuiController">
+    <children>
+        <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <bottom>
+                <BorderPane BorderPane.alignment="CENTER">
+                    <left>
+                        <HBox alignment="CENTER_LEFT" BorderPane.alignment="CENTER">
+                            <children>
+                                <Label text="Loading : " />
+                                <ProgressBar fx:id="progressBar" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="12.0" prefWidth="300.0" progress="0.0" />
+                            </children>
+                        </HBox>
+                    </left>
+                    <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" />
+                    </padding>
+                    <right>
+                        <HBox alignment="CENTER_RIGHT">
+                            <children>
+                                <Label fx:id="bottomMessage" />
+                            </children>
+                            <BorderPane.margin>
+                                <Insets fx:id="x2" />
+                            </BorderPane.margin>
+                        </HBox>
+                    </right>
+                </BorderPane>
+            </bottom>
+            <center>
+                <BorderPane prefHeight="200.0" prefWidth="200.0">
+                    <center>
+                        <VBox prefHeight="200.0" prefWidth="100.0" spacing="5.0">
+                            <children>
+                                <BorderPane prefHeight="-1.0" prefWidth="-1.0">
+                                    <left>
+                                        <VBox fillWidth="true" padding="$x2" prefHeight="-1.0" prefWidth="-1.0">
+                                            <children>
+
+                                                <HBox prefHeight="-1.0" prefWidth="-1.0">
+                                                    <children>
+                                                        <Label text="Path : ">
+                                                            <textFill>
+                                                                <Color blue="0.375" green="0.375" red="0.375" fx:id="x1" />
+                                                            </textFill>
+                                                        </Label>
+                                                        <HBox fx:id="pathBox" prefHeight="-1.0" prefWidth="-1.0" />
+                                                    </children>
+                                                </HBox>
+                                            </children>
+                                        </VBox>
+                                    </left>
+                                </BorderPane>
+                                <ScrollPane fx:id="scrollPane" disable="false" fitToHeight="true" fitToWidth="true" VBox.vgrow="ALWAYS">
+                                    <content>
+                                        <AnchorPane fx:id="" prefHeight="100.0" prefWidth="100.0" />
+                                    </content>
+                                </ScrollPane>
+                            </children>
+                            <BorderPane.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </BorderPane.margin>
+                        </VBox>
+                    </center>
+                </BorderPane>
+            </center>
+            <left>
+                <TreeView fx:id="fileList" prefHeight="-1.0" prefWidth="220.0">
+                    <BorderPane.margin>
+                        <Insets bottom="5.0" left="5.0" top="5.0" />
+                    </BorderPane.margin>
+                </TreeView>
+            </left>
+            <top>
+                <MenuBar>
+                    <menus>
+                        <Menu text="File">
+                            <items>
+                                <MenuItem onAction="#handleOpen" text="Open...">
+                                    <accelerator>
+                                        <KeyCodeCombination alt="UP" code="E" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                    </accelerator>
+                                    <graphic>
+                                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@explore.png" preserveRatio="false" smooth="false" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </MenuItem>
+                                <MenuItem onAction="#handleClose" text="Close">
+                                    <accelerator>
+                                        <KeyCodeCombination alt="UP" code="F" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                    </accelerator>
+                                    <graphic>
+                                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@close.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </MenuItem>
+                            </items>
+                        </Menu>
+                        <Menu text="Options">
+                            <items>
+                                <MenuItem onAction="#handleZoomIn" text="Zoom +">
+                                    <accelerator>
+                                        <KeyCodeCombination alt="UP" code="UP" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                    </accelerator>
+                                    <graphic>
+                                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@zoom_in.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </MenuItem>
+                                <MenuItem onAction="#handleZoomOut" text="Zoom -">
+                                    <accelerator>
+                                        <KeyCodeCombination alt="UP" code="DOWN" control="DOWN" meta="UP" shift="UP" shortcut="UP" />
+                                    </accelerator>
+                                    <graphic>
+                                        <ImageView fitHeight="16.0" fitWidth="16.0" pickOnBounds="true" preserveRatio="true">
+                                            <image>
+                                                <Image url="@zoom_out.png" />
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                </MenuItem>
+                            </items>
+                        </Menu>
+                    </menus>
+                </MenuBar>
+            </top>
+        </BorderPane>
+    </children>
+</AnchorPane>

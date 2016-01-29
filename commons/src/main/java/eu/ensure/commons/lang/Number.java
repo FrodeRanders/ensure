@@ -50,22 +50,24 @@ public class Number {
 
     private static NumberFormat dec2Format = NumberFormat.getNumberInstance();
 
-    public static String asHumanApproximate(long bytes) {
+    public static String asHumanApproximate(long bytes, String... separator) {
         dec2Format.setMaximumFractionDigits(0);
 
+        String _separator = (separator.length > 0 ? separator[0] : "");
+
         if (bytes < BYTES_MAX) {
-            return bytes + " B";
+            return bytes + _separator + "B";
         } else if (bytes < KB_MAX) {
-            return dec2Format.format((double) bytes / KB_DIV) + " KB";
+            return dec2Format.format((double) bytes / KB_DIV) + _separator + "KB";
         } else if (bytes < MB_MAX) {
-            return dec2Format.format((double) bytes / MB_DIV) + " MB";
+            return dec2Format.format((double) bytes / MB_DIV) + _separator + "MB";
         } else if (bytes < GB_MAX) {
-            return dec2Format.format((double) bytes / GB_DIV) + " GB";
+            return dec2Format.format((double) bytes / GB_DIV) + _separator + "GB";
         } else if (bytes < TB_MAX) {
-            return dec2Format.format((double) bytes / TB_DIV) + " TB";
+            return dec2Format.format((double) bytes / TB_DIV) + _separator + "TB";
         } else {
             // out of range
-            return bytes + " B";
+            return bytes + _separator + "B";
         }
     }
 

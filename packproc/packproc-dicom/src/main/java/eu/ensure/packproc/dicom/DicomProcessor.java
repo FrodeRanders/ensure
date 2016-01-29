@@ -838,6 +838,8 @@ public class DicomProcessor extends BasicFileProcessor {
                                     for (int i = 0; i < sequence.size(); i++) {
                                         collect(sequence.get(i), context, currentLevel + 1, i, doCollect);
                                     }
+                                    log.debug("------------------------------------------------------------------------------------------");
+
                                     return true;
                                 }
                                 value = compose("Sequence", "<null>", !doCollect);

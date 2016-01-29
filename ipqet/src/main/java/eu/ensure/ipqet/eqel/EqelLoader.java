@@ -123,6 +123,10 @@ public class EqelLoader {
     public /* aggregation tree */ void load(InputStream is) throws IOException, RecognitionException {
         ANTLRInputStream input = new ANTLRInputStream(is);
 
+        /*
+         * NOTE! EqelLexer and EqelParser are auto-generated. You have to build the project once
+         *       if the syntax highlighter is indicating that these classes don't exist.
+         */
         EqelLexer lexer = new EqelLexer(input);
         CommonTokenStream tokens = new CommonTokenStream(lexer);
         EqelParser parser = new EqelParser(tokens);
