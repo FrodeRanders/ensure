@@ -172,7 +172,6 @@
         <module>packvalid</module>
         <module>ppe</module>
         <module>ipqet</module>
-        <module>dicom</module>
         <module>agingsimulator</module>
     </modules>
 </project>
