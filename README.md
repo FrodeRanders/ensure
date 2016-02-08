@@ -42,7 +42,7 @@ Maven is used for managing external dependencies and building (and testing) the 
 
 Internal structure
 ------------------
-The structure for the parts related to content processing:
+The structure for the parts related to quality assessment (calculations):
 ![Image](doc/QualityEngineInternalStructure.png?raw=true)
 
 How to build...
