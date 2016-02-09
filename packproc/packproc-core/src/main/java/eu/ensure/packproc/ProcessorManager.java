@@ -26,9 +26,9 @@
 
 package eu.ensure.packproc;
 
-import eu.ensure.commons.lang.DynamicInitializer;
-import eu.ensure.commons.lang.DynamicLoader;
-import eu.ensure.commons.lang.Stacktrace;
+import eu.ensure.vopn.lang.DynamicInitializer;
+import eu.ensure.vopn.lang.DynamicLoader;
+import eu.ensure.vopn.lang.Stacktrace;
 import eu.ensure.packproc.internal.Action;
 import eu.ensure.packproc.internal.EntrySelection;
 import eu.ensure.packproc.model.*;

@@ -16,7 +16,7 @@
  */
 package eu.ensure.packproc.warc;
 
-import eu.ensure.commons.io.MultiDigestInputStream;
+import eu.ensure.vopn.io.MultiDigestInputStream;
 import eu.ensure.packproc.BasicProcessorContext;
 import eu.ensure.packproc.ProcessorException;
 import eu.ensure.packproc.ProcessorManager;
@@ -170,8 +170,8 @@ public class WarcProcessor implements ContainerStructureProcessor {
                     //
                     long size = structureEntry.getSize();
                     info += " (";
-                    if (size > eu.ensure.commons.lang.Number.BYTES_MAX)
-                        info += eu.ensure.commons.lang.Number.asHumanApproximate(size) + " or ";
+                    if (size > eu.ensure.vopn.lang.Number.BYTES_MAX)
+                        info += eu.ensure.vopn.lang.Number.asHumanApproximate(size) + " or ";
                     info += size + " bytes)";
                     log.info(info);
                 }

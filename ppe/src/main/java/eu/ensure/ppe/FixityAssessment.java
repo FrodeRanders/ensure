@@ -25,9 +25,9 @@
  */
 package eu.ensure.ppe;
 
-import eu.ensure.commons.xml.Attribute;
-import eu.ensure.commons.xml.Namespaces;
-import eu.ensure.commons.xml.XPath;
+import eu.ensure.vopn.xml.Attribute;
+import eu.ensure.vopn.xml.Namespaces;
+import eu.ensure.vopn.xml.XPath;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.impl.builder.StAXOMBuilder;
 import org.apache.logging.log4j.LogManager;

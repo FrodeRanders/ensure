@@ -25,8 +25,8 @@
  */
 package eu.ensure.packproc;
 
-import eu.ensure.commons.lang.LoggingUtils;
-import eu.ensure.commons.lang.Stacktrace;
+import eu.ensure.vopn.lang.LoggingUtils;
+import eu.ensure.vopn.lang.Stacktrace;
 import eu.ensure.packproc.internal.TrackingProcessorContext;
 import eu.ensure.packproc.model.AssociatedInformation;
 import eu.ensure.packproc.model.EvaluationStatement;

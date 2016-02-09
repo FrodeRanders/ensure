@@ -25,10 +25,10 @@
  */
 package eu.ensure.ppe;
 
-import eu.ensure.commons.xml.Attribute;
-import eu.ensure.commons.xml.Namespaces;
-import eu.ensure.commons.xml.XPath;
-import eu.ensure.commons.xml.XmlException;
+import eu.ensure.vopn.xml.Attribute;
+import eu.ensure.vopn.xml.Namespaces;
+import eu.ensure.vopn.xml.XPath;
+import eu.ensure.vopn.xml.XmlException;
 import eu.ensure.ppe.model.*;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.impl.builder.StAXOMBuilder;

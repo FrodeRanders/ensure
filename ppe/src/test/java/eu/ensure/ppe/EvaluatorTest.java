@@ -25,11 +25,11 @@
  */
 package eu.ensure.ppe;
 
-import eu.ensure.commons.db.DatabaseException;
-import eu.ensure.commons.io.Closer;
-import eu.ensure.commons.lang.LoggingUtils;
-import eu.ensure.commons.lang.Stacktrace;
-import eu.ensure.commons.xml.Namespaces;
+import eu.ensure.vopn.db.DatabaseException;
+import eu.ensure.vopn.io.Closer;
+import eu.ensure.vopn.lang.LoggingUtils;
+import eu.ensure.vopn.lang.Stacktrace;
+import eu.ensure.vopn.xml.Namespaces;
 import eu.ensure.ppe.model.Plugin;
 import eu.ensure.ppe.model.PreservationPlan;
 import junit.framework.TestCase;

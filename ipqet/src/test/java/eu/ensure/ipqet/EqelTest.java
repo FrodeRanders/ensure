@@ -25,12 +25,12 @@
  */
 package eu.ensure.ipqet;
 
-import eu.ensure.commons.io.Closer;
-import eu.ensure.commons.io.FileIO;
-import eu.ensure.commons.lang.DynamicCompiler;
-import eu.ensure.commons.lang.DynamicInvoker;
-import eu.ensure.commons.lang.LoggingUtils;
-import eu.ensure.commons.lang.Stacktrace;
+import eu.ensure.vopn.io.Closer;
+import eu.ensure.vopn.io.FileIO;
+import eu.ensure.vopn.lang.DynamicCompiler;
+import eu.ensure.vopn.lang.DynamicInvoker;
+import eu.ensure.vopn.lang.LoggingUtils;
+import eu.ensure.vopn.lang.Stacktrace;
 import eu.ensure.ipqet.eqel.EqelLoader;
 import eu.ensure.ipqet.eqel.model.DomainSpecification;
 import eu.ensure.ipqet.eqel.model.ValidationSpecification;

@@ -25,8 +25,8 @@
  */
 package eu.ensure.packproc.ip;
 
-import eu.ensure.commons.io.MultiDigestInputStream;
-import eu.ensure.commons.lang.Number;
+import eu.ensure.vopn.io.MultiDigestInputStream;
+import eu.ensure.vopn.lang.Number;
 import eu.ensure.packproc.BasicProcessorContext;
 import eu.ensure.packproc.ProcessorException;
 import eu.ensure.packproc.ProcessorManager;

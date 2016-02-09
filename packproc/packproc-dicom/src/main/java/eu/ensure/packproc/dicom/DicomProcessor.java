@@ -725,7 +725,7 @@ public class DicomProcessor extends BasicFileProcessor {
                                             value += "" + b + ", ";
                                         }
                                     } else {
-                                        value = "<data size=" + eu.ensure.commons.lang.Number.asHumanApproximate(_us.length) + ">";
+                                        value = "<data size=" + eu.ensure.vopn.lang.Number.asHumanApproximate(_us.length) + ">";
                                     }
                                     value = compose("Unsigned short", value, !doCollect);
                                 }
@@ -754,7 +754,7 @@ public class DicomProcessor extends BasicFileProcessor {
                                             value += "" + i + ", ";
                                         }
                                     } else {
-                                        value = "<data size=" + eu.ensure.commons.lang.Number.asHumanApproximate(_ul.length) + ">";
+                                        value = "<data size=" + eu.ensure.vopn.lang.Number.asHumanApproximate(_ul.length) + ">";
                                     }
                                     value = compose("Unsigned long", value, !doCollect);
                                 }
@@ -775,7 +775,7 @@ public class DicomProcessor extends BasicFileProcessor {
                                             value += "" + b + ", ";
                                         }
                                     } else {
-                                        value = "<data size=" + eu.ensure.commons.lang.Number.asHumanApproximate(_ob.length) + ">";
+                                        value = "<data size=" + eu.ensure.vopn.lang.Number.asHumanApproximate(_ob.length) + ">";
                                     }
                                     value = compose("Other byte", value, !doCollect);
                                 }
@@ -809,7 +809,7 @@ public class DicomProcessor extends BasicFileProcessor {
                                             value += "" + b + ", ";
                                         }
                                     } else {
-                                        value = "<data size=" + eu.ensure.commons.lang.Number.asHumanApproximate(_ow.length) + ">";
+                                        value = "<data size=" + eu.ensure.vopn.lang.Number.asHumanApproximate(_ow.length) + ">";
                                     }
                                     value = compose("Other word", value, !doCollect);
                                 }
@@ -852,7 +852,7 @@ public class DicomProcessor extends BasicFileProcessor {
                                     if (_un.length <= 80) {
                                         value = new String(_un, "ISO-8859-1");
                                     } else {
-                                        value = "<data size=" + eu.ensure.commons.lang.Number.asHumanApproximate(_un.length) + ">";
+                                        value = "<data size=" + eu.ensure.vopn.lang.Number.asHumanApproximate(_un.length) + ">";
                                     }
                                     value = compose("Unknown", value, !doCollect);
                                 }

@@ -5,11 +5,11 @@
     <parent>
         <groupId>eu.ensure</groupId>
         <artifactId>ensure-parent</artifactId>
-        <version>1.3</version>
+        <version>1.3-SNAPSHOT</version>
     </parent>
 
     <artifactId>aging-simulator</artifactId>
-    <version>1.3</version>
+    <version>1.3-SNAPSHOT</version>
 
     <name>aging-simulator - Utility used for aging simulation</name>
     <inceptionYear>2013</inceptionYear>
@@ -21,8 +21,7 @@
     <dependencies>
         <dependency>
             <groupId>eu.ensure</groupId>
-            <artifactId>commons</artifactId>
-            <version>${project.version}</version>
+            <artifactId>vopn</artifactId>
         </dependency>
 
         <dependency>
@@ -38,8 +37,8 @@
         </dependency>
 
         <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-api</artifactId>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-slf4j-impl</artifactId>
         </dependency>
 
         <dependency>
@@ -76,54 +75,69 @@
                             </transformers>
                             <filters>
                                 <filter>
-                                    <artifact>dcm4che:dcm4che-core</artifact>
-                                    <excludes>
-                                        <exclude>**/*</exclude>
-                                    </excludes>
-                                </filter>
-                                <filter>
                                     <artifact>eu.ensure:package-processor-core</artifact>
                                     <includes>
-                                        <exclude>**/*</exclude>
+                                        <include>**/*</include>
                                     </includes>
                                 </filter>
                                 <filter>
                                     <artifact>eu.ensure:commons</artifact>
                                     <includes>
-                                        <exclude>**/*</exclude>
+                                        <include>**/*</include>
                                     </includes>
                                 </filter>
                                 <filter>
-                                   <artifact>org.codehaus.woodstox:wstx-asl</artifact>
+                                    <artifact>org.apache.logging.log4j:log4j-core</artifact>
+                                    <includes>
+                                        <include>**/*</include>
+                                    </includes>
+                                </filter>
+                                <filter>
+                                    <artifact>org.apache.ws.commons.axiom:axiom-api</artifact>
+                                    <includes>
+                                        <include>**/*</include>
+                                    </includes>
+                                </filter>
+                                <filter>
+                                    <artifact>org.apache.ws.commons.axiom:axiom-impl</artifact>
+                                    <includes>
+                                        <include>**/*</include>
+                                    </includes>
+                                </filter>
+                                <filter>
+                                   <artifact>org.codehaus.woodstox:woodstox-core-asl</artifact>
                                    <includes>
                                        <include>**/*</include>
                                    </includes>
                                 </filter>
                                 <filter>
-                                   <artifact>log4j:log4j</artifact>
-                                   <includes>
-                                       <include>**/*</include>
-                                   </includes>
+                                    <artifact>org.codehaus.woodstox:stax2-api</artifact>
+                                    <includes>
+                                        <include>**</include>
+                                    </includes>
                                 </filter>
                                 <filter>
-                                   <artifact>commons-logging:commons-logging</artifact>
-                                   <includes>
-                                       <include>**/*</include>
-                                   </includes>
-                                </filter>
-                                <filter>
-                                   <artifact>org.apache.ws.commons.axiom:axiom-api</artifact>
-                                   <includes>
-                                       <include>**/*</include>
-                                   </includes>
-                                </filter>
-                                <filter>
-                                   <artifact>org.apache.ws.commons.axiom:axiom-impl</artifact>
-                                   <includes>
-                                       <include>**/*</include>
-                                   </includes>
+                                    <artifact>jaxen:jaxen</artifact>
+                                    <includes>
+                                        <include>**</include>
+                                    </includes>
                                 </filter>
                             </filters>
+
+                            <artifactSet>
+                                <excludes>
+                                    <exclude>dcm4che:dcm4che-core:jar:*</exclude>
+                                    <exclude>log4j:log4j:jar:*</exclude>
+                                    <exclude>org.slf4j:slf4j-api:jar:*</exclude>
+                                    <exclude>org.slf4j:slf4j-log4j12:jar:*</exclude>
+                                    <exclude>commons-logging:commons-logging:jar:*</exclude>
+                                    <exclude>org.apache.ws.commons.axiom:axiom-api:jar:*</exclude>
+                                    <exclude>org.apache.geronimo.specs:geronimo-stax-api_1.0_spec:jar:*</exclude>
+                                    <exclude>org.apache.geronimo.specs:geronimo-activation_1.1_spec:jar:*</exclude>
+                                    <exclude>org.apache.james:apache-mime4j-core:jar:*</exclude>
+                                </excludes>
+                            </artifactSet>
+
                         </configuration>
                     </execution>
                 </executions>

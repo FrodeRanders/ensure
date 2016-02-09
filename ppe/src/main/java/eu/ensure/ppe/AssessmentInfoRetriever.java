@@ -25,7 +25,7 @@
  */
 package eu.ensure.ppe;
 
-import eu.ensure.commons.db.Database;
+import eu.ensure.vopn.db.Database;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

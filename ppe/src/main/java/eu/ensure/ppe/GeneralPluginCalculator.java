@@ -26,7 +26,7 @@
 package eu.ensure.ppe;
 
 
-import eu.ensure.commons.db.Database;
+import eu.ensure.vopn.db.Database;
 import eu.ensure.ppe.model.Aggregation;
 import eu.ensure.ppe.model.Consequence;
 import eu.ensure.ppe.model.Plugin;

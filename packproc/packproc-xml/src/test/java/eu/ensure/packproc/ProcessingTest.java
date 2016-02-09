@@ -25,7 +25,7 @@
  */
 package eu.ensure.packproc;
 
-import eu.ensure.commons.lang.LoggingUtils;
+import eu.ensure.vopn.lang.LoggingUtils;
 import junit.framework.TestCase;
 import org.apache.logging.log4j.Logger;
 import org.junit.Test;

@@ -49,7 +49,7 @@ OS name: "mac os x", version: "10.9.2", arch: "x86_64", family: "mac"
 -------------------------------------------------------
  T E S T S
 -------------------------------------------------------
-Running eu.ensure.commons.CommonTest
+Running eu.ensure.vopn.CommonTest
 Provider: SUN version 1.8
   * MessageDigest.SHA
   * MessageDigest.SHA-384

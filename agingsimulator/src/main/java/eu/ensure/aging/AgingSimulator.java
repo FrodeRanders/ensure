@@ -25,9 +25,9 @@
  */
 package eu.ensure.aging;
 
-import eu.ensure.commons.io.FileIO;
-import eu.ensure.commons.lang.LoggingUtils;
-import eu.ensure.commons.lang.Stacktrace;
+import eu.ensure.vopn.io.FileIO;
+import eu.ensure.vopn.lang.LoggingUtils;
+import eu.ensure.vopn.lang.Stacktrace;
 import eu.ensure.packproc.BasicProcessorContext;
 import eu.ensure.packproc.ProcessorException;
 import eu.ensure.packproc.ProcessorManager;
