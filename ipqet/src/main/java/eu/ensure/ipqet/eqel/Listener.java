@@ -25,9 +25,7 @@
  */
 package eu.ensure.ipqet.eqel;
 
-import eu.ensure.ipqet.eqel.EqelBaseListener;
 import eu.ensure.ipqet.eqel.model.*;
-import org.antlr.v4.runtime.misc.NotNull;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
 import java.io.IOException;
@@ -74,7 +72,8 @@ public class Listener extends EqelBaseListener {
     /**
      *
      */
-   @Override public void enterIMPORT(@NotNull EqelParser.IMPORTContext ctx) {
+   @Override
+   public void enterIMPORT(EqelParser.IMPORTContext ctx) {
         EqelParser.ImportStmtContext stmt = ctx.importStmt();
 
         // importStmt : 'import' STRING
@@ -92,7 +91,8 @@ public class Listener extends EqelBaseListener {
 
     /**
      */
-   @Override public void enterVALIDATION(@NotNull EqelParser.VALIDATIONContext ctx) {
+   @Override
+   public void enterVALIDATION(EqelParser.VALIDATIONContext ctx) {
         EqelParser.ValidationSpecContext validationSpec = ctx.validationSpec();
 
         // validationSpec : 'validate' name=IDENT 'using' CLASSNAME '{' validationVerb* '}'
@@ -147,7 +147,8 @@ public class Listener extends EqelBaseListener {
 
     /**
      */
-   @Override public void enterDOMAIN(@NotNull EqelParser.DOMAINContext ctx) {
+   @Override
+   public void enterDOMAIN(EqelParser.DOMAINContext ctx) {
         EqelParser.DomainSpecContext domainSpec = ctx.domainSpec();
 
         // domainSpec : 'domain' domain=IDENT ('extends' baseDomain=IDENT)? '{' purposeSpec* '}'
