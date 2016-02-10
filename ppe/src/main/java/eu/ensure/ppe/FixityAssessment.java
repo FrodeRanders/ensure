@@ -29,7 +29,8 @@ import eu.ensure.vopn.xml.Attribute;
 import eu.ensure.vopn.xml.Namespaces;
 import eu.ensure.vopn.xml.XPath;
 import org.apache.axiom.om.OMElement;
-import org.apache.axiom.om.impl.builder.StAXOMBuilder;
+import org.apache.axiom.om.OMXMLBuilderFactory;
+import org.apache.axiom.om.OMXMLParserWrapper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -70,8 +71,8 @@ public class FixityAssessment {
         try {
             xmlInput = Channels.newChannel(FixityAssessment.class.getResourceAsStream(FIXITY_ALGORITHMS_FILE));
 
-            XMLStreamReader xmlReader = XMLInputFactory.newInstance().createXMLStreamReader(Channels.newReader(xmlInput, "utf-8"));
-            StAXOMBuilder builder = new StAXOMBuilder(xmlReader);
+            XMLStreamReader reader = XMLInputFactory.newInstance().createXMLStreamReader(Channels.newReader(xmlInput, "utf-8"));
+            OMXMLParserWrapper builder = OMXMLBuilderFactory.createStAXOMBuilder(reader);
             OMElement root = builder.getDocumentElement();
 
             Namespaces namespaces = new Namespaces();

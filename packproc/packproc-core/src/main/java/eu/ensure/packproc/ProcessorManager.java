@@ -32,10 +32,7 @@ import eu.ensure.vopn.lang.Stacktrace;
 import eu.ensure.packproc.internal.Action;
 import eu.ensure.packproc.internal.EntrySelection;
 import eu.ensure.packproc.model.*;
-import org.apache.axiom.om.OMAttribute;
-import org.apache.axiom.om.OMElement;
-import org.apache.axiom.om.OMNamespace;
-import org.apache.axiom.om.impl.builder.StAXOMBuilder;
+import org.apache.axiom.om.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -67,15 +64,7 @@ public class ProcessorManager {
         // Validate configuration file
         try {
             XMLStreamReader reader = XMLInputFactory.newInstance().createXMLStreamReader(configStream);
-            /*
-            reader.setFeature("http://apache.org/xml/features/nonvalidating/load-external-dtd", false);
-            reader.setFeature("http://apache.org/xml/features/nonvalidating/load-dtd-grammar", false);
-            reader.setFeature("http://apache.org/xml/features/validation/schema", false);
-            // other feature(s) that could be of interest...
-            //reader.setFeature("http://apache.org/xml/features/validation/dynamic", false);
-            */
-
-            StAXOMBuilder builder = new StAXOMBuilder(reader);
+            OMXMLParserWrapper builder = OMXMLBuilderFactory.createStAXOMBuilder(reader);
             configuration = builder.getDocumentElement(); // <configuration />
 
             if (isInvalid(configuration)) {

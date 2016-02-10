@@ -28,11 +28,7 @@ package eu.ensure.packproc;
 import eu.ensure.vopn.xml.Namespaces;
 import eu.ensure.packproc.internal.BasicFileProcessor;
 import eu.ensure.packproc.model.*;
-import org.apache.axiom.om.OMAttribute;
-import org.apache.axiom.om.OMElement;
-import org.apache.axiom.om.OMNamespace;
-import org.apache.axiom.om.OMNode;
-import org.apache.axiom.om.impl.builder.StAXOMBuilder;
+import org.apache.axiom.om.*;
 import org.apache.axiom.om.util.StAXParserConfiguration;
 import org.apache.axiom.om.util.StAXUtils;
 import org.apache.axiom.om.xpath.AXIOMXPath;
@@ -126,8 +122,7 @@ public class XmlFileProcessor extends BasicFileProcessor {
                 );
 
                 if (null != reader) {
-                    // new: StAXOMBuilder(OMFactory factory, XMLStreamReader parser, OMElement element, String characterEncoding)
-                    StAXOMBuilder builder = new StAXOMBuilder(reader);
+                    OMXMLParserWrapper builder = OMXMLBuilderFactory.createStAXOMBuilder(reader);
                     OMElement document = builder.getDocumentElement();
 
                     //

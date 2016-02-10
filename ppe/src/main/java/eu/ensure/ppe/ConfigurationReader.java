@@ -31,7 +31,8 @@ import eu.ensure.vopn.xml.XPath;
 import eu.ensure.vopn.xml.XmlException;
 import eu.ensure.ppe.model.*;
 import org.apache.axiom.om.OMElement;
-import org.apache.axiom.om.impl.builder.StAXOMBuilder;
+import org.apache.axiom.om.OMXMLBuilderFactory;
+import org.apache.axiom.om.OMXMLParserWrapper;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -74,8 +75,7 @@ public class ConfigurationReader {
     ) throws XMLStreamException, XmlException, EvaluationException {
         // XML document to operate on
         XMLStreamReader reader = XMLInputFactory.newInstance().createXMLStreamReader(Channels.newReader(inputChannel, "utf-8"));
-
-        StAXOMBuilder builder = new StAXOMBuilder(reader);
+        OMXMLParserWrapper builder = OMXMLBuilderFactory.createStAXOMBuilder(reader);
         OMElement pluginsConfig = builder.getDocumentElement();
 
         // Study configuration
@@ -88,8 +88,7 @@ public class ConfigurationReader {
     ) throws XMLStreamException, XmlException, EvaluationException {
         // XML document to operate on
         XMLStreamReader reader = XMLInputFactory.newInstance().createXMLStreamReader(Channels.newReader(inputChannel, "utf-8"));
-
-        StAXOMBuilder builder = new StAXOMBuilder(reader);
+        OMXMLParserWrapper builder = OMXMLBuilderFactory.createStAXOMBuilder(reader);
         OMElement aggregations = builder.getDocumentElement();
 
         PreservationPlan customer = readAggregations(aggregations, namespaces, pluginMap);
@@ -101,8 +100,7 @@ public class ConfigurationReader {
     ) throws XMLStreamException, XmlException, EvaluationException {
         // XML document to operate on
         XMLStreamReader reader = XMLInputFactory.newInstance().createXMLStreamReader(Channels.newReader(inputChannel, "utf-8"));
-
-        StAXOMBuilder builder = new StAXOMBuilder(reader);
+        OMXMLParserWrapper builder = OMXMLBuilderFactory.createStAXOMBuilder(reader);
         OMElement requirementSet = builder.getDocumentElement();
 
         readRequirements(requirementSet, namespaces, preservationPlan);
