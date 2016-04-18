@@ -39,6 +39,7 @@ import javax.sql.DataSource;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -145,7 +146,7 @@ public class EvaluationManager {
         return dbms;
     }
 
-    public void setup() throws EvaluationException {
+    public void setup(PrintWriter out) throws EvaluationException {
         InputStream is = null;
         try {
             synchronized (lock) {
@@ -155,47 +156,47 @@ public class EvaluationManager {
 
                     //
                     is = getClass().getResourceAsStream("initiate.sql");
-                    dbms.execute("initiate.sql", new InputStreamReader(is));
+                    dbms.execute("initiate.sql", new InputStreamReader(is), out);
                     is.close();
 
                     //
                     is = getClass().getResourceAsStream("populate.sql");
-                    dbms.execute("populate.sql", new InputStreamReader(is));
+                    dbms.execute("populate.sql", new InputStreamReader(is), out);
                     is.close();
 
                     //
                     is = getClass().getResourceAsStream("opinions_amazon_s3.sql");
-                    dbms.execute("opinions_amazon_s3.sql", new InputStreamReader(is));
+                    dbms.execute("opinions_amazon_s3.sql", new InputStreamReader(is), out);
                     is.close();
 
                     //
                     is = getClass().getResourceAsStream("opinions_amazon_ec2.sql");
-                    dbms.execute("opinions_amazon_ec2.sql", new InputStreamReader(is));
+                    dbms.execute("opinions_amazon_ec2.sql", new InputStreamReader(is), out);
                     is.close();
 
                     //
                     is = getClass().getResourceAsStream("opinions_amazon_glacier.sql");
-                    dbms.execute("opinions_amazon_glacier.sql", new InputStreamReader(is));
+                    dbms.execute("opinions_amazon_glacier.sql", new InputStreamReader(is), out);
                     is.close();
 
                     //
                     is = getClass().getResourceAsStream("opinions_rackspace_cloudfiles.sql");
-                    dbms.execute("opinions_rackspace_cloudfiles.sql", new InputStreamReader(is));
+                    dbms.execute("opinions_rackspace_cloudfiles.sql", new InputStreamReader(is), out);
                     is.close();
 
                     //
                     is = getClass().getResourceAsStream("opinions_rackspace_cloudservers.sql");
-                    dbms.execute("opinions_rackspace_cloudservers.sql", new InputStreamReader(is));
+                    dbms.execute("opinions_rackspace_cloudservers.sql", new InputStreamReader(is), out);
                     is.close();
 
                     //
                     is = getClass().getResourceAsStream("opinions_openstack_objectstorage.sql");
-                    dbms.execute("opinions_openstack_objectstorage.sql", new InputStreamReader(is));
+                    dbms.execute("opinions_openstack_objectstorage.sql", new InputStreamReader(is), out);
                     is.close();
 
                     //
                     is = getClass().getResourceAsStream("opinions_openstack_compute.sql");
-                    dbms.execute("opinions_openstack_compute.sql", new InputStreamReader(is));
+                    dbms.execute("opinions_openstack_compute.sql", new InputStreamReader(is), out);
                     is.close();
 
                     /*

@@ -1,0 +1,38 @@
+@startuml
+
+/'actor Foo1
+boundary Foo2
+control Foo3
+entity Foo4
+database Foo5
+Foo1 -> Foo2 : To boundary
+Foo1 -> Foo3 : To control
+Foo1 -> Foo4 : To entity
+Foo1 -> Foo5 : To database
+'/
+
+title Setup & Initiate
+
+'caption Figure 1
+actor test
+participant ":InputStream" as IS
+box "eu.ensure.packproc" #LightBlue
+participant ":BasicProcessorContext" as PC
+participant ":ProcessorManager" as PM #99FF99
+end box
+
+autonumber
+test -->> IS : load configuration
+test -->> PC : create context for processors
+test -->> PM : create processor manager
+autonumber stop
+
+newpage Invoke
+
+test -->> IS : load input file
+test -> PM : apply(input file, context)
+
+PM -> PM : asdf
+
+
+@enduml

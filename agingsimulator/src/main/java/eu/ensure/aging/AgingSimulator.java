@@ -88,7 +88,7 @@ public class AgingSimulator {
         options.addOption("c", "update-checksum", true, "Update header checksum (after prior bit flips)");
 
         Properties properties = new Properties();
-        CommandLineParser parser = new PosixParser();
+        CommandLineParser parser = new DefaultParser();
         try {
             CommandLine line = parser.parse(options, args);
 

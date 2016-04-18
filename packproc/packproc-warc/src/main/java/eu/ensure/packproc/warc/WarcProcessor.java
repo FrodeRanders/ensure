@@ -28,15 +28,16 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.archive.format.http.HttpResponseMessageObserver;
 import org.archive.format.http.HttpResponseMessageParser;
+import org.archive.format.warc.WARCRecordWriter;
 import org.archive.io.ArchiveRecord;
-import org.archive.io.warc.WARCReader;
-import org.archive.io.warc.WARCReaderFactory;
-import org.archive.io.warc.WARCRecord;
-import org.archive.io.warc.WARCWriter;
+import org.archive.io.warc.*;
+import org.archive.uid.RecordIDGenerator;
+import org.archive.uid.UUIDGenerator;
 
 import java.io.*;
 import java.nio.ByteBuffer;
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Operates on WARC file streams
@@ -141,14 +142,11 @@ public class WarcProcessor implements ContainerStructureProcessor {
         BasicProcessorContext basicContext = context.push(new BasicProcessorContext(name));
         boolean isMutableCall = null != outputStream;
 
-        WARCReader reader = null;
-        WARCWriter writer = null;
+        try (WARCReader reader = (WARCReader)WARCReaderFactory.get(name, inputStream, /* at first record? */ true)) {
 
-        try {
-            // Package readers and writers
-            reader = (WARCReader)WARCReaderFactory.get(name, inputStream, /* at first record? */ true);
+            WARCRecordWriter writer = null;
             if (/* is mutable call? */ null != outputStream) {
-                writer = null; // FOR NOW
+                writer = new WARCRecordWriter();
             }
 
             Iterator<ArchiveRecord> rit = reader.iterator();
@@ -231,6 +229,7 @@ public class WarcProcessor implements ContainerStructureProcessor {
                                         if (isMutableCall) {
                                             // Add the temporary file to the output stream instead of the original
                                             // TODO addEntry(subOutputFile, structureEntry, archiveOutputStream);
+                                            //writer.writeWARCInfoRecord();
                                         }
                                     } finally {
                                         if (null != subInputFile && subInputFile.exists()) subInputFile.delete();
@@ -257,15 +256,12 @@ public class WarcProcessor implements ContainerStructureProcessor {
                     }
 
                     if (isMutableCall /* && !addedEntries.contains(structureEntry.getName()) */) {
-                        // We may safely copy file
                         // TODO copyEntry(structureEntry, entryInputStream, archiveOutputStream);
+                        //writer.writeWARCInfoRecord();
                     }
                 }
             }
         } finally {
-            if (null != writer) writer.close();
-            if (null != reader) reader.close();
-
             context.pop();
         }
     }

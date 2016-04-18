@@ -46,7 +46,7 @@ public class WarcInputBuffer implements SessionInputBuffer, BufferInfo {
     }
 
     public WarcInputBuffer(int buffersize) {
-        this(buffersize, buffersize, (CharsetDecoder)null);
+        this(buffersize, buffersize, null);
     }
 
     public WarcInputBuffer() {

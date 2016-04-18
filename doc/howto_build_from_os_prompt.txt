@@ -17,7 +17,6 @@ OS name: "mac os x", version: "10.9.2", arch: "x86_64", family: "mac"
 [INFO] ------------------------------------------------------------------------
 [INFO] Reactor Build Order:
 [INFO] 
-[INFO] commons - Tools and utilities
 [INFO] Wrapper for the Package Processor components
 [INFO] Package Processing core component
 [INFO] Package processing module for XML files
@@ -28,86 +27,14 @@ OS name: "mac os x", version: "10.9.2", arch: "x86_64", family: "mac"
 [INFO] Wrapper for the ENSURE software components
 [INFO]                                                                         
 [INFO] ------------------------------------------------------------------------
-[INFO] Building commons - Tools and utilities 1.0
-[INFO] ------------------------------------------------------------------------
-[INFO] 
-[INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ commons ---
-[INFO] skip non existing resourceDirectory /Users/froran/Projects/ltu/ensure/commons/src/main/resources
-[INFO] 
-[INFO] --- maven-compiler-plugin:3.0:compile (default-compile) @ commons ---
-[INFO] Compiling 41 source files to /Users/froran/Projects/ltu/ensure/commons/target/classes
-[INFO] 
-[INFO] --- maven-resources-plugin:2.5:testResources (default-testResources) @ commons ---
-[INFO] Copying 1 resource
-[INFO] 
-[INFO] --- maven-compiler-plugin:3.0:testCompile (default-testCompile) @ commons ---
-[INFO] Compiling 1 source file to /Users/froran/Projects/ltu/ensure/commons/target/test-classes
-[INFO] 
-[INFO] --- maven-surefire-plugin:2.10:test (default-test) @ commons ---
-[INFO] Surefire report directory: /Users/froran/Projects/ltu/ensure/commons/target/surefire-reports
-
--------------------------------------------------------
- T E S T S
--------------------------------------------------------
-Running eu.ensure.vopn.CommonTest
-Provider: SUN version 1.8
-  * MessageDigest.SHA
-  * MessageDigest.SHA-384
-  * MessageDigest.SHA-224
-  * MessageDigest.SHA-512
-  * MessageDigest.MD5
-  * MessageDigest.SHA-256
-  * MessageDigest.MD2
-Provider: SunRsaSign version 1.8
-Provider: SunEC version 1.8
-Provider: SunJSSE version 1.8
-Provider: SunJCE version 1.8
-Provider: SunJGSS version 1.8
-Provider: SunSASL version 1.8
-Provider: XMLDSig version 1.8
-Provider: SunPCSC version 1.8
-Provider: Apple version 1.8
-
-Testing human readable time periods (millisecs to text):
-500 ms -> 500ms
-1500 ms -> 1s 500ms
-65 s -> 1min 5s
-65 min -> 1hour 5mins
-25 hours -> 1day 1hour
-35 days -> 1month 5days
-13 months -> 1year 1month
-10 years -> 10years
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.192 sec
-
-Results :
-
-Tests run: 3, Failures: 0, Errors: 0, Skipped: 0
-
-[INFO] 
-[INFO] --- maven-jar-plugin:2.3.2:jar (default-jar) @ commons ---
-[INFO] Building jar: /Users/froran/Projects/ltu/ensure/commons/target/commons-1.0.jar
-[INFO] 
-[INFO] >>> maven-source-plugin:2.2.1:jar (attach-sources) @ commons >>>
-[INFO] 
-[INFO] <<< maven-source-plugin:2.2.1:jar (attach-sources) @ commons <<<
-[INFO] 
-[INFO] --- maven-source-plugin:2.2.1:jar (attach-sources) @ commons ---
-[INFO] Building jar: /Users/froran/Projects/ltu/ensure/commons/target/commons-1.0-sources.jar
-[INFO] 
-[INFO] --- maven-install-plugin:2.3.1:install (default-install) @ commons ---
-[INFO] Installing /Users/froran/Projects/ltu/ensure/commons/target/commons-1.0.jar to /Users/froran/.m2/repository/eu/ensure/commons/1.0/commons-1.0.jar
-[INFO] Installing /Users/froran/Projects/ltu/ensure/commons/pom.xml to /Users/froran/.m2/repository/eu/ensure/commons/1.0/commons-1.0.pom
-[INFO] Installing /Users/froran/Projects/ltu/ensure/commons/target/commons-1.0-sources.jar to /Users/froran/.m2/repository/eu/ensure/commons/1.0/commons-1.0-sources.jar
-[INFO]                                                                         
-[INFO] ------------------------------------------------------------------------
-[INFO] Building Wrapper for the Package Processor components 1.0
+[INFO] Building Wrapper for the Package Processor components 1.3-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
 [INFO] 
 [INFO] --- maven-install-plugin:2.3.1:install (default-install) @ package-processor-parent ---
 [INFO] Installing /Users/froran/Projects/ltu/ensure/packproc/pom.xml to /Users/froran/.m2/repository/eu/ensure/package-processor-parent/1.0/package-processor-parent-1.0.pom
 [INFO]                                                                         
 [INFO] ------------------------------------------------------------------------
-[INFO] Building Package Processing core component 1.0
+[INFO] Building Package Processing core component 1.3-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
 [INFO] 
 [INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ package-processor-core ---
@@ -141,7 +68,7 @@ Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
 [INFO] Installing /Users/froran/Projects/ltu/ensure/packproc/packproc-core/pom.xml to /Users/froran/.m2/repository/eu/ensure/package-processor-core/1.0/package-processor-core-1.0.pom
 [INFO]                                                                         
 [INFO] ------------------------------------------------------------------------
-[INFO] Building Package processing module for XML files 1.0
+[INFO] Building Package processing module for XML files 1.3-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
 [INFO] 
 [INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ package-processor-xml ---
@@ -180,7 +107,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 [INFO] Installing /Users/froran/Projects/ltu/ensure/packproc/packproc-xml/pom.xml to /Users/froran/.m2/repository/eu/ensure/package-processor-xml/1.0/package-processor-xml-1.0.pom
 [INFO]                                                                         
 [INFO] ------------------------------------------------------------------------
-[INFO] Building Package processing module for Information Packages 1.0
+[INFO] Building Package processing module for Information Packages 1.3-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
 [INFO] 
 [INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ package-processor-ip ---
@@ -214,7 +141,7 @@ Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
 [INFO] Installing /Users/froran/Projects/ltu/ensure/packproc/packproc-ip/pom.xml to /Users/froran/.m2/repository/eu/ensure/package-processor-ip/1.0/package-processor-ip-1.0.pom
 [INFO]                                                                         
 [INFO] ------------------------------------------------------------------------
-[INFO] Building Package processing module for DICOM files 1.0
+[INFO] Building Package processing module for DICOM files 1.3-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
 [INFO] 
 [INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ package-processor-dicom ---
@@ -253,7 +180,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 [INFO] Installing /Users/froran/Projects/ltu/ensure/packproc/packproc-dicom/pom.xml to /Users/froran/.m2/repository/eu/ensure/package-processor-dicom/1.0/package-processor-dicom-1.0.pom
 [INFO]                                                                         
 [INFO] ------------------------------------------------------------------------
-[INFO] Building Package processing module for file systems 1.0
+[INFO] Building Package processing module for file systems 1.3-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
 [INFO] 
 [INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ package-processor-fs ---
@@ -293,7 +220,7 @@ Tests run: 1, Failures: 0, Errors: 0, Skipped: 0
 [INFO] Installing /Users/froran/Projects/ltu/ensure/packproc/packproc-fs/pom.xml to /Users/froran/.m2/repository/eu/ensure/package-processor-fs/1.0/package-processor-fs-1.0.pom
 [INFO]                                                                         
 [INFO] ------------------------------------------------------------------------
-[INFO] Building Information package validator 1.0
+[INFO] Building Information package validator 1.3-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
 [INFO] 
 [INFO] --- maven-resources-plugin:2.5:resources (default-resources) @ package-validator ---
@@ -333,7 +260,7 @@ Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
 [INFO] Installing /Users/froran/Projects/ltu/ensure/packvalid/pom.xml to /Users/froran/.m2/repository/eu/ensure/package-validator/1.0/package-validator-1.0.pom
 [INFO]                                                                         
 [INFO] ------------------------------------------------------------------------
-[INFO] Building Wrapper for the ENSURE software components 1.0
+[INFO] Building Wrapper for the ENSURE software components 1.3-SNAPSHOT
 [INFO] ------------------------------------------------------------------------
 [INFO] 
 [INFO] --- maven-install-plugin:2.3.1:install (default-install) @ ensure-parent ---
@@ -341,7 +268,6 @@ Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
 [INFO] Reactor Summary:
 [INFO] 
-[INFO] commons - Tools and utilities ..................... SUCCESS [2.306s]
 [INFO] Wrapper for the Package Processor components ...... SUCCESS [0.002s]
 [INFO] Package Processing core component ................. SUCCESS [0.372s]
 [INFO] Package processing module for XML files ........... SUCCESS [0.388s]
@@ -352,8 +278,4 @@ Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
 [INFO] Wrapper for the ENSURE software components ........ SUCCESS [0.002s]
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time: 7.567s
-[INFO] Finished at: Sun May 04 21:43:30 CEST 2014
-[INFO] Final Memory: 23M/110M
 [INFO] ------------------------------------------------------------------------

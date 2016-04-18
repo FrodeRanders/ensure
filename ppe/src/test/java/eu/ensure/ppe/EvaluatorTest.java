@@ -38,6 +38,7 @@ import org.junit.Test;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
 import java.nio.channels.Channels;
 import java.nio.channels.ReadableByteChannel;
 import java.util.Collection;
@@ -57,7 +58,7 @@ public class EvaluatorTest extends TestCase {
     @Test
     public void testDatamodel() {
         try {
-            evaluationManager.setup();
+            evaluationManager.setup(new PrintWriter(System.out));
 
         } catch (Exception e) {
             fail("Failed to test datamodel: " + e.getMessage());

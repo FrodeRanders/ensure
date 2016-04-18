@@ -80,6 +80,8 @@ public class WarcRecordEntry extends StructureEntry<ArchiveRecord> {
     private ArchiveRecord entry = null;
     private ArchiveRecordHeader header = null;
 
+    public static final String RESPONSE = WARCConstants.WARCRecordType.response.name();
+
     /**
      * This constructor is used to wrap a File.
      * <p>
@@ -127,7 +129,7 @@ public class WarcRecordEntry extends StructureEntry<ArchiveRecord> {
     }
 
     public boolean isResponseRecord() {
-        return "response".equalsIgnoreCase((String)header.getHeaderValue(WARCConstants.HEADER_KEY_TYPE));
+        return RESPONSE.equalsIgnoreCase((String)header.getHeaderValue(WARCConstants.HEADER_KEY_TYPE));
     }
 
     public String getContentType() {
