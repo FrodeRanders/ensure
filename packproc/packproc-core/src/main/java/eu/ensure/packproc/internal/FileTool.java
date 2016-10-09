@@ -44,11 +44,9 @@ import java.nio.channels.WritableByteChannel;
 public class FileTool {
     private static final Logger log = LogManager.getLogger(FileTool.class);
 
-    protected String alias = null;
+    protected final String alias;
 
-    public FileTool(
-        String alias
-    ) {
+    public FileTool(String alias) {
         this.alias = alias;
     }
 

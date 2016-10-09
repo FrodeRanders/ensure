@@ -29,12 +29,12 @@ import eu.ensure.vopn.io.Closer;
 import eu.ensure.vopn.io.FileIO;
 import eu.ensure.vopn.lang.DynamicCompiler;
 import eu.ensure.vopn.lang.DynamicInvoker;
-import eu.ensure.vopn.lang.LoggingUtils;
 import eu.ensure.vopn.lang.Stacktrace;
 import eu.ensure.ipqet.eqel.EqelLoader;
 import eu.ensure.ipqet.eqel.model.DomainSpecification;
 import eu.ensure.ipqet.eqel.model.ValidationSpecification;
 import junit.framework.TestCase;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 import org.stringtemplate.v4.ST;
@@ -48,7 +48,7 @@ import java.util.*;
 /**
  */
 public class EqelTest extends TestCase {
-    private static final Logger log = LoggingUtils.setupLoggingFor(EqelTest.class, "log4j2.xml");
+    private static final Logger log = LogManager.getLogger(EqelTest.class);
 
     @Test
     public void testEqelParser()

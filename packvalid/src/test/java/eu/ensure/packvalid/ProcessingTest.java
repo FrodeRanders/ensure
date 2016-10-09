@@ -26,7 +26,6 @@
 package eu.ensure.packvalid;
 
 import eu.ensure.vopn.io.Closer;
-import eu.ensure.vopn.lang.LoggingUtils;
 import eu.ensure.vopn.lang.Stacktrace;
 import eu.ensure.packproc.BasicProcessorContext;
 import eu.ensure.packproc.ProcessorException;
@@ -36,6 +35,7 @@ import eu.ensure.packproc.model.AssociatedInformation;
 import eu.ensure.packproc.model.EvaluationStatement;
 import eu.ensure.packproc.model.ProcessorContext;
 import junit.framework.TestCase;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 
@@ -47,7 +47,7 @@ import java.util.Properties;
 /**
  */
 public class ProcessingTest extends TestCase {
-    private static Logger log = LoggingUtils.setupLoggingFor(ProcessingTest.class, "log4j2.xml");
+    private static Logger log = LogManager.getLogger(ProcessingTest.class);
 
 
     @Test

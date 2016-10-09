@@ -4,9 +4,10 @@
     
     <warc-processor:process> <!-- corresponds to the WARC file (in this test) -->
 
-        <resource-processor:process type="application/http;msgtype=response">
-            <migrate type="image/jpeg" target-format="pdf" />
-            <index type="text/plain" />
+        <resource-processor:process type-re=".*?msgtype=response">
+            <debug/>
+            <!--<index type="text/plain" />-->
+            <!--<migrate type="image/jpeg" target-format="pdf" />-->
         </resource-processor:process>
 
     </warc-processor:process>

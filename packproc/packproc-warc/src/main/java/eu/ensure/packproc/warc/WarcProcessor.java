@@ -16,7 +16,6 @@
  */
 package eu.ensure.packproc.warc;
 
-import eu.ensure.vopn.io.MultiDigestInputStream;
 import eu.ensure.packproc.BasicProcessorContext;
 import eu.ensure.packproc.ProcessorException;
 import eu.ensure.packproc.ProcessorManager;
@@ -26,18 +25,12 @@ import eu.ensure.packproc.model.*;
 import org.apache.axiom.om.OMElement;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.archive.format.http.HttpResponseMessageObserver;
-import org.archive.format.http.HttpResponseMessageParser;
 import org.archive.format.warc.WARCRecordWriter;
 import org.archive.io.ArchiveRecord;
 import org.archive.io.warc.*;
-import org.archive.uid.RecordIDGenerator;
-import org.archive.uid.UUIDGenerator;
 
 import java.io.*;
-import java.nio.ByteBuffer;
 import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Operates on WARC file streams
@@ -161,7 +154,7 @@ public class WarcProcessor implements ContainerStructureProcessor {
                 String url = structureEntry.getUrl();
                 String contentType = structureEntry.getContentType();
 
-                if (log.isInfoEnabled()) {
+                if (log.isDebugEnabled()) {
                     String info = "### [";
                     info += structureEntry.getType();
                     info += "] " + (null != url ? url : structureEntry.getName());
@@ -171,7 +164,7 @@ public class WarcProcessor implements ContainerStructureProcessor {
                     if (size > eu.ensure.vopn.lang.Number.BYTES_MAX)
                         info += eu.ensure.vopn.lang.Number.asHumanApproximate(size) + " or ";
                     info += size + " bytes)";
-                    log.info(info);
+                    log.debug(info);
                 }
 
                 // There is no notion of a directory in the WARC file, and "file names"

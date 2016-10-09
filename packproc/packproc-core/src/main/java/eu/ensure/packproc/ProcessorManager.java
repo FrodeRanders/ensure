@@ -55,9 +55,12 @@ public class ProcessorManager {
 
     private OMElement configuration = null;
     private Properties properties = null;
-    private List<Action> outermostActions = new Vector<Action>();
+    private final List<Action> outermostActions = new Vector<Action>();
+    private final Map<String, EntryHandler> operations = new HashMap<>();
 
-    public ProcessorManager(Properties properties, InputStream configStream) throws ProcessorException {
+    public ProcessorManager(
+            Properties properties, InputStream configStream
+    ) throws ProcessorException {
 
         this.properties = properties;
 
@@ -68,10 +71,14 @@ public class ProcessorManager {
             configuration = builder.getDocumentElement(); // <configuration />
 
             if (isInvalid(configuration)) {
-                log.error("The configuration is invalid");
+                String info = "The configuration is invalid";
+                log.error(info);
+                throw new ProcessorException(info);
             }
         } catch (XMLStreamException se) {
-            log.error("The configuration is invalid: " + se.getMessage(), se);
+            String info = "The configuration is invalid: " + se.getMessage();
+            log.error(info);
+            throw new ProcessorException(info, se);
         }
     }
 
@@ -315,6 +322,14 @@ public class ProcessorManager {
             }
         }
         return false;
+    }
+
+    public void setHandlers(Map<String, EntryHandler> operations) {
+        this.operations.putAll(operations);
+    }
+
+    public EntryHandler getHandler(String operation) {
+        return operations.get(operation);
     }
 
     public void apply(String name, InputStream inputStream, OutputStream outputStream, ProcessorContext context)

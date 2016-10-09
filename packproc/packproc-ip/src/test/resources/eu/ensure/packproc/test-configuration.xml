@@ -24,8 +24,8 @@
 		</rdf-processor:process>
 
         <!-- Content specific -->
-        <dicom-processor:process re="[A-Z]+_[0-9]+">
-            <dicom-processor:extractInformation re=".*?"/>
+        <dicom-processor:process name-re="[A-Z]+_[0-9]+">
+            <dicom-processor:extractInformation name-re=".*?"/>
         </dicom-processor:process>
 
     </aip-processor:process>

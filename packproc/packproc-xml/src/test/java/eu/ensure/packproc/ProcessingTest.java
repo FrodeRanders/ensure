@@ -25,16 +25,12 @@
  */
 package eu.ensure.packproc;
 
-import eu.ensure.vopn.lang.LoggingUtils;
 import junit.framework.TestCase;
-import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 
 /**
  */
 public class ProcessingTest extends TestCase {
-    private static Logger log = LoggingUtils.setupLoggingFor(ProcessingTest.class, "log4j2.xml");
-
     @Test
     public void testXmlProcessing() {
     }

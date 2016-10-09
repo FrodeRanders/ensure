@@ -27,12 +27,12 @@ package eu.ensure.ppe;
 
 import eu.ensure.vopn.db.DatabaseException;
 import eu.ensure.vopn.io.Closer;
-import eu.ensure.vopn.lang.LoggingUtils;
 import eu.ensure.vopn.lang.Stacktrace;
 import eu.ensure.vopn.xml.Namespaces;
 import eu.ensure.ppe.model.Plugin;
 import eu.ensure.ppe.model.PreservationPlan;
 import junit.framework.TestCase;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.junit.Test;
 
@@ -51,7 +51,7 @@ import java.util.Map;
  * Created by Frode Randers at 2012-09-08 14:00
  */
 public class EvaluatorTest extends TestCase {
-    private static Logger log = LoggingUtils.setupLoggingFor(EvaluatorTest.class, "log4j2.xml");
+    private static Logger log = LogManager.getLogger(EvaluatorTest.class);
 
     private EvaluationManager evaluationManager = EvaluationManager.getInstance();
 

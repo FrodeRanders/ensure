@@ -74,70 +74,66 @@ public class XmlFileProcessor extends BasicFileProcessor {
      * to be implemented by classes derived form BasicFileProcessor.
      */
     protected XmlFileCallable getSpecificCallable() {
-        return new XmlFileCallable() {
-            public void call(OMElement target, Namespaces namespaces, ProcessorContext context) throws Exception {
-                // Retrieve XPath expressions from the configuration
-                try {
-                    for (Iterator<OMElement> ei = configElement.getChildElements(); ei.hasNext(); ) {
-                        OMElement configuration = ei.next();
-                        String operation = configuration.getLocalName(); // Ignore namespace!!!
+        return (target, namespaces, context) -> {
+            // Retrieve XPath expressions from the configuration
+            try {
+                for (Iterator<OMElement> ei = configElement.getChildElements(); ei.hasNext(); ) {
+                    OMElement configuration = ei.next();
+                    String operation = configuration.getLocalName(); // Ignore namespace!!!
 
-                        if ("contains".equalsIgnoreCase(operation)) {
-                            contains(configuration, target, namespaces);
+                    if ("contains".equalsIgnoreCase(operation)) {
+                        contains(configuration, target, namespaces);
 
-                        } else {
-                            throw new ProcessorException("Unknown processor operation: " + operation);
-                        }
+                    } else {
+                        throw new ProcessorException("Unknown processor operation: " + operation);
                     }
-                } catch (Throwable t) {
-                    String info = "Cannot process configuration for " + alias + ": ";
-                    info += t.getMessage();
-                    log.warn(info);
-
-                    throw new ProcessorException(info, t);
                 }
+            } catch (Throwable t) {
+                String info = "Cannot process configuration for " + alias + ": ";
+                info += t.getMessage();
+                log.warn(info);
+
+                throw new ProcessorException(info, t);
             }
         };
     }
 
     private FileProcessorUsingChannelsCallable getCallable() {
-        return new FileProcessorUsingChannelsCallable() {
-            public void call(ReadableByteChannel inputChannel, WritableByteChannel outputChannel, FileProcessor p, ProcessorContext context) throws Exception {
+        return (inputChannel, outputChannel, p, context) -> {
 
-                if (null == configElement) {
-                    String info = "Cannot process " + alias + " configuration - no configuration";
-                    log.warn(info);
-                    throw new ProcessorException(info);
-                }
-
-                // Since the XPath expressions need to refer to namespaces in
-                // the target file, we will define the relevant namespaces in
-                // the processor configuration and refer to those later on.
-                Namespaces namespaces = new Namespaces(configElement.getAllDeclaredNamespaces());
-
-                // XML document to operate on.
-                // This reader will ignore DTS's and such...
-                XMLStreamReader reader = StAXUtils.createXMLStreamReader(
-                        StAXParserConfiguration.STANDALONE, Channels.newReader(inputChannel, "utf-8")
-                );
-
-                if (null != reader) {
-                    OMXMLParserWrapper builder = OMXMLBuilderFactory.createStAXOMBuilder(reader);
-                    OMElement document = builder.getDocumentElement();
-
-                    //
-                    XmlFileCallable xmlCallable = getSpecificCallable();
-                    xmlCallable.call(document, namespaces, context);
-
-                    // In case we have been mutating the document, dump it to the output
-                    if (null != outputChannel) {
-                        Writer writer = Channels.newWriter(outputChannel, "utf-8");
-                        document.serialize(writer);
-                    }
-                }
-
-                // Don't close the input channel!
+            if (null == configElement) {
+                String info = "Cannot process " + alias + " configuration - no configuration";
+                log.warn(info);
+                throw new ProcessorException(info);
             }
+
+            // Since the XPath expressions need to refer to namespaces in
+            // the target file, we will define the relevant namespaces in
+            // the processor configuration and refer to those later on.
+            Namespaces namespaces = new Namespaces(configElement.getAllDeclaredNamespaces());
+
+            // XML document to operate on.
+            // This reader will ignore DTS's and such...
+            XMLStreamReader reader = StAXUtils.createXMLStreamReader(
+                    StAXParserConfiguration.STANDALONE, Channels.newReader(inputChannel, "utf-8")
+            );
+
+            if (null != reader) {
+                OMXMLParserWrapper builder = OMXMLBuilderFactory.createStAXOMBuilder(reader);
+                OMElement document = builder.getDocumentElement();
+
+                //
+                XmlFileCallable xmlCallable = getSpecificCallable();
+                xmlCallable.call(document, namespaces, context);
+
+                // In case we have been mutating the document, dump it to the output
+                if (null != outputChannel) {
+                    Writer writer = Channels.newWriter(outputChannel, "utf-8");
+                    document.serialize(writer);
+                }
+            }
+
+            // Don't close the input channel!
         };
     }
 

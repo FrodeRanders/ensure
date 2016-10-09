@@ -92,7 +92,7 @@ public class Action {
 
         // Does it match the location?
         if (selection.hasLocation()) {
-            if (selection.hasName() || selection.hasRE()) {
+            if (selection.hasName() || selection.hasNameRE()) {
                 if (!selection.getLocation().equalsIgnoreCase(baseName)) {
                     return false;
                 }
@@ -114,8 +114,8 @@ public class Action {
         }
 
         // Does the name match a regular expression
-        if (selection.hasRE()) {
-            if (!entryName.matches(selection.getRE())) {
+        if (selection.hasNameRE()) {
+            if (!selection.nameMatches(entryName)) {
                 return false;
             }
             matchedRegularExpression = true;
@@ -124,7 +124,7 @@ public class Action {
 
         // OK -- we may not actually be matching on name at all.
         // Do we try to match on type?
-        if (selection.hasType())
+        if (selection.hasType() || selection.hasTypeRE())
             return false;
 
         // By now, we must match some entry selection constraint
@@ -142,7 +142,8 @@ public class Action {
             }
         }
 
-        return false;
+        // Does the type match a regular expression
+        return selection.hasTypeRE() && selection.typeMatches(type);
     }
 
     public String toString() {

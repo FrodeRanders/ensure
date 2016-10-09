@@ -26,12 +26,12 @@
 package eu.ensure.aging;
 
 import eu.ensure.vopn.io.FileIO;
-import eu.ensure.vopn.lang.LoggingUtils;
 import eu.ensure.vopn.lang.Stacktrace;
 import eu.ensure.packproc.BasicProcessorContext;
 import eu.ensure.packproc.ProcessorException;
 import eu.ensure.packproc.ProcessorManager;
 import org.apache.commons.cli.*;
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.io.*;
@@ -232,7 +232,7 @@ public class AgingSimulator {
 
     private static void simulateAging(String name, InputStream is, OutputStream os, Properties properties) {
 
-        Logger log = LoggingUtils.setupLoggingFor(AgingSimulator.class, "log4j2.xml");
+        Logger log = LogManager.getLogger(AgingSimulator.class);
 
         try {
             ProcessorManager manager = null;

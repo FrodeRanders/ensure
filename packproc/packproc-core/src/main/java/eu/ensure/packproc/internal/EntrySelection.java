@@ -29,6 +29,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import java.util.Map;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -39,34 +40,48 @@ public class EntrySelection {
     private static final Logger log = LogManager.getLogger(EntrySelection.class);
 
     private String location;
-    private String re;
-    private Pattern pattern = null;
+
     private String name;
+    private String nameRE;
+    private Pattern namePattern = null;
+
     private String type;
+    private String typeRE;
+    private Pattern typePattern = null;
 
     private boolean hasSpecifiedLocation = false;
     private boolean hasSpecifiedName = false;
-    private boolean hasSpecifiedRE = false;
+    private boolean hasSpecifiedNameRE = false;
     private boolean hasSpecifiedType = false;
+    private boolean hasSpecifiedTypeRE = false;
 
     public EntrySelection(Map<String, String> attributes, String method) {
         location = attributes.get("location");
-        re = attributes.get("re");
         name = attributes.get("name");
+        nameRE = attributes.get("name-re");
         type = attributes.get("type");
+        typeRE = attributes.get("type-re");
 
         hasSpecifiedLocation = null != location && location.length() > 0;
         hasSpecifiedName = null != name && name.length() > 0;
-        hasSpecifiedRE = null != re && re.length() > 0;
+        hasSpecifiedNameRE = null != nameRE && nameRE.length() > 0;
         hasSpecifiedType = null != type && type.length() > 0;
+        hasSpecifiedTypeRE = null != typeRE && typeRE.length() > 0;
 
         // Name precedes re, being more specific
-        if (hasSpecifiedName && hasSpecifiedRE) {
-            hasSpecifiedRE = false;
+        if (hasSpecifiedName && hasSpecifiedNameRE) {
+            hasSpecifiedNameRE = false;
+        }
+        if (hasSpecifiedNameRE) {
+            namePattern = Pattern.compile(nameRE, Pattern.CASE_INSENSITIVE | Pattern.DOTALL);
         }
 
-        if (hasSpecifiedRE) {
-            pattern = Pattern.compile(re, Pattern.CASE_INSENSITIVE | Pattern.DOTALL);
+        // Type precedes type re, being more specific
+        if (hasSpecifiedType && hasSpecifiedTypeRE) {
+            hasSpecifiedTypeRE = false;
+        }
+        if (hasSpecifiedTypeRE) {
+            typePattern = Pattern.compile(typeRE, Pattern.CASE_INSENSITIVE | Pattern.DOTALL);
         }
 
         //------------------------------------------------------------------------
@@ -76,18 +91,18 @@ public class EntrySelection {
         // in order to do that we need to add some knowledge on how the most
         // generic methods/actions (on structures) behave.
         //
-        // 'process' - needs both a 'location' and a 'name' (or a 're'), since we
+        // 'process' - needs both a 'location' and a 'name' (or a 'name-re'), since we
         //         do not provide processing of directories - only files.
         //
-        // If the 'process' action does not have a 'name' (or 're') specified,
+        // If the 'process' action does not have a 'name' (or 'name-re') specified,
         // we will try to determine a 'name' from a specified 'resource'. In
         // this case, we are making assumptions around other parameters to the
         // 'replace' action
         //------------------------------------------------------------------------
         if (method.equalsIgnoreCase("process")) {
-            // We want at least a 'name' value if no 're' was provided
+            // We want at least a 'name' value if no 'name-re' was provided
 
-            if (!hasSpecifiedRE && !hasSpecifiedName) {
+            if (!hasSpecifiedNameRE && !hasSpecifiedName) {
                 // Try to deduce a name from the resource filename
                 String resource = attributes.get("resource");
                 if (null != resource && resource.length() > 0) {
@@ -108,52 +123,54 @@ public class EntrySelection {
         return hasSpecifiedLocation;
     }
 
-    public boolean hasRE() {
-        return hasSpecifiedRE;
-    }
-
     public boolean hasName() {
         return hasSpecifiedName;
+    }
+
+    public boolean hasNameRE() {
+        return hasSpecifiedNameRE;
     }
 
     public boolean hasType() {
         return hasSpecifiedType;
     }
 
+    public boolean hasTypeRE() {
+        return hasSpecifiedTypeRE;
+    }
+
     public boolean hasConstraint() {
-        return hasSpecifiedLocation | hasSpecifiedRE | hasSpecifiedName | hasSpecifiedType;
+        return hasSpecifiedLocation | hasSpecifiedName | hasSpecifiedNameRE | hasSpecifiedType | hasSpecifiedTypeRE;
     }
 
     public String getLocation() {
         return location;
     }
 
-    /**
-     * Use as follows:
-     * <pre>
-     * StructureSelection selection = ...;
-     * Pattern p = selection.getRegExPattern();
-     * Matcher m = p.matcher("some text example");
-     * if (m.find()) {
-     *     String klopp = m.group(1);
-     * }
-     * </pre>
-     * @return Pattern, suitable for matching entries against a specified regular expression
-     */
-    public Pattern getRegExPattern() {
-        return pattern;
-    }
-
-    public String getRE() {
-        return re;
-    }
-    
     public String getName() {
         return name;
     }
 
+    public String getNameRE() {
+        return nameRE;
+    }
+
+    public boolean nameMatches(String indice) {
+        Matcher m = namePattern.matcher(indice);
+        return m.matches();
+    }
+
     public String getType() {
         return type;
+    }
+
+    public String getTypeRE() {
+        return typeRE;
+    }
+
+    public boolean typeMatches(String indice) {
+        Matcher m = typePattern.matcher(indice);
+        return m.matches();
     }
 
     public String toString() {
@@ -166,8 +183,14 @@ public class EntrySelection {
             if (hasSpecifiedName) {
                 buf.append(" name=\"").append(name).append("\"");
             }
-            if (hasSpecifiedRE) {
-                buf.append(" re=\"").append(re).append("\"");
+            if (hasSpecifiedNameRE) {
+                buf.append(" name-re=\"").append(nameRE).append("\"");
+            }
+            if (hasSpecifiedType) {
+                buf.append(" type=\"").append(type).append("\"");
+            }
+            if (hasSpecifiedTypeRE) {
+                buf.append(" type-re=\"").append(typeRE).append("\"");
             }
         } else {
             buf.append(" *");

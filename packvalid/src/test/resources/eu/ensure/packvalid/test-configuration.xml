@@ -25,11 +25,11 @@
 
         <!-- Content specific -->
         <dicom-processor:process name="DICOMDIR">
-            <dicomdir re=".*?"/>
+            <dicomdir name-re=".*?"/>
         </dicom-processor:process>
 
-        <dicom-processor:process re="[A-Z]+_[0-9]+">
-            <dump re=".*?"/>
+        <dicom-processor:process name-re="[A-Z]+_[0-9]+">
+            <dump name-re=".*?"/>
         </dicom-processor:process>
 
     </aip-processor:process>
