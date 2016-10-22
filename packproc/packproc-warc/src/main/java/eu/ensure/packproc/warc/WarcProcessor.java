@@ -173,7 +173,6 @@ public class WarcProcessor implements ContainerStructureProcessor {
 
                 InputStream entryInputStream = null; // Don't use the MultiDigestInputStream
                 {
-                    // Directories are not processed per se
                     Iterator<Action> ait = actions.iterator();
                     while (ait.hasNext()) {
                         Action action = ait.next();
