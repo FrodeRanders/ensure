@@ -160,7 +160,7 @@ public class DicomProcessorContext extends BasicProcessorContext {
 
     public SpecificCharacterSet getCharacterSet() {
         if (null == charSet)
-            return SpecificCharacterSet.DEFAULT;
+            return SpecificCharacterSet.getDefaultCharacterSet();
         return charSet;
     }
 
