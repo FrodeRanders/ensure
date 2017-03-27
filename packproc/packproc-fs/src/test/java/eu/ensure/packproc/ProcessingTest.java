@@ -25,7 +25,6 @@
  */
 package eu.ensure.packproc;
 
-import eu.ensure.vopn.io.Closer;
 import eu.ensure.vopn.lang.Stacktrace;
 import junit.framework.TestCase;
 import org.apache.logging.log4j.LogManager;
@@ -47,9 +46,7 @@ public class ProcessingTest extends TestCase {
         try {
             ProcessorManager manager = null;
 
-            InputStream config = null;
-            try {
-                config = getClass().getResourceAsStream("filesystem-processing-configuration.xml");
+            try (InputStream config = getClass().getResourceAsStream("filesystem-processing-configuration.xml")) {
                 Properties properties = new Properties();
                 manager = new ProcessorManager(properties, config);
                 manager.prepare();
@@ -61,9 +58,6 @@ public class ProcessingTest extends TestCase {
                 log.warn(info);
 
                 throw pe;
-
-            } finally {
-                Closer.close(config);
             }
 
             File cwd = new File(System.getProperty("user.dir"));
