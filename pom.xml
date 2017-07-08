@@ -25,7 +25,7 @@
             <dependency>
                 <groupId>eu.ensure</groupId>
                 <artifactId>vopn</artifactId>
-                <version>1.3</version>
+                <version>1.4</version>
             </dependency>
 
             <dependency>
@@ -80,7 +80,7 @@
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-compress</artifactId>
-                <version>1.13</version>
+                <version>1.14</version>
             </dependency>
 
             <dependency>
