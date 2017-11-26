@@ -7,11 +7,10 @@
     <parent>
         <groupId>eu.ensure</groupId>
         <artifactId>ensure-parent</artifactId>
-        <version>1.3-SNAPSHOT</version>
+        <version>1.4-SNAPSHOT</version>
     </parent>
 
 	<artifactId>package-processor-parent</artifactId>
-    <version>1.3-SNAPSHOT</version>
     <packaging>pom</packaging>
 
 	<name>Wrapper for the Package Processor components</name>
