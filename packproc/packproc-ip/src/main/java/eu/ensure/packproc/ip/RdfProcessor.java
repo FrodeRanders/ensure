@@ -25,10 +25,10 @@
  */
 package eu.ensure.packproc.ip;
 
-import eu.ensure.vopn.xml.Attribute;
-import eu.ensure.vopn.xml.Namespaces;
-import eu.ensure.vopn.xml.XPath;
-import eu.ensure.vopn.xml.XmlException;
+import org.gautelis.vopn.xml.Attribute;
+import org.gautelis.vopn.xml.Namespaces;
+import org.gautelis.vopn.xml.XPath;
+import org.gautelis.vopn.xml.XmlException;
 import eu.ensure.packproc.ProcessorException;
 import eu.ensure.packproc.XmlFileProcessor;
 import eu.ensure.packproc.model.ProcessorContext;

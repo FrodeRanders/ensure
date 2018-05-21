@@ -1,6 +1,6 @@
 package eu.ensure.ppe;
 
-import eu.ensure.vopn.statistics.MovingAverage;
+import org.gautelis.vopn.statistics.MovingAverage;
 
 import java.util.Collection;
 

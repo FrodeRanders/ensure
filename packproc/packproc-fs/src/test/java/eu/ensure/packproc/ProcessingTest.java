@@ -25,7 +25,7 @@
  */
 package eu.ensure.packproc;
 
-import eu.ensure.vopn.lang.Stacktrace;
+import org.gautelis.vopn.lang.Stacktrace;
 import junit.framework.TestCase;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

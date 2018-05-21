@@ -16,21 +16,21 @@
     </prerequisites>
 
     <properties>
-        <ensure.vopn.version>1.8</ensure.vopn.version>
-        <log4j.version>2.10.0</log4j.version>
+        <vopn.version>2.3</vopn.version>
+        <log4j.version>2.11.0</log4j.version>
         <axiom.version>1.2.20</axiom.version>
         <commons.io.version>2.6</commons.io.version>
         <commons.lang.version>2.6</commons.lang.version>
         <commons.compress.version>1.16.1</commons.compress.version>
-        <dcm4che.version>5.12.0</dcm4che.version>
+        <dcm4che.version>5.13.1</dcm4che.version>
     </properties>
 
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>eu.ensure</groupId>
+                <groupId>org.gautelis</groupId>
                 <artifactId>vopn</artifactId>
-                <version>${ensure.vopn.version}</version>
+                <version>${vopn.version}</version>
             </dependency>
 
             <dependency>
@@ -122,7 +122,7 @@
             <dependency>
                 <groupId>org.apache.derby</groupId>
                 <artifactId>derby</artifactId>
-                <version>10.14.1.0</version>
+                <version>10.14.2.0</version>
             </dependency>
 
             <dependency>

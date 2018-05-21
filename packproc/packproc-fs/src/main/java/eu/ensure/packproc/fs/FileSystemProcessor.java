@@ -25,7 +25,7 @@
  */
 package eu.ensure.packproc.fs;
 
-import eu.ensure.vopn.io.MultiDigestInputStream;
+import org.gautelis.vopn.io.MultiDigestInputStream;
 import eu.ensure.packproc.BasicProcessorContext;
 import eu.ensure.packproc.ProcessorException;
 import eu.ensure.packproc.ProcessorManager;

@@ -17,13 +17,9 @@
 package eu.ensure.packproc;
 
 import eu.ensure.packproc.model.EntryHandler;
-import eu.ensure.packproc.model.StructureEntry;
 import eu.ensure.packproc.warc.ResourceHandler;
-import eu.ensure.packproc.warc.ResourceIndexer;
-import eu.ensure.packproc.warc.ResourceMigrater;
-import eu.ensure.vopn.lang.LoggingUtils;
-import eu.ensure.vopn.lang.Stacktrace;
-import eu.ensure.vopn.xml.Namespaces;
+import org.gautelis.vopn.lang.Stacktrace;
+import org.gautelis.vopn.xml.Namespaces;
 import junit.framework.TestCase;
 import org.apache.axiom.om.OMElement;
 import org.apache.http.HttpResponse;

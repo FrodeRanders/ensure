@@ -16,7 +16,7 @@
  */
 package eu.ensure.packproc.warc;
 
-import eu.ensure.vopn.xml.Namespaces;
+import org.gautelis.vopn.xml.Namespaces;
 import eu.ensure.packproc.ProcessorException;
 import eu.ensure.packproc.internal.BasicFileProcessor;
 import eu.ensure.packproc.model.*;

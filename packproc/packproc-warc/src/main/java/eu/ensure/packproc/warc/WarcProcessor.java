@@ -161,8 +161,8 @@ public class WarcProcessor implements ContainerStructureProcessor {
                     //
                     long size = structureEntry.getSize();
                     info += " (";
-                    if (size > eu.ensure.vopn.lang.Number.BYTES_MAX)
-                        info += eu.ensure.vopn.lang.Number.asHumanApproximate(size) + " or ";
+                    if (size > org.gautelis.vopn.lang.Number.BYTES_MAX)
+                        info += org.gautelis.vopn.lang.Number.asHumanApproximate(size) + " or ";
                     info += size + " bytes)";
                     log.debug(info);
                 }

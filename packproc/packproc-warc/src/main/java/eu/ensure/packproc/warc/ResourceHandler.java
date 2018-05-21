@@ -3,7 +3,7 @@ package eu.ensure.packproc.warc;
 import eu.ensure.packproc.ProcessorException;
 import eu.ensure.packproc.model.EntryHandler;
 import eu.ensure.packproc.model.StructureEntry;
-import eu.ensure.vopn.xml.Namespaces;
+import org.gautelis.vopn.xml.Namespaces;
 import org.apache.axiom.om.OMElement;
 
 import java.io.IOException;

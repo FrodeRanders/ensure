@@ -25,10 +25,10 @@
  */
 package eu.ensure.ppe;
 
-import eu.ensure.vopn.db.DatabaseException;
-import eu.ensure.vopn.io.Closer;
-import eu.ensure.vopn.lang.Stacktrace;
-import eu.ensure.vopn.xml.Namespaces;
+import org.gautelis.vopn.db.DatabaseException;
+import org.gautelis.vopn.io.Closer;
+import org.gautelis.vopn.lang.Stacktrace;
+import org.gautelis.vopn.xml.Namespaces;
 import eu.ensure.ppe.model.Plugin;
 import eu.ensure.ppe.model.PreservationPlan;
 import junit.framework.TestCase;

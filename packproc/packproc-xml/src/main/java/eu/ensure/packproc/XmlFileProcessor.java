@@ -25,7 +25,7 @@
  */
 package eu.ensure.packproc;
 
-import eu.ensure.vopn.xml.Namespaces;
+import org.gautelis.vopn.xml.Namespaces;
 import eu.ensure.packproc.internal.BasicFileProcessor;
 import eu.ensure.packproc.model.*;
 import org.apache.axiom.om.*;

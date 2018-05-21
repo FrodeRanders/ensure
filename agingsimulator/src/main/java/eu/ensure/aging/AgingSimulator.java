@@ -25,8 +25,8 @@
  */
 package eu.ensure.aging;
 
-import eu.ensure.vopn.io.FileIO;
-import eu.ensure.vopn.lang.Stacktrace;
+import org.gautelis.vopn.io.FileIO;
+import org.gautelis.vopn.lang.Stacktrace;
 import eu.ensure.packproc.BasicProcessorContext;
 import eu.ensure.packproc.ProcessorException;
 import eu.ensure.packproc.ProcessorManager;

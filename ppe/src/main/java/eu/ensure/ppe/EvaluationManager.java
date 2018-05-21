@@ -26,12 +26,12 @@
 package eu.ensure.ppe;
 
 
-import eu.ensure.vopn.db.Database;
-import eu.ensure.vopn.db.DatabaseException;
-import eu.ensure.vopn.db.utils.Derby;
-import eu.ensure.vopn.db.utils.Manager;
-import eu.ensure.vopn.db.utils.Options;
-import eu.ensure.vopn.lang.*;
+import org.gautelis.vopn.db.Database;
+import org.gautelis.vopn.db.DatabaseException;
+import org.gautelis.vopn.db.utils.Derby;
+import org.gautelis.vopn.db.utils.Manager;
+import org.gautelis.vopn.db.utils.Options;
+import org.gautelis.vopn.lang.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 

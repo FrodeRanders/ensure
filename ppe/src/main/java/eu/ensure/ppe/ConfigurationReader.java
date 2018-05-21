@@ -25,10 +25,10 @@
  */
 package eu.ensure.ppe;
 
-import eu.ensure.vopn.xml.Attribute;
-import eu.ensure.vopn.xml.Namespaces;
-import eu.ensure.vopn.xml.XPath;
-import eu.ensure.vopn.xml.XmlException;
+import org.gautelis.vopn.xml.Attribute;
+import org.gautelis.vopn.xml.Namespaces;
+import org.gautelis.vopn.xml.XPath;
+import org.gautelis.vopn.xml.XmlException;
 import eu.ensure.ppe.model.*;
 import org.apache.axiom.om.OMElement;
 import org.apache.axiom.om.OMXMLBuilderFactory;

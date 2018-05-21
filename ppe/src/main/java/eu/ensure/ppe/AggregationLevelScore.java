@@ -1,7 +1,7 @@
 package eu.ensure.ppe;
 
-import eu.ensure.vopn.lang.Number;
-import eu.ensure.vopn.statistics.MovingAverage;
+import org.gautelis.vopn.lang.Number;
+import org.gautelis.vopn.statistics.MovingAverage;
 import eu.ensure.ppe.model.Consequence;
 
 import java.util.Collection;

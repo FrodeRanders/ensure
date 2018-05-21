@@ -25,8 +25,8 @@
  */
 package eu.ensure.ipqet.eqel;
 
-import eu.ensure.vopn.io.Closer;
-import eu.ensure.vopn.io.FileIO;
+import org.gautelis.vopn.io.Closer;
+import org.gautelis.vopn.io.FileIO;
 import eu.ensure.ipqet.eqel.model.DomainSpecification;
 import eu.ensure.ipqet.eqel.model.ValidationSpecification;
 import org.antlr.v4.runtime.ANTLRInputStream;

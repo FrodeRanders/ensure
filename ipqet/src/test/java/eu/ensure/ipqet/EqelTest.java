@@ -25,11 +25,11 @@
  */
 package eu.ensure.ipqet;
 
-import eu.ensure.vopn.io.Closer;
-import eu.ensure.vopn.io.FileIO;
-import eu.ensure.vopn.lang.DynamicCompiler;
-import eu.ensure.vopn.lang.DynamicInvoker;
-import eu.ensure.vopn.lang.Stacktrace;
+import org.gautelis.vopn.io.Closer;
+import org.gautelis.vopn.io.FileIO;
+import org.gautelis.vopn.lang.DynamicCompiler;
+import org.gautelis.vopn.lang.DynamicInvoker;
+import org.gautelis.vopn.lang.Stacktrace;
 import eu.ensure.ipqet.eqel.EqelLoader;
 import eu.ensure.ipqet.eqel.model.DomainSpecification;
 import eu.ensure.ipqet.eqel.model.ValidationSpecification;

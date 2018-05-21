@@ -25,8 +25,8 @@
  */
 package eu.ensure.packvalid;
 
-import eu.ensure.vopn.io.Closer;
-import eu.ensure.vopn.lang.Stacktrace;
+import org.gautelis.vopn.io.Closer;
+import org.gautelis.vopn.lang.Stacktrace;
 import eu.ensure.packproc.BasicProcessorContext;
 import eu.ensure.packproc.ProcessorException;
 import eu.ensure.packproc.ProcessorManager;

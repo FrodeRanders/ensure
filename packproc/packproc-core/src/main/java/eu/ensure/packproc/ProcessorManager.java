@@ -26,9 +26,9 @@
 
 package eu.ensure.packproc;
 
-import eu.ensure.vopn.lang.DynamicInitializer;
-import eu.ensure.vopn.lang.DynamicLoader;
-import eu.ensure.vopn.lang.Stacktrace;
+import org.gautelis.vopn.lang.DynamicInitializer;
+import org.gautelis.vopn.lang.DynamicLoader;
+import org.gautelis.vopn.lang.Stacktrace;
 import eu.ensure.packproc.internal.Action;
 import eu.ensure.packproc.internal.EntrySelection;
 import eu.ensure.packproc.model.*;

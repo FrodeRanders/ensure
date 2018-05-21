@@ -25,8 +25,8 @@
  */
 package eu.ensure.packproc.ip;
 
-import eu.ensure.vopn.io.MultiDigestInputStream;
-import eu.ensure.vopn.lang.Number;
+import org.gautelis.vopn.io.MultiDigestInputStream;
+import org.gautelis.vopn.lang.Number;
 import eu.ensure.packproc.BasicProcessorContext;
 import eu.ensure.packproc.ProcessorException;
 import eu.ensure.packproc.ProcessorManager;

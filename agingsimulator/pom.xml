@@ -19,7 +19,7 @@
 
     <dependencies>
         <dependency>
-            <groupId>eu.ensure</groupId>
+            <groupId>org.gautelis</groupId>
             <artifactId>vopn</artifactId>
         </dependency>
 
