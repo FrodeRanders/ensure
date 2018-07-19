@@ -22,7 +22,7 @@
         <commons.io.version>2.6</commons.io.version>
         <commons.lang.version>2.6</commons.lang.version>
         <commons.compress.version>1.17</commons.compress.version>
-        <dcm4che.version>5.13.2</dcm4che.version>
+        <dcm4che.version>5.13.3</dcm4che.version>
     </properties>
 
     <dependencyManagement>
@@ -36,7 +36,7 @@
             <dependency>
                 <groupId>org.apache.httpcomponents</groupId>
                 <artifactId>httpclient</artifactId>
-                <version>4.5.5</version>
+                <version>4.5.6</version>
             </dependency>
 
             <dependency>
