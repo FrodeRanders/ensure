@@ -18,11 +18,11 @@
     <properties>
         <vopn.version>2.3</vopn.version>
         <log4j.version>2.11.1</log4j.version>
-        <axiom.version>1.2.20</axiom.version>
+        <axiom.version>1.2.21</axiom.version>
         <commons.io.version>2.6</commons.io.version>
         <commons.lang.version>2.6</commons.lang.version>
         <commons.compress.version>1.18</commons.compress.version>
-        <dcm4che.version>5.14.1</dcm4che.version>
+        <dcm4che.version>5.15.0</dcm4che.version>
     </properties>
 
     <dependencyManagement>
@@ -134,13 +134,13 @@
             <dependency>
                 <groupId>org.antlr</groupId>
                 <artifactId>antlr4-runtime</artifactId>
-                <version>4.7.1</version>
+                <version>4.7.2</version>
             </dependency>
 
             <dependency>
                 <groupId>org.antlr</groupId>
                 <artifactId>ST4</artifactId>
-                <version>4.0.8</version>
+                <version>4.1</version>
             </dependency>
 
         </dependencies>
