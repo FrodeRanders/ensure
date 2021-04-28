@@ -21,7 +21,7 @@
         <axiom.version>1.2.22</axiom.version>
         <commons.compress.version>1.19</commons.compress.version>
         <commons.cli.version>1.4</commons.cli.version>
-        <commons.io.version>2.6</commons.io.version>
+        <commons.io.version>2.7</commons.io.version>
         <commons.lang.version>2.6</commons.lang.version>
         <dcm4che.version>5.19.1</dcm4che.version>
         <httpclient.version>4.5.10</httpclient.version>
