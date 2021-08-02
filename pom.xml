@@ -19,7 +19,7 @@
         <antlr.runtime.version>4.7.2</antlr.runtime.version>
         <antlr.ST4.version>4.2</antlr.ST4.version>
         <axiom.version>1.2.22</axiom.version>
-        <commons.compress.version>1.19</commons.compress.version>
+        <commons.compress.version>1.21</commons.compress.version>
         <commons.cli.version>1.4</commons.cli.version>
         <commons.io.version>2.7</commons.io.version>
         <commons.lang.version>2.6</commons.lang.version>
