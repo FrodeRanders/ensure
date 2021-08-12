@@ -16,17 +16,17 @@
     </prerequisites>
 
     <properties>
-        <antlr.runtime.version>4.7.2</antlr.runtime.version>
-        <antlr.ST4.version>4.2</antlr.ST4.version>
-        <axiom.version>1.2.22</axiom.version>
+        <antlr.runtime.version>4.9.2</antlr.runtime.version>
+        <antlr.ST4.version>4.3.1</antlr.ST4.version>
+        <axiom.version>1.3.0</axiom.version>
         <commons.compress.version>1.21</commons.compress.version>
         <commons.cli.version>1.4</commons.cli.version>
-        <commons.io.version>2.7</commons.io.version>
+        <commons.io.version>2.11.0</commons.io.version>
         <commons.lang.version>2.6</commons.lang.version>
-        <dcm4che.version>5.19.1</dcm4che.version>
+        <dcm4che.version>5.24.0</dcm4che.version>
         <httpclient.version>4.5.13</httpclient.version>
         <jaxen.version>1.2.0</jaxen.version>
-        <log4j.version>2.13.3</log4j.version>
+        <log4j.version>2.14.1</log4j.version>
         <vopn.version>2.3</vopn.version>
         <webarchive.version>1.1.9</webarchive.version>
     </properties>
@@ -121,7 +121,7 @@
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
-                <version>4.13.1</version>
+                <version>4.13.2</version>
                 <scope>test</scope>
             </dependency>
 
@@ -236,4 +236,3 @@
         <module>agingsimulator</module>
     </modules>
 </project>
-
