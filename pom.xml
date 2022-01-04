@@ -26,7 +26,7 @@
         <dcm4che.version>5.24.0</dcm4che.version>
         <httpclient.version>4.5.13</httpclient.version>
         <jaxen.version>1.2.0</jaxen.version>
-        <log4j.version>2.17.0</log4j.version>
+        <log4j.version>2.17.1</log4j.version>
         <vopn.version>2.3</vopn.version>
         <webarchive.version>1.1.9</webarchive.version>
     </properties>
