@@ -64,6 +64,7 @@ public class EqelTest extends TestCase {
             loader.load(is);
         }
         catch (Throwable t) {
+            t.printStackTrace(System.out);
 			fail("Failed to parse EQEL: " + t.getMessage());
 		}
         finally {
