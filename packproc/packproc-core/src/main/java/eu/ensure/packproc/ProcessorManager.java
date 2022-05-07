@@ -354,8 +354,8 @@ public class ProcessorManager {
 
         } catch (ProcessorException pe) {
             Throwable cause = Stacktrace.getBaseCause(pe);
-            if (null != cause && cause instanceof ProcessorException) {
-                pe = (ProcessorException) cause;
+            if (cause instanceof ProcessorException) {
+                throw (ProcessorException) cause;
             }
             throw pe;
 
@@ -405,8 +405,8 @@ public class ProcessorManager {
 
         } catch (ProcessorException pe) {
             Throwable cause = Stacktrace.getBaseCause(pe);
-            if (null != cause && cause instanceof ProcessorException) {
-                pe = (ProcessorException) cause;
+            if (cause instanceof ProcessorException) {
+                throw (ProcessorException) cause;
             }
             throw pe;
 

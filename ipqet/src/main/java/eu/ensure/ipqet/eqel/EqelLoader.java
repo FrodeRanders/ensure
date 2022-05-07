@@ -25,14 +25,11 @@
  */
 package eu.ensure.ipqet.eqel;
 
+import org.antlr.v4.runtime.*;
 import org.gautelis.vopn.io.Closer;
 import org.gautelis.vopn.io.FileIO;
 import eu.ensure.ipqet.eqel.model.DomainSpecification;
 import eu.ensure.ipqet.eqel.model.ValidationSpecification;
-import org.antlr.v4.runtime.ANTLRInputStream;
-import org.antlr.v4.runtime.CommonTokenStream;
-import org.antlr.v4.runtime.ParserRuleContext;
-import org.antlr.v4.runtime.RecognitionException;
 import org.antlr.v4.runtime.atn.PredictionMode;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
@@ -41,6 +38,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.nio.file.Files;
 import java.util.Map;
 
 /**
@@ -52,12 +50,12 @@ import java.util.Map;
 public class EqelLoader {
     private final Map<String, DomainSpecification> domainSpecifications;
     private final Map<String, ValidationSpecification> validationSpecifications;
-    private final Class referenceClass;
+    private final Class<?> referenceClass;
 
     public EqelLoader(
             final Map<String, DomainSpecification> domainSpecifications,
             final Map<String, ValidationSpecification> validationSpecifications,
-            final Class referenceClass
+            final Class<?> referenceClass
     ) {
         this.domainSpecifications = domainSpecifications;
         this.validationSpecifications = validationSpecifications;
@@ -80,18 +78,13 @@ public class EqelLoader {
             load(file);
         }
         else if (reference.startsWith("classpath:")) {
-            InputStream is = null;
-            try {
-                is = referenceClass.getResourceAsStream(reference.substring(/* lengthOf("classpath:") */ 10));
+            try (InputStream is = referenceClass.getResourceAsStream(reference.substring(/* lengthOf("classpath:") */ 10))){
                 if (null == is) {
                     String info = "Could not locate EQEL resource \"" + reference + "\" relative to ";
                     info += referenceClass.getCanonicalName();
                     throw new EqelException(info);
                 }
                 load(is);
-            }
-            finally {
-                Closer.close(is);
             }
         }
         else {
@@ -110,18 +103,13 @@ public class EqelLoader {
             throw new IOException(info);
        	}
 
-        InputStream is = null;
-        try {
-            is = new FileInputStream(eqelFile);
+        try (InputStream is = Files.newInputStream(eqelFile.toPath())) {
             load(is);
-
-        } finally {
-            Closer.close(is);
         }
     }
 
     public /* aggregation tree */ void load(InputStream is) throws IOException, RecognitionException {
-        ANTLRInputStream input = new ANTLRInputStream(is);
+        CharStream input = CharStreams.fromStream(is);
 
         /*
          * NOTE! EqelLexer and EqelParser are auto-generated. You have to build the project once
