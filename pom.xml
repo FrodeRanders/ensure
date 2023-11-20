@@ -24,7 +24,7 @@
         <commons.io.version>2.11.0</commons.io.version>
         <commons.lang.version>2.6</commons.lang.version>
         <dcm4che.version>5.19.1</dcm4che.version>
-        <derby.version>10.15.2.0</derby.version>
+        <derby.version>10.17.1.0</derby.version>
         <httpclient.version>4.5.13</httpclient.version>
         <jaxb.version>2.3.0</jaxb.version>
         <jaxen.version>1.2.0</jaxen.version>
